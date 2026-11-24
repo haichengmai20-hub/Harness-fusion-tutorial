@@ -1,0 +1,5 @@
+# 第三方源码按固定提交引用，工作树、私有改动与嵌套 Git 元信息留在本地。
+/sources/learn-claude-code/
+/sources/claude-code/
+__pycache__/
+*.pyc

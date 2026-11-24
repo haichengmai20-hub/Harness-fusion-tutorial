@@ -1,0 +1,534 @@
+{
+  "hermes": {
+    "install": {
+      "1": {
+        "agentscope": {
+          "lesson": "quickstart",
+          "point": null,
+          "grade": "对应",
+          "text": "AgentScope 快速开始先安装固定版，再用 DashScope 凭证创建模型，以空 Toolkit 构建 Agent 并调用 reply。一次文字回复验证这条模型调用路径；空 Toolkit 下没有工具可供验收。",
+          "url": "https://docs.agentscope.io/zh/versions/2.0.12/quickstart"
+        },
+        "dsh": {
+          "lesson": "chapter-1",
+          "point": 1,
+          "grade": "部分对应",
+          "text": "dsh 首章用确定性的工具往返看两步请求。它可以验证本地循环和 read/get_time 一类工具的反馈；原课离线试验没有验证真实账户认证，不能替代 Hermes 的 provider 检查。",
+          "url": "https://dsh-from-scratch.pages.dev/?locale=zh#chapter-1"
+        }
+      }
+    },
+    "gateway-1": {
+      "1": {
+        "agentscope": {
+          "lesson": "deploy-channel-routing",
+          "point": 1,
+          "grade": "对应",
+          "text": "AgentScope 先由路由规则选目标智能体，再由 session_scope 给消息分组。per_chat 让同一群共用上下文，per_chat_user 将群内成员分开。换规则会影响后续归组，消息正文相同不能决定会话。",
+          "url": "https://docs.agentscope.io/zh/versions/2.0.12/deploy/channel/routing"
+        }
+      }
+    },
+    "tui": {
+      "1": {
+        "agentscope": {
+          "lesson": "building-blocks-console",
+          "point": 1,
+          "grade": "对应",
+          "text": "AgentScope 的终端入口消费 reply_stream 事件并渲染。工具调用开始、结果返回、整轮回复结束是不同事件；终端已经出现工具活动提示时，仍要读取结果事件才能判断执行结果。",
+          "url": "https://docs.agentscope.io/zh/versions/2.0.12/building-blocks/console"
+        }
+      }
+    },
+    "backends": {
+      "1": {
+        "agentscope": {
+          "lesson": "building-blocks-workspace-run-workspace",
+          "point": 1,
+          "grade": "对应",
+          "text": "AgentScope 将工具交给所选 Workspace 后端。LocalWorkspace 的 workdir 在本机，容器或远程工作区的目录要按对应挂载与后端查看。界面所在机器不足以确定命令改了哪一份文件。",
+          "url": "https://docs.agentscope.io/zh/versions/2.0.12/building-blocks/workspace/run-workspace"
+        }
+      }
+    },
+    "interview-design": {
+      "1": {
+        "agentscope": {
+          "lesson": "deploy-workspace-manager",
+          "point": 1,
+          "grade": "对应",
+          "text": "Agent Service 的工作区管理器显式选择本机目录、容器或远程沙箱等后端；其中 LocalWorkspaceManager 直接操作宿主文件系统。两个独立会话仍须核对是否映射到了同一实例、目录或挂载。",
+          "url": "https://docs.agentscope.io/zh/versions/2.0.12/deploy/workspace-manager"
+        }
+      }
+    },
+    "build-provider": {
+      "1": {
+        "agentscope": {
+          "lesson": "building-blocks-model-llm",
+          "point": 1,
+          "grade": "部分对应",
+          "text": "AgentScope 通过凭证与具体模型类连接服务，格式化器把框架消息和工具定义变为 provider 输入。普通文本可用仅验证文本路径；还应检查一次工具请求及其反馈，经格式转换后是否仍可被下一次模型请求消费。",
+          "url": "https://docs.agentscope.io/zh/versions/2.0.12/building-blocks/model/llm"
+        },
+        "dsh": {
+          "lesson": "chapter-1",
+          "point": 2,
+          "grade": "部分对应",
+          "text": "dsh 原课展示模型适配器如何提出工具请求，再通过统一通道取得结果。可用两次请求核对调用合同；页面的预生成数据和原课 fake provider 不证明某个线上 provider 接入成功。",
+          "url": "https://dsh-from-scratch.pages.dev/?locale=zh#chapter-1"
+        }
+      }
+    },
+    "multimodal": {
+      "1": {
+        "agentscope": {
+          "lesson": "building-blocks-message-and-event",
+          "point": null,
+          "grade": "部分对应",
+          "text": "AgentScope 的 DataBlock 可以用 URL 或 Base64 表达图像数据，说明模型可能接收到原图。内容块本身不验证图中数值；要回答金额正确与否，仍要把模型解释同原表核对。",
+          "url": "https://docs.agentscope.io/zh/versions/2.0.12/building-blocks/message-and-event"
+        }
+      }
+    },
+    "build-plugin": {
+      "1": {
+        "dsh": {
+          "lesson": "chapter-5",
+          "point": 2,
+          "grade": "对应",
+          "text": "dsh 的例子先检查 Context 中是否已有 word_count。缺少时登记插件定义，再运行插件令工具真正可见，随后用一次计数调用验证，最后可停止或删除。这里每一步都能在插件状态或结果中核对。",
+          "url": "https://dsh-from-scratch.pages.dev/?locale=zh#chapter-5"
+        },
+        "agentscope": {
+          "lesson": "building-blocks-tool-python-tool",
+          "point": 1,
+          "grade": "部分对应",
+          "text": "若统计功能只需一个确定性函数，AgentScope 原课可以用 Python 函数工具公开名称、参数和结果。它回答如何接入计算能力；本节没有 Hermes 那种通用插件分类与加载生命周期。",
+          "url": "https://docs.agentscope.io/zh/versions/2.0.12/building-blocks/tool/python-tool"
+        }
+      }
+    },
+    "evaluation": {
+      "1": {
+        "agentscope": {
+          "lesson": "building-blocks-pipeline-goal",
+          "point": 1,
+          "grade": "部分对应",
+          "text": "GoalPipeline 显式配置执行者与验证者，验证不通过可将理由交给执行者重做。这里提供的是验收位置；CSV 的有效和、非法值与漏行仍须写进独立标准，模型担任验证者也不保证算术正确。",
+          "url": "https://docs.agentscope.io/zh/versions/2.0.12/building-blocks/pipeline/goal"
+        },
+        "dsh": {
+          "lesson": "chapter-6",
+          "point": 3,
+          "grade": "部分对应",
+          "text": "dsh 教学例用可观察的轮次结果决定继续、完成、阻塞或停止。它能解释为什么不能拿一条结束回复当正确性证据；CSV 的答案仍需另设测试断言，这一章没有上游 CSV 评测集。",
+          "url": "https://dsh-from-scratch.pages.dev/?locale=zh#chapter-6"
+        }
+      }
+    },
+    "tools": {
+      "1": {
+        "agentscope": {
+          "lesson": "building-blocks-tool-manage-tools",
+          "point": 1,
+          "grade": "对应",
+          "text": "AgentScope Toolkit 可将工具划入组，未激活的非 basic 组不向这次请求提供相应能力；原课用 reset_tools 切换激活组。查到函数或定义之后，还要看实际启用的工具集合。",
+          "url": "https://docs.agentscope.io/zh/versions/2.0.12/building-blocks/tool/manage-tools"
+        },
+        "dsh": {
+          "lesson": "chapter-5",
+          "point": 2,
+          "grade": "对应",
+          "text": "dsh 将保存定义与注册运行时工具分开。只做 cordis_define 时工具不在可调用集合，cordis_run 挂载插件后才能在 Context 中找到它。",
+          "url": "https://dsh-from-scratch.pages.dev/?locale=zh#chapter-5"
+        },
+        "claude": {
+          "lesson": "s02",
+          "point": 1,
+          "grade": "部分对应",
+          "text": "Claude 原课将送给模型的 TOOLS 定义与本地 TOOL_HANDLERS 分发表分开。只写处理函数不会让模型看到工具，公开了定义也不代表存在对应实现；这个小例没有覆盖 Hermes 的平台与 toolset 筛选。",
+          "url": "https://learn.shareai.run/zh/s02/"
+        }
+      }
+    },
+    "agent-loop": {
+      "1": {
+        "claude": {
+          "lesson": "s01",
+          "point": 1,
+          "grade": "对应",
+          "text": "Claude 原课让模型先请求查看目录、按实际结果继续工作。每次循环得到一次模型响应，工具执行与结果追加发生在本次响应和下次请求之间；读账单、计算和最终文字也应按这个顺序分别定位。",
+          "url": "https://learn.shareai.run/zh/s01/"
+        }
+      },
+      "2": {
+        "claude": {
+          "lesson": "s02",
+          "point": 2,
+          "grade": "对应",
+          "text": "原课的一个助手响应可以含多个 tool_use；收集每块的结果时复制该块的 ID，最后一起送回。两份输出归属由标识决定。教学代码逐块执行，不能从多块响应推出工具并发。",
+          "url": "https://learn.shareai.run/zh/s02/"
+        }
+      }
+    },
+    "memory": {
+      "1": {
+        "claude": {
+          "lesson": "s09",
+          "point": 1,
+          "grade": "部分对应",
+          "text": "Claude 原课在每次用户请求开始时把 MEMORY.md 索引放入系统提示，再按近期对话挑选相关文件并临时注入正文。偏好写到文件、被列入索引、正文被本次请求实际读取要分别检查；Hermes 的注入时机须按本课配置判断。",
+          "url": "https://learn.shareai.run/zh/s09/"
+        }
+      },
+      "2": {
+        "claude": {
+          "lesson": "s09",
+          "point": 2,
+          "grade": "部分对应",
+          "text": "Claude 教学在一轮正常文本结束后从压缩前快照提取，先与已有条目比较，仅在有新信息时写入文件。这个入口能区分候选信息与落盘内容，原课这里没有演示 Hermes 交互界面的逐项提案和人工批准。",
+          "url": "https://learn.shareai.run/zh/s09/"
+        }
+      }
+    },
+    "compression": {
+      "1": {
+        "claude": {
+          "lesson": "s08",
+          "point": 4,
+          "grade": "对应",
+          "text": "Claude 教学先将完整历史写到 .transcripts/，随后用一条摘要取代活跃消息列表。若摘要省掉销售文件的缺失值规则，下一步输入便没有这条约束；示例也未提供把 transcript 自动检索回来的工具。",
+          "url": "https://learn.shareai.run/zh/s08/"
+        }
+      }
+    }
+  },
+  "dsh": {
+    "chapter-1": {
+      "1": {
+        "agentscope": {
+          "lesson": "building-blocks-agent-overview",
+          "point": 1,
+          "grade": "对应",
+          "text": "AgentScope 的 Agent 在同一 reply 中交替推理与执行工具，状态决定是否还要执行或继续推理。对照工具调用、结果和整轮结束三种时刻，可以解释为什么一次用户输入会需要多个模型步骤。",
+          "url": "https://docs.agentscope.io/zh/versions/2.0.12/building-blocks/agent/overview"
+        },
+        "claude": {
+          "lesson": "s01",
+          "point": 1,
+          "grade": "对应",
+          "text": "原课的模型返回 tool_use 时，harness 执行 bash，再带工具结果进入下一次模型调用。只有模型没有请求工具时才从正常路径返回；这正说明一个用户回合为什么可以包含多个 Step。",
+          "url": "https://learn.shareai.run/zh/s01/"
+        }
+      },
+      "2": {
+        "claude": {
+          "lesson": "s01",
+          "point": 2,
+          "grade": "部分对应",
+          "text": "Claude 教学将 bash 输出包装成 tool_result，保留 block.id 作为 tool_use_id，统一加入 messages。该示例能解释成功执行怎样反馈，但不足以证明未知工具、参数错误和处理器异常都采用 dsh 教学版的错误包装。",
+          "url": "https://learn.shareai.run/zh/s01/"
+        }
+      }
+    },
+    "chapter-2": {
+      "1": {
+        "agentscope": {
+          "lesson": "building-blocks-context-offload-context",
+          "point": 1,
+          "grade": "部分对应",
+          "text": "AgentScope 的卸载器可以把体积过大的产物存到 Workspace 等后端，留给模型一个可回读引用。dsh 本章保留原历史并裁剪仅供模型读取的投影视图；两者保留原文的位置不同。",
+          "url": "https://docs.agentscope.io/zh/versions/2.0.12/building-blocks/context/offload-context"
+        },
+        "claude": {
+          "lesson": "s08",
+          "point": 3,
+          "grade": "部分对应",
+          "text": "原课 tool_result_budget 在单条用户消息的工具结果总量过大时，优先把最大结果写入 .task_outputs/tool-results/，上下文里保留路径标记和开头预览。dsh 此章保留原始会话数据并按需生成首尾裁剪视图，原文和缩短版的存放方式不同。",
+          "url": "https://learn.shareai.run/zh/s08/"
+        }
+      },
+      "3": {
+        "claude": {
+          "lesson": "s10",
+          "point": 2,
+          "grade": "部分对应",
+          "text": "Claude 原课以确定性序列化得到 context 签名；签名相同就复用上次拼好的系统提示字符串。它验证的是本地组装缓存，无法证明供应商缓存命中。dsh 的最长相同前缀同样是本地可检查的输入结构。",
+          "url": "https://learn.shareai.run/zh/s10/"
+        }
+      }
+    },
+    "chapter-3": {
+      "1": {
+        "hermes": {
+          "lesson": "build-plugin",
+          "point": 1,
+          "grade": "部分对应",
+          "text": "Hermes 先辨别该能力应做成工具、技能还是通用插件，再在公共扩展入口登记。它能回答哪些贡献进入当前系统；不能据此断言 Hermes 采用本章 Context 的同一套安装回滚顺序。",
+          "url": "https://g1429566.github.io/hermes-tutorial/#/build-plugin"
+        }
+      },
+      "2": {
+        "hermes": {
+          "lesson": "build-plugin",
+          "point": 1,
+          "grade": "部分对应",
+          "text": "Hermes 的插件类别和加载入口能定位谁贡献了能力。本节没有证明停止时会按 dsh 例子相同的逆序 effect 撤销所有注册；两边的生命周期应分开检查。",
+          "url": "https://g1429566.github.io/hermes-tutorial/#/build-plugin"
+        }
+      }
+    },
+    "chapter-4": {
+      "1": {
+        "agentscope": {
+          "lesson": "building-blocks-message-and-event",
+          "point": 1,
+          "grade": "部分对应",
+          "text": "AgentScope 会发出模型、工具与内容块的事件，上层可以把流式增量组装为消息。dsh 此章还以按序保存的 SessionLog 重建过去的请求；单独消费一个事件流不能证明已经持久保存。",
+          "url": "https://docs.agentscope.io/zh/versions/2.0.12/building-blocks/message-and-event"
+        },
+        "claude": {
+          "lesson": "s01",
+          "point": 2,
+          "grade": "部分对应",
+          "text": "Claude 教学先把助手的工具请求追加到 messages，再追加带 tool_use_id 的结果。可以从这份消息表读出一次往返；本章没有 dsh SessionLog 那样单独追加的、带序号的运行时事件。",
+          "url": "https://learn.shareai.run/zh/s01/"
+        }
+      },
+      "3": {
+        "hermes": {
+          "lesson": "agent-loop",
+          "point": 2,
+          "grade": "部分对应",
+          "text": "Hermes 通过助手请求与结果共享的 tool_call_id 关联一次工具往返。这能追踪哪项结果属于哪次请求；它不会单凭 ID 冻结当时的所有工具清单或提示配置。",
+          "url": "https://g1429566.github.io/hermes-tutorial/#/agent-loop"
+        },
+        "claude": {
+          "lesson": "s01",
+          "point": 2,
+          "grade": "部分对应",
+          "text": "原课每轮用当下的 messages 与 TOOLS 发出请求，工具结果能靠 tool_use_id 查回原调用。只看这个 ID 无法重建过去某一 Step 的完整工具清单；这里没有 dsh 示例用于历史重建的 request/header。",
+          "url": "https://learn.shareai.run/zh/s01/"
+        }
+      }
+    },
+    "chapter-5": {
+      "1": {
+        "hermes": {
+          "lesson": "tools",
+          "point": 1,
+          "grade": "对应",
+          "text": "Hermes 区分已注册的处理函数、toolset 收录和当前平台选择。要回答某项统计能力现在能不能调用，须核对本次请求里真正公开的工具名。",
+          "url": "https://g1429566.github.io/hermes-tutorial/#/tools"
+        }
+      },
+      "2": {
+        "agentscope": {
+          "lesson": "building-blocks-tool-manage-tools",
+          "point": 1,
+          "grade": "部分对应",
+          "text": "AgentScope 可以事先定义工具，再按激活的工具组决定模型可见集合。切换组能改变可用性；它不等价于执行一段新插件代码并挂载到 Cordis Context。",
+          "url": "https://docs.agentscope.io/zh/versions/2.0.12/building-blocks/tool/manage-tools"
+        }
+      }
+    },
+    "chapter-6": {
+      "1": {
+        "agentscope": {
+          "lesson": "building-blocks-pipeline-goal",
+          "point": 1,
+          "grade": "部分对应",
+          "text": "AgentScope GoalPipeline 把任务目标交给执行者，用验证者的反馈决定是否重做，并允许中断、恢复。dsh 教学例把 Goal、Round 和终止原因显式记入会话；两边应分别查各自状态的存取位置。",
+          "url": "https://docs.agentscope.io/zh/versions/2.0.12/building-blocks/pipeline/goal"
+        }
+      },
+      "3": {
+        "agentscope": {
+          "lesson": "building-blocks-pipeline-goal",
+          "point": 1,
+          "grade": "对应",
+          "text": "AgentScope 让验证者对照目标检查产出，未通过则连同理由再交回执行者，直到通过或用尽次数。单次执行者的回复结束不等于整个目标结束。",
+          "url": "https://docs.agentscope.io/zh/versions/2.0.12/building-blocks/pipeline/goal"
+        },
+        "hermes": {
+          "lesson": "evaluation",
+          "point": 1,
+          "grade": "部分对应",
+          "text": "Hermes 教程通过固定任务输入和外部标准判断输出是否达标，例如核对总额与异常条目。它说明继续改进需要用的结果证据，不表示其批评测器就是 dsh 的长程调度器。",
+          "url": "https://g1429566.github.io/hermes-tutorial/#/evaluation"
+        }
+      }
+    }
+  },
+  "agentscope": {
+    "quickstart": {
+      "1": {
+        "hermes": {
+          "lesson": "tui",
+          "point": 1,
+          "grade": "部分对应",
+          "text": "Hermes TUI 将模型回复增量及工具活动从 Python 后端传给终端界面，同时保留有标识的请求和响应。读者可对照实时观察和最终结果；该宿主的接口不是 AgentScope 的两个 Python 方法。",
+          "url": "https://g1429566.github.io/hermes-tutorial/#/tui"
+        },
+        "claude": {
+          "lesson": "s01",
+          "point": 1,
+          "grade": "部分对应",
+          "text": "Claude 教学用 client.messages.create(...) 等到本次完整响应，追加 response.content 后再检查 stop_reason。它能与 AgentScope 的同步观察点相对照；本章没有 reply_stream 那样逐块对外产出事件的入口。",
+          "url": "https://learn.shareai.run/zh/s01/"
+        }
+      }
+    },
+    "building-blocks-model-overview": {
+      "1": {
+        "hermes": {
+          "lesson": "build-provider",
+          "point": 1,
+          "grade": "对应",
+          "text": "Hermes 的 provider 接入先配置认证与模型目录，再选模型并做最小真实请求。能看到模型名字只说明目录可用；要确认支持工具调用，仍需用一次调用核对名称、参数和结果回传。",
+          "url": "https://g1429566.github.io/hermes-tutorial/#/build-provider"
+        }
+      }
+    },
+    "building-blocks-model-llm": {
+      "1": {
+        "hermes": {
+          "lesson": "build-provider",
+          "point": 1,
+          "grade": "对应",
+          "text": "Hermes 在 provider 边界转换框架消息与模型请求格式，并把返回的工具调用转回执行器能处理的形式。一次含工具反馈的往返比只观察普通文本更能验证这层转换。",
+          "url": "https://g1429566.github.io/hermes-tutorial/#/build-provider"
+        }
+      }
+    },
+    "building-blocks-model-asr": {
+      "1": {
+        "hermes": {
+          "lesson": "multimodal",
+          "point": 1,
+          "grade": "部分对应",
+          "text": "Hermes 的多模态章节区分 STT 把输入语音转文字、TTS 把输出文字变成音频。转录文字进入当前任务前可能已有误差，涉及数字时需另行核实。它没有在本节给出 AgentScope 各 ASR 模型的流式接口。",
+          "url": "https://g1429566.github.io/hermes-tutorial/#/multimodal"
+        }
+      }
+    },
+    "building-blocks-console": {
+      "1": {
+        "hermes": {
+          "lesson": "tui",
+          "point": 1,
+          "grade": "对应",
+          "text": "Hermes 用 Ink 界面经 JSON-RPC 接收 Python 后端的增量消息与工具状态。终端可以在最终答案出来前显示活动；界面显示和工具实际完成仍是两件独立可观察的事。",
+          "url": "https://g1429566.github.io/hermes-tutorial/#/tui"
+        }
+      }
+    },
+    "deploy-channel-overview": {
+      "1": {
+        "hermes": {
+          "lesson": "gateway-1",
+          "point": 1,
+          "grade": "对应",
+          "text": "Hermes 的网关使用平台适配器接收各 IM 平台不同的事件，先转为核心可处理的消息，再把核心回复翻回平台消息。平台传输和 agent 执行分属不同阶段。",
+          "url": "https://g1429566.github.io/hermes-tutorial/#/gateway-1"
+        }
+      }
+    },
+    "deploy-channel-routing": {
+      "1": {
+        "hermes": {
+          "lesson": "gateway-1",
+          "point": 1,
+          "grade": "对应",
+          "text": "Hermes 教程用平台消息的来源字段归出会话键。两人文字相同不足以判为同一会话；需要核对平台、聊天及线程等归键数据。它不使用本章的 per_chat/per_chat_user 配置名。",
+          "url": "https://g1429566.github.io/hermes-tutorial/#/gateway-1"
+        }
+      }
+    },
+    "building-blocks-workspace-overview": {
+      "1": {
+        "hermes": {
+          "lesson": "backends",
+          "point": 1,
+          "grade": "部分对应",
+          "text": "Hermes 把终端工具指向选定的本机、SSH 或其他执行后端。相对路径在后端的工作目录中解析。本章的技能、MCP 等工作区资源生命周期还需要 AgentScope Workspace 自己管理。",
+          "url": "https://g1429566.github.io/hermes-tutorial/#/backends"
+        }
+      }
+    },
+    "building-blocks-workspace-run-workspace": {
+      "1": {
+        "hermes": {
+          "lesson": "backends",
+          "point": 1,
+          "grade": "对应",
+          "text": "Hermes 先选实际运行命令的后端和 cwd。用 SSH 模式时到远程工作目录查文件；查看开发机上的同名目录不能证明远端的写入结果。",
+          "url": "https://g1429566.github.io/hermes-tutorial/#/backends"
+        }
+      }
+    },
+    "deploy-workspace-manager": {
+      "1": {
+        "hermes": {
+          "lesson": "profiles",
+          "point": 1,
+          "grade": "部分对应",
+          "text": "Hermes profile 通过当前配置根目录区分配置、记忆等状态。这个边界回答哪些状态树彼此独立；实际命令的执行地点或是否共用外部服务还要分别核查。",
+          "url": "https://g1429566.github.io/hermes-tutorial/#/profiles"
+        }
+      }
+    },
+    "building-blocks-message-and-event": {
+      "1": {
+        "dsh": {
+          "lesson": "chapter-4",
+          "point": 4,
+          "grade": "部分对应",
+          "text": "dsh 用按序追加的 SessionLog 派生请求与 Trace，并把同一步的调用、返回配回模型消息。它示范的是从保存的事件重建；这与 AgentScope 消费实时增量的输入时间点不同。",
+          "url": "https://dsh-from-scratch.pages.dev/?locale=zh#chapter-4"
+        },
+        "claude": {
+          "lesson": "s01",
+          "point": 2,
+          "grade": "部分对应",
+          "text": "原课先保存完整的 assistant 响应，再把返回同一 tool_use_id 的工具结果作为下一条 user 消息。这里能检查消息如何增长；没有用增量事件拼装同一块文本的过程。",
+          "url": "https://learn.shareai.run/zh/s01/"
+        }
+      }
+    },
+    "building-blocks-context-compress-context": {
+      "2": {
+        "dsh": {
+          "lesson": "chapter-2",
+          "point": 1,
+          "grade": "部分对应",
+          "text": "dsh 教学版将超长工具结果裁成首尾片段，并保留完整历史。它展示单项工具输出与模型视图的分工，本节没有实现一次完整会话的 LLM 总结。",
+          "url": "https://dsh-from-scratch.pages.dev/?locale=zh#chapter-2"
+        }
+      }
+    },
+    "building-blocks-tool-manage-tools": {
+      "1": {
+        "dsh": {
+          "lesson": "chapter-5",
+          "point": 2,
+          "grade": "部分对应",
+          "text": "dsh 在 cordis_run 后才把定义所描述的工具实际挂入 Context；停止后工具可从集合中消失。它用插件生命周期改变能力集合，AgentScope 此课用工具组激活改变可见集合。",
+          "url": "https://dsh-from-scratch.pages.dev/?locale=zh#chapter-5"
+        }
+      }
+    },
+    "building-blocks-pipeline-goal": {
+      "1": {
+        "dsh": {
+          "lesson": "chapter-6",
+          "point": 3,
+          "grade": "对应",
+          "text": "dsh 的外层 LongTaskRunner 读取每个 Round 的结果，检查已完成、受阻、无进展或达到上限等出口；不要求由另一个模型扮演验证者。两边都把整项目标的判定放在执行者的一次回复之外。",
+          "url": "https://dsh-from-scratch.pages.dev/?locale=zh#chapter-6"
+        }
+      }
+    }
+  }
+}

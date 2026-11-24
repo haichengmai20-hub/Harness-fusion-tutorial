@@ -1,0 +1,86 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>人机交互 · AgentScope</title><link rel="stylesheet" href="/agentscope-course/reader.css"><script defer src="/agentscope-course/reader.js"></script></head><body><header class="mast"><a href="/agentscope-course/">AgentScope <small>中文文档</small></a><span>v2.0.12</span><button id="catalog" aria-controls="outline" aria-expanded="false">目录</button></header><div class="layout"><nav id="outline" aria-label="AgentScope 文档目录"><div class="group">快速开始</div><a href="/agentscope-course/" >AgentScope 2.0 是什么？</a><a href="/agentscope-course/quickstart/" >快速开始</a><a href="/agentscope-course/release-notes/" >更新日志</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/message-and-event/" >消息与事件</a><div class="group">核心模块 / 智能体</div><a href="/agentscope-course/building-blocks/agent/overview/" >智能体 · 概述</a><a href="/agentscope-course/building-blocks/agent/configure-agent/" >配置智能体</a><a href="/agentscope-course/building-blocks/agent/run-agent/" >运行智能体</a><a href="/agentscope-course/building-blocks/agent/interrupt-agent/" >中断智能体</a><a href="/agentscope-course/building-blocks/agent/human-in-the-loop/" aria-current="page">人机交互</a><div class="group">核心模块 / 模型</div><a href="/agentscope-course/building-blocks/model/overview/" >模型 · 概述</a><a href="/agentscope-course/building-blocks/model/llm/" >大语言模型</a><a href="/agentscope-course/building-blocks/model/tts/" >语音合成</a><a href="/agentscope-course/building-blocks/model/asr/" >语音识别</a><a href="/agentscope-course/building-blocks/model/embedding/" >嵌入模型</a><div class="group">核心模块 / 上下文管理</div><a href="/agentscope-course/building-blocks/context/overview/" >上下文管理 · 概述</a><a href="/agentscope-course/building-blocks/context/environment-awareness/" >感知环境</a><a href="/agentscope-course/building-blocks/context/compress-context/" >压缩上下文</a><a href="/agentscope-course/building-blocks/context/offload-context/" >卸载上下文</a><div class="group">核心模块 / 工具</div><a href="/agentscope-course/building-blocks/tool/overview/" >工具 · 概述</a><a href="/agentscope-course/building-blocks/tool/python-tool/" >Python 函数工具</a><a href="/agentscope-course/building-blocks/tool/mcp/" >MCP</a><a href="/agentscope-course/building-blocks/tool/skill/" >Skill</a><a href="/agentscope-course/building-blocks/tool/manage-tools/" >元工具</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/plan/" >计划模式</a><div class="group">核心模块 / 流水线</div><a href="/agentscope-course/building-blocks/pipeline/overview/" >流水线 · 概述</a><a href="/agentscope-course/building-blocks/pipeline/goal/" >目标流水线</a><a href="/agentscope-course/building-blocks/pipeline/team/" >团队流水线</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/sop/" >标准作业流程</a><div class="group">核心模块 / 权限系统</div><a href="/agentscope-course/building-blocks/permission-system/overview/" >权限系统 · 概述</a><a href="/agentscope-course/building-blocks/permission-system/permission-mode/" >权限模式</a><a href="/agentscope-course/building-blocks/permission-system/permission-rule/" >权限规则</a><a href="/agentscope-course/building-blocks/permission-system/tool-check/" >工具内置检查</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/middleware/" >中间件</a><a href="/agentscope-course/building-blocks/rag/" >RAG</a><a href="/agentscope-course/building-blocks/long-term-memory/" >长期记忆</a><div class="group">核心模块 / 工作区</div><a href="/agentscope-course/building-blocks/workspace/overview/" >工作区 · 概述</a><a href="/agentscope-course/building-blocks/workspace/run-workspace/" >运行工作区</a><a href="/agentscope-course/building-blocks/workspace/manage-resources/" >管理资源</a><a href="/agentscope-course/building-blocks/workspace/mcp-gateway/" >MCP 网关</a><div class="group">核心模块 / 实时语音智能体</div><a href="/agentscope-course/building-blocks/realtime/overview/" >实时语音智能体 · 概述</a><a href="/agentscope-course/building-blocks/realtime/speech-to-speech/" >语音到语音</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/console/" >终端 UI</a><a href="/agentscope-course/building-blocks/a2a/" >A2A 协议</a><div class="group">智能体即服务</div><a href="/agentscope-course/deploy/agent-service/" >架构</a><a href="/agentscope-course/deploy/agent-team/" >智能体团队</a><a href="/agentscope-course/deploy/sop/" >SOP 服务</a><a href="/agentscope-course/deploy/sharing/" >资源共享</a><a href="/agentscope-course/deploy/rag/" >RAG 服务</a><a href="/agentscope-course/deploy/workspace-manager/" >工作区管理</a><div class="group">智能体即服务 / MCP 与技能中心</div><a href="/agentscope-course/deploy/hub/overview/" >MCP 与技能中心 · 概览</a><a href="/agentscope-course/deploy/hub/mcp-hub/" >MCP 中心</a><a href="/agentscope-course/deploy/hub/skill-hub/" >技能中心</a><div class="group">智能体即服务 / 消息渠道</div><a href="/agentscope-course/deploy/channel/overview/" >消息渠道 · 概览</a><a href="/agentscope-course/deploy/channel/routing/" >会话路由</a><a href="/agentscope-course/deploy/channel/feishu/" >飞书</a><a href="/agentscope-course/deploy/channel/dingtalk/" >钉钉</a><a href="/agentscope-course/deploy/channel/discord/" >Discord</a><a href="/agentscope-course/deploy/channel/custom/" >自定义渠道</a><div class="group">其他</div><a href="/agentscope-course/others/faq/" >常见问题</a><a href="/agentscope-course/others/change-log/" >版本迁移</a><div class="group">智能体即服务 / API</div><a href="/agentscope-course/api/">API 参考</a></nav><main><div class="context">核心模块 / 智能体</div><article class="prose-custom" id="content"><h1>人机交互</h1><p class="dek">暂停以等待用户确认或外部执行，再通过结果事件恢复</p><p>当智能体遇到以下两种情况时，会暂停执行并发出特殊事件：需要<strong>用户确认</strong>的工具调用（权限系统返回 ASK），或标记为<strong>外部执行</strong>的工具（结果必须来自智能体外部）。两种情况下，都通过向 <code>reply</code> / <code>reply_stream</code> 传回结果事件来恢复智能体。</p>
+<p>暂停期间，<code>reply</code> 会返回一条 <code>finished_reason</code> 为 <code>None</code> 的等待提示消息：回复处于停靠状态而非结束，在外部结果到达之前，剩余的工具调用不会执行。</p>
+<h2 id="用户确认">用户确认</h2>
+<p>当权限系统判断某个工具调用需要用户批准时，智能体会发出 <code>RequireUserConfirmEvent</code> 并暂停。</p>
+<div class="steps"><section class="step"><h3>接收 RequireUserConfirmEvent</h3><p>使用 <code>reply_stream</code> 检测暂停。事件结构如下：</p><section class="parameter"><strong><code>reply_id</code> <small>str</small><small> · 必填</small></strong><p>当前回复的 ID，用于恢复智能体。</p></section><section class="parameter"><strong><code>tool_calls</code> <small>list[ToolCallBlock]</small><small> · 必填</small></strong><p>等待用户确认的工具调用列表。每个 <code>ToolCallBlock</code> 包含：</p><details class="fold"><summary>展开详情</summary><section class="parameter"><strong><code>id</code> <small>str</small></strong>此工具调用的唯一标识符。</section><section class="parameter"><strong><code>name</code> <small>str</small></strong>工具名称（如 <code>&quot;Bash&quot;</code>、<code>&quot;Write&quot;</code>）。</section><section class="parameter"><strong><code>input</code> <small>str</small></strong>JSON 编码的输入参数。</section><section class="parameter"><strong><code>suggested_rules</code> <small>list[PermissionRule]</small></strong>自动生成的权限规则，用户可接受以允许类似的未来调用。</section></details></section><div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">from agentscope.event import RequireUserConfirmEvent
+
+async for event in agent.reply_stream(msg):
+    if isinstance(event, RequireUserConfirmEvent):
+        for tc in event.tool_calls:
+            print(f&quot;工具: {tc.name}, 输入: {tc.input}&quot;)
+            print(f&quot;建议规则: {tc.suggested_rules}&quot;)
+</code></pre></div></section><section class="step"><h3>构建确认结果</h3><p>为每个待处理的工具调用创建 <code>ConfirmResult</code>，指明是否允许执行。也可以修改工具调用输入或接受建议的权限规则：</p><div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">from agentscope.event import ConfirmResult, UserConfirmResultEvent
+
+confirm_results = []
+for tc in event.tool_calls:
+    confirm_results.append(ConfirmResult(
+        confirmed=True,           # 或 False 表示拒绝
+        tool_call=tc,             # 传回（可选择修改）
+        rules=tc.suggested_rules, # 接受规则以便未来自动允许
+    ))
+</code></pre></div></section><section class="step"><h3>恢复智能体</h3><p>将 <code>UserConfirmResultEvent</code> 传回 <code>reply</code> 或 <code>reply_stream</code>：</p><div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">confirm_event = UserConfirmResultEvent(
+    reply_id=event.reply_id,
+    confirm_results=confirm_results,
+)
+result = await agent.reply(confirm_event)
+</code></pre></div><ul>
+<li><strong>已确认</strong>的工具调用立即执行，智能体继续推理</li>
+<li><strong>已拒绝</strong>的工具调用会产生大语言模型可见的错误结果，模型可能会换一种方式重试</li>
+<li><strong>已接受的规则</strong>会持久化到权限引擎中，匹配的未来调用将自动允许，无需再次提示</li>
+</ul></section></div>
+<h2 id="外部工具执行">外部工具执行</h2>
+<p>当智能体调用 <code>is_external_tool = True</code> 的工具时，会发出 <code>RequireExternalExecutionEvent</code> 并暂停。工具的逻辑在智能体外部运行，通常由人工操作或外部系统执行。</p>
+<div class="steps"><section class="step"><h3>接收 RequireExternalExecutionEvent</h3><p>事件结构如下：</p><section class="parameter"><strong><code>reply_id</code> <small>str</small><small> · 必填</small></strong><p>当前回复的 ID，用于恢复智能体。</p></section><section class="parameter"><strong><code>tool_calls</code> <small>list[ToolCallBlock]</small><small> · 必填</small></strong><p>需要外部执行的工具调用列表。每个 <code>ToolCallBlock</code> 包含：</p><details class="fold"><summary>展开详情</summary><section class="parameter"><strong><code>id</code> <small>str</small></strong>此工具调用的唯一标识符。</section><section class="parameter"><strong><code>name</code> <small>str</small></strong>外部工具名称。</section><section class="parameter"><strong><code>input</code> <small>str</small></strong>JSON 编码的输入参数。</section></details></section><div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">from agentscope.event import RequireExternalExecutionEvent
+
+async for event in agent.reply_stream(msg):
+    if isinstance(event, RequireExternalExecutionEvent):
+        for tc in event.tool_calls:
+            print(f&quot;外部执行: {tc.name}({tc.input})&quot;)
+</code></pre></div></section><section class="step"><h3>外部执行并构建结果</h3><p>在智能体外部执行操作，并将结果封装为 <code>ToolResultBlock</code> 对象：</p><div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">from agentscope.message import ToolResultBlock, TextBlock, ToolResultState
+from agentscope.event import ExternalExecutionResultEvent
+
+execution_results = []
+for tc in event.tool_calls:
+    # 执行实际操作（API 调用、人工操作等）
+    output = await run_external_operation(tc.name, tc.input)
+
+    execution_results.append(ToolResultBlock(
+        id=tc.id,
+        name=tc.name,
+        output=[TextBlock(text=output)],
+        state=ToolResultState.SUCCESS,
+    ))
+</code></pre></div></section><section class="step"><h3>恢复智能体</h3><p>传回 <code>ExternalExecutionResultEvent</code> 以恢复智能体：</p><div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">external_event = ExternalExecutionResultEvent(
+    reply_id=event.reply_id,
+    execution_results=execution_results,
+)
+result = await agent.reply(external_event)
+</code></pre></div><p>结果会被注入智能体上下文，推理从中断处继续。</p></section></div>
+<h3 id="内置的-askuser">内置的 AskUser</h3>
+<p><code>AskUser</code> 是框架内置的外部执行工具，让智能体在需要用户拿主意时把问题摆出来。它一次最多提 4 个问题，每个问题 2 到 4 个选项，用法参见<a href="/agentscope-course/building-blocks/tool/python-tool/#%E8%AF%A2%E9%97%AE%E7%94%A8%E6%88%B7">询问用户</a>。</p>
+<p><code>RequireExternalExecutionEvent</code> 中 <code>tc.input</code> 的结构如下，界面据此渲染：</p>
+<table><thead><tr><th>字段</th><th>含义</th></tr></thead><tbody><tr><td><code>questions[].question</code></td><td>问题正文</td></tr><tr><td><code>questions[].header</code></td><td>不超过 12 个字符的短标签，通常渲染成一个 chip</td></tr><tr><td><code>questions[].context</code></td><td>回答时需要对照看的内容（草稿、报错、待比较的两份设计），展示在选项上方</td></tr><tr><td><code>questions[].multi_select</code></td><td>是否允许多选</td></tr><tr><td><code>questions[].options[].label</code> / <code>description</code></td><td>选项文字，以及它意味着什么</td></tr><tr><td><code>questions[].options[].preview</code></td><td>单选题可选的并排预览内容，例如代码片段或界面草图</td></tr></tbody></table>
+<p>界面除了这些选项，还需要提供一个「其他」自由输入项，因为工具已经向用户承诺了这一点。</p>
+<p>回传时，<code>output</code> 写给模型读，同时要在 <code>metadata</code> 里按 <code>AskUserMetadata</code> 的结构放同一份答案，供程序按选择分支：</p>
+<div class="code-example"><div class="code-bar"><span>回传 AskUser 的答案</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="回传 AskUser 的答案" data-lang="python">from agentscope.message import ToolResultBlock, TextBlock, ToolResultState
+from agentscope.tool import AskUserAnswer, AskUserMetadata
+
+result = ToolResultBlock(
+    id=tc.id,
+    name=tc.name,
+    output=[TextBlock(text=&quot;鉴权方式：OAuth 2.0（推荐）&quot;)],
+    metadata=AskUserMetadata(
+        answers=[
+            AskUserAnswer(
+                question=&quot;接入哪种鉴权方式？&quot;,
+                selected=[&quot;OAuth 2.0（推荐）&quot;],  # 用户勾选的选项 label
+                other=None,                      # 用户自由输入时填在这里
+            ),
+        ],
+    ).model_dump(),
+    state=ToolResultState.SUCCESS,
+)
+</code></pre></div>
+<aside class="notice note"><strong>说明</strong><p>如果多个工具调用都需要外部交互，而只传回了部分确认或执行结果，智能体不会为尚未确认或执行的工具调用重新发出请求事件。</p></aside>
+<aside class="notice tip"><strong>提示</strong><p>同一批并发的工具调用之间会对确认请求去重：若某次调用已被同批次中更早一次确认所建议的规则覆盖，就不会再次向用户发出确认请求。安全类确认请求不参与这种去重。</p></aside>
+<aside class="notice tip"><strong>提示</strong><p>构建交互式界面时使用 <code>reply_stream</code>：它可以实时检测暂停事件并立即提示用户。以编程方式处理事件的自动化流程则使用 <code>reply</code>。</p></aside></article><footer><div class="paging"><a href="/agentscope-course/building-blocks/agent/interrupt-agent/">上一节 · 中断智能体</a><a href="/agentscope-course/building-blocks/model/overview/">下一节 · 模型 · 概述</a></div><div class="credits"><a href="https://docs.agentscope.io/zh/versions/2.0.12/building-blocks/agent/human-in-the-loop" target="_blank" rel="noopener">在线原页</a> · <a href="/agentscope-course/mdx/building-blocks/agent/human-in-the-loop.mdx">原始 MDX</a> · <a href="https://github.com/agentscope-ai/docs/blob/e0ee835d1aca5d2b840d29bdd2f70770bbef69e8/zh/versions/2.0.12/building-blocks/agent/human-in-the-loop.mdx" target="_blank" rel="noopener">固定版本来源</a> · <a href="/agentscope-course/LICENSE.txt">MIT 许可</a></div></footer></main></div></body></html>

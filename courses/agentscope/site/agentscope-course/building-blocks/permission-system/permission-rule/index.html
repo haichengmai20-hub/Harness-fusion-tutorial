@@ -1,0 +1,68 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>权限规则 · AgentScope</title><link rel="stylesheet" href="/agentscope-course/reader.css"><script defer src="/agentscope-course/reader.js"></script></head><body><header class="mast"><a href="/agentscope-course/">AgentScope <small>中文文档</small></a><span>v2.0.12</span><button id="catalog" aria-controls="outline" aria-expanded="false">目录</button></header><div class="layout"><nav id="outline" aria-label="AgentScope 文档目录"><div class="group">快速开始</div><a href="/agentscope-course/" >AgentScope 2.0 是什么？</a><a href="/agentscope-course/quickstart/" >快速开始</a><a href="/agentscope-course/release-notes/" >更新日志</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/message-and-event/" >消息与事件</a><div class="group">核心模块 / 智能体</div><a href="/agentscope-course/building-blocks/agent/overview/" >智能体 · 概述</a><a href="/agentscope-course/building-blocks/agent/configure-agent/" >配置智能体</a><a href="/agentscope-course/building-blocks/agent/run-agent/" >运行智能体</a><a href="/agentscope-course/building-blocks/agent/interrupt-agent/" >中断智能体</a><a href="/agentscope-course/building-blocks/agent/human-in-the-loop/" >人机交互</a><div class="group">核心模块 / 模型</div><a href="/agentscope-course/building-blocks/model/overview/" >模型 · 概述</a><a href="/agentscope-course/building-blocks/model/llm/" >大语言模型</a><a href="/agentscope-course/building-blocks/model/tts/" >语音合成</a><a href="/agentscope-course/building-blocks/model/asr/" >语音识别</a><a href="/agentscope-course/building-blocks/model/embedding/" >嵌入模型</a><div class="group">核心模块 / 上下文管理</div><a href="/agentscope-course/building-blocks/context/overview/" >上下文管理 · 概述</a><a href="/agentscope-course/building-blocks/context/environment-awareness/" >感知环境</a><a href="/agentscope-course/building-blocks/context/compress-context/" >压缩上下文</a><a href="/agentscope-course/building-blocks/context/offload-context/" >卸载上下文</a><div class="group">核心模块 / 工具</div><a href="/agentscope-course/building-blocks/tool/overview/" >工具 · 概述</a><a href="/agentscope-course/building-blocks/tool/python-tool/" >Python 函数工具</a><a href="/agentscope-course/building-blocks/tool/mcp/" >MCP</a><a href="/agentscope-course/building-blocks/tool/skill/" >Skill</a><a href="/agentscope-course/building-blocks/tool/manage-tools/" >元工具</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/plan/" >计划模式</a><div class="group">核心模块 / 流水线</div><a href="/agentscope-course/building-blocks/pipeline/overview/" >流水线 · 概述</a><a href="/agentscope-course/building-blocks/pipeline/goal/" >目标流水线</a><a href="/agentscope-course/building-blocks/pipeline/team/" >团队流水线</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/sop/" >标准作业流程</a><div class="group">核心模块 / 权限系统</div><a href="/agentscope-course/building-blocks/permission-system/overview/" >权限系统 · 概述</a><a href="/agentscope-course/building-blocks/permission-system/permission-mode/" >权限模式</a><a href="/agentscope-course/building-blocks/permission-system/permission-rule/" aria-current="page">权限规则</a><a href="/agentscope-course/building-blocks/permission-system/tool-check/" >工具内置检查</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/middleware/" >中间件</a><a href="/agentscope-course/building-blocks/rag/" >RAG</a><a href="/agentscope-course/building-blocks/long-term-memory/" >长期记忆</a><div class="group">核心模块 / 工作区</div><a href="/agentscope-course/building-blocks/workspace/overview/" >工作区 · 概述</a><a href="/agentscope-course/building-blocks/workspace/run-workspace/" >运行工作区</a><a href="/agentscope-course/building-blocks/workspace/manage-resources/" >管理资源</a><a href="/agentscope-course/building-blocks/workspace/mcp-gateway/" >MCP 网关</a><div class="group">核心模块 / 实时语音智能体</div><a href="/agentscope-course/building-blocks/realtime/overview/" >实时语音智能体 · 概述</a><a href="/agentscope-course/building-blocks/realtime/speech-to-speech/" >语音到语音</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/console/" >终端 UI</a><a href="/agentscope-course/building-blocks/a2a/" >A2A 协议</a><div class="group">智能体即服务</div><a href="/agentscope-course/deploy/agent-service/" >架构</a><a href="/agentscope-course/deploy/agent-team/" >智能体团队</a><a href="/agentscope-course/deploy/sop/" >SOP 服务</a><a href="/agentscope-course/deploy/sharing/" >资源共享</a><a href="/agentscope-course/deploy/rag/" >RAG 服务</a><a href="/agentscope-course/deploy/workspace-manager/" >工作区管理</a><div class="group">智能体即服务 / MCP 与技能中心</div><a href="/agentscope-course/deploy/hub/overview/" >MCP 与技能中心 · 概览</a><a href="/agentscope-course/deploy/hub/mcp-hub/" >MCP 中心</a><a href="/agentscope-course/deploy/hub/skill-hub/" >技能中心</a><div class="group">智能体即服务 / 消息渠道</div><a href="/agentscope-course/deploy/channel/overview/" >消息渠道 · 概览</a><a href="/agentscope-course/deploy/channel/routing/" >会话路由</a><a href="/agentscope-course/deploy/channel/feishu/" >飞书</a><a href="/agentscope-course/deploy/channel/dingtalk/" >钉钉</a><a href="/agentscope-course/deploy/channel/discord/" >Discord</a><a href="/agentscope-course/deploy/channel/custom/" >自定义渠道</a><div class="group">其他</div><a href="/agentscope-course/others/faq/" >常见问题</a><a href="/agentscope-course/others/change-log/" >版本迁移</a><div class="group">智能体即服务 / API</div><a href="/agentscope-course/api/">API 参考</a></nav><main><div class="context">核心模块 / 权限系统</div><article class="prose-custom" id="content"><h1>权限规则</h1><p class="dek">为特定工具与调用编写允许、拒绝和询问规则</p><p><code>PermissionRule</code> 把某个工具与具体的调用模式映射到三种行为之一：<code>ALLOW</code>、<code>DENY</code>、<code>ASK</code>。规则在每种<a href="/agentscope-course/building-blocks/permission-system/permission-mode/">权限模式</a>下都以最高优先级评估：拒绝与询问规则最先，允许规则排在工具内置检查之后。</p>
+<p>每条规则由下述字段组成。当权限引擎评估一条规则时，它会用 <code>rule_content</code> 与实际调用入参调用该工具的 <code>match_rule()</code> 方法，判断规则是否命中。</p>
+<section class="parameter"><strong><code>tool_name</code> <small>str</small><small> · 必填</small></strong><p>规则适用的工具名：<code>&quot;Bash&quot;</code>、<code>&quot;Read&quot;</code>、<code>&quot;Write&quot;</code>、<code>&quot;Edit&quot;</code>，或任意自定义工具名。</p></section>
+<section class="parameter"><strong><code>rule_content</code> <small>str | None</small><small> · 必填</small></strong><p>匹配模式，语义随 <code>tool_name</code> 变化：</p><ul>
+<li><strong>Bash</strong>：通配前缀模式（<code>npm run:*</code> 命中 <code>npm run build</code>、<code>npm run test</code>）</li>
+<li><strong>Read / Write / Edit</strong>：glob 模式（<code>src/**/*.py</code> 命中 <code>src/</code> 下任意 <code>.py</code>）</li>
+<li><strong>其他工具</strong>：对 JSON 序列化后的参数做精确匹配</li>
+</ul></section>
+<section class="parameter"><strong><code>behavior</code> <small>PermissionBehavior</small><small> · 必填</small></strong><p><code>ALLOW</code>、<code>DENY</code> 或 <code>ASK</code></p></section>
+<section class="parameter"><strong><code>source</code> <small>str</small><small> · 必填</small></strong><p>规则来源：<code>&quot;userSettings&quot;</code>、<code>&quot;projectSettings&quot;</code>、<code>&quot;session&quot;</code> 等。</p></section>
+<h2 id="匹配模式示例">匹配模式示例</h2>
+<p><code>rule_content</code> 由各工具的 <code>match_rule()</code> 方法消费，并由 <code>ToolBase.generate_suggestions()</code> 自动生成。由于这两个方法都属于工具接口的一部分，每个工具可以独立定义自己的模式语法与匹配逻辑。</p>
+<p>AgentScope 内置工具的模式约定如下：</p>
+<div class="tab-set" data-tab-set=""><div class="tab-list" role="group" aria-label="文档标签"><button type="button" data-choice="0" aria-pressed="true">Bash</button><button type="button" data-choice="1" aria-pressed="false">文件类工具（Read / Write / Edit）</button></div><div data-panel="0"><div class="mdx-group"><p>针对 <strong><code>command</code></strong> 参数做匹配。模式格式为 <code>COMMAND_PREFIX:*</code>：前缀是命令的首段 token，<code>*</code> 匹配后续任意参数。</p><table><thead><tr><th>模式</th><th>匹配</th><th>不匹配</th></tr></thead><tbody><tr><td><code>npm run:*</code></td><td><code>npm run build</code>、<code>npm run test</code></td><td><code>npm install</code></td></tr><tr><td><code>git commit:*</code></td><td><code>git commit -m &quot;fix&quot;</code></td><td><code>git push</code></td></tr><tr><td><code>rm:*</code></td><td><code>rm file.txt</code>、<code>rm -rf /tmp/x</code></td><td><code>ls</code></td></tr></tbody></table><div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">PermissionRule(
+    tool_name=&quot;Bash&quot;,
+    rule_content=&quot;npm run:*&quot;,
+    behavior=PermissionBehavior.ALLOW,
+    source=&quot;userSettings&quot;,
+)
+</code></pre></div></div></div><div data-panel="1" hidden=""><div class="mdx-group"><p>针对 <strong><code>file_path</code></strong> 参数，通过 <code>fnmatch</code> 做 glob 匹配。</p><table><thead><tr><th>模式</th><th>匹配</th></tr></thead><tbody><tr><td><code>src/**</code></td><td><code>src/</code> 下任意文件</td></tr><tr><td><code>src/**/*.py</code></td><td><code>src/</code> 下的 Python 文件</td></tr><tr><td><code>config.json</code></td><td>精确匹配该文件</td></tr></tbody></table><div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">PermissionRule(
+    tool_name=&quot;Write&quot;,
+    rule_content=&quot;src/**&quot;,
+    behavior=PermissionBehavior.ALLOW,
+    source=&quot;userSettings&quot;,
+)
+</code></pre></div></div></div></div>
+<h2 id="配置规则">配置规则</h2>
+<p>规则通过两种途径进入引擎：初始化时静态配置，或运行时由用户接受建议规则动态加入。</p>
+<p><strong>初始化时</strong>：在创建智能体时把规则传入 <code>PermissionContext</code>：</p>
+<div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">from agentscope.agent import Agent
+from agentscope.state import AgentState
+from agentscope.permission import (
+    PermissionContext, PermissionMode, PermissionRule, PermissionBehavior
+)
+
+agent = Agent(
+    name=&quot;my_agent&quot;,
+    system_prompt=&quot;...&quot;,
+    model=model,
+    state=AgentState(
+        permission_context=PermissionContext(
+            mode=PermissionMode.DEFAULT,
+            allow_rules={
+                &quot;Bash&quot;: [PermissionRule(tool_name=&quot;Bash&quot;, rule_content=&quot;npm run:*&quot;,
+                                        behavior=PermissionBehavior.ALLOW, source=&quot;userSettings&quot;)],
+                &quot;Write&quot;: [PermissionRule(tool_name=&quot;Write&quot;, rule_content=&quot;src/**&quot;,
+                                         behavior=PermissionBehavior.ALLOW, source=&quot;userSettings&quot;)],
+            },
+            deny_rules={
+                &quot;Bash&quot;: [PermissionRule(tool_name=&quot;Bash&quot;, rule_content=&quot;rm:*&quot;,
+                                        behavior=PermissionBehavior.DENY, source=&quot;userSettings&quot;)],
+            },
+        )
+    ),
+)
+</code></pre></div>
+<p><strong>运行时通过建议规则</strong>：当权限系统返回 ASK 时，会基于本次调用自动生成建议规则。把已接受的规则附在 <code>ConfirmResult.rules</code> 中回传，智能体会自动写入引擎：</p>
+<div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">from agentscope.event import ConfirmResult
+
+# ASK 决策中包含基于本次调用生成的 suggested_rules。
+# 接受建议时，把它放入结果事件即可：
+result = ConfirmResult(
+    confirmed=True,
+    tool_call=tool_call_block,  # 被确认的原始工具调用对象
+    rules=[suggested_rule],  # 已接受的规则会被持久化进引擎
+)
+</code></pre></div>
+<aside class="notice note"><strong>说明</strong><p>允许规则无法覆盖工具发出的<strong>安全 ASK</strong>（<code>bypass_immune=True</code>），例如写入 <code>~/.ssh/</code> 的操作。详见<a href="/agentscope-course/building-blocks/permission-system/tool-check/#%E5%AE%89%E5%85%A8%E6%A3%80%E6%9F%A5%E5%A5%91%E7%BA%A6">安全检查契约</a>。</p></aside></article><footer><div class="paging"><a href="/agentscope-course/building-blocks/permission-system/permission-mode/">上一节 · 权限模式</a><a href="/agentscope-course/building-blocks/permission-system/tool-check/">下一节 · 工具内置检查</a></div><div class="credits"><a href="https://docs.agentscope.io/zh/versions/2.0.12/building-blocks/permission-system/permission-rule" target="_blank" rel="noopener">在线原页</a> · <a href="/agentscope-course/mdx/building-blocks/permission-system/permission-rule.mdx">原始 MDX</a> · <a href="https://github.com/agentscope-ai/docs/blob/e0ee835d1aca5d2b840d29bdd2f70770bbef69e8/zh/versions/2.0.12/building-blocks/permission-system/permission-rule.mdx" target="_blank" rel="noopener">固定版本来源</a> · <a href="/agentscope-course/LICENSE.txt">MIT 许可</a></div></footer></main></div></body></html>

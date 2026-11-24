@@ -1,0 +1,85 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>A2A 协议 · AgentScope</title><link rel="stylesheet" href="/agentscope-course/reader.css"><script defer src="/agentscope-course/reader.js"></script></head><body><header class="mast"><a href="/agentscope-course/">AgentScope <small>中文文档</small></a><span>v2.0.12</span><button id="catalog" aria-controls="outline" aria-expanded="false">目录</button></header><div class="layout"><nav id="outline" aria-label="AgentScope 文档目录"><div class="group">快速开始</div><a href="/agentscope-course/" >AgentScope 2.0 是什么？</a><a href="/agentscope-course/quickstart/" >快速开始</a><a href="/agentscope-course/release-notes/" >更新日志</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/message-and-event/" >消息与事件</a><div class="group">核心模块 / 智能体</div><a href="/agentscope-course/building-blocks/agent/overview/" >智能体 · 概述</a><a href="/agentscope-course/building-blocks/agent/configure-agent/" >配置智能体</a><a href="/agentscope-course/building-blocks/agent/run-agent/" >运行智能体</a><a href="/agentscope-course/building-blocks/agent/interrupt-agent/" >中断智能体</a><a href="/agentscope-course/building-blocks/agent/human-in-the-loop/" >人机交互</a><div class="group">核心模块 / 模型</div><a href="/agentscope-course/building-blocks/model/overview/" >模型 · 概述</a><a href="/agentscope-course/building-blocks/model/llm/" >大语言模型</a><a href="/agentscope-course/building-blocks/model/tts/" >语音合成</a><a href="/agentscope-course/building-blocks/model/asr/" >语音识别</a><a href="/agentscope-course/building-blocks/model/embedding/" >嵌入模型</a><div class="group">核心模块 / 上下文管理</div><a href="/agentscope-course/building-blocks/context/overview/" >上下文管理 · 概述</a><a href="/agentscope-course/building-blocks/context/environment-awareness/" >感知环境</a><a href="/agentscope-course/building-blocks/context/compress-context/" >压缩上下文</a><a href="/agentscope-course/building-blocks/context/offload-context/" >卸载上下文</a><div class="group">核心模块 / 工具</div><a href="/agentscope-course/building-blocks/tool/overview/" >工具 · 概述</a><a href="/agentscope-course/building-blocks/tool/python-tool/" >Python 函数工具</a><a href="/agentscope-course/building-blocks/tool/mcp/" >MCP</a><a href="/agentscope-course/building-blocks/tool/skill/" >Skill</a><a href="/agentscope-course/building-blocks/tool/manage-tools/" >元工具</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/plan/" >计划模式</a><div class="group">核心模块 / 流水线</div><a href="/agentscope-course/building-blocks/pipeline/overview/" >流水线 · 概述</a><a href="/agentscope-course/building-blocks/pipeline/goal/" >目标流水线</a><a href="/agentscope-course/building-blocks/pipeline/team/" >团队流水线</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/sop/" >标准作业流程</a><div class="group">核心模块 / 权限系统</div><a href="/agentscope-course/building-blocks/permission-system/overview/" >权限系统 · 概述</a><a href="/agentscope-course/building-blocks/permission-system/permission-mode/" >权限模式</a><a href="/agentscope-course/building-blocks/permission-system/permission-rule/" >权限规则</a><a href="/agentscope-course/building-blocks/permission-system/tool-check/" >工具内置检查</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/middleware/" >中间件</a><a href="/agentscope-course/building-blocks/rag/" >RAG</a><a href="/agentscope-course/building-blocks/long-term-memory/" >长期记忆</a><div class="group">核心模块 / 工作区</div><a href="/agentscope-course/building-blocks/workspace/overview/" >工作区 · 概述</a><a href="/agentscope-course/building-blocks/workspace/run-workspace/" >运行工作区</a><a href="/agentscope-course/building-blocks/workspace/manage-resources/" >管理资源</a><a href="/agentscope-course/building-blocks/workspace/mcp-gateway/" >MCP 网关</a><div class="group">核心模块 / 实时语音智能体</div><a href="/agentscope-course/building-blocks/realtime/overview/" >实时语音智能体 · 概述</a><a href="/agentscope-course/building-blocks/realtime/speech-to-speech/" >语音到语音</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/console/" >终端 UI</a><a href="/agentscope-course/building-blocks/a2a/" aria-current="page">A2A 协议</a><div class="group">智能体即服务</div><a href="/agentscope-course/deploy/agent-service/" >架构</a><a href="/agentscope-course/deploy/agent-team/" >智能体团队</a><a href="/agentscope-course/deploy/sop/" >SOP 服务</a><a href="/agentscope-course/deploy/sharing/" >资源共享</a><a href="/agentscope-course/deploy/rag/" >RAG 服务</a><a href="/agentscope-course/deploy/workspace-manager/" >工作区管理</a><div class="group">智能体即服务 / MCP 与技能中心</div><a href="/agentscope-course/deploy/hub/overview/" >MCP 与技能中心 · 概览</a><a href="/agentscope-course/deploy/hub/mcp-hub/" >MCP 中心</a><a href="/agentscope-course/deploy/hub/skill-hub/" >技能中心</a><div class="group">智能体即服务 / 消息渠道</div><a href="/agentscope-course/deploy/channel/overview/" >消息渠道 · 概览</a><a href="/agentscope-course/deploy/channel/routing/" >会话路由</a><a href="/agentscope-course/deploy/channel/feishu/" >飞书</a><a href="/agentscope-course/deploy/channel/dingtalk/" >钉钉</a><a href="/agentscope-course/deploy/channel/discord/" >Discord</a><a href="/agentscope-course/deploy/channel/custom/" >自定义渠道</a><div class="group">其他</div><a href="/agentscope-course/others/faq/" >常见问题</a><a href="/agentscope-course/others/change-log/" >版本迁移</a><div class="group">智能体即服务 / API</div><a href="/agentscope-course/api/">API 参考</a></nav><main><div class="context">核心模块</div><article class="prose-custom" id="content"><h1>A2A 协议</h1><p class="dek">连接并与 A2A 协议后的智能体进行对话</p><p>A2A（<a href="https://a2a-protocol.org/">Agent2Agent</a>）是 Google 提出的智能体通信协议。</p>
+<p>AgentScope 通过 <code>A2AAgent</code> 类作为 A2A 协议的客户端，可以连接任意实现了 A2A 1.0 及以上协议的远端智能体（对方只提供 0.3 时，官方 SDK 回退到兼容传输），将远端智能体返回的消息、状态与制品（Artifact）转换成 AgentScope 中的消息与事件；同时将用户输入（包括多模态数据）发送给远端智能体。</p>
+<p><code>A2AAgent</code> 仅仅是远端智能体运行逻辑的本地代理，本身不代表实际的运行逻辑。与 <code>Agent</code> 类相比，两者在接口上保持一致，但有以下区别：</p>
+<table><thead><tr><th>能力</th><th><code>Agent</code></th><th><code>A2AAgent</code></th></tr></thead><tbody><tr><td><code>reply()</code> / <code>reply_stream()</code></td><td>✅</td><td>把输入发给远端，流式转译对方的响应</td></tr><tr><td><code>observe()</code></td><td>✅</td><td>缓存消息，随下一次 <code>reply()</code> 一并发出</td></tr><tr><td><code>compress_context()</code></td><td>✅</td><td>空操作，上下文由远端服务维护</td></tr><tr><td>模型、工具、中间件、权限、结构化输出</td><td>✅</td><td>不提供，全部由远端服务决定</td></tr><tr><td>中断与恢复、人类介入</td><td>✅</td><td>不提供，远端等待输入时以普通回复呈现</td></tr></tbody></table>
+<aside class="notice tip"><strong>提示</strong><p>仓库中的 <a href="https://github.com/agentscope-ai/agentscope/tree/main/examples/a2a"><code>examples/a2a</code></a> 提供了完整的双端示例：用 AgentScope 智能体搭起 A2A 服务端，再用 <code>A2AAgent</code> 连上去对话。</p></aside>
+<h2 id="快速开始">快速开始</h2>
+<div class="steps"><section class="step"><h3>安装依赖</h3><p>A2A 支持依赖官方 SDK，随 <code>a2a</code> 可选依赖安装。</p><div class="code-example"><div class="code-bar"><span>安装依赖</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-bash" data-caption="安装依赖" data-lang="bash">pip install &quot;agentscope[a2a]&quot;
+</code></pre></div></section><section class="step"><h3>取回 Agent Card</h3><p>Agent Card 是远端智能体的自我描述文件，一份放在固定地址上的 JSON，记录它的名称、简介、能力，以及可用的传输方式与接口地址。<code>A2AAgent</code> 用它识别对方并选择传输方式，因此连接从取回这张卡片开始。</p><div class="code-example"><div class="code-bar"><span>解析 Agent Card</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="解析 Agent Card" data-lang="python">import httpx
+from a2a.client import A2ACardResolver
+
+# httpx 客户端只服务于这一次解析，用完即关
+async with httpx.AsyncClient() as httpx_client:
+    card = await A2ACardResolver(
+        httpx_client=httpx_client,
+        base_url=&quot;http://127.0.0.1:9999&quot;,
+    ).get_agent_card()
+
+print(card.name)  # 该名称会成为 A2AAgent 的 name
+</code></pre></div></section><section class="step"><h3>创建 A2AAgent 并对话</h3><p>把卡片交给 <code>A2AAgent</code>。它自己持有 A2A 客户端，退出上下文管理器时关闭，因此一个实例服务一段对话，关闭后不能重开。</p><p>对话接口与本地智能体一致：<code>reply_stream</code> 实时产出事件，<code>reply</code> 在内部消费完事件后返回最终消息。事件流可以直接交给<a href="/agentscope-course/building-blocks/console/">终端 UI</a> 的 <code>ConsoleRenderer</code> 打印，不必自己分发事件类型。</p><div class="tab-set" data-tab-set=""><div class="tab-list" role="group" aria-label="代码示例"><button type="button" data-choice="0" aria-pressed="true">流式对话</button><button type="button" data-choice="1" aria-pressed="false">一次性对话</button></div><div data-panel="0"><div class="code-example"><div class="code-bar"><span>流式对话</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="流式对话" data-lang="python">from agentscope.agent import A2AAgent
+from agentscope.console import ConsoleRenderer
+from agentscope.message import UserMsg
+
+renderer = ConsoleRenderer()
+
+async with A2AAgent(card) as agent:
+    # 远端产出的文本随生成实时打印
+    async for event in agent.reply_stream(
+        UserMsg(name=&quot;user&quot;, content=&quot;帮我规划一个杭州周末行程。&quot;),
+    ):
+        renderer.render(event)
+
+    # 第二次调用自动复用同一段远端会话
+    async for event in agent.reply_stream(
+        UserMsg(name=&quot;user&quot;, content=&quot;改成适合带小孩的。&quot;),
+    ):
+        renderer.render(event)
+
+    # 渲染器把事件累积回一条完整的回复消息
+    print(renderer.last_msg.get_text_content())
+</code></pre></div></div><div data-panel="1" hidden=""><div class="code-example"><div class="code-bar"><span>一次性对话</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="一次性对话" data-lang="python">from agentscope.agent import A2AAgent
+from agentscope.message import UserMsg
+
+async with A2AAgent(card) as agent:
+    # 等远端把这一轮说完，只拿最终消息
+    reply = await agent.reply(
+        UserMsg(name=&quot;user&quot;, content=&quot;帮我规划一个杭州周末行程。&quot;),
+    )
+    print(reply.get_text_content())
+
+    # 第二次调用自动复用同一段远端会话
+    reply = await agent.reply(
+        UserMsg(name=&quot;user&quot;, content=&quot;改成适合带小孩的。&quot;),
+    )
+</code></pre></div></div></div><aside class="notice note"><strong>说明</strong><p><code>A2AAgent.reply_stream</code> 不支持本地智能体的 <code>yield_final_msg</code> 参数，需要最终消息时用 <code>renderer.last_msg</code> 或改用 <code>reply</code>。</p></aside></section><section class="step"><h3>（可选）交给终端 UI</h3><p>不想自己写循环时，<code>launch_console</code> 会把输入、渲染与中断一并接管，远端智能体可以直接丢进去调试。</p><div class="code-example"><div class="code-bar"><span>在终端与远端智能体对话</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="在终端与远端智能体对话" data-lang="python">from agentscope.console import launch_console
+
+async with A2AAgent(card) as agent:
+    await launch_console(agent)
+</code></pre></div></section></div>
+<p>构造参数如下，其中 <code>client</code> 与 <code>state</code> 只能以关键字传入：</p>
+<table><thead><tr><th>参数</th><th>说明</th></tr></thead><tbody><tr><td><code>agent_card</code></td><td>远端的 Agent Card，用于识别对方并选择传输方式</td></tr><tr><td><code>client</code></td><td>可选，自行配置的官方 SDK 客户端，例如走 gRPC 或带自定义鉴权。不传则按卡片构造流式客户端，此时对方必须提供 <code>JSONRPC</code> 或 <code>HTTP+JSON</code> 接口</td></tr><tr><td><code>state</code></td><td>可选，已有的 <code>A2AAgentState</code>，用于续接此前的远端会话</td></tr></tbody></table>
+<aside class="notice tip"><strong>提示</strong><p>一段远端会话值得持久化的东西都在 <code>A2AAgentState</code> 里，把它传回构造函数即可续接：</p><div class="code-example"><div class="code-bar"><span>续接同一段远端会话</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="续接同一段远端会话" data-lang="python">from agentscope.state import A2AAgentState
+
+agent = A2AAgent(card, state=A2AAgentState(context_id=stored_context_id))
+</code></pre></div></aside>
+<h2 id="协议转换">协议转换</h2>
+<p><code>A2AAgent</code> 的全部工作是把 A2A 的概念翻译成 AgentScope 的概念，翻译分三层：会话标识、响应载荷、内容 Part。</p>
+<h3 id="会话与任务">会话与任务</h3>
+<p>A2A 用两个标识组织一段对话，它们与 AgentScope 的概念并不一一对应，是使用中最容易误解的地方：</p>
+<table><thead><tr><th>A2A 标识</th><th>含义</th><th>在 AgentScope 这一侧</th></tr></thead><tbody><tr><td><code>context_id</code></td><td>远端的一段会话</td><td>相当于 <code>session_id</code>：同一个 <code>context_id</code> 下的多次 <code>reply()</code> 共享远端上下文，由 <code>A2AAgent</code> 自动携带，无需手动传递</td></tr><tr><td><code>task_id</code></td><td>远端的一次执行单元</td><td><strong>不等同于一次 <code>reply()</code></strong>：一次 <code>reply()</code> 可能跨越多个 Task，也可能续上此前 <code>reply()</code> 留下的 Task，取决于远端的实现</td></tr></tbody></table>
+<p>两者都保存在 <code>A2AAgentState</code> 中。此外该状态还有一个本地的 <code>session_id</code>，只用于给本适配器产出的事件分组，与远端无关。</p>
+<h3 id="响应载荷">响应载荷</h3>
+<p>远端的每一种响应载荷都会被拆成内容 Part 转译，载荷本身只决定这批内容归属哪个 Task、以及本次回复如何收尾：</p>
+<table><thead><tr><th>A2A 响应载荷</th><th>转译方式</th></tr></thead><tbody><tr><td><code>Message</code></td><td>其 Parts 转为内容；这是一次不产生 Task 的直接回答，因此会清空 <code>task_id</code></td></tr><tr><td><code>TaskArtifactUpdateEvent</code></td><td>制品的 Parts 转为内容；<code>append</code> 与 <code>last_chunk</code> 标记决定文本是否继续写入同一个块，从而让流式文本不被切碎</td></tr><tr><td><code>TaskStatusUpdateEvent</code></td><td>状态消息的 Parts 转为内容，同时用该状态决定 <code>finished_reason</code> 与 <code>task_id</code></td></tr><tr><td><code>Task</code></td><td>完整快照：先转译全部制品，再转译状态消息</td></tr></tbody></table>
+<h3 id="内容-part">内容 Part</h3>
+<p>每个 Part 按类型转成对应的内容块：</p>
+<table><thead><tr><th>A2A Part</th><th>AgentScope 内容块</th></tr></thead><tbody><tr><td>文本 Part</td><td><code>TextBlock</code>，同一批连续文本流入同一个块</td></tr><tr><td>字节 Part（<code>raw</code>）</td><td><code>DataBlock</code>，字节以 base64 承载</td></tr><tr><td>URL Part（<code>url</code>）</td><td><code>DataBlock</code>，保留原始 URL</td></tr><tr><td>其它（如结构化数据 Part）</td><td>不支持，抛出 <code>ValueError</code></td></tr></tbody></table>
+<p>因此事件流中只会出现回复起止事件与文本 / 数据块事件。不使用 <code>ConsoleRenderer</code>、自行分发事件时，处理 <code>TextBlockDeltaEvent</code> 与 <code>DataBlockEndEvent</code> 两类即可。块结束事件的 <code>metadata[&quot;a2a&quot;]</code> 中记录了它来自哪个 A2A 对象（<code>task_id</code>、<code>artifact_id</code>、<code>message_id</code>），最终消息的 <code>metadata[&quot;a2a&quot;]</code> 中记录 <code>context_id</code>。</p>
+<aside class="notice note"><strong>说明</strong><p>思考块、工具调用块、提示块与推送通知都不在转译范围内：A2A 传递的是最终产物，远端智能体的推理过程与工具调用不会出现在事件流里。</p></aside>
+<h3 id="回复的结束">回复的结束</h3>
+<p>远端 Task 挂起在服务端，本地并没有任何东西被挂起，因此<strong>每一次响应流结束都意味着本次回复结束</strong>。流最后停在哪个 Task 状态，决定这次回复的 <code>finished_reason</code>：</p>
+<table><thead><tr><th>远端 Task 状态</th><th><code>finished_reason</code></th><th>含义</th></tr></thead><tbody><tr><td><code>COMPLETED</code></td><td><code>COMPLETED</code></td><td>任务完成</td></tr><tr><td><code>INPUT_REQUIRED</code>、<code>AUTH_REQUIRED</code></td><td><code>COMPLETED</code></td><td>远端在等输入，其状态消息作为普通内容返回，用下一次 <code>reply()</code> 回答即可</td></tr><tr><td><code>CANCELED</code></td><td><code>INTERRUPTED</code></td><td>任务被取消</td></tr><tr><td><code>FAILED</code>、<code>REJECTED</code></td><td><code>ERROR</code></td><td>任务失败或被拒绝</td></tr></tbody></table>
+<p><code>task_id</code> 只在远端等待输入（<code>INPUT_REQUIRED</code> / <code>AUTH_REQUIRED</code>）时保留，下一条消息续上该 Task；其余状态会清空它，下一条消息在同一个 <code>context_id</code> 内开启新 Task。另有两种边界情况：远端已经忘记的 Task 退化为新 Task；远端仍在运行的 Task 会直接抛出 <code>RuntimeError</code>，因为此时发消息会让它再执行一遍。</p>
+<aside class="notice warning"><strong>注意</strong><p>A2A 的凭据在协议之外传递，因此 <code>AUTH_REQUIRED</code> 的 Task 无法通过本适配器授权，需要按状态消息中的指引自行完成。</p></aside>
+<h2 id="延伸阅读">延伸阅读</h2>
+<div class="cards"><div class="card"><strong><a href="/agentscope-course/building-blocks/console/">终端 UI</a></strong><p>把远端智能体交给终端，直接开始对话。</p><a href="/agentscope-course/building-blocks/console/" data-card-cta="查看详情">查看详情</a></div><div class="card"><strong><a href="/agentscope-course/building-blocks/message-and-event/">消息与事件</a></strong><p>了解事件流中每种事件的含义。</p><a href="/agentscope-course/building-blocks/message-and-event/" data-card-cta="查看详情">查看详情</a></div></div></article><footer><div class="paging"><a href="/agentscope-course/building-blocks/console/">上一节 · 终端 UI</a><a href="/agentscope-course/deploy/agent-service/">下一节 · 架构</a></div><div class="credits"><a href="https://docs.agentscope.io/zh/versions/2.0.12/building-blocks/a2a" target="_blank" rel="noopener">在线原页</a> · <a href="/agentscope-course/mdx/building-blocks/a2a.mdx">原始 MDX</a> · <a href="https://github.com/agentscope-ai/docs/blob/e0ee835d1aca5d2b840d29bdd2f70770bbef69e8/zh/versions/2.0.12/building-blocks/a2a.mdx" target="_blank" rel="noopener">固定版本来源</a> · <a href="/agentscope-course/LICENSE.txt">MIT 许可</a></div></footer></main></div></body></html>

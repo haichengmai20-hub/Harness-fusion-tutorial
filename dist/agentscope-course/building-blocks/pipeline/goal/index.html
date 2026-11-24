@@ -1,0 +1,101 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>目标流水线 · AgentScope</title><link rel="stylesheet" href="/agentscope-course/reader.css"><script defer src="/agentscope-course/reader.js"></script></head><body><header class="mast"><a href="/agentscope-course/">AgentScope <small>中文文档</small></a><span>v2.0.12</span><button id="catalog" aria-controls="outline" aria-expanded="false">目录</button></header><div class="layout"><nav id="outline" aria-label="AgentScope 文档目录"><div class="group">快速开始</div><a href="/agentscope-course/" >AgentScope 2.0 是什么？</a><a href="/agentscope-course/quickstart/" >快速开始</a><a href="/agentscope-course/release-notes/" >更新日志</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/message-and-event/" >消息与事件</a><div class="group">核心模块 / 智能体</div><a href="/agentscope-course/building-blocks/agent/overview/" >智能体 · 概述</a><a href="/agentscope-course/building-blocks/agent/configure-agent/" >配置智能体</a><a href="/agentscope-course/building-blocks/agent/run-agent/" >运行智能体</a><a href="/agentscope-course/building-blocks/agent/interrupt-agent/" >中断智能体</a><a href="/agentscope-course/building-blocks/agent/human-in-the-loop/" >人机交互</a><div class="group">核心模块 / 模型</div><a href="/agentscope-course/building-blocks/model/overview/" >模型 · 概述</a><a href="/agentscope-course/building-blocks/model/llm/" >大语言模型</a><a href="/agentscope-course/building-blocks/model/tts/" >语音合成</a><a href="/agentscope-course/building-blocks/model/asr/" >语音识别</a><a href="/agentscope-course/building-blocks/model/embedding/" >嵌入模型</a><div class="group">核心模块 / 上下文管理</div><a href="/agentscope-course/building-blocks/context/overview/" >上下文管理 · 概述</a><a href="/agentscope-course/building-blocks/context/environment-awareness/" >感知环境</a><a href="/agentscope-course/building-blocks/context/compress-context/" >压缩上下文</a><a href="/agentscope-course/building-blocks/context/offload-context/" >卸载上下文</a><div class="group">核心模块 / 工具</div><a href="/agentscope-course/building-blocks/tool/overview/" >工具 · 概述</a><a href="/agentscope-course/building-blocks/tool/python-tool/" >Python 函数工具</a><a href="/agentscope-course/building-blocks/tool/mcp/" >MCP</a><a href="/agentscope-course/building-blocks/tool/skill/" >Skill</a><a href="/agentscope-course/building-blocks/tool/manage-tools/" >元工具</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/plan/" >计划模式</a><div class="group">核心模块 / 流水线</div><a href="/agentscope-course/building-blocks/pipeline/overview/" >流水线 · 概述</a><a href="/agentscope-course/building-blocks/pipeline/goal/" aria-current="page">目标流水线</a><a href="/agentscope-course/building-blocks/pipeline/team/" >团队流水线</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/sop/" >标准作业流程</a><div class="group">核心模块 / 权限系统</div><a href="/agentscope-course/building-blocks/permission-system/overview/" >权限系统 · 概述</a><a href="/agentscope-course/building-blocks/permission-system/permission-mode/" >权限模式</a><a href="/agentscope-course/building-blocks/permission-system/permission-rule/" >权限规则</a><a href="/agentscope-course/building-blocks/permission-system/tool-check/" >工具内置检查</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/middleware/" >中间件</a><a href="/agentscope-course/building-blocks/rag/" >RAG</a><a href="/agentscope-course/building-blocks/long-term-memory/" >长期记忆</a><div class="group">核心模块 / 工作区</div><a href="/agentscope-course/building-blocks/workspace/overview/" >工作区 · 概述</a><a href="/agentscope-course/building-blocks/workspace/run-workspace/" >运行工作区</a><a href="/agentscope-course/building-blocks/workspace/manage-resources/" >管理资源</a><a href="/agentscope-course/building-blocks/workspace/mcp-gateway/" >MCP 网关</a><div class="group">核心模块 / 实时语音智能体</div><a href="/agentscope-course/building-blocks/realtime/overview/" >实时语音智能体 · 概述</a><a href="/agentscope-course/building-blocks/realtime/speech-to-speech/" >语音到语音</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/console/" >终端 UI</a><a href="/agentscope-course/building-blocks/a2a/" >A2A 协议</a><div class="group">智能体即服务</div><a href="/agentscope-course/deploy/agent-service/" >架构</a><a href="/agentscope-course/deploy/agent-team/" >智能体团队</a><a href="/agentscope-course/deploy/sop/" >SOP 服务</a><a href="/agentscope-course/deploy/sharing/" >资源共享</a><a href="/agentscope-course/deploy/rag/" >RAG 服务</a><a href="/agentscope-course/deploy/workspace-manager/" >工作区管理</a><div class="group">智能体即服务 / MCP 与技能中心</div><a href="/agentscope-course/deploy/hub/overview/" >MCP 与技能中心 · 概览</a><a href="/agentscope-course/deploy/hub/mcp-hub/" >MCP 中心</a><a href="/agentscope-course/deploy/hub/skill-hub/" >技能中心</a><div class="group">智能体即服务 / 消息渠道</div><a href="/agentscope-course/deploy/channel/overview/" >消息渠道 · 概览</a><a href="/agentscope-course/deploy/channel/routing/" >会话路由</a><a href="/agentscope-course/deploy/channel/feishu/" >飞书</a><a href="/agentscope-course/deploy/channel/dingtalk/" >钉钉</a><a href="/agentscope-course/deploy/channel/discord/" >Discord</a><a href="/agentscope-course/deploy/channel/custom/" >自定义渠道</a><div class="group">其他</div><a href="/agentscope-course/others/faq/" >常见问题</a><a href="/agentscope-course/others/change-log/" >版本迁移</a><div class="group">智能体即服务 / API</div><a href="/agentscope-course/api/">API 参考</a></nav><main><div class="context">核心模块 / 流水线</div><article class="prose-custom" id="content"><h1>目标流水线</h1><p class="dek">让执行者反复工作，直到验证者认可结果</p><p><code>GoalPipeline</code> 是由一个执行者与一个验证者组成的流水线：执行者产出结果，验证者对照目标判定，不通过则带着理由退回重做，直到通过或用尽次数。</p>
+<p>其中的循环如下所示：</p>
+<div class="code-example"><div class="code-bar"><span>代码</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code data-caption="代码" data-lang="text">        ┌────────── 不通过：带着理由退回重做 ──────────┐
+        │                                          │
+        ▼                                          │
+输入 ─▶ 执行者 ────── 产出 ──────▶ 验证者 ────────────┘
+                                    │
+                                    └── 通过 ──▶ 结束
+</code></pre></div>
+<p>验证者是一个普通的 <code>Agent</code>，不是某种特殊对象。它的结论通过<a href="/agentscope-course/building-blocks/agent/run-agent/">结构化输出</a>给出，因此一个需要读文件、跑命令、甚至请人确认的验证，走的是和执行完全相同的机制。</p>
+<h2 id="运行流水线">运行流水线</h2>
+<p>以下示例让两个智能体协作完成一个编程任务，执行者写代码，验证者检查：</p>
+<div class="code-example"><div class="code-bar"><span>goal_pipeline.py</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="goal_pipeline.py" data-lang="python">import asyncio
+import os
+
+from agentscope.agent import Agent
+from agentscope.console import launch_console
+from agentscope.credential import DashScopeCredential
+from agentscope.model import DashScopeChatModel
+from agentscope.pipeline import GoalPipeline
+from agentscope.tool import Toolkit
+from agentscope.workspace import LocalWorkspace
+
+
+async def main() -&gt; None:
+    # 两个智能体共享同一个工作区，验证者才能看到执行者真正写出来的
+    # 内容，而不是它声称写了什么
+    async with LocalWorkspace(workdir=&quot;./workspace&quot;) as workspace:
+        model = DashScopeChatModel(
+            credential=DashScopeCredential(
+                api_key=os.getenv(&quot;DASHSCOPE_API_KEY&quot;),
+            ),
+            model=&quot;qwen3.8-max&quot;,
+        )
+
+        # 执行者：负责干活，用工作区的文件工具写代码
+        executor = Agent(
+            name=&quot;Executor&quot;,
+            system_prompt=&quot;You&#x27;re a programmer named &#x27;Executor&#x27;.&quot;,
+            model=model,
+            toolkit=Toolkit(tools=await workspace.list_tools()),
+            offloader=workspace,
+        )
+
+        # 验证者：负责判定。装配同一套工具，因此它能真的去读代码、
+        # 跑测试，而不是只凭执行者的自述下结论
+        verifier = Agent(
+            name=&quot;Verifier&quot;,
+            system_prompt=&quot;You&#x27;re a reviewer named &#x27;Verifier&#x27;.&quot;,
+            model=model,
+            toolkit=Toolkit(tools=await workspace.list_tools()),
+            offloader=workspace,
+        )
+
+        pipe = GoalPipeline(
+            executor=executor,
+            verifier=verifier,
+            # 最多被驳回 5 次，之后即便未通过也停止
+            max_iters=5,
+        )
+
+        # 流水线满足 PipelineProtocol，可以直接交给终端 UI
+        await launch_console(agent=pipe)
+
+
+asyncio.run(main())
+</code></pre></div>
+<h3 id="构造参数">构造参数</h3>
+<p><code>GoalPipeline</code> 的构造参数如下：</p>
+<table><thead><tr><th>参数</th><th>类型</th><th>说明</th></tr></thead><tbody><tr><td><code>executor</code></td><td><code>Agent</code></td><td>负责干活的智能体</td></tr><tr><td><code>verifier</code></td><td><code>Agent</code></td><td>负责判定的智能体</td></tr><tr><td><code>verifier_reset_context</code></td><td><code>bool</code>，默认 <code>True</code></td><td>每次驳回后是否清空验证者的对话上下文</td></tr><tr><td><code>max_iters</code></td><td><code>int</code>，默认 <code>10</code></td><td>最多允许被驳回几次</td></tr><tr><td><code>max_retries</code></td><td><code>int</code>，默认 <code>3</code></td><td>任一方没给出合法结构化输出时，最多重问几次</td></tr></tbody></table>
+<aside class="notice note"><strong>说明</strong><p>目标不在构造时给出，而是随任务一起进入 <code>reply_stream</code>：流水线第一次收到的消息既是交给执行者的任务，也是验证者对照的目标。</p></aside>
+<h3 id="验证与重试">验证与重试</h3>
+<p>执行者与验证者都通过结构化输出向流水线交付结果，字段如下：</p>
+<table><thead><tr><th>智能体</th><th>字段</th><th>含义</th></tr></thead><tbody><tr><td>执行者</td><td><code>report</code></td><td>成果说明，例如文件路径、入口、运行方式，供验证者据此核查</td></tr><tr><td>验证者</td><td><code>result</code></td><td><code>pass</code> 通过，<code>fail</code> 未通过，<code>impossible</code> 目标本身无法达成</td></tr><tr><td>验证者</td><td><code>message</code></td><td>未通过时说明缺什么、在哪里改</td></tr></tbody></table>
+<p><code>message</code> 会被原样转交给执行者，因此它必须写清楚缺什么，而不是只说「有问题」。一轮的完整流程如下：</p>
+<div class="steps"><section class="step"><h3>执行者工作</h3><p>执行者收到任务开始干活，产出留在共享工作区里，最后交出 <code>report</code>。</p></section><section class="step"><h3>验证者判定</h3><p>验证者对照目标检查产出，给出 <code>result</code> 与 <code>message</code>。</p></section><section class="step"><h3>通过则结束</h3><p><code>result</code> 为 <code>pass</code> 或 <code>impossible</code> 时，流水线结束，事件流关闭。</p></section><section class="step"><h3>不通过则退回</h3><p><code>message</code> 包在一段提醒里交给执行者，回到第一步重做。</p></section></div>
+<p>两种「重来」性质不同，只有第一种消耗 <code>max_iters</code>：</p>
+<table><thead><tr><th>情况</th><th>含义</th><th>是否消耗 <code>max_iters</code></th></tr></thead><tbody><tr><td>验证者判定 <code>fail</code></td><td>活儿确实没做好</td><td>是</td></tr><tr><td>任一方没给出合法的结构化输出</td><td>模型没照要求调工具</td><td>否，提醒后重问</td></tr></tbody></table>
+<p>第二种是故障不是判决，算进预算会让执行者平白少几次机会，重问次数由 <code>max_retries</code> 限制。达到 <code>max_iters</code> 后流水线停止，事件流结束，最后一次 <code>message</code> 留在验证者的对话里。</p>
+<p><code>verifier_reset_context</code> 决定验证者以什么样的上下文进入下一轮。默认为 <code>True</code>，即每完成一次 <code>fail</code> 判定就清空验证者的对话状态，让下一次验证只看这一轮的产出与 <code>report</code>，不被此前几轮的判词带偏；设为 <code>False</code> 则保留累积的对话与摘要。该选项只作用于验证者的对话状态，执行者状态、工具与任务配置、中间件状态、结构化输出重试以及中断恢复都不受影响。</p>
+<h2 id="中断与恢复">中断与恢复</h2>
+<p>执行者或验证者停在工具授权上时，<code>reply_stream</code> 直接结束，不占用协程、不持有锁、不轮询等待。开发者把结果重新喂回来即可继续：</p>
+<div class="code-example"><div class="code-bar"><span>中断后恢复</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="中断后恢复" data-lang="python"># 中途出现 RequireUserConfirmEvent，事件流随即结束
+async for event in pipe.reply_stream(user_msg):
+    ...
+
+# 把用户的答复递回去，从中断处接着跑
+async for event in pipe.reply_stream(user_confirm_result_event):
+    ...
+</code></pre></div>
+<p>恢复时不需要说明该找谁。事件自带的 <code>reply_id</code> 指明了当时是哪一方被挂起，流水线据此把结果交给对应的智能体。</p>
+<p><code>reply_stream</code> 接受的输入如下：</p>
+<table><thead><tr><th>输入类型</th><th>含义</th></tr></thead><tbody><tr><td><code>Msg</code> / <code>list[Msg]</code></td><td>开始一次新的运行，迭代预算重新计数</td></tr><tr><td><code>UserConfirmResultEvent</code></td><td>用户对工具授权的答复</td></tr><tr><td><code>ExternalExecutionResultEvent</code></td><td>外部执行的结果</td></tr><tr><td><code>UserInterruptEvent</code></td><td>放弃当前挂起的调用，整个流水线随之结束</td></tr></tbody></table>
+<aside class="notice note"><strong>说明</strong><p>迭代预算记在流水线实例上，而不是 <code>reply_stream</code> 的局部变量里，因此中断恢复不会让已经用掉的次数回满。</p></aside>
+<h2 id="终端调试">终端调试</h2>
+<p>调试流水线最省事的方式，是把它整个交给<a href="/agentscope-course/building-blocks/console/">终端 UI</a>，不需要任何适配代码：</p>
+<div class="code-example"><div class="code-bar"><span>在终端中运行流水线</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="在终端中运行流水线" data-lang="python">await launch_console(agent=pipe)
+</code></pre></div>
+<p>运行起来之后，各部分的分工如下：</p>
+<table><thead><tr><th>你会看到</th><th>由谁负责</th></tr></thead><tbody><tr><td>两个智能体轮流发言，各自的思考、工具调用与结果都在同一个流里</td><td>流水线统一吐出内部事件，用 <code>reply_id</code> 区分是谁</td></tr><tr><td>工具授权提示（<code>y</code> 允许一次，<code>a</code> 连同建议规则一起接受）</td><td>终端 UI 负责询问，<code>reply_id</code> 保证答复回到正确的那个智能体</td></tr><tr><td><code>Ctrl+C</code> 中断当前回复，<code>exit</code> / <code>quit</code> / <code>Ctrl+D</code> 退出</td><td>终端 UI</td></tr></tbody></table>
+<p>在确认提示上按 <code>Ctrl+D</code> 会发出 <code>UserInterruptEvent</code>：被挂起的那个智能体关掉未决的工具调用，整条流水线随之结束。中断是放弃，不是继续。</p></article><footer><div class="paging"><a href="/agentscope-course/building-blocks/pipeline/overview/">上一节 · 流水线 · 概述</a><a href="/agentscope-course/building-blocks/pipeline/team/">下一节 · 团队流水线</a></div><div class="credits"><a href="https://docs.agentscope.io/zh/versions/2.0.12/building-blocks/pipeline/goal" target="_blank" rel="noopener">在线原页</a> · <a href="/agentscope-course/mdx/building-blocks/pipeline/goal.mdx">原始 MDX</a> · <a href="https://github.com/agentscope-ai/docs/blob/e0ee835d1aca5d2b840d29bdd2f70770bbef69e8/zh/versions/2.0.12/building-blocks/pipeline/goal.mdx" target="_blank" rel="noopener">固定版本来源</a> · <a href="/agentscope-course/LICENSE.txt">MIT 许可</a></div></footer></main></div></body></html>

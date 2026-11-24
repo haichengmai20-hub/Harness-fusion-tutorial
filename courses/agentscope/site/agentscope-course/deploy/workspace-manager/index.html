@@ -1,0 +1,327 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>工作区管理 · AgentScope</title><link rel="stylesheet" href="/agentscope-course/reader.css"><script defer src="/agentscope-course/reader.js"></script></head><body><header class="mast"><a href="/agentscope-course/">AgentScope <small>中文文档</small></a><span>v2.0.12</span><button id="catalog" aria-controls="outline" aria-expanded="false">目录</button></header><div class="layout"><nav id="outline" aria-label="AgentScope 文档目录"><div class="group">快速开始</div><a href="/agentscope-course/" >AgentScope 2.0 是什么？</a><a href="/agentscope-course/quickstart/" >快速开始</a><a href="/agentscope-course/release-notes/" >更新日志</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/message-and-event/" >消息与事件</a><div class="group">核心模块 / 智能体</div><a href="/agentscope-course/building-blocks/agent/overview/" >智能体 · 概述</a><a href="/agentscope-course/building-blocks/agent/configure-agent/" >配置智能体</a><a href="/agentscope-course/building-blocks/agent/run-agent/" >运行智能体</a><a href="/agentscope-course/building-blocks/agent/interrupt-agent/" >中断智能体</a><a href="/agentscope-course/building-blocks/agent/human-in-the-loop/" >人机交互</a><div class="group">核心模块 / 模型</div><a href="/agentscope-course/building-blocks/model/overview/" >模型 · 概述</a><a href="/agentscope-course/building-blocks/model/llm/" >大语言模型</a><a href="/agentscope-course/building-blocks/model/tts/" >语音合成</a><a href="/agentscope-course/building-blocks/model/asr/" >语音识别</a><a href="/agentscope-course/building-blocks/model/embedding/" >嵌入模型</a><div class="group">核心模块 / 上下文管理</div><a href="/agentscope-course/building-blocks/context/overview/" >上下文管理 · 概述</a><a href="/agentscope-course/building-blocks/context/environment-awareness/" >感知环境</a><a href="/agentscope-course/building-blocks/context/compress-context/" >压缩上下文</a><a href="/agentscope-course/building-blocks/context/offload-context/" >卸载上下文</a><div class="group">核心模块 / 工具</div><a href="/agentscope-course/building-blocks/tool/overview/" >工具 · 概述</a><a href="/agentscope-course/building-blocks/tool/python-tool/" >Python 函数工具</a><a href="/agentscope-course/building-blocks/tool/mcp/" >MCP</a><a href="/agentscope-course/building-blocks/tool/skill/" >Skill</a><a href="/agentscope-course/building-blocks/tool/manage-tools/" >元工具</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/plan/" >计划模式</a><div class="group">核心模块 / 流水线</div><a href="/agentscope-course/building-blocks/pipeline/overview/" >流水线 · 概述</a><a href="/agentscope-course/building-blocks/pipeline/goal/" >目标流水线</a><a href="/agentscope-course/building-blocks/pipeline/team/" >团队流水线</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/sop/" >标准作业流程</a><div class="group">核心模块 / 权限系统</div><a href="/agentscope-course/building-blocks/permission-system/overview/" >权限系统 · 概述</a><a href="/agentscope-course/building-blocks/permission-system/permission-mode/" >权限模式</a><a href="/agentscope-course/building-blocks/permission-system/permission-rule/" >权限规则</a><a href="/agentscope-course/building-blocks/permission-system/tool-check/" >工具内置检查</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/middleware/" >中间件</a><a href="/agentscope-course/building-blocks/rag/" >RAG</a><a href="/agentscope-course/building-blocks/long-term-memory/" >长期记忆</a><div class="group">核心模块 / 工作区</div><a href="/agentscope-course/building-blocks/workspace/overview/" >工作区 · 概述</a><a href="/agentscope-course/building-blocks/workspace/run-workspace/" >运行工作区</a><a href="/agentscope-course/building-blocks/workspace/manage-resources/" >管理资源</a><a href="/agentscope-course/building-blocks/workspace/mcp-gateway/" >MCP 网关</a><div class="group">核心模块 / 实时语音智能体</div><a href="/agentscope-course/building-blocks/realtime/overview/" >实时语音智能体 · 概述</a><a href="/agentscope-course/building-blocks/realtime/speech-to-speech/" >语音到语音</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/console/" >终端 UI</a><a href="/agentscope-course/building-blocks/a2a/" >A2A 协议</a><div class="group">智能体即服务</div><a href="/agentscope-course/deploy/agent-service/" >架构</a><a href="/agentscope-course/deploy/agent-team/" >智能体团队</a><a href="/agentscope-course/deploy/sop/" >SOP 服务</a><a href="/agentscope-course/deploy/sharing/" >资源共享</a><a href="/agentscope-course/deploy/rag/" >RAG 服务</a><a href="/agentscope-course/deploy/workspace-manager/" aria-current="page">工作区管理</a><div class="group">智能体即服务 / MCP 与技能中心</div><a href="/agentscope-course/deploy/hub/overview/" >MCP 与技能中心 · 概览</a><a href="/agentscope-course/deploy/hub/mcp-hub/" >MCP 中心</a><a href="/agentscope-course/deploy/hub/skill-hub/" >技能中心</a><div class="group">智能体即服务 / 消息渠道</div><a href="/agentscope-course/deploy/channel/overview/" >消息渠道 · 概览</a><a href="/agentscope-course/deploy/channel/routing/" >会话路由</a><a href="/agentscope-course/deploy/channel/feishu/" >飞书</a><a href="/agentscope-course/deploy/channel/dingtalk/" >钉钉</a><a href="/agentscope-course/deploy/channel/discord/" >Discord</a><a href="/agentscope-course/deploy/channel/custom/" >自定义渠道</a><div class="group">其他</div><a href="/agentscope-course/others/faq/" >常见问题</a><a href="/agentscope-course/others/change-log/" >版本迁移</a><div class="group">智能体即服务 / API</div><a href="/agentscope-course/api/">API 参考</a></nav><main><div class="context">智能体即服务</div><article class="prose-custom" id="content"><h1>工作区管理</h1><p class="dek">在服务中分配、管理智能体的运行环境（Workspace）</p><p><strong>工作区管理器</strong>（Workspace Manager）持有隔离策略，并管理智能体服务中每个智能体的 <a href="/agentscope-course/building-blocks/workspace/overview/"><code>Workspace</code></a> 实例的生命周期。它是 <code>agentscope.workspace</code> 模块在服务侧的对应实现 —— 每一种 <code>WorkspaceBase</code> 子类都有一个配套的 <code>WorkspaceManagerBase</code> 的子类来负责创建、缓存与删除。</p>
+<p>它的特点：</p>
+<ul>
+<li><strong>可配置的隔离粒度</strong> —— <code>PER_AGENT</code>（默认）、<code>PER_SESSION</code> 或 <code>PER_USER</code> —— 决定 workspace 在 <code>(user_id, agent_id, session_id)</code> 三个维度上如何共享或隔离，让同一套部署可以干净地服务多个租户。</li>
+<li><strong>可插拔的沙箱后端</strong> —— 同一份生命周期契约既可以包裹本地目录、bubblewrap 沙箱、Docker 容器，也可以对应 E2B / Daytona / OpenSandbox 云沙箱与 Kubernetes Pod。切换后端只需在 <code>create_app</code> 中改一行。</li>
+</ul>
+<h2 id="可选的实现">可选的实现</h2>
+<table><thead><tr><th>类</th><th>说明</th></tr></thead><tbody><tr><td><code>LocalWorkspaceManager</code></td><td>直接落在宿主目录下的裸机式 workspace。零基础设施、零沙箱化 —— 智能体直接跑在开发者的宿主文件系统上。</td></tr><tr><td><code>BubblewrapWorkspaceManager</code></td><td>每个 workspace 对应一个 <a href="https://github.com/containers/bubblewrap">bubblewrap</a> 沙箱，落在宿主目录下。只需 Linux 主机上装有 <code>bwrap</code>，但与宿主共享网络命名空间。</td></tr><tr><td><code>DockerWorkspaceManager</code></td><td>每个 workspace 对应一个 Docker 容器，宿主目录以 bind mount 的方式挂进去做持久化。需要一个可达的 Docker daemon。</td></tr><tr><td><code>E2BWorkspaceManager</code></td><td>通过 <a href="https://e2b.dev/">E2B</a> 托管的云沙箱。空闲时自动挂起，下一次访问时恢复。</td></tr><tr><td><code>DaytonaWorkspaceManager</code></td><td>通过 <a href="https://www.daytona.io/">Daytona</a> 托管的云沙箱。重新挂接依据沙箱标签进行，<code>user_id</code> / <code>agent_id</code> 也会作为额外标签写入，便于在终端 UI上筛选。</td></tr><tr><td><code>OpenSandboxWorkspaceManager</code></td><td>通过 <a href="https://github.com/agentscope-ai/opensandbox">OpenSandbox</a> 托管的云沙箱。沙箱在暂停/恢复之间保留自己的文件系统；重新挂接依据沙箱 metadata 进行，因此任意服务副本都能重连。</td></tr><tr><td><code>K8sWorkspaceManager</code></td><td>在 Kubernetes 集群上为每个 workspace 起一个 Pod + PVC。适合已经在跑其他负载的生产集群。</td></tr></tbody></table>
+<p>所有 manager 都会缓存自己创建的 workspace，并在最后一次访问的 <code>ttl</code> 秒（默认 3600）后驱逐它。<code>LocalWorkspaceManager</code> 在下一次 <code>get_workspace()</code> 调用时顺带回收过期项；沙箱类 manager 还会每隔 <code>sweep_interval</code> 秒跑一次后台 sweeper，因此空闲的容器、沙箱或 Pod 无需等到下一个请求就会被释放。</p>
+<aside class="notice tip"><strong>提示</strong><p>想深入了解 workspace <em>究竟是什么</em>（文件系统布局、gateway、MCP 接线、内置工具），请看 <a href="/agentscope-course/building-blocks/workspace/overview/">Workspace</a> 章节。</p></aside>
+<h2 id="接入智能体服务">接入智能体服务</h2>
+<p>在 <code>create_app</code> 入口处设置对应的 <code>WorkspaceManager</code> 实例即可。下面是七种内置实现的示例：</p>
+<div class="tab-set" data-tab-set=""><div class="tab-list" role="group" aria-label="代码示例"><button type="button" data-choice="0" aria-pressed="true">Local</button><button type="button" data-choice="1" aria-pressed="false">Bubblewrap</button><button type="button" data-choice="2" aria-pressed="false">Docker</button><button type="button" data-choice="3" aria-pressed="false">E2B</button><button type="button" data-choice="4" aria-pressed="false">Daytona</button><button type="button" data-choice="5" aria-pressed="false">OpenSandbox</button><button type="button" data-choice="6" aria-pressed="false">Kubernetes</button></div><div data-panel="0"><div class="code-example"><div class="code-bar"><span>Local</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="Local" data-lang="python">from agentscope.app import create_app
+from agentscope.app.workspace_manager import (
+    IsolationPolicy,
+    LocalWorkspaceManager,
+)
+
+workspace_manager = LocalWorkspaceManager(
+    # 宿主根目录；每个 agent 的工作目录落在 `&lt;basedir&gt;/&lt;user_id&gt;/&lt;agent_id&gt;` 下。
+    basedir=&quot;/data/workspaces&quot;,
+    # `PER_AGENT`（默认）：同一 agent 的所有 session 共享一个 workspace。
+    # `PER_SESSION` / `PER_USER` 改变粒度，详见下文。
+    isolation=IsolationPolicy.PER_AGENT,
+)
+
+app = create_app(
+    # ...existing code...
+    workspace_manager=workspace_manager,
+)
+</code></pre></div></div><div data-panel="1" hidden=""><div class="code-example"><div class="code-bar"><span>Bubblewrap</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="Bubblewrap" data-lang="python">from agentscope.app import create_app
+from agentscope.app.workspace_manager import (
+    BubblewrapWorkspaceManager,
+    IsolationPolicy,
+)
+
+workspace_manager = BubblewrapWorkspaceManager(
+    # 宿主根目录；每个 workspace 位于 `&lt;basedir&gt;/&lt;哈希后的 user_id&gt;/&lt;哈希后的 workspace_id&gt;`，
+    # 并挂载到沙箱内的 `/workspace`。
+    basedir=&quot;/data/workspaces&quot;,
+    isolation=IsolationPolicy.PER_AGENT,
+    # None 表示每个 workspace 自行选择一个可用的回环端口给 gateway 使用。
+    gateway_port=None,
+    # 额外装进沙箱内 gateway 虚拟环境的依赖。
+    extra_pip=[],
+    ttl=3600.0,
+)
+
+app = create_app(
+    # ...existing code...
+    workspace_manager=workspace_manager,
+)
+</code></pre></div></div><div data-panel="2" hidden=""><div class="code-example"><div class="code-bar"><span>Docker</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="Docker" data-lang="python">from agentscope.app import create_app
+from agentscope.app.workspace_manager import (
+    DockerWorkspaceManager,
+    IsolationPolicy,
+)
+
+workspace_manager = DockerWorkspaceManager(
+    # 宿主根目录，会 bind mount 到每个容器内的 `/workspace`。
+    basedir=&quot;/data/workspaces&quot;,
+    isolation=IsolationPolicy.PER_AGENT,
+    # 基础镜像，必须自带 `python3`。镜像按内容哈希，
+    # 只有 Dockerfile 输入变化时才会重新构建。
+    base_image=&quot;python:3.11-slim&quot;,
+    # 镜像里内置的 Node.js 主版本号（基于 npx 的 MCP 会用到）。
+    node_version=&quot;20&quot;,
+    # 空闲容器在被 sweeper 清掉前的缓存时间（秒）。
+    ttl=3600.0,
+)
+
+app = create_app(
+    # ...existing code...
+    workspace_manager=workspace_manager,
+)
+</code></pre></div></div><div data-panel="3" hidden=""><div class="code-example"><div class="code-bar"><span>E2B</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="E2B" data-lang="python">from agentscope.app import create_app
+from agentscope.app.workspace_manager import (
+    E2BWorkspaceManager,
+    IsolationPolicy,
+)
+
+workspace_manager = E2BWorkspaceManager(
+    isolation=IsolationPolicy.PER_AGENT,
+    # E2B template id，模板里要自带 agent 所需的运行时。
+    template=&quot;base&quot;,
+    # 传 `&quot;&quot;` 时会回退去读环境变量 `E2B_API_KEY`。
+    api_key=&quot;&quot;,
+    # E2B 侧的沙箱 keep-alive 超时时间。
+    timeout_seconds=300,
+    ttl=3600.0,
+)
+
+app = create_app(
+    # ...existing code...
+    workspace_manager=workspace_manager,
+)
+</code></pre></div></div><div data-panel="4" hidden=""><div class="code-example"><div class="code-bar"><span>Daytona</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="Daytona" data-lang="python">from agentscope.app import create_app
+from agentscope.app.workspace_manager import (
+    DaytonaWorkspaceManager,
+    IsolationPolicy,
+)
+
+workspace_manager = DaytonaWorkspaceManager(
+    isolation=IsolationPolicy.PER_AGENT,
+    # `&quot;&quot;` 表示由 Daytona SDK 从环境变量中读取凭证。
+    api_key=&quot;&quot;,
+    # 自建部署时可指定 API 地址与目标区域。
+    api_url=&quot;&quot;,
+    target=&quot;&quot;,
+    # Daytona 侧的沙箱操作超时时间。
+    timeout_seconds=300,
+    ttl=3600.0,
+)
+
+app = create_app(
+    # ...existing code...
+    workspace_manager=workspace_manager,
+)
+</code></pre></div></div><div data-panel="5" hidden=""><div class="code-example"><div class="code-bar"><span>OpenSandbox</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="OpenSandbox" data-lang="python">from agentscope.app import create_app
+from agentscope.app.workspace_manager import (
+    IsolationPolicy,
+    OpenSandboxWorkspaceManager,
+)
+
+workspace_manager = OpenSandboxWorkspaceManager(
+    isolation=IsolationPolicy.PER_AGENT,
+    # 沙箱启动所用的镜像；gateway 的 venv 会在其之上引导安装。
+    image=&quot;python:3.11-slim&quot;,
+    # 传 `&quot;&quot;` 时会让 `opensandbox` SDK 回退到基于环境变量的配置。
+    api_key=&quot;&quot;,
+    # 可选的服务端 domain，用于自托管 / 本地部署。
+    domain=&quot;&quot;,
+    protocol=&quot;http&quot;,
+    # OpenSandbox 侧的沙箱 keep-alive 超时时间。
+    timeout_seconds=300,
+    ttl=3600.0,
+)
+
+app = create_app(
+    # ...existing code...
+    workspace_manager=workspace_manager,
+)
+</code></pre></div></div><div data-panel="6" hidden=""><div class="code-example"><div class="code-bar"><span>Kubernetes</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="Kubernetes" data-lang="python">from agentscope.app import create_app
+from agentscope.app.workspace_manager import (
+    IsolationPolicy,
+    K8sWorkspaceManager,
+)
+
+workspace_manager = K8sWorkspaceManager(
+    isolation=IsolationPolicy.PER_AGENT,
+    # 存放 workspace Pod 与 PVC 的 K8s namespace。
+    namespace=&quot;agentscope&quot;,
+    # 传 `None` 用集群内配置；集群外使用时传一个 kubeconfig 路径。
+    kubeconfig=None,
+    # 每个 Pod 的容器镜像。
+    image=&quot;python:3.11-slim&quot;,
+    # 为 workspace 文件系统兜底的 PVC 大小。
+    storage_size=&quot;1Gi&quot;,
+    ttl=3600.0,
+)
+
+app = create_app(
+    # ...existing code...
+    workspace_manager=workspace_manager,
+)
+</code></pre></div></div></div>
+<h2 id="隔离粒度">隔离粒度</h2>
+<p><code>isolation</code> 决定 workspace 在 <code>(user_id, agent_id, session_id)</code> 三元组上如何共享或隔离。Manager 会在 session 创建时按所选策略生成一个 <code>workspace_id</code>；后续所有带着同一个 <code>workspace_id</code> 的请求都会落到同一个底层 workspace 上。</p>
+<table><thead><tr><th>取值</th><th>共享规则</th><th>典型场景</th></tr></thead><tbody><tr><td><code>PER_AGENT</code>（默认）</td><td>同一 <code>(user_id, agent_id)</code> 下的所有 session 共享一个 workspace</td><td>让每个 agent 拥有一份持久化的、按用户区分的工作目录 —— 文件、skill、MCP 注册跨 session 也能保留下来。</td></tr><tr><td><code>PER_SESSION</code></td><td>每个 session 一个独立的 workspace</td><td>需要保证 session 之间互不泄露状态的场景 —— 例如一次性沙箱评测、短生命周期的自动化任务。</td></tr><tr><td><code>PER_USER</code></td><td>同一 <code>user_id</code> 下的所有 session 共享一个 workspace，不区分是哪个 agent</td><td>同一用户的多个 agent 在同一份文件系统上协作（少见，谨慎使用）。</td></tr></tbody></table>
+<aside class="notice note"><strong>说明</strong><p>在 session 创建请求中显式指定 <code>workspace_id</code> 永远会覆盖策略。这就是内置团队工具（<code>AgentCreate</code> / <code>AgentInvite</code>）用来让子 agent 与团队 leader 共用同一个 workspace 的机制。</p></aside>
+<h2 id="在智能体服务中的工作原理">在智能体服务中的工作原理</h2>
+<p>工作区管理器是一个<strong>应用级单例资源</strong>：一个智能体服务进程只有一份实例，所有请求共享。它的职责有两个：（a）在配置的 <code>isolation</code> 策略下<em>判断</em>一次请求属于哪个 workspace；（b）把该 workspace 作为一个廉价依赖交给需要它的路由和服务。</p>
+<h3 id="接线方式">接线方式</h3>
+<p>开发者传给 <code>create_app(workspace_manager=...)</code> 的实例会被挂到 <code>app.state</code> 上，并通过一个 FastAPI 依赖对外暴露：</p>
+<div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python"># agentscope/app/_app.py
+app.state.workspace_manager = workspace_manager
+
+# agentscope/app/deps.py
+async def get_workspace_manager(request: Request) -&gt; WorkspaceManagerBase:
+    return request.app.state.workspace_manager
+</code></pre></div>
+<p>所有会碰到 workspace 的 router、service 与内置工具都通过这个依赖来消费它（服务类则通过构造函数注入）：</p>
+<ul>
+<li><strong>Router</strong> —— <code>/session</code>、<code>/workspace/*</code>（MCP、skill）。它们调用 <code>Depends(get_workspace_manager)</code>，然后用 <code>manager.get_workspace(...)</code> 解析出调用方对应的 workspace。</li>
+<li><strong><code>ChatService</code></strong> —— 在 lifespan 里通过构造函数拿到 manager，每次 chat 运行时调用 <code>get_workspace</code> 拿到 agent 将要作用其中的 workspace。</li>
+<li><strong>内置团队工具</strong>（<code>AgentCreate</code> / <code>AgentInvite</code>）—— 拿到 manager 后在派生子 agent session 时调用 <code>assign_workspace_id(...)</code>，让子 agent 落到与 leader 相同的 workspace 里。</li>
+</ul>
+<h3 id="生命周期">生命周期</h3>
+<p>Manager 是一个<strong>异步上下文管理器</strong>。应用的 <code>lifespan</code> 会在启动时进入它，在关闭时通过一个 <code>AsyncExitStack</code> 退出它，所以它所拥有的任何后台机制（例如 Bubblewrap / Docker / E2B / Daytona / OpenSandbox / K8s manager 的空闲 TTL sweeper）都会与服务的其他部分同步启停：</p>
+<div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python"># agentscope/app/_lifespan.py（节选）
+workspace_manager = app.state.workspace_manager
+async with AsyncExitStack() as stack:
+    await stack.enter_async_context(storage)
+    await stack.enter_async_context(message_bus)
+    await stack.enter_async_context(workspace_manager)  # ← 就是这里
+    ...
+    yield
+# ← 退出时，`__aexit__` 会调用 `close_all()` 拆掉每一个缓存中的 workspace。
+</code></pre></div>
+<h3 id="端到端请求流程">端到端请求流程</h3>
+<p>服务跑起来之后，一次典型的交互长这样：</p>
+<ol>
+<li>
+<p><strong>创建 session</strong> —— <code>/session</code> router 只计算一次 workspace id 并把它写到 session 记录上：</p>
+<div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python"># agentscope/app/_router/_session.py（节选）
+resolved_workspace_id = body.workspace_id or (
+    workspace_manager.assign_workspace_id(
+        user_id=user_id,
+        agent_id=agent_id,
+        session_id=session_id,
+    )
+)
+</code></pre></div>
+<p>显式传入的 <code>body.workspace_id</code> 永远优先（团队工具就是靠它让子 agent 共享 leader 的 workspace）；否则由 manager 按配置的 <code>isolation</code> 策略生成一个。<code>assign_workspace_id</code> 是一个纯函数 —— 不做 I/O，不查缓存 —— 所以在热路径上调用非常便宜。</p>
+</li>
+<li>
+<p><strong>后续每个请求</strong>带着这个 session —— 无论是 chat 运行、MCP 注册还是 skill 上传 —— 都会从 session 记录里读出保存好的 <code>workspace_id</code>，然后请求 manager 把它落到具体的 workspace 上：</p>
+<div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">workspace = await workspace_manager.get_workspace(
+    user_id, agent_id, session_id, session_record.config.workspace_id,
+)
+</code></pre></div>
+<p><code>get_workspace</code> 是缓存命中的路径。它在 manager 内部的 <code>dict</code> 里查 <code>workspace_id</code>，刷新一下最后访问时间，就在 O(1) 内返回已初始化好的 <code>Workspace</code>。只有 miss 的时候才会抢一把 <code>asyncio.Lock</code>，把后端准备好（构建 Docker 镜像、启动 E2B 或 OpenSandbox 沙箱、创建 K8s Pod……），再把结果缓存起来 —— 这把锁能防止多个请求同时冲进来给同一个 id 起两份后端。</p>
+</li>
+<li>
+<p><strong>空闲驱逐</strong> —— 沙箱类的 manager 会跑一个后台 sweeper（在 <code>__aenter__</code> 里启动），周期性遍历缓存，把最后访问时间超过 <code>ttl</code> 的 workspace 关闭并踢出。下一次访问该 id 时会透明地重新准备一份。</p>
+</li>
+<li>
+<p><strong>关闭</strong> —— lifespan 退出 manager，manager 调用 <code>close_all()</code> 拆掉所有缓存中的 workspace 及其后台 sweeper。</p>
+</li>
+</ol>
+<aside class="notice note"><strong>说明</strong><p>由于 <code>workspace_id</code> <strong>只在 session 创建时生成一次</strong>并持久化，运行中的部署改动 <code>isolation</code> 策略并<strong>不会</strong>对现存 session 重新分组 —— 它们会继续保留当初分配的 id。只有新 session 才会走新策略。</p></aside>
+<h2 id="核心-api">核心 API</h2>
+<p>每个 manager 都要实现来自 <code>WorkspaceManagerBase</code> 的以下契约。自定义子类只需要补齐这些抽象方法即可；<code>assign_workspace_id</code> 里的隔离逻辑由基类提供，并由 <code>isolation</code> 构造参数驱动。</p>
+<table><thead><tr><th>方法</th><th>用途</th></tr></thead><tbody><tr><td><code>assign_workspace_id(*, user_id, agent_id, session_id) -&gt; str</code></td><td>在配置的 <code>isolation</code> 策略下为一个新 session 生成 workspace id。纯函数，无 I/O。当客户端在 session 创建请求中省略了 <code>workspace_id</code> 时会被调用。</td></tr><tr><td><code>get_workspace(user_id, agent_id, session_id, workspace_id=None) -&gt; WorkspaceBase</code></td><td>返回一个绑定到 <code>workspace_id</code> 的已初始化 workspace。热路径上的缓存命中路径；miss 时 manager 会准备底层后端并缓存结果。<code>workspace_id=None</code> 会回退到 <code>assign_workspace_id</code>。</td></tr><tr><td><code>create_workspace(user_id, agent_id, session_id) -&gt; WorkspaceBase</code></td><td>全新准备一个 workspace 并纳入管理。调用方还没有可复用的 id 时使用。</td></tr><tr><td><code>close(workspace_id)</code></td><td>把某一个 workspace 从缓存中踢掉，并拆掉它的后端。</td></tr><tr><td><code>close_all()</code></td><td>踢掉所有缓存的 workspace —— 服务关闭时调用。</td></tr><tr><td><code>async with manager: ...</code></td><td>进入 / 退出 manager 的生命周期。进入时启动后台机制（例如 TTL sweeper）；退出时调用 <code>close_all</code>。</td></tr></tbody></table>
+<h2 id="自定义-manager">自定义 Manager</h2>
+<p>任何基于 <a href="/agentscope-course/building-blocks/workspace/overview/"><code>WorkspaceBase</code></a> 构建的 workspace 类，都可以通过配一个 <code>WorkspaceManagerBase</code> 子类的方式接到智能体服务里。大多数情况下只需要写一小段准备 + 缓存的样板代码 —— 隔离策略由基类自动继承。</p>
+<div class="code-example"><div class="code-bar"><span>自定义 Manager</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="自定义 Manager" data-lang="python">import asyncio
+import time
+from typing import Self
+
+from agentscope.app.workspace_manager import (
+    IsolationPolicy,
+    WorkspaceManagerBase,
+)
+from agentscope.workspace import WorkspaceBase
+
+
+class MyWorkspaceManager(WorkspaceManagerBase):
+    &quot;&quot;&quot;封装自定义 `MyWorkspace` 后端的轻量 manager。&quot;&quot;&quot;
+
+    def __init__(
+        self,
+        *,
+        isolation: IsolationPolicy = IsolationPolicy.PER_AGENT,
+        ttl: float = 3600.0,
+    ) -&gt; None:
+        super().__init__(isolation=isolation)
+        self._ttl = ttl
+        # workspace_id -&gt; (workspace, last_access_monotonic)
+        self._cache: dict[str, tuple[WorkspaceBase, float]] = {}
+        self._lock = asyncio.Lock()
+
+    async def get_workspace(
+        self,
+        user_id: str,
+        agent_id: str,
+        session_id: str,
+        workspace_id: str | None = None,
+    ) -&gt; WorkspaceBase:
+        # 当此 session 没有持久化的显式绑定时，
+        # 回退到 manager 的 isolation 策略。
+        if workspace_id is None:
+            workspace_id = self.assign_workspace_id(
+                user_id=user_id,
+                agent_id=agent_id,
+                session_id=session_id,
+            )
+        async with self._lock:
+            hit = self._cache.get(workspace_id)
+            if hit is not None:
+                ws, _ = hit
+                self._cache[workspace_id] = (ws, time.monotonic())
+                return ws
+            ws = MyWorkspace(workspace_id=workspace_id)  # 你的后端
+            await ws.initialize()
+            self._cache[workspace_id] = (ws, time.monotonic())
+            return ws
+
+    async def create_workspace(
+        self,
+        user_id: str,
+        agent_id: str,
+        session_id: str,
+    ) -&gt; WorkspaceBase:
+        ws = MyWorkspace()  # 让 workspace 自己生成 id
+        await ws.initialize()
+        async with self._lock:
+            self._cache[ws.workspace_id] = (ws, time.monotonic())
+        return ws
+
+    async def close(self, workspace_id: str) -&gt; None:
+        async with self._lock:
+            entry = self._cache.pop(workspace_id, None)
+        if entry is not None:
+            await entry[0].close()
+
+    async def close_all(self) -&gt; None:
+        async with self._lock:
+            entries = list(self._cache.values())
+            self._cache.clear()
+        await asyncio.gather(
+            *(ws.close() for ws, _ in entries),
+            return_exceptions=True,
+        )
+</code></pre></div>
+<p>把一个 <code>MyWorkspaceManager</code> 实例传给 <code>create_app(workspace_manager=...)</code>，服务就会把它当作内置 manager 一样使用。</p>
+<aside class="notice tip"><strong>提示</strong><p>如果后端需要一个后台 sweeper 来做空闲驱逐，或者需要跑长时间的准备逻辑，重写 <code>__aenter__</code> / <code>__aexit__</code> 来启停这些机制 —— <code>DockerWorkspaceManager</code> 的源码就是一个完整示例。</p></aside>
+<h2 id="分布式部署">分布式部署</h2>
+<p><code>LocalWorkspaceManager</code>、<code>BubblewrapWorkspaceManager</code> 与 <code>DockerWorkspaceManager</code> 都是<strong>单节点</strong>的 —— workspace 状态活在跑服务进程的那台机器上。如果做水平扩容（负载均衡后挂多个智能体服务 worker 节点），同一个 <code>workspace_id</code> 的请求可能落到任意一个节点，而这几个 manager 都够不到其他节点上准备好的 workspace。</p>
+<p>分布式部署要用<strong>云托管的沙箱后端</strong>：</p>
+<ul>
+<li><strong><code>E2BWorkspaceManager</code></strong> —— 沙箱可以通过 metadata 跨节点寻址；缓存 miss 时服务直接重连已存在的沙箱即可。</li>
+<li><strong><code>DaytonaWorkspaceManager</code></strong> —— 沙箱携带 <code>agentscope.workspace.id</code> 标签；缓存 miss 时任意服务副本都可以按该标签重新挂接。</li>
+<li><strong><code>OpenSandboxWorkspaceManager</code></strong> —— 沙箱携带 <code>agentscope.workspace.id</code> 这个 metadata 标签；缓存 miss 时任意服务副本都可以通过对 <code>list_sandbox_infos(...)</code> 过滤来重新挂接，完全不依赖宿主本地状态。</li>
+<li><strong><code>K8sWorkspaceManager</code></strong> —— Pod 与 PVC 都是集群级资源；集群内任意服务副本都可以按 workspace-id 派生出的名字重连到同一个 Pod。</li>
+</ul>
+<aside class="notice tip"><strong>提示</strong><p>本地开发用 <code>LocalWorkspaceManager</code>，单机生产用 <code>BubblewrapWorkspaceManager</code> 或 <code>DockerWorkspaceManager</code>，一旦要横向扩容就切到 E2B、Daytona、OpenSandbox 或 K8s。</p></aside></article><footer><div class="paging"><a href="/agentscope-course/deploy/rag/">上一节 · RAG 服务</a><a href="/agentscope-course/deploy/hub/overview/">下一节 · MCP 与技能中心 · 概览</a></div><div class="credits"><a href="https://docs.agentscope.io/zh/versions/2.0.12/deploy/workspace-manager" target="_blank" rel="noopener">在线原页</a> · <a href="/agentscope-course/mdx/deploy/workspace-manager.mdx">原始 MDX</a> · <a href="https://github.com/agentscope-ai/docs/blob/e0ee835d1aca5d2b840d29bdd2f70770bbef69e8/zh/versions/2.0.12/deploy/workspace-manager.mdx" target="_blank" rel="noopener">固定版本来源</a> · <a href="/agentscope-course/LICENSE.txt">MIT 许可</a></div></footer></main></div></body></html>

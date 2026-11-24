@@ -1,0 +1,12 @@
+{
+  "name": "agentscope-offline-docs-build",
+  "private": true,
+  "description": "Build-time dependencies for the pinned original MDX, unused by the offline reader",
+  "dependencies": {
+    "@mdx-js/mdx": "3.1.1",
+    "mermaid": "10.9.4",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "remark-gfm": "4.0.1"
+  }
+}

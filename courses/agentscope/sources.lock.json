@@ -1,0 +1,296 @@
+{
+  "docsRepo": "https://github.com/agentscope-ai/docs",
+  "docsCommit": "e0ee835d1aca5d2b840d29bdd2f70770bbef69e8",
+  "frameworkVersion": "2.0.12",
+  "frameworkCommit": "28ab5ef6b1d8969c6ed8a3975c2063478a5c4986",
+  "locale": "zh",
+  "navigation": "https://github.com/agentscope-ai/docs/blob/e0ee835d1aca5d2b840d29bdd2f70770bbef69e8/docs.json",
+  "license": "https://github.com/agentscope-ai/docs/blob/e0ee835d1aca5d2b840d29bdd2f70770bbef69e8/LICENSE",
+  "licenseSha256": "25b2b8ffd5ed7a8d2b201f215a9ca64d14db709271070d7fb5efa30894655a35",
+  "upstreamFiles": [
+    {
+      "path": "zh/versions/2.0.12/index.mdx",
+      "sha256": "020780b9f052b63ee07565cddd9dc273398904734f1cefa9c8baa5b943568516"
+    },
+    {
+      "path": "zh/versions/2.0.12/quickstart.mdx",
+      "sha256": "089e61f402cd7062f4c948bc082ec832f5d76cd2c7969bed9944aa7d2bf8f162"
+    },
+    {
+      "path": "zh/versions/2.0.12/release-notes.mdx",
+      "sha256": "a1d103ebb8e87dd3ba2e770b9b2a7592fab79c3f706c5e42b04f5e98f4b5e7ac"
+    },
+    {
+      "path": "zh/versions/2.0.12/building-blocks/message-and-event.mdx",
+      "sha256": "da02aca1da024e18b7e67b53ab30762accb11d1f70d4d101130c5e1f2f9a6885"
+    },
+    {
+      "path": "zh/versions/2.0.12/building-blocks/agent/overview.mdx",
+      "sha256": "d26572872f5f5a4f278fa93c7a1e75a94847c462db479525a1f218850eb8514d"
+    },
+    {
+      "path": "zh/versions/2.0.12/building-blocks/agent/configure-agent.mdx",
+      "sha256": "bfe5aee363c351540fa53eba6e120d1a9a82e5f85e4bf65334f9040d09d16066"
+    },
+    {
+      "path": "zh/versions/2.0.12/building-blocks/agent/run-agent.mdx",
+      "sha256": "3f418189f16710fa6a48d87eda780b3587adaf67b567d1c430a10f90af695ec8"
+    },
+    {
+      "path": "zh/versions/2.0.12/building-blocks/agent/interrupt-agent.mdx",
+      "sha256": "fd9c7eb3d470fb9da38ea08f98cc8eb15d914b16d058efea346deb8dd8037a8b"
+    },
+    {
+      "path": "zh/versions/2.0.12/building-blocks/agent/human-in-the-loop.mdx",
+      "sha256": "4732c8c177de509e00b8a9a32d375775cb4b7d8eca12c7b256d4fc0b670ad5a4"
+    },
+    {
+      "path": "zh/versions/2.0.12/building-blocks/model/overview.mdx",
+      "sha256": "8747bfd15ce08dd69041aeb0697e098bd3d64015eb5f9453de33b8b1ff7643b1"
+    },
+    {
+      "path": "zh/versions/2.0.12/building-blocks/model/llm.mdx",
+      "sha256": "e3a560785beb62db1208a110c9d1df08670b1601cd4583a80bb28261efbe53ef"
+    },
+    {
+      "path": "zh/versions/2.0.12/building-blocks/model/tts.mdx",
+      "sha256": "6590a8d629d32dcdc0735371bc26b02fd44a98b6309d317c27bac7867d8df97d"
+    },
+    {
+      "path": "zh/versions/2.0.12/building-blocks/model/asr.mdx",
+      "sha256": "cf7da298cc1ea4ce67f7ada015890c08ec6d8ce1724d4bdfb53b27cafcd983d4"
+    },
+    {
+      "path": "zh/versions/2.0.12/building-blocks/model/embedding.mdx",
+      "sha256": "e8b61824d879b8371bc1b4b669196551467461ed3d3c482a07492450bd926d10"
+    },
+    {
+      "path": "zh/versions/2.0.12/building-blocks/context/overview.mdx",
+      "sha256": "f72d1130d09e67d238080fc2ba1c2f917dedba3013ed7944025eb22e55331f06"
+    },
+    {
+      "path": "zh/versions/2.0.12/building-blocks/context/environment-awareness.mdx",
+      "sha256": "04a28591cdc4e5e409891678daf80d8a4c42955706c2f2007acfba9179e2c648"
+    },
+    {
+      "path": "zh/versions/2.0.12/building-blocks/context/compress-context.mdx",
+      "sha256": "61fff5f7f7deead96d49a97e75fe19fdb2e5d3bad1a7a36319248f0d124b70c9"
+    },
+    {
+      "path": "zh/versions/2.0.12/building-blocks/context/offload-context.mdx",
+      "sha256": "c5dfc5d591a64e14b059dd2e26607bd1957d25c785f5e1b29fe5f9ef8fadbe98"
+    },
+    {
+      "path": "zh/versions/2.0.12/building-blocks/tool/overview.mdx",
+      "sha256": "25da093901de276b1e528839481b22347eb8d15ba9185c37f71cf6819cbedbd1"
+    },
+    {
+      "path": "zh/versions/2.0.12/building-blocks/tool/python-tool.mdx",
+      "sha256": "5cf0b0bca3aec4df1aa1ec162e2971a63d82d9462126ec2eef5d589854729dcc"
+    },
+    {
+      "path": "zh/versions/2.0.12/building-blocks/tool/mcp.mdx",
+      "sha256": "c47fff5419cfb73565ba9cfae406d8021416f634faea54e8b9c8197e71c4206b"
+    },
+    {
+      "path": "zh/versions/2.0.12/building-blocks/tool/skill.mdx",
+      "sha256": "8fe3f979ccf531ed18cab7895ffc028aebff675ac9bc56f62344999ccefd5ea4"
+    },
+    {
+      "path": "zh/versions/2.0.12/building-blocks/tool/manage-tools.mdx",
+      "sha256": "4debb6ee61cdb60c7afbebdfbca50aed937360ebf929945e71e2e9da6ef547f6"
+    },
+    {
+      "path": "zh/versions/2.0.12/building-blocks/plan.mdx",
+      "sha256": "82d18505f64c29ba072fa78dd128ab5994c86e738ac1c6e5e2d9452c4441f57c"
+    },
+    {
+      "path": "zh/versions/2.0.12/building-blocks/pipeline/overview.mdx",
+      "sha256": "86c56ac848936f55e669ef67e4f4e2621b87e6a98cda19f402e0ac38996a2c3a"
+    },
+    {
+      "path": "zh/versions/2.0.12/building-blocks/pipeline/goal.mdx",
+      "sha256": "f4929ca7389ea24573b32a36f9da59bb465e423614c105f9953f10481846dd02"
+    },
+    {
+      "path": "zh/versions/2.0.12/building-blocks/pipeline/team.mdx",
+      "sha256": "e9b64e70fd8bc11b3b4826238f269c033269d6ebea68da123a729b40eaff4d50"
+    },
+    {
+      "path": "zh/versions/2.0.12/building-blocks/sop.mdx",
+      "sha256": "5b0c2e1bce762ad1dbed8236ec7061fbecb7d2bd8e77b0cdf104fa34a19bd82b"
+    },
+    {
+      "path": "zh/versions/2.0.12/building-blocks/permission-system/overview.mdx",
+      "sha256": "49569a48290e86b7f393412faef1c88f7dee06358123346db62c093b6e75f19f"
+    },
+    {
+      "path": "zh/versions/2.0.12/building-blocks/permission-system/permission-mode.mdx",
+      "sha256": "235582a02bd3ce3e143295bf86b68b44c35bd90321c5c3b796c879c8ce2d03f5"
+    },
+    {
+      "path": "zh/versions/2.0.12/building-blocks/permission-system/permission-rule.mdx",
+      "sha256": "3fff4ab7af4d046f251d8b59fb7b57a7aca5a24edb56283380c2a0e083e9c3c6"
+    },
+    {
+      "path": "zh/versions/2.0.12/building-blocks/permission-system/tool-check.mdx",
+      "sha256": "9c017ad2296b73dddbfdb64373aa41fde8c89e0f7b96578ec250116db08d7c68"
+    },
+    {
+      "path": "zh/versions/2.0.12/building-blocks/middleware.mdx",
+      "sha256": "656c4c200b408ef3da9d98cb589ee919d1372036f06250a6b4e75effc8db4181"
+    },
+    {
+      "path": "zh/versions/2.0.12/building-blocks/rag.mdx",
+      "sha256": "8bc333e1b48b883bd127fa3c88862b1de15726b1fc5ddce27aae495df30931e2"
+    },
+    {
+      "path": "zh/versions/2.0.12/building-blocks/long-term-memory.mdx",
+      "sha256": "354b2f003e6c0839afdacbc9026c654a80717898a18c7ddd7c070c211463b6d1"
+    },
+    {
+      "path": "zh/versions/2.0.12/building-blocks/workspace/overview.mdx",
+      "sha256": "e1155a54fef338a922bd427277bd179f1ccd416eb7dd49c2710c7b6916b4bc87"
+    },
+    {
+      "path": "zh/versions/2.0.12/building-blocks/workspace/run-workspace.mdx",
+      "sha256": "1c59fc5a600361233ceb099a0524786b20d8f8d2ed27f1fec6ca2de7b45cb63d"
+    },
+    {
+      "path": "zh/versions/2.0.12/building-blocks/workspace/manage-resources.mdx",
+      "sha256": "f68fdd5d3813ee91a21d04b62e3be2434a7378dab1bdacdab433996a17d2d1ff"
+    },
+    {
+      "path": "zh/versions/2.0.12/building-blocks/workspace/mcp-gateway.mdx",
+      "sha256": "10ef5975939dd047c848eb7c51049c965b083395fe3838d148c559f2ffa8359f"
+    },
+    {
+      "path": "zh/versions/2.0.12/building-blocks/realtime/overview.mdx",
+      "sha256": "2fd5e8abe17952f4cf87259cbfbb03bf6b093f835ee6a57aff2d30d6c9f7bdb5"
+    },
+    {
+      "path": "zh/versions/2.0.12/building-blocks/realtime/speech-to-speech.mdx",
+      "sha256": "c5d8167fdcaf3767d8677b5dcb35eace1a850fd28bbf20b78a798a3703115bc5"
+    },
+    {
+      "path": "zh/versions/2.0.12/building-blocks/console.mdx",
+      "sha256": "f0a65ad8ebbeea2ff8e96b4ba729b403661e2e70e1d5b781a43c80c2b91dfaff"
+    },
+    {
+      "path": "zh/versions/2.0.12/building-blocks/a2a.mdx",
+      "sha256": "a42cf4af8ff907eff4e3881ca418ea10d0d142c3a5f75d2dfba1dfc116259d47"
+    },
+    {
+      "path": "zh/versions/2.0.12/deploy/agent-service.mdx",
+      "sha256": "1baf26ba55a7c0c6ac74cb5108ba718fd02bfc48b9d5c34ed58e4a13fe9c4692"
+    },
+    {
+      "path": "zh/versions/2.0.12/deploy/agent-team.mdx",
+      "sha256": "d59c6e32590621c6431ca686b5a2376385faefef498b812221167a08d5bfb624"
+    },
+    {
+      "path": "zh/versions/2.0.12/deploy/sop.mdx",
+      "sha256": "a11f12a5b872d9af855e6562fcfa0045cfbdc456cca0d9318abdad89bfdcc2d6"
+    },
+    {
+      "path": "zh/versions/2.0.12/deploy/sharing.mdx",
+      "sha256": "d4712f16fac304c5ed9618ed5bda10ace9417ccf2da2358520d92fa42ab14e47"
+    },
+    {
+      "path": "zh/versions/2.0.12/deploy/rag.mdx",
+      "sha256": "989468883cbf3415c0eb5d7e6f33f0c91476b6fe344b15fe4cb3ff4bf441deef"
+    },
+    {
+      "path": "zh/versions/2.0.12/deploy/workspace-manager.mdx",
+      "sha256": "4c9373425c2e68d4d825e32de60c303a11c335612b5c2f743f0e22e7fdc27115"
+    },
+    {
+      "path": "zh/versions/2.0.12/deploy/hub/overview.mdx",
+      "sha256": "be54edb6d5826fe9377b9d27e0f98367f59e9924d66e7f92ab44da6b0a0c008f"
+    },
+    {
+      "path": "zh/versions/2.0.12/deploy/hub/mcp-hub.mdx",
+      "sha256": "1c87e161c77011108d25368e53c3700a7a7eb06a0a0397c79dc8f6023d141523"
+    },
+    {
+      "path": "zh/versions/2.0.12/deploy/hub/skill-hub.mdx",
+      "sha256": "2ec64698accd6205a2de247a1b6d1dfd3c16c3535b1f400b515a2458e202607f"
+    },
+    {
+      "path": "zh/versions/2.0.12/deploy/channel/overview.mdx",
+      "sha256": "ad67df5bfbfba199a272a5473bdaf76cdafd7836ae57b648f3d386391fc007b7"
+    },
+    {
+      "path": "zh/versions/2.0.12/deploy/channel/routing.mdx",
+      "sha256": "1266b67ef41b55270d4e354006006de363034ec7e17588d46a1d0d0709c048f1"
+    },
+    {
+      "path": "zh/versions/2.0.12/deploy/channel/feishu.mdx",
+      "sha256": "4e5e9f96ae6bdc3ac52514dcc29a06a1cc98f3cfd1244904f8e87f92e1e6f69a"
+    },
+    {
+      "path": "zh/versions/2.0.12/deploy/channel/dingtalk.mdx",
+      "sha256": "8a3cb83a10517774848975a9680157419aad99207bf2ba0bb1ee451ee050c2b8"
+    },
+    {
+      "path": "zh/versions/2.0.12/deploy/channel/discord.mdx",
+      "sha256": "3ed886708005bea28b11fa886bb8ba4160ed222d1e9e9f3981940f4b238a3634"
+    },
+    {
+      "path": "zh/versions/2.0.12/deploy/channel/custom.mdx",
+      "sha256": "6c6e74bd04b2f98e0b5a65ca302d682d8952a6aa7e808de60e778bf3931f25e0"
+    },
+    {
+      "path": "zh/versions/2.0.12/others/faq.mdx",
+      "sha256": "beef84ce519430cd6b4e2b34f4129880cdcd26daf5fbf839499bf1882dd4b496"
+    },
+    {
+      "path": "zh/versions/2.0.12/others/change-log.mdx",
+      "sha256": "4268a903ceb22f59af1c93d18a63ff46014c95794207cd492f6c517439606abb"
+    },
+    {
+      "path": "images/agentscope/assign_mcp.png",
+      "sha256": "a13487f61f514024d9a0738d4f597f434a5c63ffb5075ad3d7b00c5661712799"
+    },
+    {
+      "path": "images/agentscope/assign_skill.png",
+      "sha256": "00ecfdce93395d823d11492be424468291351bb158c3f4e98dbcb3ecd5d25fcf"
+    },
+    {
+      "path": "images/agentscope/installed_mcp.png",
+      "sha256": "95442a48315b65872f22a04477ea93d2be5cf0dba89821122056b49593d6d10f"
+    },
+    {
+      "path": "images/agentscope/installed_skill.png",
+      "sha256": "001c778fdadd40195332d4f08a8645ecb77da3f38b942277aceb51405868846f"
+    },
+    {
+      "path": "images/agentscope/mcp_hub.png",
+      "sha256": "76f8f5f9783a75b96ec395058d569ccfac4e0ce16e8b3aef8cf5ab4c0562928f"
+    },
+    {
+      "path": "images/agentscope/skill_hub.png",
+      "sha256": "7d4ff7e7a139ba6181d9e944730175677187a0062559e6eef45f2680985b9ca9"
+    },
+    {
+      "path": "images/bg_tool.gif",
+      "sha256": "cd3b85e47aca9e3439387dfe0b0cde734579ac5f6e16c1d1127ea81883f714f7"
+    },
+    {
+      "path": "images/permission_bypass.gif",
+      "sha256": "246dfa7e21fc4694d8e1a1b70fe423d1445bf1d7a3b81b79636a65c9d89e2019"
+    },
+    {
+      "path": "images/task.gif",
+      "sha256": "7166b727a591bdb3a58c680316f0c33b0ff56abe6456aa29c6dc25869ec00be2"
+    },
+    {
+      "path": "images/team.gif",
+      "sha256": "e94b414cddd551150138ff0db48a12f0789c2d9ad148e6a174467d0d8cd23441"
+    },
+    {
+      "path": "en/versions/2.0.12/deploy/openapi.json",
+      "sha256": "3f4ebb2a7f5312e21ba6b76f87c6f16cd5fd422166c42eec103b50aa6a2e3af6"
+    }
+  ]
+}

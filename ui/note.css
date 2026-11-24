@@ -1,0 +1,5 @@
+:root{font-family:system-ui,"Microsoft YaHei UI",sans-serif;color:#272433;background:#fbfafc;line-height:1.75}
+body{max-width:980px;margin:auto;padding:20px clamp(14px,4vw,46px) 4rem}header{padding-bottom:12px;border-bottom:1px solid #d9d5df}
+h1{font-size:clamp(23px,4vw,32px);line-height:1.35}h2{font-size:21px;margin:1.6em 0 .5em}a{color:#583ba4;overflow-wrap:anywhere}
+pre{padding:14px;background:#eeeaf4;overflow:auto;border-radius:7px;font:14px/1.6 Consolas,monospace}code{overflow-wrap:anywhere}pre code{overflow-wrap:normal}
+table{display:block;border-collapse:collapse;max-width:100%;overflow:auto}td,th{border:1px solid #ddd7e6;padding:.4em .65em;text-align:left;vertical-align:top}th{background:#eeebf3}

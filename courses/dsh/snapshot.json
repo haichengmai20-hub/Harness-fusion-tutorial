@@ -1,0 +1,87 @@
+{
+  "website": "https://dsh-from-scratch.pages.dev/",
+  "repository": "https://github.com/tsrigo/dsh-from-scratch",
+  "referenceCommit": "bc4e47f5024f1f7bc6d8b6ac88ce44fa6e4249af",
+  "capturedAt": "2026-11-21T17:03:56.827676+00:00",
+  "mount": "/dsh-course/",
+  "rewrite": "Root-relative assets in the entry HTML, JS and CSS use the local mount.",
+  "files": [
+    {
+      "url": "https://dsh-from-scratch.pages.dev/",
+      "file": "index.html",
+      "bytes": 809,
+      "originalSha256": "5a85c47012711cbbba09d0274fcd78230da3acfd307863694859422e0b9aaddf",
+      "servedSha256": "dbe99b47fa701152da0ba95eff36dd6d28e6be7c64c603ed23820af809a7750f"
+    },
+    {
+      "url": "https://dsh-from-scratch.pages.dev/assets/index-tap6cJQb.css",
+      "file": "assets/index-tap6cJQb.css",
+      "bytes": 151408,
+      "originalSha256": "354bebe3ffd10ef8f99ef69c1d938be3ffcb0e1ec4b5cf97d3bcfb2e271d2538",
+      "servedSha256": "c84759b36626d45823cc6c5d63ba818524c740d8394ce7abcb4a121494a9b3bd"
+    },
+    {
+      "url": "https://dsh-from-scratch.pages.dev/assets/index-xwpOTYeB.js",
+      "file": "assets/index-xwpOTYeB.js",
+      "bytes": 287905,
+      "originalSha256": "d05c8b6c334b8cac9df98416b236db22e4ffedd9eab69bc87e1c82c9280477a5",
+      "servedSha256": "583e3cb23b3e6a003a7e7f58fc4d14970fc51638692a08d6463aba7abbbdcff0"
+    },
+    {
+      "url": "https://dsh-from-scratch.pages.dev/favicon.png",
+      "file": "favicon.png",
+      "bytes": 46612,
+      "originalSha256": "9bd33df47741e59b2bc42ac91096496b71df4f9afe682067b5a93d7f689a8a51",
+      "servedSha256": "9bd33df47741e59b2bc42ac91096496b71df4f9afe682067b5a93d7f689a8a51"
+    },
+    {
+      "url": "https://dsh-from-scratch.pages.dev/assets/hero-candidate-1-watercolor-academy-CIVJCUl3.webp",
+      "file": "assets/hero-candidate-1-watercolor-academy-CIVJCUl3.webp",
+      "bytes": 153956,
+      "originalSha256": "643ec5576c8fb974999222f086f7e17daebb633376eb14052f5dca06e4c6ad60",
+      "servedSha256": "643ec5576c8fb974999222f086f7e17daebb633376eb14052f5dca06e4c6ad60"
+    },
+    {
+      "url": "https://dsh-from-scratch.pages.dev/assets/hero-left-fill-DWMLfzEb.webp",
+      "file": "assets/hero-left-fill-DWMLfzEb.webp",
+      "bytes": 15128,
+      "originalSha256": "cea4587f02fdc4771affc8e0b3fdb43ddfa8b705ccb9fd37052041d2b3250bc8",
+      "servedSha256": "cea4587f02fdc4771affc8e0b3fdb43ddfa8b705ccb9fd37052041d2b3250bc8"
+    },
+    {
+      "url": "https://dsh-from-scratch.pages.dev/deepseek-harness-logo.png",
+      "file": "deepseek-harness-logo.png",
+      "bytes": 588223,
+      "originalSha256": "c1bd17743e7b375e8cf17b35f7e8e827aca7c74ee2b8f03ec9d739b81c98df33",
+      "servedSha256": "c1bd17743e7b375e8cf17b35f7e8e827aca7c74ee2b8f03ec9d739b81c98df33"
+    },
+    {
+      "url": "https://dsh-from-scratch.pages.dev/generated/tutorial-python.en.json",
+      "file": "generated/tutorial-python.en.json",
+      "bytes": 445068,
+      "originalSha256": "68243f952abe7e1d432d334e37e0b4ce2146f3250ff473c89a57bcfaebc54e34",
+      "servedSha256": "68243f952abe7e1d432d334e37e0b4ce2146f3250ff473c89a57bcfaebc54e34"
+    },
+    {
+      "url": "https://dsh-from-scratch.pages.dev/generated/tutorial-python.json",
+      "file": "generated/tutorial-python.json",
+      "bytes": 440929,
+      "originalSha256": "97f99bb8df5c220ccec5e562308f1e2a8e4fa5175995dbce6748715b18f1adf5",
+      "servedSha256": "97f99bb8df5c220ccec5e562308f1e2a8e4fa5175995dbce6748715b18f1adf5"
+    },
+    {
+      "url": "https://dsh-from-scratch.pages.dev/generated/tutorial.en.json",
+      "file": "generated/tutorial.en.json",
+      "bytes": 567829,
+      "originalSha256": "246e0d79955677c34a7a869ee3abb8c28715641380b7b6a0dbf3a2786ace56e1",
+      "servedSha256": "246e0d79955677c34a7a869ee3abb8c28715641380b7b6a0dbf3a2786ace56e1"
+    },
+    {
+      "url": "https://dsh-from-scratch.pages.dev/generated/tutorial.json",
+      "file": "generated/tutorial.json",
+      "bytes": 559788,
+      "originalSha256": "f69743179e87dedf191da0122b43e1f57f846235490b42c4d978e527a22421b0",
+      "servedSha256": "f69743179e87dedf191da0122b43e1f57f846235490b42c4d978e527a22421b0"
+    }
+  ]
+}

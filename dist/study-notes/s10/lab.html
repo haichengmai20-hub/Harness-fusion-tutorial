@@ -1,0 +1,95 @@
+<!-- source-sha256:a2567ec89e773a6c67a85038dd0c2744e6c2a02641b925c61cf9a1f751b2b6a6 format:1 --><!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Harness Lab · 比较两次请求</title><link rel="stylesheet" href="/study-notes/note.css"><header><a href="/?primary=claude&amp;chapter=s10&amp;mode=original">← 返回 S10 原课对读</a></header><main><h1 id="s10-在-agent-harness-lab-里的一个可跑例子">s10 在 Agent Harness Lab 里的一个可跑例子</h1>
+<p><strong>昨天分析过的项目多了一个，今天生成搜索画像时，哪一项请求参数应该变？</strong> 在 <code>ai-daily-scan</code> 的 <code>ProfilerAgent</code> 里，改的是第一条用户消息。角色说明和输出格式都能沿用。若改的是输出工具的说明，则第一条用户消息保持原样，变化移到 <code>tools</code>。</p>
+<p>沿一个动作看清三个字段：</p>
+<table>
+<thead>
+<tr>
+<th>实际入口</th>
+<th>它交给下一步什么</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ProfilerAgent.__init__</code></td>
+<td>将固定的 <code>PROFILER_SYSTEM</code> 赋给 <code>self.system_prompt</code>。这个角色没有搜索类业务工具，但定义了要交付的结构化画像。</td>
+</tr>
+<tr>
+<td><code>ProfilerAgent.run_with_context</code></td>
+<td>把公司画像、待覆盖方向、近期项目标题拼成一段文字，作为 <code>self.run(...)</code> 的用户输入。</td>
+</tr>
+<tr>
+<td><code>BaseAgent.run</code></td>
+<td>将 <code>final_output</code> 加入工具清单。每轮传入 <code>system=self.system_prompt</code>、<code>tools=all_tools</code> 和 <code>messages=messages</code>。若上一轮只返回文字，循环还会向消息历史追加交付提醒。</td>
+</tr>
+</tbody>
+</table>
+<p><a data-study-path="agent-harness-lab/ai-daily-scan/src/agents/profiler.py">画像角色与输入拼装</a> · <a data-study-path="agent-harness-lab/ai-daily-scan/src/agents/base.py">模型请求与工具清单</a> · <a data-study-path="agent-harness-lab/ai-daily-scan/src/schemas.py">交付字段定义</a></p>
+<h2 id="在-powershell-中复现">在 PowerShell 中复现</h2>
+<p>从工作区运行下段命令即可。只用 Python 标准库。脚本调用仓库里的 <code>ProfilerAgent.run_with_context</code> 与 <code>BaseAgent.run</code>，在 SDK 入口截取完整参数。客户端固定先回一段文字、再调用 <code>final_output</code>，所以每组都能走到第二轮。SDK 和会加载凭据的配置模块由内存替身提供。</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Set-Location</span> <span class="op">-</span>LiteralPath <span class="st">&#39;D:\RL及harness&#39;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="vs">@&#39;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="vs">from copy import deepcopy</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="vs">from pathlib import Path</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="vs">from types import ModuleType, SimpleNamespace</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="vs">import logging</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="vs">import sys</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="vs">sys.path.insert(0, str(Path(&quot;agent-harness-lab/ai-daily-scan/src&quot;).resolve()))</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="vs">sys.modules[&quot;anthropic&quot;] = ModuleType(&quot;anthropic&quot;)</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="vs">client = SimpleNamespace(messages=SimpleNamespace())</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="vs">config = ModuleType(&quot;utils&quot;)</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="vs">config.MODEL_NAME = &quot;offline-demo&quot;</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="vs">config.get_client = lambda: client</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="vs">sys.modules[&quot;utils&quot;] = config</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="vs">from agents.profiler import ProfilerAgent</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="vs">logging.getLogger(&quot;agent.base&quot;).setLevel(logging.ERROR)</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="vs">profile = dict(summary=&quot;demo&quot;, core_keywords=[&quot;demo&quot;], tech_keywords=[&quot;python&quot;],</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="vs">               business_domains=[&quot;research&quot;], search_queries=[&quot;demo search&quot;])</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="vs">def run(recent_title, change_tool=False):</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="vs">    requests = []</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="vs">    def create(**kwargs):</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="vs">        requests.append(deepcopy(kwargs))  # The real loop later mutates messages.</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="vs">        if len(requests) == 1:</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="vs">            block = SimpleNamespace(type=&quot;text&quot;, text=&quot;Preparing the profile.&quot;)</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="vs">        else:</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="vs">            block = SimpleNamespace(type=&quot;tool_use&quot;, name=&quot;final_output&quot;,</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="vs">                                    id=&quot;demo-1&quot;, input=profile)</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="vs">        return SimpleNamespace(content=[block])</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="vs">    client.messages.create = create</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="vs">    agent = ProfilerAgent()</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="vs">    if change_tool:</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="vs">        agent.final_output_description += &quot; [revised demo description]&quot;</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="vs">    assert agent.run_with_context(&quot;demo company&quot;, [], [recent_title]) == profile</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="vs">    assert len(requests) == 2</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="vs">    return requests</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="vs">def changed(left, right):</span></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="vs">    return sorted(key for key in left.keys() | right.keys() if left.get(key) != right.get(key))</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="vs">a = run(&quot;project-A&quot;)</span></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="vs">b = run(&quot;project-B&quot;)</span></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="vs">c = run(&quot;project-A&quot;, change_tool=True)</span></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="vs">print(&quot;tool names:&quot;, [t[&quot;name&quot;] for t in a[0][&quot;tools&quot;]])</span></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="vs">print(&quot;A1 -&gt; A2, next turn:&quot;, changed(a[0], a[1]))</span></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a><span class="vs">print(&quot;A1 -&gt; B1, recent title:&quot;, changed(a[0], b[0]))</span></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="vs">print(&quot;A1 -&gt; C1, tool description:&quot;, changed(a[0], c[0]))</span></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a><span class="vs">print(&quot;A2 message roles:&quot;, [m[&quot;role&quot;] for m in a[1][&quot;messages&quot;]])</span></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a><span class="vs">print(&quot;A2 retains first user message:&quot;, a[1][&quot;messages&quot;][:1] == a[0][&quot;messages&quot;])</span></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a><span class="vs">&#39;@</span> <span class="op">|</span> python <span class="op">-</span>I <span class="op">-</span>B <span class="op">-</span></span></code></pre></div>
+<p>在本地作品集提交 <code>8f37b3b</code> 上运行得到以下结果。A1、A2 是 A 组的第一、第二次 SDK 调用。比较函数逐项检查传给 SDK 的全部关键字参数。</p>
+<pre class="text"><code>tool names: [&#39;final_output&#39;]
+A1 -&gt; A2, next turn: [&#39;messages&#39;]
+A1 -&gt; B1, recent title: [&#39;messages&#39;]
+A1 -&gt; C1, tool description: [&#39;tools&#39;]
+A2 message roles: [&#39;user&#39;, &#39;assistant&#39;, &#39;user&#39;, &#39;user&#39;]
+A2 retains first user message: True</code></pre>
+<p>为什么 A2 会连续出现两条 <code>user</code>？第一条是运行时发现模型尚未调用 <code>final_output</code>，要求它交付；第二条是这个角色最多允许三轮，进入第二轮时又触发了剩余轮数提醒。二者都进入 <code>messages</code>。角色说明保持不变，第一条原始用户输入也仍在。追踪分支可看 <code>base.py</code> 第 64–78、93–101 行。</p>
+<h2 id="对回-s10-的缓存问题">对回 s10 的缓存问题</h2>
+<p>原课 s10 的 <code>get_system_prompt</code> 比较本地 context key，决定是否复用已经拼好的系统字符串。这里的画像角色直接持有固定字符串，实验比较的是实际传给 SDK 的字段。A1 与 B1 的 <code>system</code>、<code>tools</code> 相等；A1 与 C1 又证明，只看 <code>system</code> 会漏掉工具定义的改动。三个对照组都没有获得供应商的缓存读写计数，无法从这份输出计算命中率、token 数或费用。<a href="/study-notes/s10/confirmed.html">s10 请求字段与缓存断点笔记</a></p>
+<p>同一个作品集里，显式控制缓存断点要沿另一条源码路径查。<code>ai-auto-harness</code> 的 <code>splitSysPromptPrefix</code> 会检查配置与边界标记，将系统提示分块；<code>buildSystemPromptBlocks</code> 再检查 <code>enablePromptCaching</code> 和每块的 <code>cacheScope</code>，据此决定哪些块带 <code>cache_control</code>。这是 TypeScript 快照的静态证据；上面的 Python 请求实验只运行了日报的画像角色。<a data-study-path="agent-harness-lab/ai-auto-harness/src/utils/api.ts">分块与条件分支</a> · <a data-study-path="agent-harness-lab/ai-auto-harness/src/services/api/claude.ts">构造 SDK 系统内容块</a></p>
+<p>作品集另有一篇<a data-study-path="agent-harness-lab/claude-code-internals/notes/cc-prompt-assembly.md">Claude Code Prompt 组装研究笔记</a>，开头列出了对应源码快照，并说明请求示意图的重建方法。想从此例继续追系统内容块、工具规格和缓存断点，可从那里进入。</p>
+</main><script src="/study-notes/local-links.js"></script></html>

@@ -1,0 +1,288 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>语音到语音 · AgentScope</title><link rel="stylesheet" href="/agentscope-course/reader.css"><script defer src="/agentscope-course/reader.js"></script></head><body><header class="mast"><a href="/agentscope-course/">AgentScope <small>中文文档</small></a><span>v2.0.12</span><button id="catalog" aria-controls="outline" aria-expanded="false">目录</button></header><div class="layout"><nav id="outline" aria-label="AgentScope 文档目录"><div class="group">快速开始</div><a href="/agentscope-course/" >AgentScope 2.0 是什么？</a><a href="/agentscope-course/quickstart/" >快速开始</a><a href="/agentscope-course/release-notes/" >更新日志</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/message-and-event/" >消息与事件</a><div class="group">核心模块 / 智能体</div><a href="/agentscope-course/building-blocks/agent/overview/" >智能体 · 概述</a><a href="/agentscope-course/building-blocks/agent/configure-agent/" >配置智能体</a><a href="/agentscope-course/building-blocks/agent/run-agent/" >运行智能体</a><a href="/agentscope-course/building-blocks/agent/interrupt-agent/" >中断智能体</a><a href="/agentscope-course/building-blocks/agent/human-in-the-loop/" >人机交互</a><div class="group">核心模块 / 模型</div><a href="/agentscope-course/building-blocks/model/overview/" >模型 · 概述</a><a href="/agentscope-course/building-blocks/model/llm/" >大语言模型</a><a href="/agentscope-course/building-blocks/model/tts/" >语音合成</a><a href="/agentscope-course/building-blocks/model/asr/" >语音识别</a><a href="/agentscope-course/building-blocks/model/embedding/" >嵌入模型</a><div class="group">核心模块 / 上下文管理</div><a href="/agentscope-course/building-blocks/context/overview/" >上下文管理 · 概述</a><a href="/agentscope-course/building-blocks/context/environment-awareness/" >感知环境</a><a href="/agentscope-course/building-blocks/context/compress-context/" >压缩上下文</a><a href="/agentscope-course/building-blocks/context/offload-context/" >卸载上下文</a><div class="group">核心模块 / 工具</div><a href="/agentscope-course/building-blocks/tool/overview/" >工具 · 概述</a><a href="/agentscope-course/building-blocks/tool/python-tool/" >Python 函数工具</a><a href="/agentscope-course/building-blocks/tool/mcp/" >MCP</a><a href="/agentscope-course/building-blocks/tool/skill/" >Skill</a><a href="/agentscope-course/building-blocks/tool/manage-tools/" >元工具</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/plan/" >计划模式</a><div class="group">核心模块 / 流水线</div><a href="/agentscope-course/building-blocks/pipeline/overview/" >流水线 · 概述</a><a href="/agentscope-course/building-blocks/pipeline/goal/" >目标流水线</a><a href="/agentscope-course/building-blocks/pipeline/team/" >团队流水线</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/sop/" >标准作业流程</a><div class="group">核心模块 / 权限系统</div><a href="/agentscope-course/building-blocks/permission-system/overview/" >权限系统 · 概述</a><a href="/agentscope-course/building-blocks/permission-system/permission-mode/" >权限模式</a><a href="/agentscope-course/building-blocks/permission-system/permission-rule/" >权限规则</a><a href="/agentscope-course/building-blocks/permission-system/tool-check/" >工具内置检查</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/middleware/" >中间件</a><a href="/agentscope-course/building-blocks/rag/" >RAG</a><a href="/agentscope-course/building-blocks/long-term-memory/" >长期记忆</a><div class="group">核心模块 / 工作区</div><a href="/agentscope-course/building-blocks/workspace/overview/" >工作区 · 概述</a><a href="/agentscope-course/building-blocks/workspace/run-workspace/" >运行工作区</a><a href="/agentscope-course/building-blocks/workspace/manage-resources/" >管理资源</a><a href="/agentscope-course/building-blocks/workspace/mcp-gateway/" >MCP 网关</a><div class="group">核心模块 / 实时语音智能体</div><a href="/agentscope-course/building-blocks/realtime/overview/" >实时语音智能体 · 概述</a><a href="/agentscope-course/building-blocks/realtime/speech-to-speech/" aria-current="page">语音到语音</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/console/" >终端 UI</a><a href="/agentscope-course/building-blocks/a2a/" >A2A 协议</a><div class="group">智能体即服务</div><a href="/agentscope-course/deploy/agent-service/" >架构</a><a href="/agentscope-course/deploy/agent-team/" >智能体团队</a><a href="/agentscope-course/deploy/sop/" >SOP 服务</a><a href="/agentscope-course/deploy/sharing/" >资源共享</a><a href="/agentscope-course/deploy/rag/" >RAG 服务</a><a href="/agentscope-course/deploy/workspace-manager/" >工作区管理</a><div class="group">智能体即服务 / MCP 与技能中心</div><a href="/agentscope-course/deploy/hub/overview/" >MCP 与技能中心 · 概览</a><a href="/agentscope-course/deploy/hub/mcp-hub/" >MCP 中心</a><a href="/agentscope-course/deploy/hub/skill-hub/" >技能中心</a><div class="group">智能体即服务 / 消息渠道</div><a href="/agentscope-course/deploy/channel/overview/" >消息渠道 · 概览</a><a href="/agentscope-course/deploy/channel/routing/" >会话路由</a><a href="/agentscope-course/deploy/channel/feishu/" >飞书</a><a href="/agentscope-course/deploy/channel/dingtalk/" >钉钉</a><a href="/agentscope-course/deploy/channel/discord/" >Discord</a><a href="/agentscope-course/deploy/channel/custom/" >自定义渠道</a><div class="group">其他</div><a href="/agentscope-course/others/faq/" >常见问题</a><a href="/agentscope-course/others/change-log/" >版本迁移</a><div class="group">智能体即服务 / API</div><a href="/agentscope-course/api/">API 参考</a></nav><main><div class="context">核心模块 / 实时语音智能体</div><article class="prose-custom" id="content"><h1>语音到语音</h1><p class="dek">通过端到端的语音模型实现实时语音对话</p><link rel="preload" as="image" href="/agentscope-course/diagrams/diagram-bb9d1543648f97.svg"/><p>语音到语音（Speech-to-Speech）方案是指音频直接进出一个端到端的语音模型：语音识别、理解与合成全部在模型内部完成。与基于轮次进行交互的方式相比，它不需要等用户说完再逐级处理，延迟更低，能保留语气与情绪，用户也可以随时打断。</p>
+<p>AgentScope 通过 <code>RealtimeAgent</code> 实现该方案，支持：</p>
+<ul>
+<li><strong>回合检测</strong>：支持由模型 API 判断用户何时说完，也支持传入本地 VAD 自行判断</li>
+<li><strong>打断</strong>：支持用户开口即打断当前回复，上下文只保留用户实际听到的部分，也支持由代码主动打断</li>
+<li><strong>工具调用与用户确认</strong>：支持 <code>Toolkit</code> 与权限系统，确认过程中语音流不中断</li>
+<li><strong>文本输入</strong>：支持在语音对话中直接发送文字（需模型支持文本输入）</li>
+<li><strong>断线自动恢复</strong>：模型 API 因空闲或超时关闭会话后，用户再次输入时自动重连并恢复会话</li>
+<li><strong>回合整理</strong>：支持合并被停顿切开的句子，过滤没有实际内容的应答</li>
+</ul>
+<p>目前支持的模型 API 与模型如下，每个模型类使用所属 API 的凭证，用法与其它模型一致：</p>
+<table><thead><tr><th>模型 API</th><th>模型类</th><th>支持的模型</th></tr></thead><tbody><tr><td>DashScope（Qwen-Omni）</td><td><code>DashScopeRealtimeModel</code></td><td><code>qwen3.8-omni-flash-realtime</code><br/><code>qwen3.5-omni-plus-realtime</code><br/><code>qwen3.5-omni-flash-realtime</code><br/><code>qwen3-omni-flash-realtime</code><br/><code>qwen-omni-turbo-realtime</code></td></tr><tr><td>DashScope（Qwen-Audio）</td><td><code>DashScopeAudioRealtimeModel</code></td><td><code>qwen-audio-3.1-realtime-plus</code><br/><code>qwen-audio-3.0-realtime-plus</code><br/><code>qwen-audio-3.0-realtime-flash</code></td></tr><tr><td>OpenAI Realtime</td><td><code>OpenAIRealtimeModel</code></td><td><code>gpt-realtime-2.1</code><br/><code>gpt-realtime-2.1-mini</code><br/><code>gpt-realtime-2</code><br/><code>gpt-realtime-1.5</code></td></tr><tr><td>OpenAI GPT Live</td><td><code>OpenAILiveModel</code></td><td><code>gpt-live-1</code></td></tr><tr><td>Gemini Live</td><td><code>GeminiRealtimeModel</code></td><td><code>gemini-3.8-live-extended-thinking</code><br/><code>gemini-3.8-live</code><br/><code>gemini-3.1-flash-live-preview</code><br/><code>gemini-2.5-flash-native-audio-preview-12-2025</code></td></tr><tr><td>xAI Grok Voice</td><td><code>XAIRealtimeModel</code></td><td><code>grok-voice-latest</code><br/><code>grok-voice-think-fast-2.0</code></td></tr></tbody></table>
+<aside class="notice tip"><strong>提示</strong><p>调用模型类的 <code>list_models()</code> 可以拿到该 API 下所有模型的<a href="/agentscope-course/building-blocks/model/overview/#%E4%BB%80%E4%B9%88%E6%98%AF%E6%A8%A1%E5%9E%8B%E5%8D%A1%E7%89%87">模型卡片</a>，其中包含采样率、上下文上限、可选音色等信息，可直接用于渲染前端的模型选择器。</p></aside>
+<aside class="notice note"><strong>说明</strong><p><code>qwen3.8-omni-flash-realtime</code> 必须使用与 API 密钥绑定的 DashScope 工作空间专属地址。把 <code>DashScopeCredential.base_url</code> 设为工作空间的 HTTPS OpenAI 兼容地址，例如 <code>https://{WorkspaceId}.cn-beijing.maas.aliyuncs.com/compatible-mode/v1</code>，实时模型适配器会自动推导对应的 WebSocket 地址。</p></aside>
+<h2 id="模型选择与轮次归属">模型选择与轮次归属</h2>
+<p>实时模型卡片提供可为空的 <code>release_date</code>，便于按发布日期排序。
+工具调用后的续答与原回复共享同一个逻辑 <code>reply_id</code>；延迟到达的用户转写仍归属原始
+用户轮次。前端应按 <code>reply_id</code> 归集事件，不能把所有新事件都追加到最后一条消息。</p>
+<p>启用输入转写时，用户轮次的 <code>ReplyEndEvent</code> 会等待转写完成或失败后再发出；
+禁用输入转写时则在语音结束时发出。</p>
+<h2 id="gpt-live">GPT Live</h2>
+<p>使用 <code>OpenAICredential</code> 创建
+<code>OpenAILiveModel(model=&quot;gpt-live-1&quot;, credential=...)</code>。
+该适配器采用全双工音频，不支持键入文本或客户端轮次语音活动检测。</p>
+<p>需要执行委派任务时，为 <code>RealtimeAgent.delegation_agent_factory</code> 设置工厂函数。
+函数接收隔离的 <code>AgentState</code>，返回使用该状态的聊天 <code>Agent</code>；
+返回的智能体必须与实时智能体同名，并配置好模型、工具和权限。
+智能体服务会将委派接入当前持久化聊天会话。</p>
+<h2 id="核心概念">核心概念</h2>
+<p>语音到语音智能体由三个组件组成：</p>
+<ul>
+<li>音频传输（<code>TransportBase</code>）：负责声音的来源与去向，例如本地声卡或浏览器</li>
+<li>实时语音模型（<code>RealtimeModelBase</code>）：负责与模型 API 的会话，把协议消息翻译成统一的模型事件</li>
+<li><code>RealtimeAgent</code>：负责在两者之间维护对话回合，处理打断、工具调用与事件产出</li>
+</ul>
+<p>下图展示了音频与事件在三者之间的流向：</p>
+<figure class="diagram"><img src="/agentscope-course/diagrams/diagram-bb9d1543648f97.svg" alt="本节流程图"/><details><summary>查看流程图原文</summary><pre><code class="language-mermaid" data-caption="mermaid" data-lang="mermaid">flowchart LR
+    U([用户]) &lt;-- 音频 --&gt; T[音频传输&lt;br/&gt;TransportBase]
+    T &lt;-- 音频帧 / 控制帧 --&gt; A[RealtimeAgent]
+    A &lt;-- 音频 / 模型事件 --&gt; M[实时语音模型&lt;br/&gt;RealtimeModelBase]
+    M &lt;-- WebSocket --&gt; P[(模型 API)]
+    A &lt;-- 工具调用 / 权限检查 --&gt; K[工具包 / 权限系统]
+    A -- 智能体事件 --&gt; D([开发者代码])
+</code></pre></details></figure>
+<p>三个组件的职责如下：</p>
+<table><thead><tr><th>组件</th><th>负责</th></tr></thead><tbody><tr><td><code>RealtimeAgent</code></td><td>划分回合、打断与上下文截断、工具调用与用户确认、产出智能体事件、模型断线后重连</td></tr><tr><td>实时语音模型（<code>RealtimeModelBase</code>）</td><td>维护 WebSocket 会话，把协议消息翻译成统一的模型事件，声明采样率与能力</td></tr><tr><td>音频传输（<code>TransportBase</code>）</td><td>采集与播放、统计播放进度、打断时淡出、把客户端的控制帧转成对智能体的调用</td></tr></tbody></table>
+<p>其中实时语音模型和音频传输模块支持从基类进行拓展，用以适配新的模型 API，或接入浏览器等其它客户端。</p>
+<h2 id="快速开始">快速开始</h2>
+<p>首先安装实时语音的可选依赖，其中包含 WebSocket 客户端与本地声卡库：</p>
+<div class="code-example"><div class="code-bar"><span>安装实时语音依赖</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-bash" data-caption="安装实时语音依赖" data-lang="bash">pip install &quot;agentscope[realtime]&quot;
+</code></pre></div>
+<aside class="notice note"><strong>说明</strong><p>本地声卡库 <code>sounddevice</code> 依赖 PortAudio。macOS 与 Windows 已随包附带；Debian/Ubuntu 需要先执行 <code>apt install libportaudio2</code>。</p></aside>
+<p>下面用本地麦克风搭一个能对话、能被打断的语音智能体，分四步完成：</p>
+<div class="steps"><section class="step"><h3>初始化实时语音模型</h3><p>模型类接收模型名与所属 API 的凭证，模型卡片按名称自动匹配，采样率与上下文限制随之确定。音色、回合检测方式等可调项通过 <code>Parameters</code> 传入。下面的 tab 分别展示四种模型 API 的初始化方式，后续三步与选用哪种模型无关：</p><div class="tab-set" data-tab-set=""><div class="tab-list" role="group" aria-label="代码示例"><button type="button" data-choice="0" aria-pressed="true">DashScope Qwen-Audio</button><button type="button" data-choice="1" aria-pressed="false">DashScope Qwen-Omni</button><button type="button" data-choice="2" aria-pressed="false">OpenAI</button><button type="button" data-choice="3" aria-pressed="false">Gemini</button><button type="button" data-choice="4" aria-pressed="false">xAI</button></div><div data-panel="0"><div class="code-example"><div class="code-bar"><span>DashScope Qwen-Audio</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="DashScope Qwen-Audio" data-lang="python">import os
+
+from agentscope.credential import DashScopeCredential
+from agentscope.realtime import DashScopeAudioRealtimeModel
+
+model = DashScopeAudioRealtimeModel(
+    model=&quot;qwen-audio-3.1-realtime-plus&quot;,
+    credential=DashScopeCredential(api_key=os.environ[&quot;DASHSCOPE_API_KEY&quot;]),
+    parameters=DashScopeAudioRealtimeModel.Parameters(voice=&quot;longanqian&quot;),
+)
+</code></pre></div></div><div data-panel="1" hidden=""><div class="code-example"><div class="code-bar"><span>DashScope Qwen-Omni</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="DashScope Qwen-Omni" data-lang="python">import os
+
+from agentscope.credential import DashScopeCredential
+from agentscope.realtime import DashScopeRealtimeModel
+
+model = DashScopeRealtimeModel(
+    model=&quot;qwen3.5-omni-plus-realtime&quot;,
+    credential=DashScopeCredential(api_key=os.environ[&quot;DASHSCOPE_API_KEY&quot;]),
+    parameters=DashScopeRealtimeModel.Parameters(voice=&quot;Tina&quot;),
+)
+</code></pre></div></div><div data-panel="2" hidden=""><div class="code-example"><div class="code-bar"><span>OpenAI</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="OpenAI" data-lang="python">import os
+
+from agentscope.credential import OpenAICredential
+from agentscope.realtime import OpenAIRealtimeModel
+
+model = OpenAIRealtimeModel(
+    model=&quot;gpt-realtime-2.1&quot;,
+    credential=OpenAICredential(api_key=os.environ[&quot;OPENAI_API_KEY&quot;]),
+    parameters=OpenAIRealtimeModel.Parameters(voice=&quot;marin&quot;),
+)
+</code></pre></div></div><div data-panel="3" hidden=""><div class="code-example"><div class="code-bar"><span>Gemini</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="Gemini" data-lang="python">import os
+
+from agentscope.credential import GeminiCredential
+from agentscope.realtime import GeminiRealtimeModel
+
+model = GeminiRealtimeModel(
+    model=&quot;gemini-3.1-flash-live-preview&quot;,
+    credential=GeminiCredential(api_key=os.environ[&quot;GEMINI_API_KEY&quot;]),
+    parameters=GeminiRealtimeModel.Parameters(voice=&quot;Puck&quot;),
+)
+</code></pre></div></div><div data-panel="4" hidden=""><div class="code-example"><div class="code-bar"><span>xAI</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="xAI" data-lang="python">import os
+
+from agentscope.credential import XAICredential
+from agentscope.realtime import XAIRealtimeModel
+
+model = XAIRealtimeModel(
+    model=&quot;grok-voice-latest&quot;,
+    credential=XAICredential(api_key=os.environ[&quot;XAI_API_KEY&quot;]),
+    # reasoning_effort 设为 &quot;none&quot; 可以换取更快但更浅的回答
+    parameters=XAIRealtimeModel.Parameters(voice=&quot;eve&quot;, reasoning_effort=&quot;high&quot;),
+)
+</code></pre></div></div></div></section><section class="step"><h3>创建智能体</h3><p>智能体持有模型会话，系统提示在连接模型时一次性发送：</p><div class="code-example"><div class="code-bar"><span>创建智能体</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="创建智能体" data-lang="python">from agentscope.agent import RealtimeAgent
+
+agent = RealtimeAgent(
+    name=&quot;Friday&quot;,
+    system_prompt=&quot;你是一个中文语音助手，回答尽量简短。&quot;,
+    model=model,
+)
+</code></pre></div></section><section class="step"><h3>创建音频传输</h3><p>传输决定声音的来源与去向，<code>LocalAudioTransport</code> 使用本机的麦克风与扬声器。采样率必须与模型一致，因此直接用模型的属性构造，而不是写死数值：</p><div class="code-example"><div class="code-bar"><span>创建音频传输</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="创建音频传输" data-lang="python">from agentscope.realtime import LocalAudioTransport
+
+transport = LocalAudioTransport(
+    input_sample_rate=model.input_sample_rate,
+    output_sample_rate=model.output_sample_rate,
+)
+</code></pre></div></section><section class="step"><h3>运行对话</h3><p><code>reply_stream()</code> 借用传输持续泵送音频，并以异步迭代器的形式产出事件。用户说话同样以一次回复的形式产出事件，<code>role</code> 为 <code>&quot;user&quot;</code>，因此下面用 <code>reply_id</code> 区分两边，把双方说的话打印到终端：</p><div class="code-example"><div class="code-bar"><span>运行对话并打印双方的话</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="运行对话并打印双方的话" data-lang="python">from agentscope.event import ReplyEndEvent, ReplyStartEvent, TextBlockDeltaEvent
+
+user_turns: set[str] = set()
+
+async with agent, transport:
+    async for event in agent.reply_stream(transport):
+        match event:
+            case ReplyStartEvent(role=&quot;user&quot;):
+                user_turns.add(event.reply_id)
+            case ReplyStartEvent():
+                print(f&quot;[{agent.name}] &quot;, end=&quot;&quot;, flush=True)
+            case TextBlockDeltaEvent() if event.reply_id in user_turns:
+                print(f&quot;[user] {event.delta}&quot;)
+            case TextBlockDeltaEvent():
+                print(event.delta, end=&quot;&quot;, flush=True)
+            case ReplyEndEvent() if event.reply_id not in user_turns:
+                print(f&quot;  ({event.finished_reason})&quot;)
+</code></pre></div><p>运行后对着麦克风说话即可听到回复，在回复过程中开口即可打断，按 Ctrl+C 退出。</p><aside class="notice tip"><strong>提示</strong><p>不想自己处理事件时，可以用 <code>launch_realtime_ui</code> 在全屏终端界面中运行会话，转写文本、工具调用与确认都已处理好，详见<a href="/agentscope-course/building-blocks/console/#%E6%98%BE%E7%A4%BA%E5%AE%9E%E6%97%B6%E8%AF%AD%E9%9F%B3%E4%BC%9A%E8%AF%9D">显示实时语音会话</a>。</p></aside></section></div>
+<p>上面的例子里有三个生命周期，各自由不同的对象掌控：</p>
+<table><thead><tr><th>对象</th><th>持有者</th><th>生命周期</th></tr></thead><tbody><tr><td>模型会话</td><td><code>RealtimeAgent</code></td><td><code>async with agent</code> 期间，或手动调用 <code>connect()</code> 与 <code>close()</code> 之间；模型 API 关闭会话后会在下一句话时自动重连</td></tr><tr><td>音频传输</td><td>开发者</td><td><code>async with transport</code> 期间；智能体只借用，不会替开发者关闭</td></tr><tr><td>一次运行</td><td><code>agent.reply_stream(transport)</code></td><td>从传输开始产出音频，到传输的输入结束；期间可以有任意多轮对话</td></tr></tbody></table>
+<p>三者分开的好处是客户端断开重连时不丢失模型会话，模型会话超时时也不影响传输。同一个智能体可以在传输更换后再次调用 <code>reply_stream()</code>，对话历史仍在 <code>agent.state</code> 中。</p>
+<h2 id="使用智能体">使用智能体</h2>
+<p><code>RealtimeAgent</code> 的构造参数如下：</p>
+<section class="parameter"><strong><code>name</code> <small>str</small><small> · 必填</small></strong><p>智能体名称，会写入智能体消息与事件。</p></section>
+<section class="parameter"><strong><code>system_prompt</code> <small>str</small><small> · 必填</small></strong><p>系统提示，在连接模型时一次性发送，工具包中技能的说明会附加在后面。</p></section>
+<section class="parameter"><strong><code>model</code> <small>RealtimeModelBase</small><small> · 必填</small></strong><p>实时语音模型，支持的模型见上方表格。</p></section>
+<section class="parameter" data-default="None"><strong><code>toolkit</code> <small>Toolkit | None</small><small> · 默认值 <code>None</code></small></strong><p>模型可以调用的工具包，工具在智能体侧执行并经过权限检查。</p></section>
+<section class="parameter" data-default="None"><strong><code>state</code> <small>AgentState | None</small><small> · 默认值 <code>None</code></small></strong><p>对话历史、权限规则与工具上下文，省略时新建。</p></section>
+<section class="parameter" data-default="None"><strong><code>vad</code> <small>VADBase | None</small><small> · 默认值 <code>None</code></small></strong><p>本地语音活动检测。传入后由它决定回合边界，模型 API 自身的回合检测会被关闭，详见<a href="#%E5%9B%9E%E5%90%88%E6%A3%80%E6%B5%8B">回合检测</a>。</p></section>
+<section class="parameter" data-default="None"><strong><code>aggregator</code> <small>TurnAggregator | None</small><small> · 默认值 <code>None</code></small></strong><p>回合整理器，负责合并被切开的句子与过滤无内容应答，省略时使用默认配置。</p></section>
+<p><code>RealtimeAgent</code> 的核心方法如下：</p>
+<table><thead><tr><th>方法</th><th>作用</th></tr></thead><tbody><tr><td><code>connect()</code> / <code>close()</code></td><td>打开与关闭模型会话，<code>async with agent</code> 等价于两者</td></tr><tr><td><code>reply_stream(transport)</code></td><td>借用一个传输，持续泵送音频并产出智能体事件，直到传输结束</td></tr><tr><td><code>send(inputs)</code></td><td>发送音频以外的输入：文字、工具调用的确认结果、打断</td></tr><tr><td><code>interrupt()</code></td><td>打断当前回复</td></tr></tbody></table>
+<h3 id="运行并处理事件">运行并处理事件</h3>
+<p><code>reply_stream()</code> 接收一个已经启动的传输，持续把音频送给模型，并以异步迭代器的形式产出事件，直到传输的输入结束。传输由开发者持有，<code>reply_stream()</code> 结束时不会关闭它，同一个智能体可以换一个传输再次运行。</p>
+<p><code>reply_stream()</code> 产出的是与 <code>Agent.reply_stream</code> 相同的<a href="/agentscope-course/building-blocks/message-and-event/">智能体事件</a>，因此为文字智能体编写的事件处理逻辑可以直接复用。用户说话也被当作一次回复来报告：开口时发出 <code>role</code> 为 <code>&quot;user&quot;</code> 的 <code>ReplyStartEvent</code>，转写确定后以文本块事件送出，并在转写完成或失败后发出 <code>ReplyEndEvent</code>（禁用输入转写时在语音结束时发出），因此外层可以用同一套逻辑把用户和智能体的事件各自拼成消息。模型音频则以数据块事件的形式产出：</p>
+<table><thead><tr><th>事件</th><th>含义</th></tr></thead><tbody><tr><td><code>ReplyStartEvent</code> / <code>ReplyEndEvent</code></td><td>一次回复的开始与结束。<code>role</code> 为 <code>&quot;user&quot;</code> 时表示用户轮次开始与结束；智能体回复的 <code>finished_reason</code> 为 <code>completed</code>、<code>interrupted</code> 或 <code>error</code></td></tr><tr><td><code>TextBlockDeltaEvent</code></td><td>文本增量：智能体回复的转写，或用户这一轮说话的转写</td></tr><tr><td><code>DataBlockDeltaEvent</code></td><td>回复音频的增量数据，已由传输播放，通常无需处理</td></tr><tr><td><code>ToolCallStartEvent</code> / <code>ToolCallEndEvent</code></td><td>模型发起的工具调用</td></tr><tr><td><code>ToolResultStartEvent</code> / <code>ToolResultEndEvent</code></td><td>工具执行的结果</td></tr><tr><td><code>RequireUserConfirmEvent</code></td><td>工具调用需要用户确认</td></tr></tbody></table>
+<h3 id="发送输入">发送输入</h3>
+<p>在支持文本输入的模型上，可以用 <code>send()</code> 在语音对话中发送文字。文字会先打断当前回复，再作为一轮用户输入交给模型，回复仍以语音播放：</p>
+<div class="code-example"><div class="code-bar"><span>发送文字输入</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="发送文字输入" data-lang="python">await agent.send(&quot;帮我查一下今天的天气&quot;)
+</code></pre></div>
+<p><code>send()</code> 接收的输入类型与 <code>Agent.reply</code> 对齐：</p>
+<table><thead><tr><th>输入</th><th>作用</th></tr></thead><tbody><tr><td><code>str</code> 或 <code>Msg</code></td><td>一轮文字输入，仅支持文本输入的模型可用，否则抛出 <code>NotImplementedError</code></td></tr><tr><td><code>UserConfirmResultEvent</code></td><td>工具调用的确认结果</td></tr><tr><td><code>UserInterruptEvent</code></td><td>打断当前回复，等价于 <code>interrupt()</code></td></tr></tbody></table>
+<aside class="notice note"><strong>说明</strong><p><code>DashScopeRealtimeModel</code>（Qwen-Omni）的模型 API 不接受文本轮次，其余模型类均支持文本输入，可通过模型类的 <code>supports_text_input</code> 属性判断。</p></aside>
+<h3 id="打断">打断</h3>
+<p>用户在回复播放期间开口，智能体会立即停止播放并取消模型侧的回复。传输会报告实际播放到的位置，智能体据此把上下文中的智能体消息截到用户真正听到的部分，避免模型&quot;以为&quot;用户听完了整句话。开发者也可以在代码中主动打断，例如响应界面上的停止按钮：</p>
+<div class="code-example"><div class="code-bar"><span>主动打断当前回复</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="主动打断当前回复" data-lang="python">await agent.interrupt()
+</code></pre></div>
+<p>被打断的回复以 <code>finished_reason</code> 为 <code>interrupted</code> 的 <code>ReplyEndEvent</code> 结束。由于文本增量比音频先到，前端此时已经收到了多于用户实际听到的文字，因此该文本块的 <code>TextBlockEndEvent</code> 会带上 <code>text</code> 字段给出最终文本，用 <code>Msg.append_event</code> 拼消息时会自动覆盖，自行拼接的前端需要用它替换该块的内容。</p>
+<p>智能体侧的上下文一定会被截断，模型侧则取决于模型 API 的协议，由模型类的 <code>truncation</code> 属性标明：</p>
+<table><thead><tr><th><code>truncation</code></th><th>模型 API</th><th>模型侧的处理</th></tr></thead><tbody><tr><td><code>EXPLICIT</code></td><td>OpenAI Realtime</td><td>接受截断指令，模型侧上下文与用户听到的内容一致</td></tr><tr><td><code>SERVER</code></td><td>Gemini Live</td><td>模型 API 自行处理打断，无需发送截断指令</td></tr><tr><td><code>NONE</code></td><td>DashScope、xAI Grok Voice</td><td>不接受截断指令，模型侧仍保留完整的回复</td></tr></tbody></table>
+<h3 id="调用工具">调用工具</h3>
+<p>传入 <code>toolkit</code> 后，模型可以在对话中调用工具。工具在智能体侧执行，权限检查、用户确认与<a href="/agentscope-course/building-blocks/agent/human-in-the-loop/">普通智能体</a>一致。区别在于实时语音智能体不会暂停：需要确认时，<code>reply_stream()</code> 产出 <code>RequireUserConfirmEvent</code> 后继续产出其它事件，确认结果由开发者在任意时刻通过 <code>send()</code> 送回，与事件流本身解耦：</p>
+<div class="code-example"><div class="code-bar"><span>装配工具并接收确认请求</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="装配工具并接收确认请求" data-lang="python">from agentscope.event import RequireUserConfirmEvent
+from agentscope.tool import Bash, Read, Toolkit
+
+agent = RealtimeAgent(
+    name=&quot;Friday&quot;,
+    system_prompt=&quot;...&quot;,
+    model=model,
+    toolkit=Toolkit(tools=[Bash(), Read()]),
+)
+
+async with agent, transport:
+    async for event in agent.reply_stream(transport):
+        if isinstance(event, RequireUserConfirmEvent):
+            # 把确认请求交给界面，不要在这里阻塞事件流
+            show_confirm_dialog(event)
+</code></pre></div>
+<p>用户作出选择后，把 <code>UserConfirmResultEvent</code> 送回智能体即可，调用位置可以是界面回调、WebSocket 消息处理函数或终端输入。下面的 tab 分别展示两种场景：</p>
+<div class="tab-set" data-tab-set=""><div class="tab-list" role="group" aria-label="代码示例"><button type="button" data-choice="0" aria-pressed="true">界面回调</button><button type="button" data-choice="1" aria-pressed="false">终端输入</button></div><div data-panel="0"><div class="code-example"><div class="code-bar"><span>界面回调</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="界面回调" data-lang="python">from agentscope.event import ConfirmResult, UserConfirmResultEvent
+
+
+async def on_confirm_clicked(event: RequireUserConfirmEvent, allowed: bool) -&gt; None:
+    # 由按钮点击等界面事件触发，与 reply_stream() 的循环无关
+    await agent.send(
+        UserConfirmResultEvent(
+            reply_id=event.reply_id,
+            confirm_results=[
+                ConfirmResult(tool_call=call, confirmed=allowed)
+                for call in event.tool_calls
+            ],
+        ),
+    )
+</code></pre></div></div><div data-panel="1" hidden=""><div class="code-example"><div class="code-bar"><span>终端输入</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="终端输入" data-lang="python">import asyncio
+
+from agentscope.event import ConfirmResult, UserConfirmResultEvent
+
+
+async def confirm_in_terminal(event: RequireUserConfirmEvent) -&gt; None:
+    loop = asyncio.get_running_loop()
+    results = []
+    for call in event.tool_calls:
+        # 终端输入会阻塞线程，放到线程池里执行，等待期间音频不停
+        answer = await loop.run_in_executor(
+            None, input, f&quot;允许 {call.name}({call.input})? [y/N] &quot;,
+        )
+        results.append(
+            ConfirmResult(tool_call=call, confirmed=answer.lower() == &quot;y&quot;),
+        )
+    await agent.send(
+        UserConfirmResultEvent(reply_id=event.reply_id, confirm_results=results),
+    )
+</code></pre></div></div></div>
+<p>使用工具时需要注意以下几点：</p>
+<ul>
+<li>只有模型卡片标注 <code>supports_tools</code> 的模型才会收到工具列表，DashScope 的 Qwen-Omni 系列中 qwen3.5 与 qwen3.8 系列支持工具，其余模型 API 的模型均支持。</li>
+<li>确认请求超过 5 分钟没有回应，智能体按拒绝处理。</li>
+</ul>
+<aside class="notice tip"><strong>提示</strong><p>实时语音智能体目前不支持元工具（工具分组）：工具列表与系统提示在连接模型时一次性发送，会话中途激活工具组或添加工具不会生效，请在构造时把需要的工具全部放进工具包。</p></aside>
+<h3 id="回合检测">回合检测</h3>
+<p>回合检测决定&quot;用户什么时候说完了&quot;，只能由一方负责。默认情况下由模型 API 负责，智能体只响应它上报的说话开始与结束；传入 <code>vad</code> 参数后改由智能体本地判断，并自动关闭模型 API 侧的回合检测。两种模式的对比如下：</p>
+<table><thead><tr><th>模式</th><th>配置方式</th><th>适用场景</th></tr></thead><tbody><tr><td>模型 API 检测</td><td>不传 <code>vad</code>，通过 <code>Parameters.turn_detection</code> 选择检测方式</td><td>默认选择，无需额外模型</td></tr><tr><td>本地检测</td><td>传入 <code>VADBase</code> 实现</td><td>需要自定义端点策略，或模型 API 不提供回合检测</td></tr></tbody></table>
+<p>各模型 API 的 <code>turn_detection</code> 取值不同，敏感度、静音时长等参数同样在 <code>Parameters</code> 中：</p>
+<table><thead><tr><th>模型 API</th><th><code>turn_detection</code> 取值</th></tr></thead><tbody><tr><td>DashScope（Qwen-Omni）</td><td><code>server_vad</code>、<code>semantic_vad</code>、<code>none</code></td></tr><tr><td>DashScope（Qwen-Audio-3.0）</td><td><code>server_vad</code>、<code>smart_turn</code>、<code>none</code></td></tr><tr><td>OpenAI Realtime</td><td><code>server_vad</code>、<code>semantic_vad</code>、<code>none</code></td></tr><tr><td>Gemini Live</td><td><code>automatic</code>、<code>none</code></td></tr><tr><td>xAI Grok Voice</td><td><code>server_vad</code>、<code>none</code></td></tr></tbody></table>
+<p>本地检测需要实现 <code>VADBase</code>：<code>push()</code> 接收传输送来的每一块 PCM16 音频，只在说话开始或结束的那一块返回 <code>SpeechTransition</code>，其余时候返回 <code>None</code>；<code>reset()</code> 在音频流出现间断（例如重连）时清空内部状态。传入 <code>vad</code> 后智能体会把 <code>turn_detection</code> 置为 <code>none</code>，无需手动设置：</p>
+<div class="code-example"><div class="code-bar"><span>接入本地 VAD</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="接入本地 VAD" data-lang="python">from agentscope.realtime import SpeechTransition, VADBase
+
+
+class MyVAD(VADBase):
+    sample_rate = 16000  # 必须与传输的输入采样率一致
+
+    def push(self, pcm: bytes) -&gt; SpeechTransition | None:
+        # 在说话开始的那一块返回 STARTED，结束的那一块返回 ENDED
+        ...
+
+    def reset(self) -&gt; None:
+        ...
+
+
+agent = RealtimeAgent(name=&quot;Friday&quot;, system_prompt=&quot;...&quot;, model=model, vad=MyVAD())
+</code></pre></div>
+<p>无论哪种模式，模型 API 上报或本地检测到的用户转写都会先经过 <code>TurnAggregator</code> 整理，再写入上下文：</p>
+<div class="code-example"><div class="code-bar"><span>配置回合整理</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="配置回合整理" data-lang="python">from agentscope.agent import RealtimeAgent, TurnAggregator
+
+agent = RealtimeAgent(
+    name=&quot;Friday&quot;,
+    system_prompt=&quot;...&quot;,
+    model=model,
+    aggregator=TurnAggregator(
+        merge_window_ms=800,                    # 上一轮结束后 800 毫秒内的转写并入上一轮
+        backchannels=frozenset({&quot;嗯&quot;, &quot;好的&quot;}),  # 这些应答不构成一轮
+        min_chars=1,                            # 短于该长度的转写丢弃
+    ),
+)
+</code></pre></div>
+<h3 id="断线自动恢复">断线自动恢复</h3>
+<p>模型 API 都会主动关闭会话，只是触发条件不同：DashScope 的空闲超时约为三分钟，Gemini Live 的音频会话上限约为 15 分钟，OpenAI Realtime 约为 1 小时。智能体把这视为正常情况：记录一条 INFO 日志，保持传输打开，用户下一次说话时自动重连并补发这期间的音频。对话历史保存在 <code>agent.state</code> 中，重连时智能体会把此前的对话转写附在系统提示之后发给模型，因此模型能接上之前的话题。</p>
+<aside class="notice tip"><strong>提示</strong><p>长时间静默或长对话都是安全的，不需要为会话超时做任何处理。若要在客户端断开后继续同一场对话，保持智能体不关闭，换一个传输再次调用 <code>reply_stream()</code> 即可。</p></aside>
+<h2 id="音频传输">音频传输</h2>
+<p>音频传输负责&quot;声音从哪里来、到哪里去&quot;，智能体不关心音频来自本地声卡还是浏览器。AgentScope 当前提供以下传输：</p>
+<table><thead><tr><th>传输</th><th>说明</th></tr></thead><tbody><tr><td><code>LocalAudioTransport</code></td><td>本地麦克风与扬声器，基于 <code>sounddevice</code>，适合本机调试</td></tr><tr><td>浏览器传输</td><td>即将上线</td></tr></tbody></table>
+<h3 id="本地声卡">本地声卡</h3>
+<p><code>LocalAudioTransport</code> 支持以下参数：</p>
+<section class="parameter" data-default="16000"><strong><code>input_sample_rate</code> <small>int</small><small> · 默认值 <code>16000</code></small></strong><p>采集采样率，必须等于模型的 <code>input_sample_rate</code>。</p></section>
+<section class="parameter" data-default="24000"><strong><code>output_sample_rate</code> <small>int</small><small> · 默认值 <code>24000</code></small></strong><p>播放采样率，必须等于模型的 <code>output_sample_rate</code>。</p></section>
+<section class="parameter" data-default="None"><strong><code>input_device</code> <small>int | str | None</small><small> · 默认值 <code>None</code></small></strong><p>输入设备的编号或名称，省略时使用系统默认设备。</p></section>
+<section class="parameter" data-default="None"><strong><code>output_device</code> <small>int | str | None</small><small> · 默认值 <code>None</code></small></strong><p>输出设备的编号或名称，省略时使用系统默认设备。</p></section>
+<section class="parameter" data-default="100"><strong><code>chunk_ms</code> <small>int</small><small> · 默认值 <code>100</code></small></strong><p>每块上行音频的时长。</p></section>
+<section class="parameter" data-default="30"><strong><code>fade_ms</code> <small>int</small><small> · 默认值 <code>30</code></small></strong><p>打断时对正在播放的音频施加的淡出时长，避免爆音。</p></section>
+<p>各模型 API 的采样率并不一致（DashScope 上行 16 kHz，OpenAI 与 xAI 上行 24 kHz），因此推荐直接用模型的属性构造传输，而不是写死数值。默认设备不合适时，可以用 <code>sounddevice</code> 列出设备并按编号指定：</p>
+<div class="code-example"><div class="code-bar"><span>列出音频设备</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-bash" data-caption="列出音频设备" data-lang="bash">python -m sounddevice
+</code></pre></div>
+<p>使用本地声卡时有几点建议：</p>
+<ul>
+<li><strong>佩戴耳机。</strong> 使用外放时麦克风会录到智能体自己的声音，回合检测把它当成用户开口，智能体会打断自己。<code>LocalAudioTransport</code> 不做回声消除。</li>
+<li><strong>不要让同一个蓝牙耳机同时负责输入和输出。</strong> macOS 会把 AirPods 等设备切换到免提模式，此时经常没有声音。可以把耳机麦克风与内置扬声器搭配使用，例如 <code>LocalAudioTransport(input_device=3, output_device=2)</code>。</li>
+</ul>
+<h3 id="自定义传输">自定义传输</h3>
+<p>接入浏览器或其它音频来源时，继承 <code>TransportBase</code> 并实现以下方法：</p>
+<table><thead><tr><th>方法</th><th>作用</th></tr></thead><tbody><tr><td><code>start()</code> / <code>close()</code></td><td>打开与关闭音频设备或连接</td></tr><tr><td><code>incoming()</code></td><td>异步迭代器，产出上行的 <code>AudioFrame</code>（PCM16 音频）与 <code>ControlFrame</code>（文本、确认等控制帧）</td></tr><tr><td><code>send_audio(pcm, item_id)</code></td><td>播放一块模型音频，<code>item_id</code> 标识它属于哪条回复</td></tr><tr><td><code>clear_audio()</code></td><td>打断时丢弃未播放的音频，并返回 <code>PlayoutPosition</code>，其中 <code>played_ms</code> 是这条回复实际播放到的毫秒数</td></tr><tr><td><code>playout</code></td><td>属性，当前的播放位置</td></tr></tbody></table>
+<p><code>clear_audio()</code> 返回的播放位置是截断上下文的依据，因此播放进度的统计应尽量靠近扬声器，浏览器中应放在 AudioWorklet 里。</p></article><footer><div class="paging"><a href="/agentscope-course/building-blocks/realtime/overview/">上一节 · 实时语音智能体 · 概述</a><a href="/agentscope-course/building-blocks/console/">下一节 · 终端 UI</a></div><div class="credits"><a href="https://docs.agentscope.io/zh/versions/2.0.12/building-blocks/realtime/speech-to-speech" target="_blank" rel="noopener">在线原页</a> · <a href="/agentscope-course/mdx/building-blocks/realtime/speech-to-speech.mdx">原始 MDX</a> · <a href="https://github.com/agentscope-ai/docs/blob/e0ee835d1aca5d2b840d29bdd2f70770bbef69e8/zh/versions/2.0.12/building-blocks/realtime/speech-to-speech.mdx" target="_blank" rel="noopener">固定版本来源</a> · <a href="/agentscope-course/LICENSE.txt">MIT 许可</a></div></footer></main></div></body></html>

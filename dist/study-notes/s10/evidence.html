@@ -1,0 +1,700 @@
+<!-- source-sha256:dd18a78045feb580ca4d09bac09185dbaea77014a1cc7594c4bae163ff7fc82c format:1 --><!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>作业、源码与旧笔记逐项对照</title><link rel="stylesheet" href="/study-notes/note.css"><header><a href="/?primary=claude&amp;chapter=s10&amp;mode=original">← 返回 S10 原课对读</a></header><main><h1 id="prompt-cache-与系统提示词组装作业记录claude-code-源码旧研究笔记">prompt cache 与系统提示词组装：作业记录、Claude Code 源码、旧研究笔记</h1>
+<p>整理日期：2026-11-25。用到的材料：</p>
+<table>
+<thead>
+<tr>
+<th>材料</th>
+<th>位置</th>
+<th>版本</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>作业记录</td>
+<td><a data-study-path="harness-fusion-tutorial/learn-claude-code-homework-2026-11-23/s10_system_prompt/HOMEWORK.zh.md">HOMEWORK.zh.md</a>、<a data-study-path="harness-fusion-tutorial/learn-claude-code-homework-2026-11-23/s10_system_prompt/CACHE-HIT.zh.md">CACHE-HIT.zh.md</a>，以及 s01–s09 各章的 <code>HOMEWORK.zh.md</code></td>
+<td>2026-11-24 的 Mac 作业记录；下文复核终端摘录和源码</td>
+</tr>
+<tr>
+<td>教学代码，s10</td>
+<td><a data-study-path="harness-fusion-tutorial/sources/learn-claude-code/s10_system_prompt/code.py">s10_system_prompt/code.py</a></td>
+<td>网站版 <code>20e7cbb</code>，218 行</td>
+</tr>
+<tr>
+<td>教学代码，s01–s09</td>
+<td>同一仓库的 <code>main</code> 历史版本</td>
+<td><code>448c75b</code>。在本项目根目录可用 <code>git -C sources/learn-claude-code show 448c75b:s07_skill_loading/code.py</code> 阅读 s07，其余章换成实际路径</td>
+</tr>
+<tr>
+<td>Claude Code 源码</td>
+<td><code>sources/claude-code/src/</code>，下文路径都相对它</td>
+<td>第三方快照 <code>6f6f12b3</code>，2026-03-31 泄露源</td>
+</tr>
+<tr>
+<td>旧研究笔记</td>
+<td><code>D:\RL及harness\claude-code-internals\notes\</code>，下文记作 <code>notes/</code></td>
+<td>2026-06-30 版，当时按同一份快照做过源码与 trace 交叉验证</td>
+</tr>
+</tbody>
+</table>
+<p><strong>作业跨了两个版本，行号别混着看。</strong> s01–s09 的作业记录开头写明「行号对应 commit <code>448c75b</code> 的原版 <code>code.py</code>」；s10 的两份对应网站版 <code>20e7cbb</code>。两个版本里 s10 之后的目录结构不同，s01–s09 的同名文件内容也有差异。</p>
+<p>请求字段、断点、前缀这几个词，以及 T / S1 / S2 / U1 那张图，在 <a href="/study-notes/s10/confirmed.html">s10-请求字段与缓存断点.md</a> 里讲过，本文不重复。</p>
+<h2 id="一样本作业实跑的八句话">一、样本：作业实跑的八句话</h2>
+<p>后面三节都沿着这一次实跑讲。用户在同一个进程里按顺序输入八句，编号沿用作业的 0 到 7。</p>
+<pre class="text"><code>问  输入                          屏上的标记行                         工具
+0   你是谁                        [assembled] 三段                     无
+1   不调工具，报工具和目录        [cache hit]                          无
+2   新建 .memory/MEMORY.md        [cache hit] → write_file → [assembled] 四段
+3   写 add(a, b) 存进 calc.py     [cache hit] ×2                       write_file
+4   MEMORY.md 末尾加「用英文回答」 [cache hit] → bash → [assembled] 四段 → bash → [cache hit]
+5   读 MEMORY.md                  [cache hit] ×2                       read_file
+6   清空 MEMORY.md                [cache hit] → bash → [assembled] 三段
+7   calc.py 是 tab 还是空格       [cache hit] ×3                       bash ×2</code></pre>
+<p>我按作业贴出的原始输出重数了一遍：<code>[assembled]</code> 4 行，<code>[cache hit]</code> 12 行，工具行 8 行，和作业写的 16 次模型调用、8 次工具调用一致。四处重拼的段落名单依次是「三段、四段、四段、三段」。</p>
+<p>三个要盯住的瞬间：</p>
+<ul>
+<li><strong>问 2</strong>：文件写完，同一个问题的下一次调用就带上了 memory 段。</li>
+<li><strong>问 4</strong>：往文件追加一行之后重拼，名单里还是那四段，回答变成英文。</li>
+<li><strong>问 6</strong>：文件清空，memory 段消失，回答切回中文。</li>
+</ul>
+<h2 id="二作业里讲系统提示词组装的部分">二、作业里讲「系统提示词组装」的部分</h2>
+<h3 id="21-s10按状态拼按内容缓存">2.1 s10：按状态拼，按内容缓存</h3>
+<p>出处是 s10 的 <code>HOMEWORK.zh.md</code>，行号见括号。</p>
+<table>
+<thead>
+<tr>
+<th>作业的结论</th>
+<th>依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>提示词有三段固定内容（identity、tools、workspace）；context 含非空记忆时再加第四段（L34）</td>
+<td><code>code.py</code> 50–64</td>
+</tr>
+<tr>
+<td><code>PROMPT_SECTIONS["memory"]</code> 这个键没有被用到，记忆段是现拼的（L35）</td>
+<td><code>code.py</code> 46、62</td>
+</tr>
+<tr>
+<td>记忆只读一个文件：<code>.memory/MEMORY.md</code> 的全文（L36）</td>
+<td><code>code.py</code> 159–162</td>
+</tr>
+<tr>
+<td>缓存 key 是 context 的内容，不是段落名单。问 4 追加一行后重拼，名单没变（L111）</td>
+<td><code>code.py</code> 81–86</td>
+</tr>
+<tr>
+<td>启动时先读状态。进循环时用已有 context 查键；每轮工具执行完、每个问题结束后再更新 context（L174）</td>
+<td><code>code.py</code> 174、196–197、204、214</td>
+</tr>
+<tr>
+<td>两问之间从外部改文件，下一问的第一次请求仍沿用上次留下的 context；作业回放中这一问没有刷新它的工具轮，第三问才看到新内容（L174）</td>
+<td>离线回放</td>
+</tr>
+<tr>
+<td>从工具表去掉一个工具：重拼了，提示词文本没变（L171）</td>
+<td>离线回放</td>
+</tr>
+<tr>
+<td>两个 context 来回给：只有相邻两次相同时才命中，缓存只记最近一份（L172）</td>
+<td>离线回放</td>
+</tr>
+<tr>
+<td>键的顺序不同、内容相同：命中，靠 <code>sort_keys=True</code>（L173）</td>
+<td><code>code.py</code> 81</td>
+</tr>
+<tr>
+<td>提示词里加了什么、删了什么，模型的回答跟着变：问 4 变英文，问 6 变中文。示范跑没有复现语言变化，所以不当规律记（L107–110）</td>
+<td>两次实跑对比</td>
+</tr>
+</tbody>
+</table>
+<p>作业还列了课程 README 和代码对不上的两处（L153、L156）：README 说 tools 段看 <code>enabled_tools</code>，代码里是写死的字符串（44–45 行）；README 说 memory 段看文件是否存在，代码要求存在而且非空（159–162 行）。</p>
+<h3 id="22-s10-之前提示词一章一章怎么变">2.2 s10 之前：提示词一章一章怎么变</h3>
+<p>这一小节的行号来自 s01–s09 各章的 <code>HOMEWORK.zh.md</code>，<code>code.py</code> 的行号按主仓库 <code>448c75b</code>。</p>
+<table>
+<thead>
+<tr>
+<th>章</th>
+<th>提示词怎么变</th>
+<th>作业的位置</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>s01</td>
+<td>写死的一段 <code>SYSTEM</code>（<code>code.py:62</code> 起）。作业记了两条：没写模型名，模型自述的训练方是它自己说的；写着 “Act, don't explain”，在把模型往调工具那边推（L28、L40）</td>
+<td><code>s01_agent_loop</code></td>
+</tr>
+<tr>
+<td>s03</td>
+<td>多了三句（<code>code.py:68</code>）：不要自己问用户；破坏性操作照常发起调用；批不批由 harness 决定（L54）。README 说「唯一的变动是插入权限检查」，作业指出说少了（L118）</td>
+<td><code>s03_permission</code></td>
+</tr>
+<tr>
+<td>s04</td>
+<td>回到 s02 的版本（<code>code.py:56</code>），拦不拦交给 hook（L77）</td>
+<td><code>s04_hooks</code></td>
+</tr>
+<tr>
+<td>s05</td>
+<td>换了一句（<code>code.py:58</code>）：多步任务前先用 <code>todo_write</code> 列步骤。是换不是加，把 “Act, don't explain.” 换掉了（L72、L134）</td>
+<td><code>s05_todo_write</code></td>
+</tr>
+<tr>
+<td>s06</td>
+<td>子 agent 用另一套 <code>SUB_SYSTEM</code>（<code>code.py:58</code>），从只有父 agent 那句话的消息列表开始（<code>:278</code>），工具里没有 <code>task</code>（<code>:262</code>）（L64）</td>
+<td><code>s06_subagent</code></td>
+</tr>
+<tr>
+<td>s07</td>
+<td>启动时扫描技能目录，只把名称和描述拼进 system（<code>code.py:131</code>、<code>139</code>）（L43）</td>
+<td><code>s07_skill_loading</code></td>
+</tr>
+<tr>
+<td>s08</td>
+<td>多了两句（<code>code.py:78</code>）：压缩之后只听当前请求，把摘要当参考数据（L83、L132）</td>
+<td><code>s08_context_compact</code></td>
+</tr>
+<tr>
+<td>s09</td>
+<td>由四段组成：基础提示、记忆说明、整份索引、召回的正文（L217）</td>
+<td><code>s09_memory</code></td>
+</tr>
+</tbody>
+</table>
+<p>prompt cache 的内容只在 s10 那两份里。s01–s09 的作业里出现 “cache” 的地方，说的都是 pytest 的缓存目录。</p>
+<p>讲得最细的是 s07 和 s09。</p>
+<p><strong>s07 技能</strong>（<code>s07_skill_loading/HOMEWORK.zh.md</code>）：</p>
+<ul>
+<li>进 system 的只有目录。离线回放量过：目录 1089 到 1140 个字符，全文合计 16721 到 16888 个字符（L133–139）。</li>
+<li><code>load_skill</code> 返回整份 <code>SKILL.md</code>。同一个技能加载两次不去重，全文一直在上下文里（L143、L148）。</li>
+<li>启动后新增技能：重新扫描后目录里有了，但 system 是启动时拼好的一段字符串，里面还是旧目录（L150）。</li>
+<li>技能描述直接拼进 system，不经过任何检查（L172）。</li>
+</ul>
+<p><strong>s09 记忆</strong>（<code>s09_memory/HOMEWORK.zh.md</code>）：</p>
+<ul>
+<li><strong>选</strong>：提问开始时尝试选择相关记忆。有候选记忆且有查询文字才额外调用模型；该请求不带 system，最多输出 200 token。选择器收到名称和描述，最多挑 5 条（<code>code.py:286–313</code>，L51、L213）。</li>
+<li>判断「相关」时用的当前请求，是最近 3 条有文字的用户消息（<code>code.py:259</code>，L58）。</li>
+<li>system 里始终有整份索引，并写明记忆只是背景、冲突时以当前请求为准（<code>code.py:345–348</code>，L59）。</li>
+<li>召回的正文合计最多 2 万字符（<code>code.py:72</code>，L60）。</li>
+<li>实跑中 system 的长度：没有记忆 371 个字符，召回 1 条 830，召回 2 条 1074，召回 5 条 2513（L217–224）。</li>
+<li>选记忆漏掉了最相关的那条，模型照样答对（L119）。</li>
+</ul>
+<p>这些行号我对着主仓库 <code>448c75b</code> 核了 29 处，全部成立。</p>
+<h2 id="三作业里讲-prompt-cache-的部分">三、作业里讲 prompt cache 的部分</h2>
+<p>出处都在 <code>CACHE-HIT.zh.md</code>。</p>
+<h3 id="31-两种-cache-hitl1725">3.1 两种 cache hit（L17–25）</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>s10 的 <code>[cache hit]</code></th>
+<th>服务端的 prompt cache 命中</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>缓存放在哪</td>
+<td>Python 进程里，两个全局变量（<code>code.py</code> 67–68）</td>
+<td>模型服务端</td>
+</tr>
+<tr>
+<td>缓存的是什么</td>
+<td>拼好的提示词字符串</td>
+<td>前缀的计算结果</td>
+</tr>
+<tr>
+<td>谁判断命中</td>
+<td>本地代码比对这次和上次 context 的 JSON（81–82）</td>
+<td>服务端按已保存的相同前缀、有效期、隔离范围等条件匹配；远端读到多少看返回的 usage</td>
+</tr>
+<tr>
+<td>命中省了什么</td>
+<td>一次字符串拼接</td>
+<td>这部分 token 不用重新计算</td>
+</tr>
+<tr>
+<td>命中后还发不发</td>
+<td>照发（176–178）</td>
+<td>照发</td>
+</tr>
+<tr>
+<td>怎么看到</td>
+<td>屏幕上打印一行（83）</td>
+<td>响应里的 <code>usage.cache_read_input_tokens</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="32-claude-code-源码里的三层l3345">3.2 Claude Code 源码里的三层（L33–45）</h3>
+<ol type="1">
+<li><strong>进程内备忘录</strong>，和 s10 同类：按段缓存，<code>/clear</code>、<code>/compact</code>、进出 worktree、恢复会话时清掉。</li>
+<li><strong>请求中的断点</strong>：客户端依据请求分支切分 system；开启提示缓存时给符合条件的块加 <code>cache_control</code>。消息侧通常另选一个位置，见 4.3。</li>
+<li><strong>事后核对</strong>：分别统计缓存读取与写入；在受跟踪的连续请求上，读量跌幅和绝对掉量同时达到条件才进入断裂诊断。</li>
+</ol>
+<h3 id="33-放回-s10-看l4952">3.3 放回 s10 看（L49–52）</h3>
+<ul>
+<li><code>code.py:176–178</code> 传入 <code>model</code>、<code>system</code>、<code>messages</code>、<code>tools</code> 和 <code>max_tokens</code>，示例未显式请求缓存。作业记录的是本地打印，没有该端点的缓存读写用量。</li>
+<li>作业按自己的工作目录量得初始提示词约 135 个字符、工具定义的紧凑 JSON 约 524 个字符，按每 4 个字符约 1 token 粗估这两项合计 165 token。实际缓存前缀还取决于断点位置、此前消息、服务端编码与所用模型的门槛。</li>
+<li>把 memory 放在 system 末尾时，内容变化会改动从这里往后的输入。若在它之前恰好有可命中的已写入前缀，就可能复用那一段；工具定义排在前面本身不保证工具段已单独写入。</li>
+</ul>
+<h3 id="34-命中率由什么决定l5484">3.4 命中率由什么决定（L54–84）</h3>
+<ul>
+<li><strong>服务端条件</strong>（作业 L58–65）：作业引用的 Anthropic API 资料列出断点、模型门槛、有效期、缓存隔离和查找窗口等条件。第六节保留了两份历史参考资料的版本差异；它们不能直接说明这次 Mac 作业所用端点的行为。</li>
+<li><strong>harness 改变输入序列</strong>（作业 L73–80）：定位最早变化的工具定义、system 块或历史消息，再判断此前有哪些已写入的前缀还相同。子 agent 是否能复用父请求的部分前缀，也取决于实际请求、断点与隔离条件。</li>
+<li><strong>一句话</strong>（L7）：命中率同时取决于服务端规则、前缀是否逐字节稳定、请求间隔。</li>
+</ul>
+<h3 id="35-成本算例l95104">3.5 成本算例（L95–104）</h3>
+<p>作业的假设是 20 次请求，首次输入 2 万 token，以后每次比前一次多 2 千；每次整段输入都纳入可写前缀。读价按全价的 0.1 倍，写价按 1.25 倍。这里只算输入成本。</p>
+<table>
+<thead>
+<tr>
+<th>情况</th>
+<th>折成全价的输入 token</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>不缓存</td>
+<td>78 万</td>
+</tr>
+<tr>
+<td>前缀稳定</td>
+<td>约 14.5 万，是不缓存的 0.19 倍</td>
+</tr>
+<tr>
+<td>打了标记但每轮都打断</td>
+<td>约 97.5 万，比不打还贵</td>
+</tr>
+</tbody>
+</table>
+<p>复算：累计输入 <code>20×20,000 + 2,000×(0+…+19) = 780,000</code>。前缀稳定时首次及历次新增共写入 <code>58,000</code>，其余 <code>722,000</code> 全部读命中，折价为 <code>58,000×1.25 + 722,000×0.1 = 144,700</code>。每次都整段重写才是 <code>780,000×1.25 = 975,000</code>。这些数来自教学假设，作业没有测量真实账单。</p>
+<h3 id="36-准则与验证l120121">3.6 准则与验证（L120–121）</h3>
+<p>验证连续两次请求时，同时记下 <code>usage.cache_creation_input_tokens</code> 与 <code>usage.cache_read_input_tokens</code>，再对照断点前的输入、模型、缓存隔离范围和间隔。第二次读量为零，先查第一次是否写入、前缀是否够长及是否过期，再查输入是否变化。</p>
+<h2 id="四和-claude-code-源码的区别">四、和 Claude Code 源码的区别</h2>
+<h3 id="41-两种请求长什么样">4.1 两种请求长什么样</h3>
+<pre class="text"><code>教学代码 s10（code.py 176–178）         Claude Code 快照（默认主循环，请求启用提示缓存时）
+system: 一个字符串                       system: 文本块数组
+  identity                               归因头                不打标记
+  tools（工具名提示）                    CLI 前缀              取决于分支，见 4.3
+  workspace                              静态候选段            符合 global 分支时在合并块末设断点
+  Relevant memories: …（有内容才有）      动态段（memory 等）    同一分支内无独立断点
+tools: TOOLS（名称、说明、参数规格）     tools: 当前请求的工具定义，主调用未显式给规格传断点
+messages: 对话历史与工具结果             messages: 通常在最后一条的末块选点，有例外</code></pre>
+<p>“打标记”指实际写入 <code>cache_control</code>。快照用 <code>global</code>、<code>org</code>、<code>null</code> 表示内部选择。<code>org</code> 块发出的 <code>cache_control</code> 是 <code>{type: 'ephemeral'}</code>，符合条件时另带 <code>ttl</code>；只有 <code>global</code> 分支显式发送 <code>scope: 'global'</code>（<code>services/api/claude.ts:358–373</code>）。</p>
+<h3 id="42-逐项对比">4.2 逐项对比</h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>教学代码 s10</th>
+<th>Claude Code 快照</th>
+<th>快照里的位置</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>提示词形状</td>
+<td>一个字符串，<code>\n\n</code> 拼接</td>
+<td>字符串数组，请求时切成几块文本</td>
+<td><code>services/api/claude.ts:1358–1368</code>、<code>utils/api.ts:321</code></td>
+</tr>
+<tr>
+<td>由哪些段组成</td>
+<td>三段恒在，memory 段看内容；tools、workspace 是写死的字符串</td>
+<td>默认长提示有七个静态候选段（含条件项）和按名计算的动态段；仅符合 global 分支条件时插入边界</td>
+<td><code>constants/prompts.ts:491–555</code>、<code>560–576</code></td>
+</tr>
+<tr>
+<td>记忆放哪</td>
+<td><code>.memory/MEMORY.md</code> 非空时全文进 system 最后一段</td>
+<td>常规主 agent 的记忆使用指引可进 system；项目指令、符合条件的索引从 userContext 进入 messages；按需选出的记忆可作 user 附件</td>
+<td><code>context.ts:155–186</code>、<code>utils/api.ts:449–473</code>、<code>utils/messages.ts:3700–3727</code></td>
+</tr>
+<tr>
+<td>什么时候重算</td>
+<td>启动建 context，提问开头用已有 context 查键；每轮工具后再读状态、查键，问题结束再更新 context</td>
+<td><code>QueryEngine.submitMessage()</code> 取提示各部分，命中按名缓存的段可复用；默认长提示里的 <code>mcp_instructions</code> 是显式重算项</td>
+<td><code>code.py:156–174,196–197,204,213–214</code>；<code>QueryEngine.ts:292</code>、<code>constants/systemPromptSections.ts:43–54</code>、<code>constants/prompts.ts:513–520</code></td>
+</tr>
+<tr>
+<td>缓存键</td>
+<td>整份 context 的 JSON，只记最近一份</td>
+<td>按段名各存一项；两个上下文函数各自记忆化</td>
+<td><code>bootstrap/state.ts:1641</code>、<code>context.ts:116</code></td>
+</tr>
+<tr>
+<td>缓存为了什么</td>
+<td>省一次重复拼接</td>
+<td>客户端段缓存减少重复计算，有助于保持输入稳定；是否实际命中远端前缀仍看返回用量</td>
+<td><code>constants/systemPromptSections.ts:17–32</code></td>
+</tr>
+<tr>
+<td><code>cache_control</code> 写在哪</td>
+<td><code>messages.create</code> 未显式传断点</td>
+<td>system 和 messages 按分支选点；工具转换器支持 <code>cacheControl</code>，而主调用实参未传它。<code>:1388</code> 的注释不足以证明工具带标记</td>
+<td><code>utils/api.ts:228–230</code>；<code>services/api/claude.ts:1235–1245,3089–3105,3213–3234</code></td>
+</tr>
+<tr>
+<td>动态内容变了的后果</td>
+<td>context 键变化会重拼，拼出的字符串是否变化取决于实际用到的字段</td>
+<td>在带静态 global 断点的分支，动态段变化后静态前缀仍相同；后续断点能否读命中取决于有没有一份匹配新前缀的缓存</td>
+<td><code>utils/api.ts:362–404</code></td>
+</tr>
+<tr>
+<td>事后核对</td>
+<td>这次作业没有记录服务端读写用量</td>
+<td>分别核算读写费用；断裂检测有前置条件和掉量门槛</td>
+<td><code>utils/modelCost.ts:131</code>、<code>services/api/promptCacheBreakDetection.ts:437–491</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="43-几处值得单独说">4.3 几处值得单独说</h3>
+<p><strong>问 2 写完文件后，提示词和消息要分别看。</strong> 教学版 <code>update_context()</code> 重读 <code>.memory/MEMORY.md</code>，下一次 <code>get_system_prompt()</code> 随即能拼入新正文。快照的常规主 agent 从 <code>getUserContext()</code> 取得项目指令与日期，<code>prependUserContext()</code> 把它们作为带 <code>&lt;system-reminder&gt;</code> 的 user 消息前置（<code>context.ts:155–186</code>、<code>utils/api.ts:449–473</code>）。system 中的常规 <code>memory</code> 段由 <code>loadMemoryPrompt()</code> 生成记忆使用指引；另有受开关控制的模式和单独的 agent memory 路径（<code>memdir/memdir.ts:419–489</code>、<code>tools/AgentTool/agentMemory.ts:169</code>）。</p>
+<p><strong>同一改动在两份程序中的可见时机不同。</strong> 教学版在每轮工具后更新 context。快照的 <code>QueryEngine.submitMessage()</code> 取提示各部分（<code>QueryEngine.ts:292</code>），默认长提示把 <code>memory</code> 登记为按名缓存的段（<code>constants/prompts.ts:495</code>）。仅写文件不会自行改写这份段缓存；仍可通过工具结果、用户上下文或条件满足的记忆附件把数据带到后续请求。要判断这八个问题在真实会话中会看到什么，还需那次会话的输入与配置。已找到的清段缓存位置有：</p>
+<ul>
+<li><code>/clear</code>：<code>clearSessionCaches()</code> 里调了 <code>runPostCompactCleanup()</code>，注释写明它清系统提示词段（<code>commands/clear/caches.ts:47</code>、<code>70–74</code>）。</li>
+<li><code>/compact</code> 收尾：<code>services/compact/postCompactCleanup.ts:62</code>。</li>
+<li>进入、退出 worktree：<code>tools/EnterWorktreeTool/EnterWorktreeTool.ts:99</code>、<code>tools/ExitWorktreeTool/ExitWorktreeTool.ts:143</code>。</li>
+<li>恢复带 worktree 的会话及从中退出：<code>utils/sessionRestore.ts:364</code>、<code>388</code>。</li>
+</ul>
+<p><strong>切块其实有三种情况，作业写了两种。</strong> <code>splitSysPromptPrefix</code>（<code>utils/api.ts:321</code>）的注释列了三种：</p>
+<table>
+<thead>
+<tr>
+<th>情况</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>global 可用，且筛选后仍有本轮实际暴露的 MCP 工具（未 defer）</td>
+<td>略过边界，归因头无标记，非空的 CLI 前缀和其余正文各设普通 ephemeral 断点（内部记为 <code>org</code>）</td>
+</tr>
+<tr>
+<td>global 可用、找到边界且未触发上述 MCP 分支</td>
+<td>归因头和 CLI 前缀无标记；非空静态合并块显式标 <code>scope: 'global'</code>，动态合并块无独立断点</td>
+</tr>
+<tr>
+<td>未启用 global 或缺边界</td>
+<td>归因头无标记；非空 CLI 前缀和其余合并正文各可设普通断点</td>
+</tr>
+</tbody>
+</table>
+<p>global 路径要求 first-party provider 且未禁用实验 beta（<code>utils/betas.ts:227–231</code>）。实际暴露的 MCP 工具触发回退（<code>services/api/claude.ts:1207–1229,1374–1379</code>）。表中各断点还取决于 <code>enablePromptCaching</code>；关闭时 <code>buildSystemPromptBlocks</code> 仍构造文本块，但不会由这里加标记（<code>:3213–3234</code>）。</p>
+<p><strong>消息层通常选一个候选点。</strong> <code>addCacheBreakpoints()</code> 默认选最后一条消息；<code>skipCacheWrite</code> 为真时改选倒数第二条，例如一次性 fork 想复用前缀时。用户消息可标末块，assistant 末块若为 <code>thinking</code>、<code>redacted_thinking</code> 或受相应开关排除的 connector 文本就跳过，不回头补标（<code>services/api/claude.ts:594–617,639–665,3089–3105</code>）。此处有效期也单独判定（<code>:358–373,393–432</code>）。</p>
+<p><strong>断裂检测的门槛。</strong> 对可跟踪且有前次基线的请求，<code>checkResponseForCacheBreak()</code> 比较两次 <code>cache_read_input_tokens</code>。排除的模型及预期的缓存删除等情况先跳过；其余请求要同时满足相对跌幅超过 5%、绝对减少至少 2,000 token，才进入后续归因（<code>services/api/promptCacheBreakDetection.ts:120,445–491</code>）。达到门槛说明读量下降，具体原因还要核对变更。</p>
+<p><strong>快照里还有、作业和旧笔记都没提的一处。</strong> 请求里有些 beta 头一旦发过就整个会话一直发，注释给的理由是中途切换会改掉服务端的缓存键，一换就是五六万 token（<code>claude.ts:1405–1410</code>）。</p>
+<h3 id="44-作业引用的源码行号在本地快照里逐条对过">4.4 作业引用的源码行号，在本地快照里逐条对过</h3>
+<p>作业引的是另一个仓库 <code>haichengmai20-hub/claudecode_sourcecode1</code>（提交 <code>2dc86d8</code>）。我在你这份快照 <code>6f6f12b3</code> 里核了它引用的 24 处，全部对得上，涉及的 9 个文件都不是 stub。</p>
+<table>
+<thead>
+<tr>
+<th>文件</th>
+<th>对上的行</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>constants/prompts.ts</code></td>
+<td>114、560、573</td>
+</tr>
+<tr>
+<td><code>constants/systemPromptSections.ts</code></td>
+<td>20、29、32、50</td>
+</tr>
+<tr>
+<td><code>bootstrap/state.ts</code></td>
+<td>1641</td>
+</tr>
+<tr>
+<td><code>context.ts</code></td>
+<td>116、155</td>
+</tr>
+<tr>
+<td><code>utils/betas.ts</code></td>
+<td>227</td>
+</tr>
+<tr>
+<td><code>utils/api.ts</code></td>
+<td>321、362、411</td>
+</tr>
+<tr>
+<td><code>services/api/claude.ts</code></td>
+<td>358、3063、3089、3213、3228</td>
+</tr>
+<tr>
+<td><code>utils/modelCost.ts</code></td>
+<td>131</td>
+</tr>
+<tr>
+<td><code>services/api/promptCacheBreakDetection.ts</code></td>
+<td>120、437、455–456、485–490</td>
+</tr>
+</tbody>
+</table>
+<p>s10 作业里教学代码的行号，我对着网站版 <code>20e7cbb</code> 的 <code>code.py</code> 核过，全部成立。其余各章见 2.2。</p>
+<h3 id="45-技能和记忆claude-code-放在哪">4.5 技能和记忆，Claude Code 放在哪</h3>
+<p>s07 和 s09 把技能目录、记忆索引和召回正文都放进了 system。Claude Code 快照里，这两类内容走的都是消息这一侧：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>教学代码（主仓库 <code>448c75b</code>）</th>
+<th>Claude Code 快照</th>
+<th>快照里的位置</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>技能目录和正文</td>
+<td>s07：技能名称与描述拼进 system，启动时拼一次</td>
+<td>启用 Skill 工具后，目录可以 <code>skill_listing</code> 附件进入 user 消息；发现阶段已可读盘解析，内联调用后另把展开的正文送进消息，fork 型交给子会话</td>
+<td><code>utils/attachments.ts:2661,2741</code>、<code>utils/messages.ts:3728</code>、<code>skills/loadSkillsDir.ts:435,447</code>、<code>utils/processUserInput/processSlashCommand.tsx:869,902–908</code>、<code>tools/SkillTool/SkillTool.ts:622</code></td>
+</tr>
+<tr>
+<td>记忆索引</td>
+<td>s09：索引放在 system</td>
+<td>自动记忆开启且文件存在时，索引进入收集列表；跳过索引的开关可移除 AutoMem/TeamMem，再组装 userContext。之后出现的相关记忆是另一次选择的内容</td>
+<td><code>utils/claudemd.ts:979–992,1142–1150</code>、<code>context.ts:170–186</code></td>
+</tr>
+<tr>
+<td>选相关记忆</td>
+<td>s09：每次提问尝试选条目，将召回正文放进 system</td>
+<td><code>startRelevantMemoryPrefetch()</code> 尝试异步预取。经去重与文件读取最多返回 5 条；循环仅在预取已就绪且尚未消费时加入结果，<code>relevant_memories</code> 随 user 消息进入后续请求</td>
+<td><code>query.ts:301,1599–1613</code>、<code>utils/attachments.ts:2196–2241</code>、<code>utils/messages.ts:3708–3727</code></td>
+</tr>
+</tbody>
+</table>
+<p>就输入顺序看，s07 的技能目录在一次启动后保持稳定。s09 若召回的文字变化，从该处直到后续消息末尾的前缀就与此前不同；前面相同的工具定义能否复用，仍取决于先前写入的前缀和本次匹配位置。快照里，常规主 agent 的技能目录及相关记忆可经消息传递，system 还可含使用这些能力的指引。</p>
+<h2 id="五旧研究笔记里关于这部分的记录">五、旧研究笔记里关于这部分的记录</h2>
+<h3 id="51-主笔记notescc-prompt-assemblymd608-行">5.1 主笔记：<code>notes/cc-prompt-assembly.md</code>（608 行）</h3>
+<p>这份是专门讲提示词组装的，章节如下：</p>
+<table>
+<thead>
+<tr>
+<th>行</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>L14–59</td>
+<td>一次请求长什么样：system 四块、<code>messages[0]</code>、tools；每个字段由哪个函数拼出来</td>
+</tr>
+<tr>
+<td>L61–80</td>
+<td>术语速查</td>
+</tr>
+<tr>
+<td>L84–116</td>
+<td>三路来源（默认提示词、用户上下文、系统上下文）与四阶段时序</td>
+</tr>
+<tr>
+<td>L120–193</td>
+<td>§一 默认提示词：归因头与 CLI 前缀、静态 7 段、边界标记、动态段 13 项及是否记忆化、「两层缓存别混为一谈」、边界为什么卡在这</td>
+</tr>
+<tr>
+<td>L197–230</td>
+<td>§二 系统上下文：会话开始时的 git 快照</td>
+</tr>
+<tr>
+<td>L234–291</td>
+<td>§三 用户上下文进 <code>messages[0]</code>；CLAUDE.md 加载链；自动记忆的两条注入路径</td>
+</tr>
+<tr>
+<td>L295–340</td>
+<td>§四 <code>cache_control</code> 的位置；旧笔记用 global、org、无标记概括内部选择。对外字段以本文 4.1 的序列化逻辑为准</td>
+</tr>
+<tr>
+<td>L344–370</td>
+<td>§五 系统提示词来源的优先级</td>
+</tr>
+<tr>
+<td>L374–413</td>
+<td>§六 子 agent 的提示词和主 agent 差在哪</td>
+</tr>
+<tr>
+<td>L417–445</td>
+<td>§七 用真实会话轨迹验证</td>
+</tr>
+<tr>
+<td>L449–474</td>
+<td>§八 特殊模式</td>
+</tr>
+<tr>
+<td>L478–488</td>
+<td>§九 组装时序与记忆化边界</td>
+</tr>
+<tr>
+<td>L492–524</td>
+<td>§十 完整调用链</td>
+</tr>
+<tr>
+<td>L532–580</td>
+<td>§十一 Output Styles</td>
+</tr>
+<tr>
+<td>L584–608</td>
+<td>§十二 自己核对的办法，以及对流传说法的勘误表</td>
+</tr>
+</tbody>
+</table>
+<p>和本题最有关的三段：</p>
+<ul>
+<li><strong>两层缓存（L186–189）。</strong> 段的记忆化是一回事，请求里的 <code>cache_control</code> 范围是另一回事。边界之后的动态段在主路径里合成一块，不打标记。</li>
+<li><strong>用户上下文与前缀（L290–291）。</strong> 旧笔记把两者分开放的理由解释为保护可复用的静态前缀。源码能直接核对的是字段位置、分段及编码；跨请求或跨用户是否复用不能由这一解释推出。</li>
+<li><strong>勘误表（L590–600）。</strong> 例：没有 session 这一档缓存范围；<code>currentDate</code> 不在 system 里，在 <code>messages[0]</code>。</li>
+</ul>
+<h3 id="52-其他笔记里的相关记录">5.2 其他笔记里的相关记录</h3>
+<table>
+<thead>
+<tr>
+<th>主题</th>
+<th>记了什么</th>
+<th>出处</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>记忆与缓存</td>
+<td>CLAUDE.md 进 <code>messages[0]</code>，不进 system；system 里画了缓存锚点和边界的示意</td>
+<td><code>cc-memory-system-6-layers.md</code> L35、L180–183</td>
+</tr>
+<tr>
+<td>工具定义</td>
+<td>工具定义是每条请求都带的前缀；出网字段有白名单，<code>cache_control</code> 在名单里；某状态机的决定一旦做出就冻结，每轮逐字节重放</td>
+<td><code>cc-tool-system.md</code> L118、L127、L378、L391</td>
+</tr>
+<tr>
+<td>成本意识</td>
+<td>把缓存当一等成本资源；<code>promptCacheBreakDetection.ts</code> 专门检测什么改动打破前缀</td>
+<td><code>cc-production-engineering-lens.md</code> L26、L136</td>
+</tr>
+<tr>
+<td>fork 子 agent</td>
+<td>旧笔记列出对齐父请求输入的条件；能否复用取决于前缀与缓存隔离范围，折扣只作用于实际命中的 token</td>
+<td><code>cc-sub-agent-orchestration.md</code> L175–189、L490、L648–650</td>
+</tr>
+<tr>
+<td>出错重试</td>
+<td>旧笔记将回退与前缀复用联系起来。本快照会重新生成参数并调整非流式请求；应分别核对可缓存前缀及 usage，整包相同并非必要条件</td>
+<td><code>cc-error-handling-comparison.md</code> L183；<code>services/api/claude.ts:853–864,3364</code></td>
+</tr>
+<tr>
+<td>压缩</td>
+<td>压缩走 fork 是为了复用主对话的缓存；按时间清旧工具结果选在 60 分钟，是算着 1 小时有效期已过</td>
+<td><code>cc-context-management.md</code> L175、L222</td>
+</tr>
+<tr>
+<td>有效期</td>
+<td>默认约 5 分钟，隔太久就是冷的；<code>/clear</code> 会发一条缓存回收提示</td>
+<td><code>cc-agent-loop-architecture.md</code> L171、L186</td>
+</tr>
+<tr>
+<td>设计建议</td>
+<td>按变化频率给 system prompt 分段，不变的放前面</td>
+<td><code>agent-harness-blueprint.md</code> L473–502</td>
+</tr>
+</tbody>
+</table>
+<p>另外 <code>README.md</code> L38 是这份笔记的索引行；作品集里 <code>agent-harness-lab/deep_dives/04_source_study_to_platform_design.md</code> L20、L22 引用了它。</p>
+<h3 id="53-三份材料互相补了什么">5.3 三份材料互相补了什么</h3>
+<ul>
+<li><strong>作业标了「没有核实」的一条，旧笔记早有记录，我这次也核了。</strong> 作业 L138 说没核对「CLAUDE.md 是不是前置成用户消息」。旧笔记 §三 记了，快照里也成立（<code>utils/api.ts:449</code>、<code>context.ts:155</code>）。</li>
+<li><strong>作业有、旧笔记没有的。</strong> 消息层如何选择候选断点；断裂检测的 5% 和 2,000 token 门槛；读写分开计价；成本算例中的前缀与价率假设。旧笔记里 <code>cc-production-engineering-lens.md</code> L26、L136 和 <code>cc-tool-system.md</code> L127 提过断裂检测。</li>
+<li><strong>旧笔记有、作业没有的。</strong> system 前面的归因头和 CLI 前缀两块；用户上下文走 <code>messages[0]</code>；为保缓存做的其他设计，见 5.2。</li>
+<li><strong>两处要留意，都在旧笔记 §九 的那张表里。</strong>
+<ul>
+<li><code>loadMemoryPrompt()</code> 的「变化触发」写成「MEMORY.md 文件变化」，容易读成文件一变就重算。按快照它是记忆化的段，重算的前提是段缓存被清，见 4.3。</li>
+<li><code>defaultSystemPrompt</code> 的计算时机写成「会话启动（submitMessage 前）」。按快照，<code>fetchSystemPromptParts</code> 是在 <code>submitMessage()</code> 内部调的（<code>QueryEngine.ts:209</code>、<code>292</code>），每发一条消息调一次；它稳定，是靠各段记忆化得到的。</li>
+</ul></li>
+</ul>
+<h2 id="六作业里的-api-规则和参考资料对了一遍">六、作业里的 API 规则，和参考资料对了一遍</h2>
+<p>本节保留历史资料的版本对照：Mac 作业引用客户端 2.1.331 附带的 <code>claude-api/shared/prompt-caching.md</code>，原整理记录另查了本机 2.1.316 的同名参考。表中“一致”仅指两份记录所述口径相符（作业 <code>CACHE-HIT.zh.md</code> L135 说明未实测这些规则）。本次未据此确定当前服务端价率或该次调用的缓存行为。</p>
+<table>
+<thead>
+<tr>
+<th>作业的说法</th>
+<th>参考资料</th>
+<th>结论</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>一次请求最多 4 个断点</td>
+<td>L127</td>
+<td>一致</td>
+</tr>
+<tr>
+<td>最短前缀 512 到 4096 个 token，看模型，太短静默不缓存</td>
+<td>L131–138</td>
+<td>一致</td>
+</tr>
+<tr>
+<td>默认 5 分钟，可选 1 小时；读命中会续期；从请求开始时算</td>
+<td>L148</td>
+<td>一致</td>
+</tr>
+<tr>
+<td>按 workspace 或组织隔离</td>
+<td>L130</td>
+<td>一致</td>
+</tr>
+<tr>
+<td>断点往回找 20 个位置</td>
+<td>L246</td>
+<td>一致</td>
+</tr>
+<tr>
+<td>第一条请求开始返回之后缓存才可读</td>
+<td>L254</td>
+<td>一致</td>
+</tr>
+<tr>
+<td>写入贵四分之一；1 小时是两倍</td>
+<td>L144</td>
+<td>一致</td>
+</tr>
+<tr>
+<td>读命中多数模型不计入输入 token 限额</td>
+<td>L158</td>
+<td>一致</td>
+</tr>
+<tr>
+<td>读命中一成；Opus 5.5 和 Sonnet 5.5 是半成；Fable 更低</td>
+<td>L144、L156：Opus 5.5 是 0.05 倍，其余 0.1 倍，Fable 5.1 是 0.025 倍</td>
+<td><strong>不一致</strong>：Sonnet 5.5 是一成</td>
+</tr>
+</tbody>
+</table>
+<p>参考资料里没有「Fable 5.2」，只有 Fable 5.1 和 Fable 5。作业读的是 2.1.331 那一份，可能版本不同，这一点留给作业原文。</p>
+<h2 id="七我没核实的">七、我没核实的</h2>
+<ul>
+<li>Mac 八问发生在 s10 教学程序里。没有一场以同样输入运行 Claude Code 快照的逐轮请求记录；外部修改文件后哪一次产品请求真正读到了它，只能结合相关配置和运行证据判断。</li>
+<li>§4.5 已核对常规索引的过滤条件和相关记忆附件的消费路径。某次预取实际选了哪些条目、是否赶在下一次请求前就绪，需要当次会话证据。</li>
+<li>断裂检测报出来之后的归因方式。</li>
+<li>§4.5 已核对技能的目录、内联和 fork 路径；没有该样本的运行记录来判断它实际走的是哪条路径。</li>
+<li><code>utils/claudemd.ts:1136–1139</code> 的注释笼统称索引注入 system prompt；常规主 agent 的字段以 <code>context.ts:170–186</code> 和 <code>utils/api.ts:449–473</code> 为准。AgentTool 另有读取 agent 专属索引的路径（<code>tools/AgentTool/agentMemory.ts:169</code>、<code>memdir/memdir.ts:272–306</code>），不能据此反推主会话。</li>
+<li>旧笔记里我没有逐条复核的行号：<code>system.ts:30</code>、<code>:73</code>，<code>prompts.ts:175</code>，<code>utils/api.ts:243–258</code>。</li>
+<li>GLM、DeepSeek 这些端点有没有同样的缓存规则。</li>
+</ul>
+<h2 id="八自测">八、自测</h2>
+<p>先自己答，再对照第四、五节。</p>
+<ol type="1">
+<li>教学代码里，往 <code>MEMORY.md</code> 追加一行之后为什么重拼？提示词的哪一处变了？</li>
+<li>同一件事放进 Claude Code，system 里的 <code>memory</code> 段会不会变？什么时候才变？</li>
+<li>有边界时，动态段变化会丢掉哪几段的缓存，保住哪一段？</li>
+<li>旧笔记说「只有 global、org、不打三种取值」。动态段在主路径里是哪一种？</li>
+</ol>
+<details>
+<summary>参考答案</summary>
+
+<ol type="1">
+<li>工具执行后 <code>update_context()</code> 重读索引。新增一行使 context 的 JSON 串改变，下一次 <code>get_system_prompt()</code> 重拼；段落数依然是四段，只是 memory 段文字变了（<code>code.py:81–86,196–197</code>）。</li>
+<li>常规主 agent 已缓存的 <code>memory</code> 指引不会因写索引立即重算；清理段缓存后才会重新求值。文件内容是否已通过工具结果或新附件进入后续消息，需要另查该轮数据。</li>
+<li>在静态 global 断点有效的分支，变化前面的静态前缀仍具备复用条件。动态块和后面的历史会构成不同的较长前缀；实际命中了多长的一段，用本次 <code>usage</code> 验证。</li>
+<li>动态块无独立 <code>cache_control</code>；若消息侧另设断点，动态块也在该断点所覆盖的前缀中。</li>
+</ol>
+</details>
+</main><script src="/study-notes/local-links.js"></script></html>

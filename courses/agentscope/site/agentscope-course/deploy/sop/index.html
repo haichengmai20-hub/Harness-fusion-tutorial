@@ -1,0 +1,111 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SOP 服务 · AgentScope</title><link rel="stylesheet" href="/agentscope-course/reader.css"><script defer src="/agentscope-course/reader.js"></script></head><body><header class="mast"><a href="/agentscope-course/">AgentScope <small>中文文档</small></a><span>v2.0.12</span><button id="catalog" aria-controls="outline" aria-expanded="false">目录</button></header><div class="layout"><nav id="outline" aria-label="AgentScope 文档目录"><div class="group">快速开始</div><a href="/agentscope-course/" >AgentScope 2.0 是什么？</a><a href="/agentscope-course/quickstart/" >快速开始</a><a href="/agentscope-course/release-notes/" >更新日志</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/message-and-event/" >消息与事件</a><div class="group">核心模块 / 智能体</div><a href="/agentscope-course/building-blocks/agent/overview/" >智能体 · 概述</a><a href="/agentscope-course/building-blocks/agent/configure-agent/" >配置智能体</a><a href="/agentscope-course/building-blocks/agent/run-agent/" >运行智能体</a><a href="/agentscope-course/building-blocks/agent/interrupt-agent/" >中断智能体</a><a href="/agentscope-course/building-blocks/agent/human-in-the-loop/" >人机交互</a><div class="group">核心模块 / 模型</div><a href="/agentscope-course/building-blocks/model/overview/" >模型 · 概述</a><a href="/agentscope-course/building-blocks/model/llm/" >大语言模型</a><a href="/agentscope-course/building-blocks/model/tts/" >语音合成</a><a href="/agentscope-course/building-blocks/model/asr/" >语音识别</a><a href="/agentscope-course/building-blocks/model/embedding/" >嵌入模型</a><div class="group">核心模块 / 上下文管理</div><a href="/agentscope-course/building-blocks/context/overview/" >上下文管理 · 概述</a><a href="/agentscope-course/building-blocks/context/environment-awareness/" >感知环境</a><a href="/agentscope-course/building-blocks/context/compress-context/" >压缩上下文</a><a href="/agentscope-course/building-blocks/context/offload-context/" >卸载上下文</a><div class="group">核心模块 / 工具</div><a href="/agentscope-course/building-blocks/tool/overview/" >工具 · 概述</a><a href="/agentscope-course/building-blocks/tool/python-tool/" >Python 函数工具</a><a href="/agentscope-course/building-blocks/tool/mcp/" >MCP</a><a href="/agentscope-course/building-blocks/tool/skill/" >Skill</a><a href="/agentscope-course/building-blocks/tool/manage-tools/" >元工具</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/plan/" >计划模式</a><div class="group">核心模块 / 流水线</div><a href="/agentscope-course/building-blocks/pipeline/overview/" >流水线 · 概述</a><a href="/agentscope-course/building-blocks/pipeline/goal/" >目标流水线</a><a href="/agentscope-course/building-blocks/pipeline/team/" >团队流水线</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/sop/" >标准作业流程</a><div class="group">核心模块 / 权限系统</div><a href="/agentscope-course/building-blocks/permission-system/overview/" >权限系统 · 概述</a><a href="/agentscope-course/building-blocks/permission-system/permission-mode/" >权限模式</a><a href="/agentscope-course/building-blocks/permission-system/permission-rule/" >权限规则</a><a href="/agentscope-course/building-blocks/permission-system/tool-check/" >工具内置检查</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/middleware/" >中间件</a><a href="/agentscope-course/building-blocks/rag/" >RAG</a><a href="/agentscope-course/building-blocks/long-term-memory/" >长期记忆</a><div class="group">核心模块 / 工作区</div><a href="/agentscope-course/building-blocks/workspace/overview/" >工作区 · 概述</a><a href="/agentscope-course/building-blocks/workspace/run-workspace/" >运行工作区</a><a href="/agentscope-course/building-blocks/workspace/manage-resources/" >管理资源</a><a href="/agentscope-course/building-blocks/workspace/mcp-gateway/" >MCP 网关</a><div class="group">核心模块 / 实时语音智能体</div><a href="/agentscope-course/building-blocks/realtime/overview/" >实时语音智能体 · 概述</a><a href="/agentscope-course/building-blocks/realtime/speech-to-speech/" >语音到语音</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/console/" >终端 UI</a><a href="/agentscope-course/building-blocks/a2a/" >A2A 协议</a><div class="group">智能体即服务</div><a href="/agentscope-course/deploy/agent-service/" >架构</a><a href="/agentscope-course/deploy/agent-team/" >智能体团队</a><a href="/agentscope-course/deploy/sop/" aria-current="page">SOP 服务</a><a href="/agentscope-course/deploy/sharing/" >资源共享</a><a href="/agentscope-course/deploy/rag/" >RAG 服务</a><a href="/agentscope-course/deploy/workspace-manager/" >工作区管理</a><div class="group">智能体即服务 / MCP 与技能中心</div><a href="/agentscope-course/deploy/hub/overview/" >MCP 与技能中心 · 概览</a><a href="/agentscope-course/deploy/hub/mcp-hub/" >MCP 中心</a><a href="/agentscope-course/deploy/hub/skill-hub/" >技能中心</a><div class="group">智能体即服务 / 消息渠道</div><a href="/agentscope-course/deploy/channel/overview/" >消息渠道 · 概览</a><a href="/agentscope-course/deploy/channel/routing/" >会话路由</a><a href="/agentscope-course/deploy/channel/feishu/" >飞书</a><a href="/agentscope-course/deploy/channel/dingtalk/" >钉钉</a><a href="/agentscope-course/deploy/channel/discord/" >Discord</a><a href="/agentscope-course/deploy/channel/custom/" >自定义渠道</a><div class="group">其他</div><a href="/agentscope-course/others/faq/" >常见问题</a><a href="/agentscope-course/others/change-log/" >版本迁移</a><div class="group">智能体即服务 / API</div><a href="/agentscope-course/api/">API 参考</a></nav><main><div class="context">智能体即服务</div><article class="prose-custom" id="content"><h1>SOP 服务</h1><p class="dek">在智能体服务中保存标准作业流程，并让它在会话里自动推进</p><p>当开发者希望在<a href="/agentscope-course/deploy/agent-service/">智能体服务</a>中长期保存一份<a href="/agentscope-course/building-blocks/sop/">标准作业流程</a>，并反复发起运行时，可以使用服务层的 SOP 能力。流程以数据的形式保存，每次运行都在普通会话中逐步推进，前端通过会话事件流即可实时观看。</p>
+<p>服务层的 SOP 提供以下能力：</p>
+<table><thead><tr><th>能力</th><th>说明</th></tr></thead><tbody><tr><td>流程存储</td><td>流程以 <code>SOPData</code> 保存，可通过 HTTP 接口增删改查，前端可按 <code>GET /sop/schema</code> 渲染编辑表单</td></tr><tr><td>后台运行</td><td>发起运行后请求立即返回，运行在后台推进，每一步都作为普通对话轮次交给对应会话</td></tr><tr><td>人工验收</td><td>验证者可以是智能体，也可以是人；人工验收时运行挂起，直到有人提交结论</td></tr><tr><td>工具授权续接</td><td>步骤中的工具授权与普通会话一样经 <code>POST /chat</code> 答复，答复后运行自动继续</td></tr><tr><td>级联删除</td><td>删除运行会一并删除它创建的会话与工作区，删除流程会删除它的全部运行</td></tr></tbody></table>
+<aside class="notice note"><strong>说明</strong><p>SOP 服务处于实验阶段，接口与存储结构可能在后续版本调整。自定义的存储后端需要实现 <code>StorageBase</code> 中的 SOP 相关方法，未实现时调用这些接口会抛出 <code>NotImplementedError</code>，不影响服务的其他功能。</p></aside>
+<h2 id="定义流程">定义流程</h2>
+<p>服务中的流程用 <code>SOPData</code> 描述。与 SDK 中直接持有智能体对象不同，这里的每一步通过智能体 ID 与会话键引用执行者和验证者。<code>SOPData</code> 的字段如下：</p>
+<table><thead><tr><th>字段</th><th>类型</th><th>说明</th></tr></thead><tbody><tr><td><code>name</code></td><td><code>str</code></td><td>流程名称</td></tr><tr><td><code>description</code></td><td><code>str</code>，默认 <code>&quot;&quot;</code></td><td>流程用途</td></tr><tr><td><code>steps</code></td><td><code>list[SOPStepDataV1]</code></td><td>按顺序排列的步骤，至少一个</td></tr><tr><td><code>workspace_grain</code></td><td><code>&quot;run&quot;</code> | <code>&quot;per_session_key&quot;</code>，默认 <code>&quot;run&quot;</code></td><td>一次运行分配几个工作区</td></tr><tr><td><code>session_settings</code></td><td><code>dict[str, SessionSettings]</code></td><td>每个会话键对应会话的开启配置</td></tr></tbody></table>
+<p>每个步骤（<code>SOPStepDataV1</code>）的字段如下：</p>
+<table><thead><tr><th>字段</th><th>类型</th><th>说明</th></tr></thead><tbody><tr><td><code>subject</code></td><td><code>str</code></td><td>步骤的简短名称</td></tr><tr><td><code>description</code></td><td><code>str</code></td><td>这一步必须达成的结果</td></tr><tr><td><code>executor</code></td><td><code>SOPAgentRef</code></td><td>执行者，由 <code>agent_id</code> 与 <code>session_key</code> 组成</td></tr><tr><td><code>verifier</code></td><td><code>AgentVerifier</code> | <code>HumanVerifier</code> | <code>None</code></td><td>验证者，为 <code>None</code> 时执行者交付即通过</td></tr><tr><td><code>max_attempts</code></td><td><code>int</code>，默认 <code>3</code></td><td>最多被驳回几次，超出后整个运行失败</td></tr></tbody></table>
+<h3 id="会话键">会话键</h3>
+<p><code>session_key</code> 决定一个智能体在哪个会话里工作。两处引用使用同一个会话键，就共用同一个会话，也就共享同一段上下文；使用不同的会话键，即便是同一个智能体也会分处两个会话，互不可见。例如让写作智能体在两步之间延续上下文，两步的执行者使用同一个会话键即可；让审稿智能体每次都从空白上下文开始验收，给它一个独立的会话键。</p>
+<p>一个会话键只能属于一个智能体。会话的模型与权限模式也按会话键配置在 <code>session_settings</code> 中，每个用到的会话键都必须配置，字段如下：</p>
+<table><thead><tr><th>字段</th><th>类型</th><th>说明</th></tr></thead><tbody><tr><td><code>chat_model_config</code></td><td><code>dict</code></td><td>会话使用的模型配置，包括 <code>type</code>、<code>credential_id</code>、<code>model</code> 与 <code>parameters</code></td></tr><tr><td><code>fallback_chat_model_config</code></td><td><code>dict | None</code></td><td>主模型失败时使用的备用模型配置</td></tr><tr><td><code>permission_mode</code></td><td><code>str</code>，默认 <code>&quot;default&quot;</code></td><td>会话的权限模式</td></tr></tbody></table>
+<h3 id="验证者">验证者</h3>
+<p>验证者有两种类型，通过 <code>type</code> 字段区分：</p>
+<table><thead><tr><th>类型</th><th>字段</th><th>行为</th></tr></thead><tbody><tr><td><code>AgentVerifier</code>（<code>&quot;agent&quot;</code>）</td><td><code>agent</code>：<code>SOPAgentRef</code>；<code>criteria</code>：步骤说明之外的额外验收标准</td><td>由智能体在自己的会话中验收，同一个审稿智能体可以在不同步骤使用不同的标准</td></tr><tr><td><code>HumanVerifier</code>（<code>&quot;human&quot;</code>）</td><td><code>question</code>：向人提出的问题</td><td>执行者交付后运行挂起，等待有人通过接口提交结论</td></tr></tbody></table>
+<h3 id="工作区">工作区</h3>
+<p>一次运行的会话在创建时就分配好工作区，工作区专属于这次运行，不与其他运行共享。<code>workspace_grain</code> 的取值如下：</p>
+<table><thead><tr><th>取值</th><th>效果</th></tr></thead><tbody><tr><td><code>run</code></td><td>整个运行共用一个工作区，步骤之间可以通过文件交接成果，交付中写明文件路径即可</td></tr><tr><td><code>per_session_key</code></td><td>每个会话一个工作区，各步骤互相看不到对方的文件</td></tr></tbody></table>
+<p>以下请求体创建一个两步流程：写作智能体产出初稿并由审稿智能体验收，定稿后交给人工确认：</p>
+<div class="code-example"><div class="code-bar"><span>创建流程</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-bash" data-caption="创建流程" data-lang="bash">curl -X POST http://localhost:8000/sop/ \
+  -H &quot;X-User-ID: alice&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d &#x27;{
+    &quot;data&quot;: {
+      &quot;name&quot;: &quot;write-article&quot;,
+      &quot;steps&quot;: [
+        {
+          &quot;subject&quot;: &quot;撰写初稿&quot;,
+          &quot;description&quot;: &quot;写出一篇介绍向量数据库的文章初稿。&quot;,
+          &quot;executor&quot;: {&quot;agent_id&quot;: &quot;agent-writer&quot;, &quot;session_key&quot;: &quot;writer&quot;},
+          &quot;verifier&quot;: {
+            &quot;type&quot;: &quot;agent&quot;,
+            &quot;agent&quot;: {&quot;agent_id&quot;: &quot;agent-reviewer&quot;, &quot;session_key&quot;: &quot;reviewer&quot;},
+            &quot;criteria&quot;: &quot;至少覆盖索引结构与相似度度量两部分。&quot;
+          }
+        },
+        {
+          &quot;subject&quot;: &quot;定稿&quot;,
+          &quot;description&quot;: &quot;根据初稿整理出可发布的终稿。&quot;,
+          &quot;executor&quot;: {&quot;agent_id&quot;: &quot;agent-writer&quot;, &quot;session_key&quot;: &quot;writer&quot;},
+          &quot;verifier&quot;: {&quot;type&quot;: &quot;human&quot;, &quot;question&quot;: &quot;终稿可以发布吗？&quot;}
+        }
+      ],
+      &quot;session_settings&quot;: {
+        &quot;writer&quot;: {
+          &quot;chat_model_config&quot;: {
+            &quot;type&quot;: &quot;dashscope&quot;,
+            &quot;credential_id&quot;: &quot;cred-xxx&quot;,
+            &quot;model&quot;: &quot;qwen3.8-max&quot;,
+            &quot;parameters&quot;: {}
+          }
+        },
+        &quot;reviewer&quot;: {
+          &quot;chat_model_config&quot;: {
+            &quot;type&quot;: &quot;dashscope&quot;,
+            &quot;credential_id&quot;: &quot;cred-xxx&quot;,
+            &quot;model&quot;: &quot;qwen3.8-max&quot;,
+            &quot;parameters&quot;: {}
+          }
+        }
+      }
+    }
+  }&#x27;
+</code></pre></div>
+<p>以下几类流程在创建或修改时就会被拒绝，返回 422，避免等到运行时才失败：</p>
+<table><thead><tr><th>情况</th><th>原因</th></tr></thead><tbody><tr><td>某一步用到的会话键没有出现在 <code>session_settings</code> 中</td><td>运行无法为它创建会话</td></tr><tr><td>同一个会话键被两个不同的智能体使用</td><td>一个会话只能属于一个智能体</td></tr><tr><td>模型配置不合法</td><td>运行无法按它创建会话</td></tr><tr><td><code>steps</code> 为空</td><td>运行永远不会结束</td></tr></tbody></table>
+<h2 id="接口列表">接口列表</h2>
+<p>SOP 相关接口都挂在 <code>/sop</code> 下，按资源分为流程与运行两组：</p>
+<table><thead><tr><th>方法与路径</th><th>说明</th></tr></thead><tbody><tr><td><code>GET /sop/schema</code></td><td>返回 <code>SOPData</code> 的 JSON Schema，供前端渲染编辑表单</td></tr><tr><td><code>GET /sop/</code></td><td>列出当前用户的流程</td></tr><tr><td><code>POST /sop/</code></td><td>创建流程，返回 <code>sop_id</code></td></tr><tr><td><code>GET /sop/{sop_id}</code></td><td>读取一个流程</td></tr><tr><td><code>PATCH /sop/{sop_id}</code></td><td>用新的 <code>data</code> 整体替换流程内容，已有运行不受影响</td></tr><tr><td><code>DELETE /sop/{sop_id}</code></td><td>删除流程及其全部运行</td></tr><tr><td><code>POST /sop/{sop_id}/runs</code></td><td>发起一次运行，请求体为 <code>{&quot;inputs&quot;: [Msg, ...]}</code></td></tr><tr><td><code>GET /sop/runs</code></td><td>列出运行，按创建时间倒序，可用 <code>sop_id</code> 与 <code>phase</code> 过滤</td></tr><tr><td><code>GET /sop/runs/{sop_run_id}</code></td><td>读取一次运行及其当前状态</td></tr><tr><td><code>DELETE /sop/runs/{sop_run_id}</code></td><td>删除一次运行及其创建的会话</td></tr><tr><td><code>POST /sop/runs/{sop_run_id}/verdict</code></td><td>为等待人工验收的步骤提交结论</td></tr></tbody></table>
+<aside class="notice tip"><strong>提示</strong><p><code>GET /sop/runs?phase=awaiting</code> 可以列出所有正在等人处理的运行，包括等待人工验收和等待工具授权两种情况。</p></aside>
+<h2 id="运行流程">运行流程</h2>
+<p>发起运行时，服务先把当前的流程内容复制一份保存在运行记录里，之后修改流程不会影响已发起的运行。随后为每个会话键各创建一个会话，会话名为「流程名 / 会话键」，然后立即返回运行记录，运行本身在后台推进：</p>
+<div class="code-example"><div class="code-bar"><span>发起运行</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-bash" data-caption="发起运行" data-lang="bash">curl -X POST http://localhost:8000/sop/sop-xxx/runs \
+  -H &quot;X-User-ID: alice&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d &#x27;{
+    &quot;inputs&quot;: [
+      {&quot;name&quot;: &quot;alice&quot;, &quot;role&quot;: &quot;user&quot;, &quot;content&quot;: [{&quot;type&quot;: &quot;text&quot;, &quot;text&quot;: &quot;面向初学者。&quot;}]}
+    ]
+  }&#x27;
+</code></pre></div>
+<p>返回的 <code>SOPRunRecord</code> 中，<code>sessions</code> 字段记录了每个会话键对应的会话 ID，<code>state</code> 字段是运行状态，其 <code>phase</code> 表示运行整体所处的阶段。开发者可以订阅这些会话的事件流 <code>GET /sessions/{session_id}/stream</code> 实时观看，并轮询 <code>GET /sop/runs/{sop_run_id}</code> 查看进度。</p>
+<h3 id="提交成果">提交成果</h3>
+<p>每一步都作为一次普通的对话轮次交给对应会话中的智能体。这一轮次会额外装配一个提交工具，智能体通过它把结果直接写入运行状态：</p>
+<table><thead><tr><th>工具</th><th>装配给</th><th>作用</th></tr></thead><tbody><tr><td><code>SubmitHandover</code></td><td>执行者</td><td>提交交给后续步骤的说明</td></tr><tr><td><code>SubmitVerdict</code></td><td>验证者</td><td>提交是否通过，未通过时附上原因，原因会原样交给执行者重做</td></tr></tbody></table>
+<p>智能体的回复结束时如果还没有调用提交工具，会被提醒调用；提醒三次仍未提交，这次回复以错误结束，并记为一次驳回。执行者没有交付、验证者没有结论，都会消耗这一步的 <code>max_attempts</code>。</p>
+<aside class="notice note"><strong>说明</strong><p>只有运行派发的轮次才装配提交工具。开发者或用户直接在某一步的会话里发消息，只是普通对话，既不会被要求提交，也不会推动运行。</p></aside>
+<h3 id="人工验收">人工验收</h3>
+<p>验证者为 <code>HumanVerifier</code> 时，执行者交付后这一步进入 <code>awaiting</code>，运行随即停下。任何时候通过以下接口提交结论，运行都会在后台继续：</p>
+<div class="code-example"><div class="code-bar"><span>提交人工结论</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-bash" data-caption="提交人工结论" data-lang="bash">curl -X POST http://localhost:8000/sop/runs/run-xxx/verdict \
+  -H &quot;X-User-ID: alice&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d &#x27;{
+    &quot;step_index&quot;: 1,
+    &quot;passed&quot;: false,
+    &quot;message&quot;: &quot;结尾缺少参考资料，补上后再提交。&quot;
+  }&#x27;
+</code></pre></div>
+<p>请求体的字段如下：</p>
+<table><thead><tr><th>字段</th><th>类型</th><th>说明</th></tr></thead><tbody><tr><td><code>step_index</code></td><td><code>int</code></td><td>被验收步骤的序号，从 0 开始</td></tr><tr><td><code>passed</code></td><td><code>bool</code></td><td>是否通过</td></tr><tr><td><code>message</code></td><td><code>str</code>，默认 <code>&quot;&quot;</code></td><td>未通过的原因，会原样交给执行者</td></tr></tbody></table>
+<p>接口在结论记录后立即返回更新后的运行记录。运行或步骤不存在时返回 404；该步骤不由人验收，或当前并未等待验收时返回 409。</p>
+<h3 id="处理工具授权">处理工具授权</h3>
+<p>步骤中的智能体请求工具授权时，这一步同样进入 <code>awaiting</code>。授权与普通会话完全一致：向该会话发送 <code>POST /chat</code>，请求体为 <code>UserConfirmResultEvent</code> 或 <code>ExternalExecutionResultEvent</code>。续接的这一轮仍然装配提交工具，结束后运行在后台自动继续，无需额外调用。续接的回复如果被中断，运行保持原地不动。</p>
+<h2 id="删除流程与运行">删除流程与运行</h2>
+<p>删除操作会级联清理运行创建的资源：</p>
+<table><thead><tr><th>接口</th><th>删除范围</th></tr></thead><tbody><tr><td><code>DELETE /sop/runs/{sop_run_id}</code></td><td>运行记录、它创建的所有会话（包括正在进行的轮次与会话的事件流），并关闭它的工作区</td></tr><tr><td><code>DELETE /sop/{sop_id}</code></td><td>流程记录，以及它的全部运行，每次运行按上一行清理</td></tr></tbody></table>
+<p>这些会话由运行创建，运行删除后留着它们没有意义，还可能被后台工具的完成事件再次唤醒，因此一并删除。</p>
+<h2 id="当前限制">当前限制</h2>
+<p>SOP 服务目前还有以下限制：</p>
+<table><thead><tr><th>限制</th><th>说明</th></tr></thead><tbody><tr><td>无法停止运行</td><td>还没有停止一次正在推进的运行的接口，只能删除它</td></tr><tr><td>运行不会自动恢复</td><td>服务进程崩溃或重新部署时，正在推进的运行会停在 <code>running</code>，不会自动继续</td></tr><tr><td>跨节点删除</td><td>多节点部署时，删除一个正在其他节点上推进的运行，需要等那个节点推进到停下为止</td></tr></tbody></table></article><footer><div class="paging"><a href="/agentscope-course/deploy/agent-team/">上一节 · 智能体团队</a><a href="/agentscope-course/deploy/sharing/">下一节 · 资源共享</a></div><div class="credits"><a href="https://docs.agentscope.io/zh/versions/2.0.12/deploy/sop" target="_blank" rel="noopener">在线原页</a> · <a href="/agentscope-course/mdx/deploy/sop.mdx">原始 MDX</a> · <a href="https://github.com/agentscope-ai/docs/blob/e0ee835d1aca5d2b840d29bdd2f70770bbef69e8/zh/versions/2.0.12/deploy/sop.mdx" target="_blank" rel="noopener">固定版本来源</a> · <a href="/agentscope-course/LICENSE.txt">MIT 许可</a></div></footer></main></div></body></html>

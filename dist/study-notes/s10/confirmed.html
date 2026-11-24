@@ -1,0 +1,176 @@
+<!-- source-sha256:e88629cb3b571ace7bfa89a6204b914bbf6222d9b4119c8397795b27934125dc format:1 --><!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>已确认定稿 · 请求字段与缓存断点</title><link rel="stylesheet" href="/study-notes/note.css"><header><a href="/?primary=claude&amp;chapter=s10&amp;mode=original">← 返回 S10 原课对读</a></header><main><h1 id="从工具明明写在-system-里到工具规格-t-是不是缓存断点">从“工具明明写在 system 里”到“工具规格 T 是不是缓存断点”</h1>
+<h2 id="我当时究竟卡在哪儿">我当时究竟卡在哪儿？</h2>
+<table>
+<thead>
+<tr>
+<th>我当时的问法</th>
+<th>把问题问得更精确</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>“所以 tool 在 system prompt 里嘛？”</td>
+<td>我在 <code>system</code> 里看见了 <code>read_file</code>，为什么 API 顶层还要传 <code>tools</code>？名字、用途、参数规格、实际读到的内容分别在哪儿？</td>
+</tr>
+<tr>
+<td>“按需加载的 skill、memory、延迟 tool 和 system prompt 是什么关系？”</td>
+<td>“按需”的究竟是哪份东西？谁触发加载？触发前模型已经知道什么，触发后下一次请求具体多了哪个字段或内容块？</td>
+</tr>
+<tr>
+<td>“system 有固定和动态的部分，API cache 也有这两部分吗？”</td>
+<td>Harness 拼接 <code>system</code> 时划的段，与服务端复用输入前缀时采用的缓存断点，如何对应？一段运行时才读出的文字能命中吗？</td>
+</tr>
+<tr>
+<td>“相当于改动最左侧的 T……这是固定断点嘛？”</td>
+<td>在 <code>[T][S1]◆</code> 里，哪个符号是数据，哪个是标记？只改本次工具实参、改工具定义、发现延迟工具，分别会改到哪里？</td>
+</tr>
+</tbody>
+</table>
+<h2 id="图一--同一个工具名出现两次各自交付了什么">图一 · 同一个工具名出现两次，各自交付了什么？</h2>
+<p>沿教程 s10 走一遍。假设用户要读 <code>README.md</code> 前 20 行，项目的记忆索引里已有“金额使用整数分”。下面将提示文字意译成中文，保留协议字段。记忆索引出现在请求里，只说明模型可见它；这个读取任务用不上金额约定。</p>
+<pre class="text"><code>第 1 次 API 请求
+│
+├─ system                         s10 把下列各段拼成一个字符串
+│  ├─ 身份与行为                  你是编码助手，直接执行任务
+│  ├─ 工具概览                    可用工具有 bash、read_file、write_file
+│  ├─ 工作目录                    当前项目目录
+│  └─ 记忆索引（文件非空时）      Relevant memories:
+│                                 - [金额约定](money.md) — 金额使用整数分
+│
+├─ tools                          本次可调用工具的规格
+│  ├─ bash                        …
+│  ├─ read_file
+│  │  ├─ name          = &quot;read_file&quot;
+│  │  ├─ description   = &quot;Read file contents.&quot;
+│  │  └─ input_schema
+│  │     ├─ type       = &quot;object&quot;
+│  │     ├─ properties = {path: string, limit: integer}
+│  │     └─ required   = [&quot;path&quot;]
+│  └─ write_file                  …
+│
+└─ messages
+   └─ user: &quot;读 README.md 前 20 行&quot;
+
+模型返回       assistant.content 中出现 tool_use
+               {id:&quot;call_1&quot;, name:&quot;read_file&quot;, input:{path:&quot;README.md&quot;, limit:20}}
+                         ↓
+Harness 本地   用工具名找到 Python 函数，传入本次参数并读取文件
+                         ↓
+第 2 次请求    messages 保留用户问题，随后是两条新消息
+               assistant → 上一轮响应，含上述 tool_use
+               user      → [{type:&quot;tool_result&quot;, tool_use_id:&quot;call_1&quot;,
+                             content:&quot;……实际读到的 20 行……&quot;}]</code></pre>
+<p><strong>盯住 <code>limit</code> 就能读懂这张图。</strong> <code>system</code> 提及工具名，<code>tools[].description</code> 说明能读文件，<code>input_schema</code> 约定参数叫 <code>limit</code>、类型是整数、可以省略。具体数值 <code>20</code> 出现在这次调用的 <code>input</code>。实际文件内容随后进 <code>messages</code>，靠 <code>tool_use_id</code> 与原调用配对。<a href="https://github.com/shareAI-lab/learn-claude-code/blob/20e7cbb72c66ab01967299ad3eac6c7bda242136/s10_system_prompt/code.py#L42">s10 提示词组装</a> · <a href="https://github.com/shareAI-lab/learn-claude-code/blob/20e7cbb72c66ab01967299ad3eac6c7bda242136/s10_system_prompt/code.py#L134">工具规格与执行循环</a></p>
+<h3 id="按需加载要追到哪一栏">“按需加载”要追到哪一栏？</h3>
+<table>
+<thead>
+<tr>
+<th>机制</th>
+<th>触发前模型看到什么</th>
+<th>谁触发，触发后交付什么</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Skill · s07</td>
+<td><code>system</code> 带技能目录，每项是名字和一句简介。<code>tools</code> 带 <code>load_skill(name)</code> 的规格。</td>
+<td>模型请求加载技能，Harness 将 <code>SKILL.md</code> 全文作为 <code>tool_result.content</code> 追加到 <code>messages</code>。全文只加载一次，也能随历史在后续请求中多次可见。<a href="https://github.com/shareAI-lab/learn-claude-code/blob/20e7cbb72c66ab01967299ad3eac6c7bda242136/s07_skill_loading/code.py#L93">目录</a> · <a href="https://github.com/shareAI-lab/learn-claude-code/blob/20e7cbb72c66ab01967299ad3eac6c7bda242136/s07_skill_loading/code.py#L269">全文</a></td>
+</tr>
+<tr>
+<td>Memory · s09</td>
+<td><code>system</code> 可带记忆索引，每项有名称、文件链接和简介。</td>
+<td>用户回合开始时，Harness 主动选择相关条目，把命中文件的正文包入 <code>&lt;relevant_memories&gt;</code>，拼到请求副本的用户文本前面。它可以在本回合第一次模型调用时就可见。图一的 s10 只演示索引拼接；跟到 s09 才能看到逐文件召回。<a href="https://github.com/shareAI-lab/learn-claude-code/blob/20e7cbb72c66ab01967299ad3eac6c7bda242136/s09_memory/code.py#L583">s09 请求组装</a></td>
+</tr>
+<tr>
+<td>延迟工具 · 本地 Claude Code 快照开启 Tool Search</td>
+<td><code>messages</code> 可通报候选工具名。<code>tools</code> 提供搜索入口 <code>ToolSearch</code>。</td>
+<td>模型搜索后，工具结果中出现带 <code>tool_name</code> 的 <code>tool_reference</code>。客户端在下一次请求的顶层 <code>tools</code> 中纳入已发现工具的规格，可带 <code>defer_loading: true</code>。等模型调用目标工具，才会产生该工具的业务结果。<a data-study-path="harness-fusion-tutorial/sources/claude-code/src/services/api/claude.ts">筛选与标记</a> · <a data-study-path="harness-fusion-tutorial/sources/claude-code/src/tools/ToolSearchTool/ToolSearchTool.ts">搜索结果结构</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="图二--同一条-sql-任务怎样从请求字段走到缓存前缀">图二 · 同一条 SQL 任务怎样从请求字段走到缓存前缀？</h2>
+<p>假设用户问“按项目的 SQL 规范，检查账单金额”。这张图把 s07 的技能目录、s09 的记忆召回、s10 的提示组装放在一个教学例子里。为了演示缓存，在例子里把 <code>system</code> 分成两个 API 文本块，并设置断点。实际 s10 脚本发送一个字符串。</p>
+<pre class="text"><code>本地资料                         Harness 组出的模型输入
+──────────────────────────────────────────────────────────────
+普通工具注册表             ───► T  = 顶层 tools 中预先加载的工具规格
+                                    read_file、load_skill 的名称、描述、参数约束
+身份、工具使用规则、技能目录 ───► S1 = system 的第一块
+                                    编码助手；有 sql-style 技能，可按需加载
+工作目录、当前记忆索引     ───► S2 = system 的第二块
+                                    billing 项目；money.md 的索引条目
+召回的 money.md + 用户任务 ───► U1 = user 消息
+                                    金额以整数分存储……；按项目规范检查账单
+模型决定加载 SQL 规范      ───► A1 = assistant 消息里的 tool_use
+                                    id=call_1, name=load_skill, input={name:&quot;sql-style&quot;}
+Harness 返回技能全文       ───► R1 = user 消息里的 tool_result
+                                    tool_use_id=call_1, content=&quot;SQL 规范全文……&quot;
+
+API 按 tools → system → messages 的次序匹配前缀
+──────────────────────────────────────────────────────────────
+第 1 次   [ T ][ S1 ]◆[ S2 ][ U1 ]●
+          ◆ A  所在前缀 = T + S1
+          ● B1 所在前缀 = T + S1 + S2 + U1
+
+第 2 次   [ T ][ S1 ]◆[ S2 ][ U1 ][ A1 ][ R1 ]●
+          至 U1 仍与旧 B1 相同；本次末尾断点 B2 移到 R1 之后。</code></pre>
+<p><strong>回到当时最后的追问：<code>T</code> 是工具规格这块数据，<code>◆</code> 才是断点 A。</strong> “固定”说的是这里选择一直在 S1 末尾标记。要判断能否命中旧 A，就把两次的 <code>T + S1</code> 整段拿来比较。S2 即使是运行时动态生成的，只要两次生成的实际内容相同，也可以随旧 B1 一起命中。<a href="https://platform.claude.com/docs/en/build-with-claude/prompt-caching#explicit-cache-breakpoints">Anthropic 前缀与断点规则</a></p>
+<h3 id="用四个改动自测">用四个改动自测</h3>
+<p>假设模型与其他缓存相关设置相同、满足最低缓存长度、旧 A 和 B1 均已写入且仍有效，旧断点也在查找范围内。每行都单独从图中第一次请求出发。</p>
+<table>
+<thead>
+<tr>
+<th>下一次改了什么</th>
+<th>最长可复用到哪里</th>
+<th>怎么判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>末尾追加 <code>load_skill</code> 调用和技能全文</td>
+<td><strong>B1</strong></td>
+<td>到 U1 的旧前缀完全相同，新内容从 A1 开始。若末尾跟随对话增长，还可以在 B2 写入更长的前缀。</td>
+</tr>
+<tr>
+<td>S2 的记忆索引从一条变成两条</td>
+<td><strong>A</strong></td>
+<td>到 S1 的前缀相同。旧 B1 包含旧索引，即便后面的用户问题逐字相同，也匹配不上旧 B1。</td>
+</tr>
+<tr>
+<td>给原本就加载的 <code>read_file</code> <strong>定义</strong>新增参数</td>
+<td><strong>图里的旧 A、B1 都失配</strong></td>
+<td>T 已变，两个断点都覆盖它。若只是调用已有的 <code>limit</code> 参数并填入 <code>20</code>，实参进入尾部的 <code>tool_use.input</code>，T 保持原值。</td>
+</tr>
+<tr>
+<td>第一次只在 B1 写过缓存，随后更换 S2</td>
+<td><strong>图中没有可读的旧 A</strong></td>
+<td>前半段稳定只是条件之一。第一次还须在 A 处实际写入过缓存，下一次才有这一项可读。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>关于延迟工具的一处更正。</strong> 先前把“下一次 HTTP 请求的 <code>tools</code> 数组多了一项”直接推成“最左侧的 T 变了”，混淆了客户端发包和服务端构造缓存前缀。上表第三行说的是改动<strong>预先加载</strong>的工具定义。按 Anthropic 对 <code>defer_loading: true</code> 的说明，工具发现后通过历史中的 <code>tool_reference</code> 展开，先前的普通工具前缀可以继续复用。若与此同时改写了前面的目录消息或其他已缓存内容，仍要从实际改动的位置重新判断。<a href="https://platform.claude.com/docs/en/agents-and-tools/tool-use/tool-use-with-prompt-caching#defer_loading-and-cache-preservation">Anthropic：延迟加载与缓存保留</a></p>
+<h3 id="在源码和响应里分别看什么">在源码和响应里分别看什么？</h3>
+<table>
+<thead>
+<tr>
+<th>想确认的事</th>
+<th>能回答它的证据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>s10 这次有没有重新拼接 <code>system</code>？</td>
+<td>看 <code>get_system_prompt(context)</code>。它序列化 <code>context</code> 作为本地键，键相同就取上次的字符串并打印 <code>[cache hit]</code>。主循环仍照常发送请求；这个脚本没有显式设置图二的 A、B。<a href="https://github.com/shareAI-lab/learn-claude-code/blob/20e7cbb72c66ab01967299ad3eac6c7bda242136/s10_system_prompt/code.py#L71">本地缓存</a> · <a href="https://github.com/shareAI-lab/learn-claude-code/blob/20e7cbb72c66ab01967299ad3eac6c7bda242136/s10_system_prompt/code.py#L172">实际发包</a></td>
+</tr>
+<tr>
+<td>客户端怎么把组装边界变成 API 断点？</td>
+<td>本地 Claude Code 快照在相应配置下插入 <code>SYSTEM_PROMPT_DYNAMIC_BOUNDARY</code>。分段器消费这个内部标记，请求构造器按条件在文本块上写 <code>cache_control</code>。API 也支持自动把末尾断点放到本次最后一个可缓存块。<a data-study-path="harness-fusion-tutorial/sources/claude-code/src/constants/prompts.ts">提示词构造</a> · <a data-study-path="harness-fusion-tutorial/sources/claude-code/src/utils/api.ts">分段器</a> · <a data-study-path="harness-fusion-tutorial/sources/claude-code/src/services/api/claude.ts">请求构造器</a> · <a href="https://platform.claude.com/docs/en/build-with-claude/prompt-caching#automatic-caching">自动断点</a></td>
+</tr>
+<tr>
+<td>服务端这一次实际读写了多少缓存？</td>
+<td>看 API 响应的 <code>usage.cache_read_input_tokens</code>（读到的 token 数）和 <code>usage.cache_creation_input_tokens</code>（新写入的 token 数）。这两个例子是按源码和协议做的推演，没有为它们测量命中率。<a href="https://platform.claude.com/docs/en/build-with-claude/prompt-caching#tracking-cache-performance">官方用量字段</a></td>
+</tr>
+</tbody>
+</table>
+<p>源码口径：教学仓库 <code>20e7cbb7</code>；工作区 Claude Code 第三方源码快照 <code>6f6f12b3</code>；API 文档核对日期 2026-11-23。</p>
+<p>相关：作业记录、Claude Code 源码与旧研究笔记在这一题上的逐项对照，见 <a href="/study-notes/s10/evidence.html">s10-prompt-cache与系统提示词组装-作业对照源码与旧笔记.md</a>。</p>
+</main><script src="/study-notes/local-links.js"></script></html>

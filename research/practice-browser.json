@@ -1,0 +1,257 @@
+{
+  "verifiedAt": "2026-11-21T17:12:15.059Z",
+  "browser": "Chrome/157.0.8103.79",
+  "local": "http://127.0.0.1:8765",
+  "checked": [
+    {
+      "chapter": "s01",
+      "originalSections": 1,
+      "originalBlocks": 10
+    },
+    {
+      "chapter": "s02",
+      "originalSections": 1,
+      "originalBlocks": 7
+    },
+    {
+      "chapter": "s03",
+      "originalSections": 1,
+      "originalBlocks": 7
+    },
+    {
+      "chapter": "s04",
+      "originalSections": 1,
+      "originalBlocks": 6
+    },
+    {
+      "chapter": "s05",
+      "originalSections": 1,
+      "originalBlocks": 6
+    },
+    {
+      "chapter": "s06",
+      "originalSections": 1,
+      "originalBlocks": 6
+    },
+    {
+      "chapter": "s07",
+      "originalSections": 1,
+      "originalBlocks": 6
+    },
+    {
+      "chapter": "s08",
+      "originalSections": 1,
+      "originalBlocks": 6
+    },
+    {
+      "chapter": "s09",
+      "originalSections": 1,
+      "originalBlocks": 7
+    },
+    {
+      "chapter": "s10",
+      "originalSections": 1,
+      "originalBlocks": 9
+    },
+    {
+      "chapter": "s11",
+      "originalSections": 1,
+      "originalBlocks": 5
+    },
+    {
+      "chapter": "s12",
+      "originalSections": 1,
+      "originalBlocks": 7
+    },
+    {
+      "chapter": "s13",
+      "originalSections": 1,
+      "originalBlocks": 6
+    },
+    {
+      "chapter": "s14",
+      "originalSections": 1,
+      "originalBlocks": 7
+    },
+    {
+      "chapter": "s15",
+      "originalSections": 1,
+      "originalBlocks": 6
+    },
+    {
+      "chapter": "s16",
+      "originalSections": 1,
+      "originalBlocks": 5
+    },
+    {
+      "chapter": "s17",
+      "originalSections": 1,
+      "originalBlocks": 4
+    },
+    {
+      "chapter": "s18",
+      "originalSections": 1,
+      "originalBlocks": 4
+    },
+    {
+      "chapter": "s19",
+      "originalSections": 1,
+      "originalBlocks": 6
+    },
+    {
+      "chapter": "s20",
+      "originalSections": 1,
+      "originalBlocks": 15
+    }
+  ],
+  "resolved": [
+    {
+      "chapter": "s01",
+      "originalHeading": "试一下",
+      "observationTab": "sim",
+      "needle": "uses only bash",
+      "crosswalkIndex": 0
+    },
+    {
+      "chapter": "s02",
+      "originalHeading": "试一下",
+      "observationTab": "source",
+      "needle": "handler = TOOL_HANDLERS.get(block.name)",
+      "crosswalkIndex": 0
+    },
+    {
+      "chapter": "s03",
+      "originalHeading": "试一下",
+      "observationTab": "sim",
+      "needle": "rule checks",
+      "crosswalkIndex": 0
+    },
+    {
+      "chapter": "s04",
+      "originalHeading": "试一下",
+      "observationTab": "sim",
+      "needle": "output handling",
+      "crosswalkIndex": 1
+    },
+    {
+      "chapter": "s05",
+      "originalHeading": "试一下",
+      "observationTab": "sim",
+      "needle": "intended work visible",
+      "crosswalkIndex": 1
+    },
+    {
+      "chapter": "s06",
+      "originalHeading": "试一下",
+      "observationTab": "sim",
+      "needle": "returns only a final summary",
+      "crosswalkIndex": 1
+    },
+    {
+      "chapter": "s07",
+      "originalHeading": "试一下",
+      "observationTab": "sim",
+      "needle": "cheap skill catalog",
+      "crosswalkIndex": 1
+    },
+    {
+      "chapter": "s08",
+      "originalHeading": "试一下",
+      "observationTab": "learn",
+      "needle": "KEEP_RECENT_TOOL_RESULTS = 3",
+      "crosswalkIndex": 1
+    },
+    {
+      "chapter": "s09",
+      "originalHeading": "试一下",
+      "observationTab": "sim",
+      "needle": "selected project facts",
+      "crosswalkIndex": 0
+    },
+    {
+      "chapter": "s10",
+      "originalHeading": "试一下",
+      "observationTab": "source",
+      "needle": "def get_system_prompt(context: dict)",
+      "crosswalkIndex": 1
+    },
+    {
+      "chapter": "s11",
+      "originalHeading": "试一下",
+      "observationTab": "sim",
+      "needle": "prompt overflow",
+      "crosswalkIndex": 1
+    },
+    {
+      "chapter": "s12",
+      "originalHeading": "试一下",
+      "observationTab": "sim",
+      "needle": "blockedBy dependencies",
+      "crosswalkIndex": 1
+    },
+    {
+      "chapter": "s13",
+      "originalHeading": "试一下",
+      "observationTab": "sim",
+      "needle": "main loop responsive",
+      "crosswalkIndex": 1
+    },
+    {
+      "chapter": "s14",
+      "originalHeading": "试一下",
+      "observationTab": "sim",
+      "needle": "queues due jobs",
+      "crosswalkIndex": 1
+    },
+    {
+      "chapter": "s15",
+      "originalHeading": "试一下",
+      "observationTab": "sim",
+      "needle": "file-backed mailboxes",
+      "crosswalkIndex": 1
+    },
+    {
+      "chapter": "s16",
+      "originalHeading": "试一下",
+      "observationTab": "sim",
+      "needle": "response matching",
+      "crosswalkIndex": 1
+    },
+    {
+      "chapter": "s17",
+      "originalHeading": "试一下",
+      "observationTab": "sim",
+      "needle": "claim eligible work",
+      "crosswalkIndex": 1
+    },
+    {
+      "chapter": "s18",
+      "originalHeading": "试一下",
+      "observationTab": "source",
+      "needle": "def remove_worktree(name: str",
+      "crosswalkIndex": 1
+    },
+    {
+      "chapter": "s19",
+      "originalHeading": "试一下",
+      "observationTab": "sim",
+      "needle": "normalized tool namespace",
+      "crosswalkIndex": 1
+    },
+    {
+      "chapter": "s20",
+      "originalHeading": "试一下",
+      "observationTab": "sim",
+      "needle": "composes context assembly",
+      "crosswalkIndex": 0
+    }
+  ],
+  "restoredNotes": true,
+  "preservedParallelComparison": true,
+  "narrowViewport": [
+    390,
+    844
+  ],
+  "errors": [],
+  "blocked": []
+}

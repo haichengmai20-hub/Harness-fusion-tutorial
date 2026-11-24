@@ -1,0 +1,287 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RAG 服务 · AgentScope</title><link rel="stylesheet" href="/agentscope-course/reader.css"><script defer src="/agentscope-course/reader.js"></script></head><body><header class="mast"><a href="/agentscope-course/">AgentScope <small>中文文档</small></a><span>v2.0.12</span><button id="catalog" aria-controls="outline" aria-expanded="false">目录</button></header><div class="layout"><nav id="outline" aria-label="AgentScope 文档目录"><div class="group">快速开始</div><a href="/agentscope-course/" >AgentScope 2.0 是什么？</a><a href="/agentscope-course/quickstart/" >快速开始</a><a href="/agentscope-course/release-notes/" >更新日志</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/message-and-event/" >消息与事件</a><div class="group">核心模块 / 智能体</div><a href="/agentscope-course/building-blocks/agent/overview/" >智能体 · 概述</a><a href="/agentscope-course/building-blocks/agent/configure-agent/" >配置智能体</a><a href="/agentscope-course/building-blocks/agent/run-agent/" >运行智能体</a><a href="/agentscope-course/building-blocks/agent/interrupt-agent/" >中断智能体</a><a href="/agentscope-course/building-blocks/agent/human-in-the-loop/" >人机交互</a><div class="group">核心模块 / 模型</div><a href="/agentscope-course/building-blocks/model/overview/" >模型 · 概述</a><a href="/agentscope-course/building-blocks/model/llm/" >大语言模型</a><a href="/agentscope-course/building-blocks/model/tts/" >语音合成</a><a href="/agentscope-course/building-blocks/model/asr/" >语音识别</a><a href="/agentscope-course/building-blocks/model/embedding/" >嵌入模型</a><div class="group">核心模块 / 上下文管理</div><a href="/agentscope-course/building-blocks/context/overview/" >上下文管理 · 概述</a><a href="/agentscope-course/building-blocks/context/environment-awareness/" >感知环境</a><a href="/agentscope-course/building-blocks/context/compress-context/" >压缩上下文</a><a href="/agentscope-course/building-blocks/context/offload-context/" >卸载上下文</a><div class="group">核心模块 / 工具</div><a href="/agentscope-course/building-blocks/tool/overview/" >工具 · 概述</a><a href="/agentscope-course/building-blocks/tool/python-tool/" >Python 函数工具</a><a href="/agentscope-course/building-blocks/tool/mcp/" >MCP</a><a href="/agentscope-course/building-blocks/tool/skill/" >Skill</a><a href="/agentscope-course/building-blocks/tool/manage-tools/" >元工具</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/plan/" >计划模式</a><div class="group">核心模块 / 流水线</div><a href="/agentscope-course/building-blocks/pipeline/overview/" >流水线 · 概述</a><a href="/agentscope-course/building-blocks/pipeline/goal/" >目标流水线</a><a href="/agentscope-course/building-blocks/pipeline/team/" >团队流水线</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/sop/" >标准作业流程</a><div class="group">核心模块 / 权限系统</div><a href="/agentscope-course/building-blocks/permission-system/overview/" >权限系统 · 概述</a><a href="/agentscope-course/building-blocks/permission-system/permission-mode/" >权限模式</a><a href="/agentscope-course/building-blocks/permission-system/permission-rule/" >权限规则</a><a href="/agentscope-course/building-blocks/permission-system/tool-check/" >工具内置检查</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/middleware/" >中间件</a><a href="/agentscope-course/building-blocks/rag/" >RAG</a><a href="/agentscope-course/building-blocks/long-term-memory/" >长期记忆</a><div class="group">核心模块 / 工作区</div><a href="/agentscope-course/building-blocks/workspace/overview/" >工作区 · 概述</a><a href="/agentscope-course/building-blocks/workspace/run-workspace/" >运行工作区</a><a href="/agentscope-course/building-blocks/workspace/manage-resources/" >管理资源</a><a href="/agentscope-course/building-blocks/workspace/mcp-gateway/" >MCP 网关</a><div class="group">核心模块 / 实时语音智能体</div><a href="/agentscope-course/building-blocks/realtime/overview/" >实时语音智能体 · 概述</a><a href="/agentscope-course/building-blocks/realtime/speech-to-speech/" >语音到语音</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/console/" >终端 UI</a><a href="/agentscope-course/building-blocks/a2a/" >A2A 协议</a><div class="group">智能体即服务</div><a href="/agentscope-course/deploy/agent-service/" >架构</a><a href="/agentscope-course/deploy/agent-team/" >智能体团队</a><a href="/agentscope-course/deploy/sop/" >SOP 服务</a><a href="/agentscope-course/deploy/sharing/" >资源共享</a><a href="/agentscope-course/deploy/rag/" aria-current="page">RAG 服务</a><a href="/agentscope-course/deploy/workspace-manager/" >工作区管理</a><div class="group">智能体即服务 / MCP 与技能中心</div><a href="/agentscope-course/deploy/hub/overview/" >MCP 与技能中心 · 概览</a><a href="/agentscope-course/deploy/hub/mcp-hub/" >MCP 中心</a><a href="/agentscope-course/deploy/hub/skill-hub/" >技能中心</a><div class="group">智能体即服务 / 消息渠道</div><a href="/agentscope-course/deploy/channel/overview/" >消息渠道 · 概览</a><a href="/agentscope-course/deploy/channel/routing/" >会话路由</a><a href="/agentscope-course/deploy/channel/feishu/" >飞书</a><a href="/agentscope-course/deploy/channel/dingtalk/" >钉钉</a><a href="/agentscope-course/deploy/channel/discord/" >Discord</a><a href="/agentscope-course/deploy/channel/custom/" >自定义渠道</a><div class="group">其他</div><a href="/agentscope-course/others/faq/" >常见问题</a><a href="/agentscope-course/others/change-log/" >版本迁移</a><div class="group">智能体即服务 / API</div><a href="/agentscope-course/api/">API 参考</a></nav><main><div class="context">智能体即服务</div><article class="prose-custom" id="content"><h1>RAG 服务</h1><p class="dek">一键式启动的多租户、分布式 RAG 服务</p><link rel="preload" as="image" href="/agentscope-course/diagrams/diagram-f5f93fc65dea37.svg"/><p><a href="/agentscope-course/building-blocks/rag/">RAG</a> 章节中介绍了 AgentScope 中的 RAG 模块的拓展和使用方法。本章介绍智能体服务（Agent service）中提供的<strong>多租户、可分布式部署</strong>的 RAG 服务层。服务层在 building blocks 的基础上，围绕「多租户」「分布式」「易接入」提供以下能力：</p>
+<table><thead><tr><th>能力</th><th>说明</th></tr></thead><tbody><tr><td>多租户隔离的知识库</td><td>每个用户拥有独立命名空间，多个知识库互不干扰，<strong>天然适合多用户 SaaS 场景，无需自己做权限隔离</strong></td></tr><tr><td>完整的知识库 / 文档管理</td><td>提供知识库与文档的全量 CRUD 接口，删除时自动级联清理向量、记录与原始文件，<strong>避免长跑后的脏数据与孤儿文件</strong></td></tr><tr><td>异步上传 + 实时进度反馈</td><td>上传请求立即返回，索引在后台流转，并暴露批量状态查询接口，<strong>前端可以做秒级响应的进度条与失败提示，不阻塞用户操作</strong></td></tr><tr><td>可插拔的文件对象存储</td><td>支持本地 / S3 / 自实现的对象存储后端，<strong>大文件不必常驻内存，分布式部署时多个 worker 也能共享同一份文件源，迁移到云上零改造</strong></td></tr><tr><td>分布式索引与横向扩容</td><td>解析 / 切块 / 嵌入可独立部署成多份 worker，<strong>当文档量或解析成本上来时，按需扩 worker 即可，不影响 API 的请求吞吐</strong></td></tr><tr><td>内置容灾与自愈</td><td>任务 lease、心跳续约、周期性扫描重派全部内置，<strong>worker 崩溃、网络抖动、重复入队都不会让任务卡死，运维成本接近零</strong></td></tr><tr><td>嵌入模型自动适配</td><td>创建知识库时自动过滤出与向量库维度兼容的模型，<strong>用户无须关心维度匹配，前端选项即是可用项，杜绝选错模型导致的索引失败</strong></td></tr><tr><td>开箱即用的 REST API 与前端 UI</td><td>所有能力以完整 REST 端点暴露，并配套官方前端实现，<strong>接入方拿来即用，不必再写一遍上传 / 检索 / 进度页</strong></td></tr></tbody></table>
+<h2 id="快速开始">快速开始</h2>
+<p>下面的步骤把 RAG 服务跑起来——后端 + 官方前端，串通后即可在 UI 里创建知识库、上传文档、做检索。</p>
+<div class="steps"><section class="step"><h3>配置并启动 RAG 服务</h3><p>给 <code>create_app</code> 传入与 RAG 相关的几个组件即可开启 <code>/knowledge_bases</code> 全部端点。下面的最小示例分别演示<strong>本地 blob 存储</strong>与 <strong>S3 blob 存储</strong>两种配置——前提是 Redis、Qdrant 已经在本地（或可访问的地址上）准备好：</p><div class="tab-set" data-tab-set=""><div class="tab-list" role="group" aria-label="代码示例"><button type="button" data-choice="0" aria-pressed="true">本地 blob 存储</button><button type="button" data-choice="1" aria-pressed="false">S3 blob 存储</button></div><div data-panel="0"><div class="code-example"><div class="code-bar"><span>本地 blob 存储</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="本地 blob 存储" data-lang="python">import uvicorn
+
+from agentscope.app import create_app
+from agentscope.app.rag.blob_store import LocalBlobStore
+from agentscope.app.rag.knowledge_base_manager import CollectionPerKbManager
+from agentscope.app.message_bus import RedisMessageBus
+from agentscope.app.storage import RedisStorage
+from agentscope.app.workspace_manager import LocalWorkspaceManager
+from agentscope.rag import (
+    ApproxTokenChunker,
+    ImageParser,
+    PDFParser,
+    PPTParser,
+    QdrantStore,
+    TextParser,
+)
+
+storage = RedisStorage(host=&quot;localhost&quot;, port=6379)
+message_bus = RedisMessageBus(host=&quot;localhost&quot;, port=6379)
+workspace_manager = LocalWorkspaceManager(basedir=&quot;/data/workspaces&quot;)
+
+vector_store = QdrantStore(url=&quot;http://localhost:6333&quot;)
+kb_manager = CollectionPerKbManager(
+    storage=storage,
+    vector_store=vector_store,
+)
+
+app = create_app(
+    storage=storage,
+    message_bus=message_bus,
+    workspace_manager=workspace_manager,
+    knowledge_base_manager=kb_manager,
+    # 按 IANA 媒体类型路由：文本 / PDF / PPT / 图片各走对应解析器
+    knowledge_parsers=[
+        TextParser(),
+        PDFParser(),
+        PPTParser(),
+        ImageParser(),
+    ],
+    knowledge_chunkers=[ApproxTokenChunker],
+    blob_store=LocalBlobStore(root_dir=&quot;/data/blobs&quot;),
+)
+
+uvicorn.run(app, host=&quot;0.0.0.0&quot;, port=8000)
+</code></pre></div></div><div data-panel="1" hidden=""><div class="code-example"><div class="code-bar"><span>S3 blob 存储</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="S3 blob 存储" data-lang="python">import uvicorn
+
+from agentscope.app import create_app
+from agentscope.app.rag.blob_store import S3BlobStore
+from agentscope.app.rag.knowledge_base_manager import CollectionPerKbManager
+from agentscope.app.message_bus import RedisMessageBus
+from agentscope.app.storage import RedisStorage
+from agentscope.app.workspace_manager import LocalWorkspaceManager
+from agentscope.rag import (
+    ApproxTokenChunker,
+    ImageParser,
+    PDFParser,
+    PPTParser,
+    QdrantStore,
+    TextParser,
+)
+
+storage = RedisStorage(host=&quot;localhost&quot;, port=6379)
+message_bus = RedisMessageBus(host=&quot;localhost&quot;, port=6379)
+workspace_manager = LocalWorkspaceManager(basedir=&quot;/data/workspaces&quot;)
+
+vector_store = QdrantStore(url=&quot;http://localhost:6333&quot;)
+kb_manager = CollectionPerKbManager(
+    storage=storage,
+    vector_store=vector_store,
+)
+
+app = create_app(
+    storage=storage,
+    message_bus=message_bus,
+    workspace_manager=workspace_manager,
+    knowledge_base_manager=kb_manager,
+    knowledge_parsers=[
+        TextParser(),
+        PDFParser(),
+        PPTParser(),
+        ImageParser(),
+    ],
+    knowledge_chunkers=[ApproxTokenChunker],
+    blob_store=S3BlobStore(bucket=&quot;my-rag-bucket&quot;),
+)
+
+uvicorn.run(app, host=&quot;0.0.0.0&quot;, port=8000)
+</code></pre></div></div></div><p>其中与 RAG 相关的 <code>create_app</code> 参数如下；不传 <code>knowledge_base_manager</code> 时整组知识库端点不会被注册。</p><section class="parameter" data-default="None"><strong><code>knowledge_base_manager</code> <small>KnowledgeBaseManagerBase | None</small><small> · 默认值 <code>None</code></small></strong><p>知识库生命周期的拥有者，绑定一个向量库实例（其连接生命周期由 manager 代理）。内置实现 <code>CollectionPerKbManager</code> 采用「每个知识库一个 collection」的隔离策略，允许各知识库自由选择嵌入维度。</p></section><section class="parameter" data-default="[TextParser()]"><strong><code>knowledge_parsers</code> <small>list[ParserBase] | dict[str, ParserBase] | None</small><small> · 默认值 <code>[TextParser()]</code></small></strong><p>注册到上传链路的 parser 列表，按各 parser 声明的 <code>supported_media_types</code> 路由上传文件。<code>list</code> 形式下，后注册的同类型 parser 覆盖前者（覆盖会打 warning）；<code>dict</code> 形式 <code>media_type → parser</code> 表示显式路由（适合同一 parser 绑定多个类型或自定义别名）。</p></section><section class="parameter" data-default="[ApproxTokenChunker]"><strong><code>knowledge_chunkers</code> <small>list[type[ChunkerBase]] | None</small><small> · 默认值 <code>[ApproxTokenChunker]</code></small></strong><p>允许用户选择的切块器类。每个知识库保存自己的 <code>chunker_type</code> 和经过 <code>Parameters</code> Schema 校验的参数，索引 worker 会按该配置重建实例。</p></section><section class="parameter" data-default="LocalBlobStore(&#x27;./blobs&#x27;)"><strong><code>blob_store</code> <small>BlobStoreBase | None</small><small> · 默认值 <code>LocalBlobStore(&#x27;./blobs&#x27;)</code></small></strong><p>上传文件落地的二进制存储。本地存储适合单机；分布式部署请用 S3 或自实现的共享后端，因为 worker 必须与 API 共享同一份文件源。</p></section><section class="parameter" data-default="True"><strong><code>enable_index_worker</code> <small>bool</small><small> · 默认值 <code>True</code></small></strong><p><code>True</code> 时 API 进程内同时跑解析 / 切块 / 嵌入（单进程模式）；<code>False</code> 时 API 只接收上传与入队任务，索引交给独立 worker（分布式模式），详见下文「部署形态」。</p></section></section><section class="step"><h3>启动官方前端</h3><p>AgentScope 仓库的 <a href="https://github.com/agentscope-ai/agentscope/tree/main/examples/web_ui"><code>examples/web_ui</code></a> 目录提供与上面后端配套的 React 前端，直接拉起即可：</p><div class="code-example"><div class="code-bar"><span>bash</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-bash" data-caption="bash" data-lang="bash">cd examples/web_ui
+pnpm install
+pnpm dev
+</code></pre></div><p>打开 dev server 输出的 URL（通常是 <code>http://localhost:5173</code>），前端会自动连接到 8000 端口的服务。</p></section><section class="step"><h3>在前端操作</h3><p>打开前端后，可以在 UI 里完成新建知识库、上传文档、查看处理进度、做检索测试等全套操作。</p></section></div>
+<h2 id="部署形态">部署形态</h2>
+<p>上一节的快速开始把 API 与索引跑在<strong>同一个进程</strong>里，对本地开发和小流量场景足够用；但生产环境里，解析 / 切块 / 嵌入是 CPU 与 IO 双重密集的链路，跟 HTTP 请求挤在同一个进程会出现两个问题：</p>
+<ol>
+<li><strong>资源相互挤占</strong>：一份大 PDF 进来，事件循环被解析卡住，同进程内其他 API 请求一起变慢；</li>
+<li><strong>扩容颗粒度过粗</strong>：唯一的横向扩缩单位是「API 副本」，但真正吃资源的只有索引链路，整体扩等于在浪费资源。</li>
+</ol>
+<p>为此，服务层支持把索引链路抽出来跑成独立的 <strong>worker</strong> 进程——专门订阅消息总线、从 blob 拉文件、跑「解析 → 切块 → 嵌入 → 入库」全流程，与 API 解耦后可以独立扩缩、独立挂重型解析依赖。下表对照两种部署形态，方便按流量与运维复杂度选型：</p>
+<table><thead><tr><th>维度</th><th>单进程部署</th><th>分布式部署</th></tr></thead><tbody><tr><td>进程拓扑</td><td>API + 索引同进程</td><td>API + N 个 worker</td></tr><tr><td>资源隔离</td><td>解析重时会挤占请求线程</td><td>API 不受解析负载影响</td></tr><tr><td>扩容方式</td><td>整体扩 API 副本</td><td>API 与 worker 独立扩</td></tr><tr><td>部署复杂度</td><td>一份配置即可</td><td>需要发布两套镜像 / 服务</td></tr><tr><td>适用场景</td><td>本地、原型、轻流量</td><td>生产、解析 / 嵌入是瓶颈</td></tr></tbody></table>
+<h3 id="单进程部署">单进程部署</h3>
+<p><code>create_app</code> 的 <code>enable_index_worker</code> 默认为 <code>True</code>，API 进程在 lifespan 里自动起一个内置的 worker 协程，无需额外配置——这就是「快速开始」演示的形态。如果之前显式关掉过，传回 <code>True</code> 即可：</p>
+<div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">app = create_app(
+    ...,
+    enable_index_worker=True,   # 默认值，可省略
+)
+</code></pre></div>
+<h3 id="分布式部署">分布式部署</h3>
+<p>API 进程关掉内置 worker，只负责接收上传、入队任务、跑兜底自愈；一个或多个 worker 进程独立启动，订阅同一条消息总线通道并拉取任务。</p>
+<p>API 端：</p>
+<div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">app = create_app(
+    storage=storage,
+    message_bus=message_bus,
+    workspace_manager=workspace_manager,
+    knowledge_base_manager=kb_manager,
+    blob_store=blob_store,
+    enable_index_worker=False,   # ← 不在 API 进程内起 worker
+)
+</code></pre></div>
+<p>Worker 端有两种启动方式：</p>
+<ul>
+<li><strong>CLI 方式</strong>：通过 <code>python -m agentscope.app.rag.index_worker</code>，配合环境变量 <code>AGENTSCOPE_WORKER_BOOTSTRAP=module:callable</code> 指向一个返回后端字典的工厂。运维直接拷贝同一份 systemd / k8s 单元即可批量扩容；</li>
+<li><strong>库方式</strong>：在自己的入口脚本里调用 <code>agentscope.app.rag.index_worker.run_worker(...)</code>（也可直接 <code>from agentscope.app.rag import run_worker</code> 导入），与 <code>create_app</code> 拼出来的后端共享同一组实例。</li>
+</ul>
+<p>下面给出库方式的最小示例。<strong>关键约定</strong>：API 与 worker 必须挂同一份 storage / 消息总线 / blob store / 知识库 manager 的<strong>配置</strong>——它们共享 vector store collection、共享 blob URI、共享文档 lease，任何一项不一致都会导致索引失败或数据错位。</p>
+<div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">import asyncio
+import os
+
+from agentscope.app.rag import run_worker
+from agentscope.app.rag.blob_store import S3BlobStore
+from agentscope.app.rag.knowledge_base_manager import CollectionPerKbManager
+from agentscope.app.message_bus import RedisMessageBus
+from agentscope.app.storage import RedisStorage
+from agentscope.rag import (
+    ApproxTokenChunker,
+    ImageParser,
+    PDFParser,
+    PPTParser,
+    QdrantStore,
+    TextParser,
+)
+
+
+async def main() -&gt; None:
+    storage = RedisStorage(url=os.environ[&quot;REDIS_URL&quot;])
+    message_bus = RedisMessageBus(url=os.environ[&quot;REDIS_URL&quot;])
+    blob_store = S3BlobStore(bucket=os.environ[&quot;S3_BUCKET&quot;])
+    vector_store = QdrantStore(url=os.environ[&quot;QDRANT_URL&quot;])
+    kb_manager = CollectionPerKbManager(
+        storage=storage,
+        vector_store=vector_store,
+    )
+
+    await run_worker(
+        storage=storage,
+        message_bus=message_bus,
+        blob_store=blob_store,
+        knowledge_base_manager=kb_manager,
+        # 与 API 端保持完全一致的 parser 列表
+        parsers=[
+            TextParser(),
+            PDFParser(),
+            PPTParser(),
+            ImageParser(),
+        ],
+        chunkers=[ApproxTokenChunker],
+        worker_max_concurrency=4,   # 单个 worker 并发处理的文档上限
+        consumer_max_batch=32,      # 单次信号最多拉取的任务条数
+    )
+
+
+if __name__ == &quot;__main__&quot;:
+    asyncio.run(main())
+</code></pre></div>
+<p>CLI 方式所需的 bootstrap 工厂只是把上面的 <code>run_worker(...)</code> 调用拆成「构造 kwargs」和「调用」两步——把要传给 <code>run_worker</code> 的关键字参数作为 dict 返回即可：</p>
+<div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python"># mydeploy/worker_bootstrap.py
+import os
+
+from agentscope.app.rag.blob_store import S3BlobStore
+from agentscope.app.rag.knowledge_base_manager import CollectionPerKbManager
+from agentscope.app.message_bus import RedisMessageBus
+from agentscope.app.storage import RedisStorage
+from agentscope.rag import (
+    ApproxTokenChunker,
+    ImageParser,
+    PDFParser,
+    PPTParser,
+    QdrantStore,
+    TextParser,
+)
+
+
+def bootstrap() -&gt; dict:
+    storage = RedisStorage(url=os.environ[&quot;REDIS_URL&quot;])
+    message_bus = RedisMessageBus(url=os.environ[&quot;REDIS_URL&quot;])
+    vector_store = QdrantStore(url=os.environ[&quot;QDRANT_URL&quot;])
+    return {
+        &quot;storage&quot;: storage,
+        &quot;message_bus&quot;: message_bus,
+        &quot;blob_store&quot;: S3BlobStore(bucket=os.environ[&quot;S3_BUCKET&quot;]),
+        &quot;knowledge_base_manager&quot;: CollectionPerKbManager(
+            storage=storage,
+            vector_store=vector_store,
+        ),
+        &quot;parsers&quot;: [
+            TextParser(),
+            PDFParser(),
+            PPTParser(),
+            ImageParser(),
+        ],
+        &quot;chunkers&quot;: [ApproxTokenChunker],
+    }
+</code></pre></div>
+<p>然后这样启动：</p>
+<div class="code-example"><div class="code-bar"><span>bash</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-bash" data-caption="bash" data-lang="bash">AGENTSCOPE_WORKER_BOOTSTRAP=mydeploy.worker_bootstrap:bootstrap \
+    python -m agentscope.app.rag.index_worker
+</code></pre></div>
+<aside class="notice note"><strong>说明</strong><p>向量库本身的高可用 / 多副本由所选向量库后端负责；服务层只持有连接句柄。把 Qdrant 指向集群、把 S3 指向跨区桶，即可在不动应用代码的前提下完成存储侧扩展。</p></aside>
+<h2 id="运行原理">运行原理</h2>
+<p>服务层的核心设计是<strong>用消息总线（event bus）把「上传」与「索引」彻底解耦</strong>——前者是同步链路、追求毫秒级返回，后者是异步链路、可重、可分布式。两条链路只通过 bus 上的一条 <code>index_tasks</code> 通道通信，因此同一份代码既能在「快速开始」里跑成单进程，也能在「分布式部署」里跨多机扩容，业务逻辑完全相同。</p>
+<p>围绕这条 bus 的几个角色：</p>
+<table><thead><tr><th>角色</th><th>所在进程</th><th>与 bus 的关系</th><th>职责</th></tr></thead><tbody><tr><td>知识库服务（API）</td><td>API 进程</td><td><strong>发布</strong>索引任务</td><td>接收 HTTP 请求，流式写 blob、落 <code>pending</code> 记录，向 bus 推任务</td></tr><tr><td>索引消费者</td><td>Worker 进程（或 API 进程内置）</td><td><strong>订阅</strong>索引信号</td><td>监听 bus 信号、批量拉取任务、转交给索引 worker</td></tr><tr><td>索引 worker</td><td>Worker 进程（或 API 进程内置）</td><td>拿到任务后跑全流程</td><td>抢 lease → 解析 → 切块 → 嵌入 → 写向量库 → 标记 <code>ready</code></td></tr><tr><td>索引兜底（sweeper）</td><td>API 进程</td><td><strong>重新发布</strong>卡住的任务</td><td>周期性扫描超时 lease / 长期 <code>pending</code> 记录，重新入队</td></tr></tbody></table>
+<p>下图展示一份文档从上传到可检索的完整路径，所有跨进程通信都经过 bus，因此把 worker 抽出来部署不需要改任何配线：</p>
+<figure class="diagram"><img src="/agentscope-course/diagrams/diagram-f5f93fc65dea37.svg" alt="本节流程图"/><details><summary>查看流程图原文</summary><pre><code class="language-mermaid" data-caption="mermaid" data-lang="mermaid">flowchart TB
+    Client([Client])
+
+    subgraph API[API 进程]
+        Router[知识库路由]
+        Service[知识库服务]
+        Sweeper[索引兜底]
+    end
+
+    subgraph Worker[Worker 进程&lt;br/&gt;内置 或 独立部署]
+        Consumer[索引消费者]
+        IW[索引 worker:&lt;br/&gt;parse → chunk → embed]
+    end
+
+    Blob[(Blob 存储)]
+    Storage[(Storage)]
+    Bus{{消息总线&lt;br/&gt;index_tasks 通道}}
+    VDB[(向量库)]
+
+    Client -- &quot;POST /documents&quot; --&gt; Router --&gt; Service
+    Service -- &quot;stream bytes&quot; --&gt; Blob
+    Service -- &quot;upsert record (pending)&quot; --&gt; Storage
+    Service -- &quot;publish index_task&quot; --&gt; Bus
+
+    Bus -- &quot;signal&quot; --&gt; Consumer
+    Consumer --&gt; IW
+    IW -- &quot;read blob&quot; --&gt; Blob
+    IW -- &quot;status updates&quot; --&gt; Storage
+    IW -- &quot;insert vectors&quot; --&gt; VDB
+
+    Sweeper -- &quot;expired lease / orphan pending&quot; --&gt; Bus
+
+    Client -- &quot;POST /search&quot; --&gt; Router --&gt; Service
+    Service -- &quot;KnowledgeBase.search&quot; --&gt; VDB
+</code></pre></details></figure>
+<p>链路要点：</p>
+<ul>
+<li><strong>上传链路</strong>（API 进程）：路由把请求交给知识库服务，后者把文件<strong>流式</strong>写进 blob 存储、落一条 <code>pending</code> 记录，然后向 bus 推一条索引任务；HTTP 立刻返回，<strong>不在请求体里跑解析 / 嵌入</strong>。</li>
+<li><strong>索引链路</strong>（worker 进程，可内置在 API 中也可独立部署）：索引消费者订阅 bus 信号、批量拉取任务、转交给索引 worker 跑「抢 lease → 解析 → 切块 → 嵌入 → 入库 → 标记 ready」全流程。索引内部统一通过 <code>KnowledgeBaseManagerBase.get_knowledge(...)</code> 拿到一个 <code>KnowledgeBase</code> 运行时句柄，再调用 <code>insert_document(...)</code> 完成嵌入 + 入库，与 library 模式跑的是同一条逻辑。</li>
+<li><strong>自愈链路</strong>（始终在 API 进程）：索引兜底周期性发现超时 lease 或长时间未被处理的 <code>pending</code> 记录，重新向 bus 入队；worker 侧的 CAS lease 保证不会重复处理。</li>
+</ul>
+<h3 id="文档状态机">文档状态机</h3>
+<p>文档记录的 <code>status</code> 字段在生命周期内严格按以下顺序流转，前端可以根据它渲染进度条或失败提示：</p>
+<table><thead><tr><th>状态</th><th>触发点</th><th>含义</th></tr></thead><tbody><tr><td><code>pending</code></td><td>上传完成</td><td>已上传到 blob 存储、记录已落盘，等待 worker 拉取</td></tr><tr><td><code>parsing</code></td><td>worker 取得 lease 后</td><td>正在从 blob 流出字节并交给 parser</td></tr><tr><td><code>chunking</code></td><td>parser 返回后</td><td>正在切块</td></tr><tr><td><code>indexing</code></td><td>chunker 返回后</td><td>正在嵌入并写入向量库</td></tr><tr><td><code>ready</code></td><td>向量库写入成功</td><td>文档已可检索；<code>chunk_count</code> 字段在此刻填充</td></tr><tr><td><code>error</code></td><td>任意阶段抛异常</td><td>错误被简化为单行写入 <code>error</code> 字段；blob 与记录保留以便前端复盘 / 用户重传</td></tr></tbody></table>
+<h3 id="容错与自愈">容错与自愈</h3>
+<p>服务层围绕 bus + lease 做了几项让长跑更省心的设计：</p>
+<ul>
+<li><strong>lease + CAS 防重入</strong>：worker 接到任务后先用 storage 层的 CAS 抢 lease，重复入队或多 worker 抢同一文档都只会执行一次；</li>
+<li><strong>lease 自动续约</strong>：lease 默认 90 秒，worker 内置心跳每 45 秒续一次，长文档解析不会超时；</li>
+<li><strong>race 检测</strong>：worker 同时跑流水线与心跳；心跳一旦发现 lease 被夺（sweeper 误判 / 网络抖动），立即取消流水线，避免和接管 worker 同时写入向量库；</li>
+<li><strong>兜底重派</strong>：lease 过期（worker 崩溃）或 <code>pending</code> 超过宽限期（API 推送失败）的文档会被周期性重新入队；</li>
+<li><strong>错误隔离到记录上</strong>：任意阶段抛异常都会被写到记录的 <code>error</code> 字段，前端可见，blob 与记录不会自动清理，便于排查后重传；</li>
+<li><strong>删除链路幂等</strong>：先删向量库、再删记录、最后删 blob，任意中途失败重试都不会留下状态不一致。</li>
+</ul>
+<aside class="notice warning"><strong>注意</strong><p>parser 默认在事件循环线程内运行。如果引入 PDF / Office 等 CPU 密集型 parser（例如 <code>PDFParser</code>、<code>PPTParser</code>），<strong>务必</strong>给 worker 传 <code>parser_executor=ProcessPoolExecutor(...)</code>，否则会阻塞同进程内的其他 asyncio 任务（在单进程部署中会拖慢 API 响应）。</p></aside>
+<h2 id="rest-api-概览">REST API 概览</h2>
+<p>服务层在 <code>/knowledge_bases</code> 前缀下暴露完整的 CRUD + 上传 + 检索端点。下表按职责分组，请求 / 响应的字段细节由 OpenAPI 文档给出：</p>
+<table><thead><tr><th>类别</th><th>端点</th><th>说明</th></tr></thead><tbody><tr><td>能力发现</td><td><code>GET /knowledge_bases/embedding_models</code></td><td>列出当前用户的凭证下，与向量库维度策略兼容的嵌入模型</td></tr><tr><td>能力发现</td><td><code>GET /knowledge_bases/supported_content_types</code></td><td>列出当前 API 已挂载的解析器支持的 IANA media types 与文件扩展名，前端用作 <code>&lt;input accept&gt;</code></td></tr><tr><td>能力发现</td><td><code>GET /knowledge_bases/chunkers</code></td><td>列出可选切块器及其 <code>Parameters</code> JSON Schema</td></tr><tr><td>能力发现</td><td><code>GET /knowledge_bases/middleware/parameters_schema</code></td><td>获取 <code>RAGMiddleware.Parameters</code> 的 JSON Schema，前端用作动态表单</td></tr><tr><td>知识库 CRUD</td><td><code>POST/GET/PATCH/DELETE /knowledge_bases</code></td><td>知识库的增查改删；删除会级联清理 collection、文档记录和 blob</td></tr><tr><td>文档管理</td><td><code>GET/POST/DELETE /knowledge_bases/{kb_id}/documents</code></td><td>列出 / 上传 / 删除文档；上传后立即返回 <code>pending</code></td></tr><tr><td>状态轮询</td><td><code>GET /knowledge_bases/{kb_id}/documents/status?ids=a,b,c</code></td><td>批量查询若干文档当前状态，前端用于轮询渲染进度</td></tr><tr><td>检索</td><td><code>POST /knowledge_bases/{kb_id}/search</code></td><td>自然语言查询，返回 top-K 检索结果</td></tr></tbody></table>
+<aside class="notice tip"><strong>提示</strong><p>上传与检索走的是<strong>同一个</strong>知识库句柄——服务层的 <code>POST /search</code> 端点底层调用 <code>KnowledgeBaseService.search</code>，再委派给 <code>KnowledgeBase.search</code>，这与 library 模式、<code>RAGMiddleware</code> 调用的是同一条链路。也就是说，前端用 <code>/search</code> 端点排查检索效果，与智能体推理时拿到的内容是一致的。</p></aside>
+<h2 id="延伸阅读">延伸阅读</h2>
+<div class="cards"><div class="card"><strong><a href="/agentscope-course/building-blocks/rag/">RAG</a></strong><p>了解 parser / chunker / vector store / middleware 的原子接口与 library 模式用法。</p><a href="/agentscope-course/building-blocks/rag/" data-card-cta="查看 library 用法">查看 library 用法</a></div><div class="card"><strong><a href="/agentscope-course/deploy/agent-service/">架构</a></strong><p><code>create_app</code> 的全局参数、lifespan、依赖注入与 ASGI 中间件层。</p><a href="/agentscope-course/deploy/agent-service/" data-card-cta="查看 create_app 全局参数">查看 create_app 全局参数</a></div><div class="card"><strong><a href="/agentscope-course/building-blocks/middleware/">中间件</a></strong><p><code>RAGMiddleware</code> 借助哪些钩子注入检索结果。</p><a href="/agentscope-course/building-blocks/middleware/" data-card-cta="了解中间件机制">了解中间件机制</a></div><div class="card"><strong><a href="/agentscope-course/building-blocks/model/embedding/">嵌入模型</a></strong><p>嵌入模型卡 / 维度约束，决定知识库可选哪些模型。</p><a href="/agentscope-course/building-blocks/model/embedding/" data-card-cta="查看模型列表">查看模型列表</a></div></div></article><footer><div class="paging"><a href="/agentscope-course/deploy/sharing/">上一节 · 资源共享</a><a href="/agentscope-course/deploy/workspace-manager/">下一节 · 工作区管理</a></div><div class="credits"><a href="https://docs.agentscope.io/zh/versions/2.0.12/deploy/rag" target="_blank" rel="noopener">在线原页</a> · <a href="/agentscope-course/mdx/deploy/rag.mdx">原始 MDX</a> · <a href="https://github.com/agentscope-ai/docs/blob/e0ee835d1aca5d2b840d29bdd2f70770bbef69e8/zh/versions/2.0.12/deploy/rag.mdx" target="_blank" rel="noopener">固定版本来源</a> · <a href="/agentscope-course/LICENSE.txt">MIT 许可</a></div></footer></main></div></body></html>

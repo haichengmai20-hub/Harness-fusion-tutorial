@@ -1,0 +1,877 @@
+{
+  "s01": {
+    "hermes": {
+      "support": "native",
+      "evidence": [
+        "source-reviewed"
+      ],
+      "title": "工具调用决定这一轮往哪走",
+      "body": "购物车报错进入一轮会话。模型若请求工具，循环交给工具轮次处理；若返回文本，进入文本收尾。两条路径都可能让用户看到回复，只有测试结果能说明金额是否正确。",
+      "entry": "TurnFacadeMixin.run_conversation 转入 conversation_loop.run_conversation，再进入 _run_conversation_turn。",
+      "state": "同一轮的消息、API 调用计数和退出原因由轮次状态维护。",
+      "checkpoint": "在收到助手消息后检查 tool_calls，再预测下一次模型调用会读到什么。",
+      "anchors": {
+        "request-built": "turn_request_assembly.assemble_api_request 构造供应商请求。工具说明与消息是这次请求的输入。",
+        "tool-requested": "conversation_loop 在 s.assistant_message.tool_calls 非空时进入 run_tool_round。",
+        "assistant-finished": "无工具调用时进入 finish_text_response；最终回复尚需结合测试结果判断。"
+      },
+      "source": "agent/conversation_loop.py · _run_conversation_turn",
+      "url": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/agent/conversation_loop.py#L1762"
+    },
+    "dsh": {
+      "support": "native",
+      "evidence": [
+        "source-reviewed"
+      ],
+      "title": "每一步都在会话事件流中留下位置",
+      "body": "收到购物车请求后，运行中的 Agent 准备一次模型请求并消费流。如果请求工具，executeToolCalls 写回执行信息；整轮落下 turn/end 时还要另查回归测试。",
+      "entry": "agent.ts 中 turn 驱动各个 step；step 在模型、工具和下一步之间切换。",
+      "state": "Session 保存事件，工具请求与结果带有轮次和步次信息。",
+      "checkpoint": "定位一次工具请求的完成，再检查后面是否启动新的模型步骤。",
+      "anchors": {
+        "request-built": "Agent.step 使用 prepareRequest 的结果进入模型流。",
+        "tool-requested": "executeToolCalls 收到模型的 ToolCallBlock。",
+        "tool-finished": "appendToolResult 将工具结果追加到 Session，可用调用事件序号与 callId 配对。",
+        "assistant-finished": "turn/end 记录整轮退出原因；它也可能来自其他结束路径。"
+      },
+      "source": "packages/core/agent-loop/src/agent.ts · step",
+      "url": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/core/agent-loop/src/agent.ts#L353"
+    },
+    "agentscope": {
+      "support": "native",
+      "evidence": [
+        "source-reviewed"
+      ],
+      "title": "同一次回复可以按事件流观察",
+      "body": "把“修购物车”作为输入，reply_stream 逐步产出事件，reply 则消费流并返回消息。内部循环依据当前状态决定推理、执行工具或结束，界面可以在模型结束后继续等待工具结果。",
+      "entry": "Agent.reply / reply_stream 进入 _reply_impl，再由 _next_action 决定动作。",
+      "state": "Agent.state 持有当前回复上下文及工具调用，事件供流式调用方观察。",
+      "checkpoint": "分清 ModelCallEndEvent 与整轮结束，找出哪条结果才包含回归测试输出。",
+      "anchors": {
+        "user-input": "Agent.reply_stream 接受 Msg 或消息列表，用其发起本轮。",
+        "request-built": "_prepare_model_input 组装系统消息、摘要、上下文和工具。",
+        "tool-requested": "模型的工具块可产生 ToolCallEndEvent；这时调用参数已收齐，工具可能还没有运行。",
+        "tool-finished": "执行后可产生 ToolResultEndEvent；工具结果按 tool_call_id 与请求关联。"
+      },
+      "source": "src/agentscope/agent/_agent.py · Agent._reply_impl",
+      "url": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/agent/_agent.py#L1169"
+    }
+  },
+  "s02": {
+    "hermes": {
+      "support": "native",
+      "evidence": [
+        "source-reviewed"
+      ],
+      "title": "先注册工具，再按名分发",
+      "body": "内建工具可将名称、说明用的 schema 和 Python 处理函数注册到 ToolRegistry。模型要求读 cart.py 时，真正执行读操作的是本次作用域可见的处理函数。",
+      "entry": "ToolRegistry.register 建立条目，ToolRegistry.dispatch 查找名称并调用 handler。",
+      "state": "注册表保留工具定义；一次读取的结果回到当前轮的消息。",
+      "checkpoint": "把工具名写错时先观察查表结果，再判断是否可能触碰文件。",
+      "anchors": {
+        "request-built": "本次请求取用可见工具定义，ToolRegistry 的登记项同时保留 schema 和处理函数。",
+        "tool-requested": "ToolRegistry.dispatch 根据名称查找目标条目。"
+      },
+      "source": "tools/registry.py · ToolRegistry.dispatch",
+      "url": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/tools/registry.py#L1076"
+    },
+    "dsh": {
+      "support": "native",
+      "evidence": [
+        "source-reviewed"
+      ],
+      "title": "可见工具定义与运行调度各有入口",
+      "body": "ToolRuntime 注册工具定义，schemas 从指定作用域取模型可见的说明。购物车读取的实参和结果可以沿 agent-loop 的工具调度追踪。",
+      "entry": "ToolRuntime.register、schemas 和 tool-calls.ts 的 executeToolCalls。",
+      "state": "定义按作用域保存；执行由调度器准备、分发和收尾，结果进入 Session。",
+      "checkpoint": "模型已经看到读取 schema 时，预测调用记录与结果记录分别在何时追加。",
+      "anchors": {
+        "request-built": "ToolRuntime.schemas 收集当前作用域内可公开的工具 schema。",
+        "tool-requested": "appendToolCall 保存 block.id、工具名与 arguments 并返回事件序号。",
+        "tool-finished": "appendToolResult 接收原调用事件的序号，写入 tool/result。"
+      },
+      "source": "packages/core/tools/src/index.ts · ToolRuntime.register",
+      "url": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/core/tools/src/index.ts#L1043"
+    },
+    "agentscope": {
+      "support": "native",
+      "evidence": [
+        "source-reviewed"
+      ],
+      "title": "工具块进入 Toolkit 后可以流式返回",
+      "body": "把读取函数加入 Toolkit，模型按已公开的 schema 请求它。call_tool 接收 ToolCallBlock，执行期间可以产出多个 ToolChunk，不能把第一个分片当作整次读取结束。",
+      "entry": "Toolkit.add_tool、get_tool_schemas 和 call_tool；Agent 负责把结果转换为事件。",
+      "state": "Toolkit 保存可用工具，Agent.state 管理调用块；结果依调用 ID 关联。",
+      "checkpoint": "在读取 cart.py 的样例中区分参数、首个结果片段与结果结束事件。",
+      "anchors": {
+        "request-built": "Toolkit.get_tool_schemas 给模型返回本轮可用的参数结构。",
+        "tool-requested": "Toolkit.call_tool 的输入是 ToolCallBlock，Agent 管理调用 ID 和权限流程。",
+        "tool-finished": "Toolkit 可分片返回；Agent 将它们转换为关联调用 ID 的工具结果事件。"
+      },
+      "source": "src/agentscope/tool/_toolkit.py · Toolkit.call_tool",
+      "url": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/tool/_toolkit.py#L225"
+    }
+  },
+  "s03": {
+    "hermes": {
+      "support": "composed",
+      "evidence": [
+        "source-reviewed"
+      ],
+      "title": "编辑许可取决于宿主",
+      "body": "在 ACP 客户端路径上，Hermes 按工具名和参数准备编辑预览，再让宿主作决定。被拒绝时返回阻止信息。普通终端是否询问同一笔写入，要看宿主和其他已配置的策略。",
+      "entry": "model_tools._pre_dispatch_guards 调用 maybe_require_edit_approval，再决定是否分发。",
+      "state": "请求器绑定于 ACP 会话；工具名、参数和 diff 用于本次裁决。",
+      "checkpoint": "把写入 cart.py 的调用放在编辑分发之前，找到拒绝消息的早返回。",
+      "anchors": {
+        "tool-requested": "_pre_dispatch_guards 读取工具名与参数，此时尚未进入对应文件编辑处理器。",
+        "permission-resolved": "在适用 ACP 编辑请求中，maybe_require_edit_approval 拿到否决后返回阻止消息，允许则让分发继续。"
+      },
+      "source": "acp_adapter/edit_approval.py · maybe_require_edit_approval",
+      "url": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/acp_adapter/edit_approval.py#L211"
+    },
+    "dsh": {
+      "support": "composed",
+      "evidence": [
+        "source-reviewed"
+      ],
+      "title": "审批服务裁定一笔具体请求",
+      "body": "当已安装工具或规则要求人来决定，ApprovalService 在打开的 turn 内记录询问和结果。never 会自动拒绝需要询问的请求。对 cart.py 的普通工作区写入是否触发审批取决于所选工具与配置。",
+      "entry": "ApprovalService.request 先检查打开的 turn，接着记录 approval/asked，再由策略和答复器决定。",
+      "state": "Session 保存询问与裁决；请求可关联具体工具调用。",
+      "checkpoint": "分清“这次写入是否需要问”与“已经发问之后的答案”，分别定位产生条件。",
+      "anchors": {
+        "permission-resolved": "审批服务仅裁决已提出的请求，打开的 turn 记录 approval/asked 与 approval/decided。"
+      },
+      "source": "packages/interaction/user-approval/src/index.ts · ApprovalService.request",
+      "url": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/interaction/user-approval/src/index.ts#L208"
+    },
+    "agentscope": {
+      "support": "native",
+      "evidence": [
+        "source-reviewed"
+      ],
+      "title": "需要确认时，回复流抛出一个可回应的事件",
+      "body": "写 cart.py 的工具经过 _check_permission。ASK 可产生 RequireUserConfirmEvent 并把调用标为 ASKING；DENY 生成错误工具结果，ALLOW 才继续执行。调用方可用确认事件回复同一 Agent。",
+      "entry": "Agent._execute_tool_call 分支处理 PermissionDecision，确认可通过 reply 的输入回到会话。",
+      "state": "调用块 ID 与其状态保存在 Agent.state，界面须关联本次确认。",
+      "checkpoint": "在询问发出和用户确认之间检查目标文件，确认事件自身不会产生写入。",
+      "anchors": {
+        "permission-resolved": "_execute_tool_call 将 ASK、DENY、ALLOW 分流；ASK 会暂停等待 UserConfirmResultEvent，DENY 走错误结果路径。",
+        "tool-finished": "拒绝也可能生成工具错误结果；这里要看结果的状态，而非仅看结果结束事件。"
+      },
+      "source": "src/agentscope/agent/_agent.py · Agent._execute_tool_call",
+      "url": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/agent/_agent.py#L2615"
+    }
+  },
+  "s04": {
+    "hermes": {
+      "support": "native",
+      "evidence": [
+        "source-reviewed"
+      ],
+      "title": "调用前能干预，调用后能观察",
+      "body": "前置插件可以阻止调用或调整实参。后置插件接收工具名、参数和结果，观察钩子报错时有自己的处理分支。记录购物车写入耗时应先明确自己挂在哪一侧。",
+      "entry": "model_tools._pre_dispatch_guards 和 _emit_post_tool_call_hook 分别包住分发两端。",
+      "state": "变更后的参数随这次调用流转；观测数据通过插件回调传出。",
+      "checkpoint": "分别跟一次被前置插件拦截的调用和一次有返回值的调用，检查哪些回调实际可达。",
+      "anchors": {
+        "hook-before": "_pre_dispatch_guards 调用 pre_tool_call 插件，可携带变更后的参数或阻断信息。",
+        "hook-after": "_emit_post_tool_call_hook 通知观察者，包含名字、参数与结果；是否启用由插件配置决定。",
+        "hook-failed": "后置观察回调的异常在模型工具层捕获并记录。教学模拟的异常处理规则需独立查看。"
+      },
+      "source": "model_tools.py · _pre_dispatch_guards",
+      "url": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/model_tools.py#L792"
+    },
+    "dsh": {
+      "support": "native",
+      "evidence": [
+        "source-reviewed"
+      ],
+      "title": "在 Cordis 事件链上接入工具前后处理",
+      "body": "兼容插件监听 tools/pre-execute 和 tools/post-execute。对于 PreToolUse，处理器可拒绝、要求询问，或调用 next 继续；对于 PostToolUse，插件已经收到了工具执行结果。",
+      "entry": "hooks-claude-code 的 apply 把匹配的事件接到工具链。",
+      "state": "exec 带有本次调用身份，post-execute 另外收到实际结果；插件需由 profile 安装。",
+      "checkpoint": "在同一笔购物车编辑上先找 pre 事件，再判断是否存在可用的 result。",
+      "anchors": {
+        "hook-before": "可选兼容插件在 tools/pre-execute 收到 PreToolUse，返回 deny、ask 或继续。",
+        "hook-after": "tools/post-execute 的 PostToolUse 同时接收 exec 与 result，其决定仍可影响最终输出。"
+      },
+      "source": "packages/hooks/hooks-claude-code/src/index.ts · apply",
+      "url": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/hooks/hooks-claude-code/src/index.ts#L237"
+    },
+    "agentscope": {
+      "support": "native",
+      "evidence": [
+        "source-reviewed"
+      ],
+      "title": "中间件包住下一步的异步事件流",
+      "body": "on_acting 能在下一层执行前后观察同一次工具调用。要让原工具运行，观察型中间件需继续迭代 next_handler 所返回的流；若提前返回，就会改变后续可见事件。",
+      "entry": "MiddlewareBase.on_acting 定义入口，Agent._acting 组装链。",
+      "state": "中间件接收 agent、调用输入与下一处理器，事件按异步迭代返回。",
+      "checkpoint": "用一次写入检查前置记录、真实工具结果和后置记录的顺序，再预测省略委托会怎样。",
+      "anchors": {
+        "hook-before": "on_acting 在 next_handler 前可以观察工具输入。它只包住工具 I/O，权限与输入校验在外层。",
+        "hook-after": "中间件完成对 next_handler 异步流的迭代后可做后置观察。中途取消或异常需查看该中间件的处理。"
+      },
+      "source": "src/agentscope/middleware/_base.py · MiddlewareBase.on_acting",
+      "url": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/middleware/_base.py#L124"
+    }
+  },
+  "s05": {
+    "hermes": {
+      "support": "native",
+      "evidence": [
+        "source-reviewed"
+      ],
+      "title": "清单可整体替换，也可按项合并",
+      "body": "将“改乘法”和“跑测试”交给会话自己的 TodoStore。write 的 merge 参数改变更新方式；写成 completed 后仍应查测试输出。",
+      "entry": "todo_tool 调用 TodoStore.write，读取和恢复另有入口。",
+      "state": "待办项带 ID 与状态，快照还能记录 revision。",
+      "checkpoint": "同一个 ID 第二次写入时比较 merge 设置造成的列表差异。",
+      "source": "tools/todo_tool.py · TodoStore.write",
+      "url": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/tools/todo_tool.py#L38"
+    },
+    "dsh": {
+      "support": "native",
+      "evidence": [
+        "source-reviewed"
+      ],
+      "title": "每次写入完整待办快照",
+      "body": "todo_write 接受整份“修复、加测、检查”清单。省掉旧项会把它从最新清单里移除；回放时以最后一次写入为准。",
+      "entry": "tool-todo 注册工具和供 UI 读取的投影。",
+      "state": "所属 Agent 的 Session 追加 todo/write，读取端从事件还原列表。",
+      "checkpoint": "比较只提交一项与提交完整三项后得到的最新清单。",
+      "source": "packages/todo/tool-todo/src/index.ts · tool-todo",
+      "url": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/todo/tool-todo/src/index.ts#L1"
+    },
+    "agentscope": {
+      "support": "composed",
+      "evidence": [
+        "source-reviewed"
+      ],
+      "title": "用任务工具把下一步显式写下来",
+      "body": "用 TaskCreate 建“改乘法”和“跑回归”，再用 TaskUpdate 更新单项状态。这个版本的任务有身份，重复改一项无需提交整份清单。",
+      "entry": "TaskCreate.call 和 TaskUpdate.call 更新当前任务数据。",
+      "state": "任务以 ID 区分，状态、标题与描述可分别读取。",
+      "checkpoint": "将“跑测试”标成完成时，对照有无真正的测试输出。",
+      "source": "src/agentscope/tool/_task/_create_task.py · TaskCreate.call",
+      "url": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/tool/_task/_create_task.py#L83"
+    }
+  },
+  "s06": {
+    "hermes": {
+      "support": "native",
+      "evidence": [
+        "source-reviewed"
+      ],
+      "title": "子 Agent 用自己的轮次执行委托",
+      "body": "让子任务只检查数量为二的样本。委派代码实际调用 child.run_conversation，结束后整理子任务结果与错误；父侧决定如何采用报告。",
+      "entry": "delegate_tool_child_run 内的子任务执行路径。",
+      "state": "子 Agent 对象、它的对话结果与委派结果条目分开持有。",
+      "checkpoint": "检查交给 child.run_conversation 的实参；只凭父任务存在不能推断子任务看到了所有消息。",
+      "source": "tools/delegate_tool_child_run.py · child.run_conversation",
+      "url": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/tools/delegate_tool_child_run.py#L1017"
+    },
+    "dsh": {
+      "support": "native",
+      "evidence": [
+        "source-reviewed"
+      ],
+      "title": "spawn 建新会话并显式规定继承范围",
+      "body": "选择进程内 spawn 后，子 Agent 使用同一 Cordis 宿主，但继承父对话的标志为 false。父级要把“两件 350 分”的测试输入写进委托。",
+      "entry": "SpawnInProcessProvider.start 将空 seed 交给共享驱动。",
+      "state": "子会话有自己的上下文；深度、工具过滤和 persona 属于提供者能力。",
+      "checkpoint": "比较交给孩子的请求正文与父消息，指出孩子凭什么知道金额约束。",
+      "source": "packages/subagent/subagent-spawn-in-process/src/index.ts · SpawnInProcessProvider",
+      "url": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/subagent/subagent-spawn-in-process/src/index.ts#L41"
+    },
+    "agentscope": {
+      "support": "native",
+      "evidence": [
+        "source-reviewed"
+      ],
+      "title": "服务里的 AgentCreate 给新成员单独的起始消息",
+      "body": "负责人先建立团队，用 prompt 交代“只检查两件 350 分”。Agent Service 会为成员创建工作身份，把这段任务作为它的第一条用户消息。",
+      "entry": "AgentCreate 工具在团队负责人会话内创建 worker。",
+      "state": "任务描述、成员角色及成员会话分别归属该团队；这一入口属于服务层。",
+      "checkpoint": "先写清委托中传递的三项输入，再检查哪些父上下文有实际传递依据。",
+      "source": "src/agentscope/app/_tool/_agent_create.py · AgentCreate",
+      "url": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/app/_tool/_agent_create.py#L146"
+    }
+  },
+  "s07": {
+    "hermes": {
+      "support": "native",
+      "evidence": [
+        "source-reviewed"
+      ],
+      "title": "技能列表与展开内容有不同入口",
+      "body": "先列出当前可选技能，再按名称取用某个技能的正文。购物车测试规范只有经过相应读取并进入输入后才可能影响本轮。",
+      "entry": "skills_list 提供目录，skill_view 查指定技能。",
+      "state": "技能来源和读取结果属于工具层；模型当前收到的信息还取决于请求组装。",
+      "checkpoint": "对照目录结果和 skill_view 的结果，指出金额单位最早在哪个结果里出现。",
+      "source": "tools/skills_tool.py · skill_view",
+      "url": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/tools/skills_tool.py#L634"
+    },
+    "dsh": {
+      "support": "native",
+      "evidence": [
+        "source-reviewed"
+      ],
+      "title": "目录提示与技能正文来自不同步骤",
+      "body": "工具定义按技能名称读取，插件还在 agent/pre-step 上维护技能发现信息。可先让模型看到可选项，在需要编写回归断言时再取正文。",
+      "entry": "tool-skill 的 apply 注册 skill 工具并安装 pre-step 处理。",
+      "state": "注册服务持有可用技能，读取结果作为当次工具反馈。",
+      "checkpoint": "金额规范只出现在正文时，找出首次能读到它的那一步。",
+      "source": "packages/skill/tool-skill/src/index.ts · apply",
+      "url": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/skill/tool-skill/src/index.ts#L161"
+    },
+    "agentscope": {
+      "support": "native",
+      "evidence": [
+        "source-reviewed"
+      ],
+      "title": "列举技能后可用内建工具读取指定正文",
+      "body": "Toolkit 的提示信息可以列出可用技能；内建 SkillViewer 接收必填的名称，借助状态中的启用组选择技能。读取购物车测试约定前只应宣称看到了目录。",
+      "entry": "Toolkit.get_skill_instructions 与 SkillViewer。",
+      "state": "工具组活动状态影响可见性，读取结果属于当前会话。",
+      "checkpoint": "找到“金额按分”第一次进入可见内容的位置，分别检查目录和正文。",
+      "source": "src/agentscope/tool/_builtin/_skill.py · SkillViewer",
+      "url": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/tool/_builtin/_skill.py#L18"
+    }
+  },
+  "s08": {
+    "hermes": {
+      "support": "native",
+      "evidence": [
+        "source-reviewed"
+      ],
+      "title": "轮次入口会先检查上下文长度",
+      "body": "会话进入本轮时可走空闲期压缩和请求前压缩检查。保存的约束若只出现在很旧的工具结果中，下一次模型请求需要重新核对。",
+      "entry": "run_turn_start_compaction 汇集各路径的 CompactionOutcome。",
+      "state": "结果对象携带本轮要使用的消息；完整持久历史留存要另查存储实现。",
+      "checkpoint": "在发送新请求前对照压缩结果与原消息中的金额约束。",
+      "source": "agent/turn_context_compaction.py · run_turn_start_compaction",
+      "url": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/agent/turn_context_compaction.py#L129"
+    },
+    "dsh": {
+      "support": "native",
+      "evidence": [
+        "source-reviewed"
+      ],
+      "title": "压缩引擎位于模型步骤之前",
+      "body": "BasicCompactionEngine 监听 pre-step，还监听请求错误走条件恢复。对购物车案例要同时检查保留下来的旧事件与下一次模型实际收到的消息。",
+      "entry": "BasicCompactionEngine 在 agent/pre-step 和 agent/request-error 两处工作。",
+      "state": "引擎依据会话事件与压缩检查点重建视图。",
+      "checkpoint": "旧结果仍在会话里时，验证下一次请求是否仍含原文。",
+      "source": "packages/compaction/compaction-basic/src/index.ts · BasicCompactionEngine",
+      "url": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/compaction/compaction-basic/src/index.ts#L144"
+    },
+    "agentscope": {
+      "support": "native",
+      "evidence": [
+        "source-reviewed"
+      ],
+      "title": "摘要和保留消息是两种模型输入",
+      "body": "当上下文触及按模型窗口配置的阈值，Agent 可拆出需要压缩的内容。随后构造请求时，summary 与剩余 context 分别加入，因此可以分别检查“金额按分”和最近一次测试输出落在哪里。",
+      "entry": "Agent._compress_context_impl 拆分上下文，_prepare_model_input 构造请求。",
+      "state": "Agent.state.summary 与 state.context 是两个字段；完整原始记录还需看所选记录层。",
+      "checkpoint": "展开下一次请求，同时核对摘要与保留消息，逐项查找关键约束。",
+      "source": "src/agentscope/agent/_agent.py · Agent._compress_context_impl",
+      "url": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/agent/_agent.py#L513"
+    }
+  },
+  "s09": {
+    "hermes": {
+      "support": "native",
+      "evidence": [
+        "source-reviewed"
+      ],
+      "title": "配置目录里的记忆可以跨会话加载",
+      "body": "本地配置下，MemoryStore 从 MEMORY.md 和 USER.md 加载内容并为提示词取快照。先在一个会话写下金额单位，再用同一配置的新会话检查加载结果。",
+      "entry": "MemoryStore.load_from_disk 处理读取和快照。",
+      "state": "存储文件与当前轮 messages 分属不同对象；托管模式另有条件。",
+      "checkpoint": "切换到新会话并确认使用同一配置目录，再检查新提示词里是否真的出现偏好。",
+      "source": "tools/memory_tool_store.py · MemoryStore.load_from_disk",
+      "url": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/tools/memory_tool_store.py#L223"
+    },
+    "dsh": {
+      "support": "unverified",
+      "evidence": [
+        "source-reviewed"
+      ],
+      "title": "已查会话投影，跨会话召回另待核验",
+      "body": "已核对本会话动态上下文投影。另一个 tool-ralph 工作流让新子会话通过共享工作目录和结构化交接接续任务；新用户会话主动召回“单位为分”的默认能力仍待核实。",
+      "entry": "从 RuntimeContextProjection 与持久 Session 的职责边界开始调查。",
+      "state": "已核对的快照属于指定 Session；跨会话索引、召回键与写入时机尚待核实。",
+      "checkpoint": "新建不同会话后检查首次模型请求，排除旧会话重放。",
+      "source": "packages/core/agent-loop/src/runtime-context.ts · RuntimeContextProjection",
+      "url": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/core/agent-loop/src/runtime-context.ts#L109"
+    },
+    "agentscope": {
+      "support": "composed",
+      "evidence": [
+        "source-reviewed"
+      ],
+      "title": "长期记忆由可选中间件接入",
+      "body": "以 Mem0Middleware 为例，它有自己的写入、检索及回复钩子。新会话能否想起金额单位，要检查同一记忆主体及实际召回的文本，服务与配置也影响结果。",
+      "entry": "Mem0Middleware.on_reply、_async_search 与写入路径。",
+      "state": "长期内容由外部记忆后端维护；这次检索返回的内容才与当前输入相关。",
+      "checkpoint": "用全新会话再次提问，分别核对检索结果和提示输入。",
+      "source": "src/agentscope/middleware/_longterm_memory/_mem0/_middleware.py · Mem0Middleware.on_reply",
+      "url": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/middleware/_longterm_memory/_mem0/_middleware.py#L285"
+    }
+  },
+  "s10": {
+    "hermes": {
+      "support": "native",
+      "evidence": [
+        "source-reviewed"
+      ],
+      "title": "提示词由多个片段拼装",
+      "body": "追踪购物车维护者给的约束如何随系统段一起进入请求。这个版本提供分段的构造入口，插件提示段还涉及会话期间的冻结。",
+      "entry": "build_system_prompt_parts 先处理各段，build_system_prompt 返回合成文本。",
+      "state": "来源分散在 agent 设置、会话信息与插件提示段，读最终字符串才能确认可见性。",
+      "checkpoint": "找到有效系统文本中金额要求的具体来源。",
+      "source": "agent/system_prompt.py · build_system_prompt_parts",
+      "url": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/agent/system_prompt.py#L770"
+    },
+    "dsh": {
+      "support": "native",
+      "evidence": [
+        "source-reviewed"
+      ],
+      "title": "提示段和动态上下文可由插件贡献",
+      "body": "将身份说明、项目约束和运行中的动态上下文分别作为输入。SystemPrompt 收集命名片段和变量，在具体 Agent 的作用域中组装。",
+      "entry": "SystemPrompt 服务接收 section、context 与 variable 等输入。",
+      "state": "当前作用域和组装时使用的变量决定呈现给模型的文本。",
+      "checkpoint": "改动运行态变量后分别查看组装产物和实际请求。",
+      "source": "packages/core/system-prompt/src/index.ts · SystemPrompt",
+      "url": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/core/system-prompt/src/index.ts#L406"
+    },
+    "agentscope": {
+      "support": "native",
+      "evidence": [
+        "source-reviewed"
+      ],
+      "title": "系统提示词在请求构造时逐段形成",
+      "body": "Agent 组合初始系统文本、可用技能和工作区说明，然后依次交给已配置的 on_system_prompt 中间件转换。最终请求还加入摘要与上下文。",
+      "entry": "Agent._get_system_prompt 和 _prepare_model_input。",
+      "state": "基础提示、技能组、工作区及中间件分别贡献内容，最终 SystemMsg 可直接检查。",
+      "checkpoint": "逐层定位“金额按分”首次出现的位置，再看它是否保留到最终 SystemMsg。",
+      "source": "src/agentscope/agent/_agent.py · Agent._get_system_prompt",
+      "url": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/agent/_agent.py#L3330"
+    }
+  },
+  "s11": {
+    "hermes": {
+      "support": "native",
+      "evidence": [
+        "source-reviewed"
+      ],
+      "title": "模型请求异常先分类再决定重试",
+      "body": "网络或认证异常在模型请求层有专门恢复路径。读取购物车文件出错时先辨认是哪一层报错，不能直接套用模型重试策略。",
+      "entry": "recover_before_classification 和 recover_after_classification 分段处理。",
+      "state": "重试状态跟随当前轮次；已经返回的工具结果需要独立核实。",
+      "checkpoint": "同一个模型错误在重试预算耗尽时应查看失败返回，不要从最终文本猜测原因。",
+      "source": "agent/turn_recovery.py · recover_after_classification",
+      "url": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/agent/turn_recovery.py#L654"
+    },
+    "dsh": {
+      "support": "native",
+      "evidence": [
+        "source-reviewed"
+      ],
+      "title": "模型请求失败时让策略决定是否重试",
+      "body": "step 捕获流式模型调用的失败并进入 agent/request-error。恢复动作若要求 retry，才进入重试分支。此前写 cart.py 的副作用须单独核对。",
+      "entry": "Agent 步骤中的错误处理读取 preparedCall 的重试策略。",
+      "state": "错误与请求上下文传入事件处理；工具操作有单独的执行记录。",
+      "checkpoint": "对照允许重试和返回其他动作的分支，看是否会重新调用模型。",
+      "source": "packages/core/agent-loop/src/agent.ts · step",
+      "url": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/core/agent-loop/src/agent.ts#L450"
+    },
+    "agentscope": {
+      "support": "native",
+      "evidence": [
+        "source-reviewed"
+      ],
+      "title": "相同工具错误会影响下一轮收到的提示",
+      "body": "_get_repeated_tool_error 按工具名与参数检查连续错误，运行态注入可以据配置提醒模型。若回归工具重复抛错，模型可能改策略；是否真正恢复要看下一次调用的结果。",
+      "entry": "Agent._get_repeated_tool_error 与 _inject_runtime_state。",
+      "state": "连续错误来自已有工具结果和对应调用块，提醒随模型输入传递。",
+      "checkpoint": "把错误参数改一次，再比较重复检测是否仍把两次归成同一类。",
+      "source": "src/agentscope/agent/_agent.py · Agent._get_repeated_tool_error",
+      "url": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/agent/_agent.py#L1333"
+    }
+  },
+  "s12": {
+    "hermes": {
+      "support": "native",
+      "evidence": [
+        "source-reviewed"
+      ],
+      "title": "看板用稳定任务 ID 记录依赖",
+      "body": "可选 Kanban 工作流在 SQLite 中创建任务，父子关系可查询。先建修复任务，再建依赖修复的测试任务，查看任务图比翻聊天记录可靠。",
+      "entry": "kanban_db.create_task、parent_ids 与 child_ids。",
+      "state": "任务、父子边、评论由看板数据库持有。",
+      "checkpoint": "用子任务 ID 查询父任务，另行验证真实测试是否成功。",
+      "source": "hermes_cli/kanban_db.py · create_task",
+      "url": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/hermes_cli/kanban_db.py#L1157"
+    },
+    "dsh": {
+      "support": "native",
+      "evidence": [
+        "source-reviewed"
+      ],
+      "title": "任务板持有依赖以及允许的状态转换",
+      "body": "实验性 Agent Teams 的任务板记录 blockedBy。更新前能检查依赖是否完成，模型在待办里写一句“跑测试”不会绕开领任务条件。",
+      "entry": "TeamTaskBoard 处理创建、变更依赖与完成等状态转换。",
+      "state": "任务图属于团队；读取视图同时给出任务状态和 ready。",
+      "checkpoint": "先完成购物车修复任务，再检查测试任务的 ready 如何变化。",
+      "source": "packages/experimental/agent-team/src/task-board.ts · TeamTaskBoard",
+      "url": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/experimental/agent-team/src/task-board.ts#L254"
+    },
+    "agentscope": {
+      "support": "composed",
+      "evidence": [
+        "source-reviewed"
+      ],
+      "title": "任务模型把依赖和归属当作字段",
+      "body": "Task 记录 blocks、blocked_by、owner 与自身状态。可把检查任务明确连到购物车修复任务，是否支持跨重启恢复需要再结合所用 Agent Service 的存储。",
+      "entry": "Task 定义数据，TaskUpdate 更新状态、依赖和 owner。",
+      "state": "任务身份与消息顺序解耦；本卡核实数据结构，未运行恢复实验。",
+      "checkpoint": "查测试任务 blocked_by 的修复任务 ID，再另做恢复后的读取。",
+      "source": "src/agentscope/state/_task.py · Task",
+      "url": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/state/_task.py#L34"
+    }
+  },
+  "s13": {
+    "hermes": {
+      "support": "native",
+      "evidence": [
+        "source-reviewed"
+      ],
+      "title": "后台进程有独立的会话对象",
+      "body": "若将检查命令留在后台，主轮次需要记录进程身份，之后才能区分另一次测试的输出。进程登记、终止和日志在 ProcessRegistry 中分工处理。",
+      "entry": "ProcessRegistry 与 ProcessSession。",
+      "state": "进程会话持有运行状态；对话中的文字只描述当时观察。",
+      "checkpoint": "从返回的进程身份追到已完成状态与最后输出，再声称验证通过。",
+      "source": "tools/process_registry.py · ProcessRegistry",
+      "url": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/tools/process_registry.py#L675"
+    },
+    "dsh": {
+      "support": "native",
+      "evidence": [
+        "source-reviewed"
+      ],
+      "title": "后台工作通过作业 ID 查询",
+      "body": "后台检查开始后，jobs 服务提供列举和按 ID 查快照的接口。发起方应保存 ID，再跟踪这次检查自己的完成状态。",
+      "entry": "JobRegistry 定义服务接口，具体运行由已配置的提供者承担。",
+      "state": "JobSnapshot 是查询结果，列表也可按 caller 限定范围。",
+      "checkpoint": "从两个重叠的检查中挑出正确的 ID；看到工作已登记时仍需等退出结果。",
+      "source": "packages/jobs/jobs/src/index.ts · JobRegistry.list",
+      "url": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/jobs/jobs/src/index.ts#L90"
+    },
+    "agentscope": {
+      "support": "native",
+      "evidence": [
+        "source-reviewed"
+      ],
+      "title": "服务管理后台工作的记录与完成清理",
+      "body": "后台检查可拥有终态记录，管理器可按身份查询并处理完成记录。关闭当前页面后能否继续，依赖运行服务和存储配置。",
+      "entry": "BackgroundTaskManager 的 _finish_task、list_tasks、get_task。",
+      "state": "任务身份、终态记录与运行中的任务对象分别管理。",
+      "checkpoint": "用同一任务 ID 查完成记录，再与这次测试输出对应。",
+      "source": "src/agentscope/app/_manager/_background_task_manager.py · BackgroundTaskManager._finish_task",
+      "url": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/app/_manager/_background_task_manager.py#L540"
+    }
+  },
+  "s14": {
+    "hermes": {
+      "support": "native",
+      "evidence": [
+        "source-reviewed"
+      ],
+      "title": "按调度实例领取到期运行",
+      "body": "购物车回归复查可以由 cron 调度器触发。代码区分调度、领取具体触发和执行，执行过程中还有领取存活性检查。",
+      "entry": "_process_due_job 处理到期作业，run_one_job 运行单个实例。",
+      "state": "作业配置、这一轮的领取状态和最终投递结果分别记录。",
+      "checkpoint": "区分同一个计划的两次到期和同一次到期被再次观察。",
+      "source": "cron/scheduler.py · run_one_job",
+      "url": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/cron/scheduler.py#L2757"
+    },
+    "dsh": {
+      "support": "native",
+      "evidence": [
+        "source-reviewed"
+      ],
+      "title": "运行时按到期情况安排下一次唤醒",
+      "body": "此版本能从折叠后的计划决定一次性和固定间隔的到期批次，并借助计时器唤醒。这里核对了定时触发，未据此宣称支持任意 cron 表达式。",
+      "entry": "dueDecision 比较当前时间与计划，ScheduleRuntime.driveOnce 驱动处理。",
+      "state": "计划变化进入 Session；内存计时器负责当前宿主的一次唤醒。",
+      "checkpoint": "将时钟跨过两次间隔，对照单次任务与固定间隔批次的处理。",
+      "source": "packages/schedule/schedule/src/runtime.ts · dueDecision",
+      "url": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/schedule/schedule/src/runtime.ts#L35"
+    },
+    "agentscope": {
+      "support": "native",
+      "evidence": [
+        "source-reviewed"
+      ],
+      "title": "定时触发先向目标会话投递唤醒",
+      "body": "Agent Service 的调度器管理 APScheduler。到期后向目标会话 inbox 放入提示并安排唤醒，后续由应用的分发器处理；触发本身还没有跑购物车测试。",
+      "entry": "SchedulerManager 管理调度生命周期与同步。",
+      "state": "计划、待处理的会话提醒、后续工作结果分别持有。",
+      "checkpoint": "在相同任务上依次找定时触发、会话唤醒与实际工具返回。",
+      "source": "src/agentscope/app/_manager/_scheduler/_scheduler_manager.py · SchedulerManager",
+      "url": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/app/_manager/_scheduler/_scheduler_manager.py#L33"
+    }
+  },
+  "s15": {
+    "hermes": {
+      "support": "composed",
+      "evidence": [
+        "source-reviewed"
+      ],
+      "title": "看板把角色、任务和执行者连接起来",
+      "body": "通过任务指派给 profile，再由分发器检查就绪工作。需要测试结果的负责人可以追踪任务 ID 和归属；实际能启哪些 worker 取决于看板配置。",
+      "entry": "kanban_db.assign_task 和 kanban_db_dispatch 的就绪检查。",
+      "state": "数据库保存归属及依赖，worker 另有执行会话。",
+      "checkpoint": "先解释谁负责回归检查，再用对应任务的结果判断能否收尾。",
+      "source": "hermes_cli/kanban_db.py · assign_task",
+      "url": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/hermes_cli/kanban_db.py#L1455"
+    },
+    "dsh": {
+      "support": "native",
+      "evidence": [
+        "source-reviewed"
+      ],
+      "title": "实验性团队服务把成员和任务归到同一团队",
+      "body": "TeamService 把成员名册、邮箱、任务板与生命周期组合在负责人会话上。分配“修改”和“验证”时，要分别找成员与团队任务。",
+      "entry": "加载 experimental/agent-team 后由 TeamService 提供能力。",
+      "state": "负责人 Session 的日志支撑团队状态，成员另有会话。",
+      "checkpoint": "从团队任务追到执行者，再回到负责人的验收结果。",
+      "source": "packages/experimental/agent-team/src/index.ts · TeamService",
+      "url": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/experimental/agent-team/src/index.ts#L59"
+    },
+    "agentscope": {
+      "support": "native",
+      "evidence": [
+        "source-reviewed"
+      ],
+      "title": "负责人通过分派工具驱动成员 Agent",
+      "body": "在 TeamPipeline 里，把修复成员和验证成员配置给 leader。它安装分派工具，把调用分组交给对应成员，再归并返回的事件。",
+      "entry": "TeamPipeline.reply_stream 和 _run_assignments。",
+      "state": "各成员保留各自的 agent 状态，负责人持有待分派工具调用；此处是库级管线。",
+      "checkpoint": "用成员名称和分派调用定位一条测试结果，避免只按到达顺序配对。",
+      "source": "src/agentscope/pipeline/_team_pipeline.py · TeamPipeline._run_assignments",
+      "url": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/pipeline/_team_pipeline.py#L289"
+    }
+  },
+  "s16": {
+    "hermes": {
+      "support": "unverified",
+      "evidence": [
+        "source-reviewed"
+      ],
+      "title": "任务评论能关联讨论，投递保证仍待核对",
+      "body": "已核对 Kanban 的评论写入与增量读取。记录能把讨论挂到购物车任务；这段代码没有给出跨 Agent 私信的确认、重试与去重保证。",
+      "entry": "从 add_comment 和 list_comments_after 开始，再沿实际 worker 的消息消费链核验。",
+      "state": "comment 与 task_id 关联；消费方已读位置和重投语义仍需核实。",
+      "checkpoint": "先问消息是在看板留档还是已被目标 Agent 读到。",
+      "source": "hermes_cli/kanban_db.py · add_comment",
+      "url": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/hermes_cli/kanban_db.py#L1671"
+    },
+    "dsh": {
+      "support": "native",
+      "evidence": [
+        "source-reviewed"
+      ],
+      "title": "排队与投递各是一条可区分的记录",
+      "body": "团队消息可带稳定身份，类型定义区分 queued 与 delivered。负责人看见回归结果入队时，尚需检查目标会话是否收到。",
+      "entry": "TeamService.sendMessage 将请求交给 TeamMailbox。",
+      "state": "团队消息和目标会话分别记录入队与投递相关状态。",
+      "checkpoint": "用消息 ID 对齐发送与投递，重试时检查目标端是否重复收取。",
+      "source": "packages/experimental/agent-team/src/types.ts · team/message/queued",
+      "url": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/experimental/agent-team/src/types.ts#L224"
+    },
+    "agentscope": {
+      "support": "native",
+      "evidence": [
+        "source-reviewed"
+      ],
+      "title": "TeamSay 明确目标成员，也可向其余成员广播",
+      "body": "服务层的 TeamSay 接收 content 和可选的 to。填写成员名能定向发送回归结果，省略时可广播。确认投递和重复处理仍要核对服务消息层。",
+      "entry": "TeamSay.__call__ 从团队上下文路由目标。",
+      "state": "发送对象和团队身份约束收件人；成员在自身上下文读取到消息。",
+      "checkpoint": "先核对收件人，再查接收会话是否真的拥有这条消息。",
+      "source": "src/agentscope/app/_tool/_team_say.py · TeamSay.__call__",
+      "url": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/app/_tool/_team_say.py#L121"
+    }
+  },
+  "s17": {
+    "hermes": {
+      "support": "composed",
+      "evidence": [
+        "source-reviewed"
+      ],
+      "title": "分发器按看板的可执行条件找活",
+      "body": "查询区分“看板里有任务”和“存在可启动的就绪任务”。购物车测试前置项未完成时，不能只按列表非空决定启动 worker。",
+      "entry": "kanban_db_dispatch.has_spawnable_ready 以数据库连接判断候选。",
+      "state": "就绪性来自看板记录；发现候选与实际领取是不同阶段。",
+      "checkpoint": "观察候选、执行者和最终状态三处，单次返回 true 无法证明成功领取。",
+      "source": "hermes_cli/kanban_db_dispatch.py · has_spawnable_ready",
+      "url": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/hermes_cli/kanban_db_dispatch.py#L1806"
+    },
+    "dsh": {
+      "support": "composed",
+      "evidence": [
+        "source-reviewed"
+      ],
+      "title": "领取是受就绪条件限制的状态转换",
+      "body": "实验性任务板在 claim 分支检查认领条件，依赖尚未完成会拒绝认领。发现 ready 候选之后，仍要看一次真实的 claim 返回才能报告所有者。",
+      "entry": "TeamTaskBoard 在任务变更的 claim 分支检查依赖。",
+      "state": "任务状态、归属和依赖在团队视图中可分别读取；工作发现周期取决于执行者。",
+      "checkpoint": "把修复任务留在未完成，再由第二个成员尝试领取依赖它的测试任务。",
+      "source": "packages/experimental/agent-team/src/task-board.ts · TeamTaskBoard",
+      "url": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/experimental/agent-team/src/task-board.ts#L133"
+    },
+    "agentscope": {
+      "support": "unverified",
+      "evidence": [
+        "source-reviewed"
+      ],
+      "title": "可更新 owner，但竞争领取需单独证明",
+      "body": "TaskUpdate 的入口允许修改 owner 与依赖。两位工作者同时领取回归任务时，胜者如何选、失败者如何获知、空闲时由谁重新发现任务，这些语义尚未在同一部署中核实。",
+      "entry": "先从 TaskUpdate.call 的写入路径追到共享存储与调度器。",
+      "state": "owner 是任务字段；并发裁决和重新唤醒的负责人仍待核验。",
+      "checkpoint": "同时提交两个 owner 更新，再读实际返回与最终所有者。",
+      "source": "src/agentscope/tool/_task/_update_task.py · TaskUpdate.call",
+      "url": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/tool/_task/_update_task.py#L135"
+    }
+  },
+  "s18": {
+    "hermes": {
+      "support": "native",
+      "evidence": [
+        "source-reviewed"
+      ],
+      "title": "子 Agent 可获得独立的 Git 工作树",
+      "body": "在适用的本地仓库中可为子任务创建工作树。两位维护者可分别修改自己的 cart.py，收集差异后仍要处理合并和冲突。",
+      "entry": "create_subagent_worktree 创建，finalize_subagent_worktree 整理执行结果。",
+      "state": "子目录与 Git 元数据标记工作树；函数也有无法创建时的返回路径。",
+      "checkpoint": "核对被编辑文件的绝对目录和分支，再比较补丁。",
+      "source": "tools/subagent_worktree.py · create_subagent_worktree",
+      "url": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/tools/subagent_worktree.py#L77"
+    },
+    "dsh": {
+      "support": "unverified",
+      "evidence": [
+        "source-reviewed"
+      ],
+      "title": "独立会话与 Git 工作树有不同的证据",
+      "body": "已查进程内 spawn 提供者能建立独立上下文。该入口本身未证明为两个成员创建 Git 分支、独立检出目录并合并冲突。",
+      "entry": "先从 SpawnInProcessProvider 的驱动检查实际 cwd，再追文件系统提供者。",
+      "state": "当前可确认会话归属，尚待核对 Git 分支、工作树清单和合并结果。",
+      "checkpoint": "让两名成员分别报告相同文件的绝对目录与 Git HEAD，再比较是否存在文件隔离。",
+      "source": "packages/subagent/subagent-spawn-in-process/src/index.ts · SpawnInProcessProvider",
+      "url": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/subagent/subagent-spawn-in-process/src/index.ts#L41"
+    },
+    "agentscope": {
+      "support": "unverified",
+      "evidence": [
+        "source-reviewed"
+      ],
+      "title": "可配置工作区目录，Git 工作树协议尚待核对",
+      "body": "LocalWorkspace 接受路径和工作区身份，配套提示文本建议采用会话专属的 Git 工作树。已读的初始化和提示入口仍不足以证明宿主自动创建、回收工作树并合并冲突。",
+      "entry": "LocalWorkspace 构造与初始化，后续应查 Git 工作树的创建与回收入口。",
+      "state": "路径隔离可从根目录观察，分支和合并语义须由 Git 产物验证。",
+      "checkpoint": "对照两边的工作树清单、分支和冲突报告，再判断能否覆盖本章完整机制。",
+      "source": "src/agentscope/workspace/_local_workspace.py · LocalWorkspace",
+      "url": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/workspace/_local_workspace.py#L66"
+    }
+  },
+  "s19": {
+    "hermes": {
+      "support": "native",
+      "evidence": [
+        "source-reviewed"
+      ],
+      "title": "连接成功后筛选并登记 MCP 工具",
+      "body": "服务器列出的工具先经候选、过滤和重名处理，再进入本地注册表。给远端回归工具增加同名项，观察最终可见名称。",
+      "entry": "_register_server_tools 使用候选集并注册可用工具。",
+      "state": "注册记录区分服务端和作用域，schema 缓存有单独入口。",
+      "checkpoint": "确认模型请求中的名称能回查到正确服务端和参数。",
+      "source": "tools/mcp_tool_registration.py · _register_server_tools",
+      "url": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/tools/mcp_tool_registration.py#L435"
+    },
+    "dsh": {
+      "support": "native",
+      "evidence": [
+        "source-reviewed"
+      ],
+      "title": "MCP 桥将远端工具放入本地命名空间",
+      "body": "插件连接服务端，把工具登记给 ctx.tools。模型看到的公开名称含服务器标识；插件释放时需要解注册并归还命名空间。",
+      "entry": "mcp-client 的 apply 创建连接、保留命名空间并登记服务端上下文。",
+      "state": "连接和工具注册受作用域生命周期管理。",
+      "checkpoint": "将回归测试工具放在两个服务端，对照模型可见名与连接归属。",
+      "source": "packages/mcp/mcp-client/src/index.ts · apply",
+      "url": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/mcp/mcp-client/src/index.ts#L154"
+    },
+    "agentscope": {
+      "support": "native",
+      "evidence": [
+        "source-reviewed"
+      ],
+      "title": "客户端把远端清单转换成工具对象",
+      "body": "MCPClient 建立连接并发现远端工具，list_tools 将其暴露为 ToolBase，便于上层通过统一工具接口使用。断线或远端清单变化会影响可见工具。",
+      "entry": "MCPClient.connect、_discover_tools 和 list_tools。",
+      "state": "协议客户端持有连接与发现结果；本地 ToolBase 包装可用工具。",
+      "checkpoint": "修改回归工具清单后，核对客户端刷新所得的工具与模型请求中的 schema。",
+      "source": "src/agentscope/mcp/_mcp_client.py · MCPClient.list_tools",
+      "url": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/mcp/_mcp_client.py#L568"
+    }
+  },
+  "s20": {
+    "hermes": {
+      "support": "composed",
+      "evidence": [
+        "source-reviewed"
+      ],
+      "title": "从整轮返回沿途查回工具结果",
+      "body": "修复、验证和汇报都可以由一次会话中的多步调用完成。已核对主循环在工具请求与文字返回之间分流；是否启用技能、看板和定时插件由配置决定。",
+      "entry": "从 run_conversation 进入 _run_conversation_turn，并沿各章入口检查组合。",
+      "state": "最终回复、消息和完成状态在轮次结果中分别可见。",
+      "checkpoint": "用失败测试配上一条正常结束的回复，指出哪项证据足以否决“修复成功”。",
+      "source": "agent/conversation_loop.py · run_conversation",
+      "url": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/agent/conversation_loop.py#L1782"
+    },
+    "dsh": {
+      "support": "composed",
+      "evidence": [
+        "source-reviewed"
+      ],
+      "title": "组合哪些插件决定能跑哪条主线",
+      "body": "进程中的一次购物车任务经过 Agent Loop、工具调度和会话事件；审批、压缩与团队等能力取决于运行 profile。阅读源码可以说明各接点，整套配置的实际效果仍需运行。",
+      "entry": "用 agent.ts 的 step 串起工具分发、模型请求及 turn 结束。",
+      "state": "Session 记录各阶段事实，具体测试输出来自工具结果。",
+      "checkpoint": "在 turn/end 前倒查回归测试对应的工具结果与断言。",
+      "source": "packages/core/agent-loop/src/agent.ts · turn",
+      "url": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/core/agent-loop/src/agent.ts#L340"
+    },
+    "agentscope": {
+      "support": "composed",
+      "evidence": [
+        "source-reviewed"
+      ],
+      "title": "集成验收沿用同一条事件流",
+      "body": "reply_stream 可以串起推理和工具反馈，服务层的调度或团队能力需另行组合。用两件 350 分的样本，按事件找到调用、结果、最终消息三处再验收。",
+      "entry": "Agent.reply_stream 是公共观察入口，内部运行 _reply_impl。",
+      "state": "事件供客户端消费，Agent.state 持有回复相关数据，回归断言另由工具产出。",
+      "checkpoint": "若最终消息写“通过”而工具结果为 350，保留整条记录并判本例未修复。",
+      "source": "src/agentscope/agent/_agent.py · Agent.reply_stream",
+      "url": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/agent/_agent.py#L279"
+    }
+  }
+}

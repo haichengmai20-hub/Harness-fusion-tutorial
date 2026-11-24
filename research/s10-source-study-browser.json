@@ -1,0 +1,24 @@
+{
+  "browser": "Chrome/157.0.8103.79",
+  "total": 8,
+  "refs": 71,
+  "documents": [
+    {
+      "title": "已确认定稿 · 请求字段与缓存断点",
+      "lines": 5241,
+      "code": 2
+    },
+    {
+      "title": "作业、源码与旧笔记逐项对照",
+      "lines": 15288,
+      "code": 2
+    },
+    {
+      "title": "Harness Lab · 比较两次请求",
+      "lines": 3851,
+      "code": 2
+    }
+  ],
+  "errors": [],
+  "blocked": []
+}

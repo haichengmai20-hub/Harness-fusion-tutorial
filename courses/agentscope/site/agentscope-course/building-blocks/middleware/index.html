@@ -1,0 +1,529 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>中间件 · AgentScope</title><link rel="stylesheet" href="/agentscope-course/reader.css"><script defer src="/agentscope-course/reader.js"></script></head><body><header class="mast"><a href="/agentscope-course/">AgentScope <small>中文文档</small></a><span>v2.0.12</span><button id="catalog" aria-controls="outline" aria-expanded="false">目录</button></header><div class="layout"><nav id="outline" aria-label="AgentScope 文档目录"><div class="group">快速开始</div><a href="/agentscope-course/" >AgentScope 2.0 是什么？</a><a href="/agentscope-course/quickstart/" >快速开始</a><a href="/agentscope-course/release-notes/" >更新日志</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/message-and-event/" >消息与事件</a><div class="group">核心模块 / 智能体</div><a href="/agentscope-course/building-blocks/agent/overview/" >智能体 · 概述</a><a href="/agentscope-course/building-blocks/agent/configure-agent/" >配置智能体</a><a href="/agentscope-course/building-blocks/agent/run-agent/" >运行智能体</a><a href="/agentscope-course/building-blocks/agent/interrupt-agent/" >中断智能体</a><a href="/agentscope-course/building-blocks/agent/human-in-the-loop/" >人机交互</a><div class="group">核心模块 / 模型</div><a href="/agentscope-course/building-blocks/model/overview/" >模型 · 概述</a><a href="/agentscope-course/building-blocks/model/llm/" >大语言模型</a><a href="/agentscope-course/building-blocks/model/tts/" >语音合成</a><a href="/agentscope-course/building-blocks/model/asr/" >语音识别</a><a href="/agentscope-course/building-blocks/model/embedding/" >嵌入模型</a><div class="group">核心模块 / 上下文管理</div><a href="/agentscope-course/building-blocks/context/overview/" >上下文管理 · 概述</a><a href="/agentscope-course/building-blocks/context/environment-awareness/" >感知环境</a><a href="/agentscope-course/building-blocks/context/compress-context/" >压缩上下文</a><a href="/agentscope-course/building-blocks/context/offload-context/" >卸载上下文</a><div class="group">核心模块 / 工具</div><a href="/agentscope-course/building-blocks/tool/overview/" >工具 · 概述</a><a href="/agentscope-course/building-blocks/tool/python-tool/" >Python 函数工具</a><a href="/agentscope-course/building-blocks/tool/mcp/" >MCP</a><a href="/agentscope-course/building-blocks/tool/skill/" >Skill</a><a href="/agentscope-course/building-blocks/tool/manage-tools/" >元工具</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/plan/" >计划模式</a><div class="group">核心模块 / 流水线</div><a href="/agentscope-course/building-blocks/pipeline/overview/" >流水线 · 概述</a><a href="/agentscope-course/building-blocks/pipeline/goal/" >目标流水线</a><a href="/agentscope-course/building-blocks/pipeline/team/" >团队流水线</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/sop/" >标准作业流程</a><div class="group">核心模块 / 权限系统</div><a href="/agentscope-course/building-blocks/permission-system/overview/" >权限系统 · 概述</a><a href="/agentscope-course/building-blocks/permission-system/permission-mode/" >权限模式</a><a href="/agentscope-course/building-blocks/permission-system/permission-rule/" >权限规则</a><a href="/agentscope-course/building-blocks/permission-system/tool-check/" >工具内置检查</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/middleware/" aria-current="page">中间件</a><a href="/agentscope-course/building-blocks/rag/" >RAG</a><a href="/agentscope-course/building-blocks/long-term-memory/" >长期记忆</a><div class="group">核心模块 / 工作区</div><a href="/agentscope-course/building-blocks/workspace/overview/" >工作区 · 概述</a><a href="/agentscope-course/building-blocks/workspace/run-workspace/" >运行工作区</a><a href="/agentscope-course/building-blocks/workspace/manage-resources/" >管理资源</a><a href="/agentscope-course/building-blocks/workspace/mcp-gateway/" >MCP 网关</a><div class="group">核心模块 / 实时语音智能体</div><a href="/agentscope-course/building-blocks/realtime/overview/" >实时语音智能体 · 概述</a><a href="/agentscope-course/building-blocks/realtime/speech-to-speech/" >语音到语音</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/console/" >终端 UI</a><a href="/agentscope-course/building-blocks/a2a/" >A2A 协议</a><div class="group">智能体即服务</div><a href="/agentscope-course/deploy/agent-service/" >架构</a><a href="/agentscope-course/deploy/agent-team/" >智能体团队</a><a href="/agentscope-course/deploy/sop/" >SOP 服务</a><a href="/agentscope-course/deploy/sharing/" >资源共享</a><a href="/agentscope-course/deploy/rag/" >RAG 服务</a><a href="/agentscope-course/deploy/workspace-manager/" >工作区管理</a><div class="group">智能体即服务 / MCP 与技能中心</div><a href="/agentscope-course/deploy/hub/overview/" >MCP 与技能中心 · 概览</a><a href="/agentscope-course/deploy/hub/mcp-hub/" >MCP 中心</a><a href="/agentscope-course/deploy/hub/skill-hub/" >技能中心</a><div class="group">智能体即服务 / 消息渠道</div><a href="/agentscope-course/deploy/channel/overview/" >消息渠道 · 概览</a><a href="/agentscope-course/deploy/channel/routing/" >会话路由</a><a href="/agentscope-course/deploy/channel/feishu/" >飞书</a><a href="/agentscope-course/deploy/channel/dingtalk/" >钉钉</a><a href="/agentscope-course/deploy/channel/discord/" >Discord</a><a href="/agentscope-course/deploy/channel/custom/" >自定义渠道</a><div class="group">其他</div><a href="/agentscope-course/others/faq/" >常见问题</a><a href="/agentscope-course/others/change-log/" >版本迁移</a><div class="group">智能体即服务 / API</div><a href="/agentscope-course/api/">API 参考</a></nav><main><div class="context">核心模块</div><article class="prose-custom" id="content"><h1>中间件</h1><p class="dek">在智能体生命周期的关键位置拦截并扩展行为</p><h2 id="概述">概述</h2>
+<p>智能体中间件是在不修改智能体或模型代码的前提下，向智能体执行流程中的关键位置注入自定义逻辑（日志、追踪、输入改写、访问控制等）的机制。</p>
+<p>AgentScope 暴露了 6 个 hook 位置外加一个工具提供 hook，覆盖了从外层 reply 流程一路下沉到底层模型 API 调用的全链路：</p>
+<table><thead><tr><th>位置</th><th>类型</th><th>说明</th></tr></thead><tbody><tr><td><code>on_reply</code></td><td>Onion</td><td>包裹一次完整的 reply 流程，覆盖其中所有 ReAct 轮次、工具执行与最终输出</td></tr><tr><td><code>on_reasoning</code></td><td>Onion</td><td>包裹一轮 ReAct 中的推理步骤（输入组装 → 模型调用 → 流式解码）</td></tr><tr><td><code>on_acting</code></td><td>Onion</td><td>包裹一次工具调用的执行</td></tr><tr><td><code>on_model_call</code></td><td>Onion</td><td>包裹一次底层 <code>ChatModel</code> API 调用，最贴近模型</td></tr><tr><td><code>on_compress_context</code></td><td>Onion</td><td>包裹 <code>Agent.compress_context()</code> —— 在每次推理步骤前触发，由智能体决定是否压缩上下文</td></tr><tr><td><code>on_system_prompt</code></td><td>Transformer</td><td>在每次组装 system prompt 时触发；多个中间件串行接力，每一个把上一个的输出再做一次变换</td></tr><tr><td><code>list_tools</code></td><td>Tool source</td><td>可选。返回中间件贡献的 <code>list[ToolBase]</code>。<strong>不会被自动调用</strong> —— 由组装智能体 toolkit 的调用方决定是否调用以及如何合并结果。</td></tr></tbody></table>
+<aside class="notice note"><strong>说明</strong><p>以上 hook 均作用于<strong>智能体</strong>层面。若需要在单个工具实例上挂钩 —— 无论该工具是在智能体内部还是外部被调用 —— 请参见<a href="/agentscope-course/building-blocks/tool/python-tool/#%E5%B7%A5%E5%85%B7%E4%B8%AD%E9%97%B4%E4%BB%B6">工具中间件</a>。</p></aside>
+<p>三种类型的差别：</p>
+<ul>
+<li><strong>Onion</strong>（洋葱式）—— 中间件包裹下一层 handler，可以在 <code>next_handler()</code> 前后插入逻辑、观察中间事件流。</li>
+<li><strong>Transformer</strong>（变换式）—— 中间件之间串成流水线，前一个的输出作为后一个的输入，不存在「内层」概念。</li>
+<li><strong>Tool source</strong>（工具来源）—— 不在运行时路径上的 hook。<code>Agent.__init__</code> 不会调用 <code>list_tools()</code>；需要显式从中间件中收集工具并自行传入 toolkit。</li>
+</ul>
+<p>下图展示这些 hook 在智能体生命周期中的嵌套关系。<code>on_system_prompt</code> 嵌入在 <code>on_reasoning</code> 内部，因为它在 reasoning 步骤组装 system prompt 时被触发；<code>on_compress_context</code> 位于每轮 ReAct 顶部，在 reasoning 之前：</p>
+<ul class="tree"><li><details open=""><summary>on_reply</summary><ul><li><details open=""><summary>ReAct loop（每一轮）</summary><ul><li><code>on_compress_context（上下文压缩判定）</code></li><li><details open=""><summary>on_reasoning</summary><ul><li><code>on_system_prompt（组装 system prompt）</code></li><li><code>on_model_call（模型 API 调用）</code></li></ul></details></li><li><details><summary>on_acting（每个工具调用一次）</summary><ul></ul></details></li></ul></details></li></ul></details></li></ul>
+<aside class="notice note"><strong>说明</strong><p>当前 <code>on_acting</code> 只包裹智能体运行时内部的工具执行；通过 external execution 在智能体外部执行的工具不会被 <code>on_acting</code> 追踪到。</p></aside>
+<h2 id="装备中间件">装备中间件</h2>
+<p>AgentScope 把一组 hook 装在一个类里 —— 同一个中间件类可以同时实现 6 个 hook 位置（外加可选的 <code>list_tools</code> tool-provider hook）中的任意子集。把实例传入 <code>Agent(middlewares=[...])</code> 即可装备：</p>
+<div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">from agentscope.agent import Agent
+from agentscope.middleware import TracingMiddleware
+
+agent = Agent(
+    name=&quot;assistant&quot;,
+    system_prompt=&quot;You are a helpful assistant.&quot;,
+    model=model,
+    toolkit=toolkit,
+    middlewares=[TracingMiddleware()],
+)
+</code></pre></div>
+<p>构造时智能体会扫描每个中间件实例，按它实际实现了哪些 hook，把它分配到对应位置的执行列表中。未实现的位置自动跳过，不产生任何调用开销。</p>
+<h2 id="内置中间件">内置中间件</h2>
+<p>AgentScope 目前支持如下的中间件实现：</p>
+<table><thead><tr><th>场景</th><th>实现</th><th>说明</th></tr></thead><tbody><tr><td>链路追踪</td><td><code>TracingMiddleware</code></td><td>提供智能体全生命周期的 OpenTelemetry 追踪</td></tr><tr><td>预算控制</td><td><code>ReplyBudgetControlMiddleware</code></td><td>控制单次 reply 的 Token 预算</td></tr><tr><td>语音生成</td><td><code>TTSMiddleware</code></td><td>拦截文本输出并合成语音</td></tr><tr><td>模型路由</td><td><code>ModelRouterMiddleware</code></td><td>按用户输入为每次回复选择合适的对话模型</td></tr><tr><td>长期记忆</td><td><code>AgenticMemoryMiddleware</code>，<br/><code>Mem0Middleware</code></td><td>提供跨会话的长期记忆实现</td></tr><tr><td>RAG</td><td><code>RAGMiddleware</code></td><td>提供访问外部知识库的能力</td></tr></tbody></table>
+<h3 id="链路追踪">链路追踪</h3>
+<p><code>TracingMiddleware</code> 为智能体全生命周期接入 <a href="https://opentelemetry.io/docs/specs/semconv/gen-ai/">OpenTelemetry</a> 追踪。它在 <code>on_reply</code>、<code>on_model_call</code>、<code>on_acting</code> 三个位置打点，按层级生成 span。</p>
+<p>使用前先在进程中注册 <code>TracerProvider</code> 与 OTLP 导出器：</p>
+<div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">from opentelemetry import trace
+from opentelemetry.sdk.trace import TracerProvider
+from opentelemetry.sdk.trace.export import BatchSpanProcessor
+from opentelemetry.exporter.otlp.proto.http.trace_exporter import OTLPSpanExporter
+
+provider = TracerProvider()
+provider.add_span_processor(
+    BatchSpanProcessor(OTLPSpanExporter(endpoint=&quot;http://localhost:4318/v1/traces&quot;)),
+)
+trace.set_tracer_provider(provider)
+</code></pre></div>
+<p>随后把 <code>TracingMiddleware</code> 装到智能体上即可：</p>
+<div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">from agentscope.agent import Agent
+from agentscope.middleware import TracingMiddleware
+
+agent = Agent(
+    name=&quot;assistant&quot;,
+    system_prompt=&quot;You are a helpful assistant.&quot;,
+    model=model,
+    toolkit=toolkit,
+    middlewares=[TracingMiddleware()],
+)
+</code></pre></div>
+<p>每次 reply 会产出一棵嵌套 span 树，每个层级捕获的关键属性如下：</p>
+<div class="tab-set" data-tab-set=""><div class="tab-list" role="group" aria-label="文档标签"><button type="button" data-choice="0" aria-pressed="true">Agent Reply Span</button><button type="button" data-choice="1" aria-pressed="false">Model Call Span</button><button type="button" data-choice="2" aria-pressed="false">Tool Execution Span</button></div><div data-panel="0"><div class="mdx-group"><p>来自 <code>on_reply</code>：</p><ul>
+<li>Agent 名称、session ID、reply ID</li>
+<li>输入消息与最终输出消息</li>
+<li>HITL 等待中的工具调用</li>
+<li>External execution 等待中的工具调用</li>
+</ul></div></div><div data-panel="1" hidden=""><div class="mdx-group"><p>来自 <code>on_model_call</code>：</p><ul>
+<li>模型名、模型 API、输入 / 输出 token 数</li>
+<li>请求与响应的消息内容</li>
+<li>对流式响应做包装，在最终 chunk 上写入属性</li>
+</ul></div></div><div data-panel="2" hidden=""><div class="mdx-group"><p>来自 <code>on_acting</code>：</p><ul>
+<li>工具名、调用 ID、入参</li>
+<li>工具执行结果</li>
+</ul></div></div></div>
+<p>未配置 <code>TracerProvider</code> 时，所有 hook 会直接短路到 <code>next_handler()</code>，不创建 span 也不计算属性 —— 几乎零开销。</p>
+<aside class="notice info"><strong>信息</strong><p>Agent 收到 <code>ExternalExecutionResultEvent</code>（外部执行的工具结果）时，<code>TracingMiddleware</code> 会为每条外部执行结果合成一个补偿 span，让外部系统执行的工具也能保留完整可观测性。</p></aside>
+<h4 id="添加自定义-span">添加自定义 Span</h4>
+<p>如需在智能体生命周期内追踪自定义操作，可直接使用 <a href="https://opentelemetry.io/docs/languages/python/">OpenTelemetry Python SDK</a>。获取一个作用域为 AgentScope 的 tracer，并将目标代码包裹在 span 中：</p>
+<div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">from opentelemetry import trace
+from agentscope import __version__
+
+tracer = trace.get_tracer(&quot;agentscope&quot;, __version__)
+
+with tracer.start_as_current_span(
+    name=&quot;your_span_name&quot;,
+    attributes={
+        # 附加到 span 上的可选键值对，
+        # 例如函数名、入参或任何自定义元数据。
+    },
+    end_on_exit=True,
+) as span:
+    # 你的代码
+</code></pre></div>
+<p>这些自定义 span 会与 AgentScope 内置的 span 一并上报，发送到 <code>TracerProvider</code> 中配置的同一个 OTLP collector。</p>
+<h3 id="预算控制">预算控制</h3>
+<p><code>ReplyBudgetControlMiddleware</code> 为<strong>单次 reply 强制一个加权 token 预算</strong>。它累计统计一次 reply 内所有 reasoning 步骤的 token 消耗，一旦预算耗尽，便指示智能体立即收尾、不再调用任何工具。适用于为长链路、工具密集的 ReAct 循环设定成本或时延上限。</p>
+<p>每次模型调用的加权成本按如下公式计算：</p>
+<div class="code-example"><div class="code-bar"><span>代码</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code data-caption="代码" data-lang="text">cost = input_token_weight * input_tokens + output_token_weight * output_tokens
+</code></pre></div>
+<p>当累计成本达到 <code>token_budget</code> 时，middleware 会：</p>
+<ol>
+<li>在智能体上下文最后一条 assistant 消息中追加一个 <code>HintBlock</code>（若不存在则新建一条 <code>AssistantMsg</code>），提醒模型给出最终结论性回复。</li>
+<li>把下一步 reasoning 的 <code>tool_choice</code> 强制覆写为 <code>ToolChoice(mode=&quot;none&quot;)</code>，阻止继续调用工具。</li>
+</ol>
+<p>像其他 middleware 一样挂载：</p>
+<div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">from agentscope.agent import Agent
+from agentscope.middleware import ReplyBudgetControlMiddleware
+
+agent = Agent(
+    name=&quot;assistant&quot;,
+    system_prompt=&quot;You are a helpful assistant.&quot;,
+    model=model,
+    toolkit=toolkit,
+    middlewares=[
+        ReplyBudgetControlMiddleware(
+            token_budget=10000,
+            input_token_weight=1.0,
+            output_token_weight=2.0,
+        ),
+    ],
+)
+</code></pre></div>
+<p>构造参数如下：</p>
+<section class="parameter"><strong><code>token_budget</code> <small>float</small><small> · 必填</small></strong><p>单次 reply 允许的最大加权 token 成本。累计成本达到此阈值后，智能体会被指示立刻收尾、不再调用工具。</p></section>
+<section class="parameter" data-default="1"><strong><code>input_token_weight</code> <small>float</small><small> · 默认值 <code>1</code></small></strong><p>计算加权成本时应用于 input tokens 的乘数。</p></section>
+<section class="parameter" data-default="1"><strong><code>output_token_weight</code> <small>float</small><small> · 默认值 <code>1</code></small></strong><p>计算加权成本时应用于 output tokens 的乘数。通常将其设为高于 <code>input_token_weight</code>，以体现 output tokens 实际成本更高。</p></section>
+<section class="parameter"><strong><code>hint_message</code> <small>str</small></strong><p>预算超出时注入智能体上下文的提示消息。默认是内置的收尾 prompt，要求模型给出最终结论性回复、不再调用任何工具。</p></section>
+<aside class="notice tip"><strong>提示</strong><p>该中间件<strong>实例自身无状态</strong> —— 所有运行时状态存放在 <code>agent.state.middle_context</code> 中，以中间件 key 与当前 <code>reply_id</code> 作为索引。这意味着同一个中间件实例可以安全地在多个智能体间共享，且预算状态在 human-in-the-loop（HITL）中断与恢复中保持有效。reply 结束时状态会被自动清理。</p></aside>
+<aside class="notice note"><strong>说明</strong><p>预算的作用域是<strong>单次 reply</strong>，而非智能体生命周期。每次新的 reply 都会从零计数，因此该限制对每次 <code>agent(...)</code> 调用独立生效。</p></aside>
+<h3 id="语音生成">语音生成</h3>
+<p><code>TTSMiddleware</code> 拦截智能体的文本输出并合成语音，将 <code>DataBlockStartEvent</code> / <code>DataBlockDeltaEvent</code> / <code>DataBlockEndEvent</code> 音频事件注入到事件流中。它在 <code>on_reply</code> 阶段拦截，观察每个 <code>TextBlockDeltaEvent</code> 和 <code>TextBlockEndEvent</code>。</p>
+<div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">from agentscope.agent import Agent
+from agentscope.middleware import TTSMiddleware
+from agentscope.tts import DashScopeTTSModel
+from agentscope.credential import DashScopeCredential
+
+agent = Agent(
+    name=&quot;assistant&quot;,
+    system_prompt=&quot;You are a helpful assistant.&quot;,
+    model=model,
+    toolkit=toolkit,
+    middlewares=[
+        TTSMiddleware(
+            DashScopeTTSModel(
+                credential=DashScopeCredential(api_key=&quot;...&quot;),
+                model=&quot;qwen3-tts-flash&quot;,
+                parameters=DashScopeTTSModel.Parameters(voice=&quot;Cherry&quot;),
+                stream=True,
+            ),
+        ),
+    ],
+)
+</code></pre></div>
+<p>中间件根据 TTS 模型的模式自动适配：</p>
+<table><thead><tr><th>TTS 模式</th><th>行为</th></tr></thead><tbody><tr><td>标准模式 (<code>realtime=False</code>)</td><td>累积文本直到 <code>TextBlockEndEvent</code>，然后调用 <code>synthesize(text)</code> 一次性合成，将完整音频作为一个 data block 输出</td></tr><tr><td>实时模式 (<code>realtime=True</code>)</td><td>每个 <code>TextBlockDeltaEvent.delta</code> 通过 <code>push()</code> 推送，音频 chunk 即时输出；<code>TextBlockEndEvent</code> 时调用 <code>synthesize()</code> 刷新剩余音频</td></tr></tbody></table>
+<p>输出事件流因模式而异：</p>
+<p><strong>标准模式</strong> — 音频在文本块结束后输出：</p>
+<div class="code-example"><div class="code-bar"><span>代码</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code data-caption="代码" data-lang="text">TextBlockStartEvent
+TextBlockDeltaEvent (文本)
+TextBlockDeltaEvent (文本)
+TextBlockEndEvent
+DataBlockStartEvent           ← 文本结束后合成音频
+DataBlockDeltaEvent (音频)
+DataBlockDeltaEvent (音频)
+DataBlockEndEvent
+</code></pre></div>
+<p><strong>实时模式</strong> — 音频 chunk 与文本交替到达（并发合成）：</p>
+<div class="code-example"><div class="code-bar"><span>代码</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code data-caption="代码" data-lang="text">TextBlockStartEvent
+TextBlockDeltaEvent (文本)
+DataBlockStartEvent           ← 文本流期间音频开始
+DataBlockDeltaEvent (音频)
+TextBlockDeltaEvent (文本)
+DataBlockDeltaEvent (音频)
+TextBlockEndEvent
+DataBlockDeltaEvent (音频)   ← synthesize() 刷新的剩余音频
+DataBlockEndEvent
+</code></pre></div>
+<p>每个 <code>DataBlockDeltaEvent.data</code> 携带增量 base64 编码的音频 chunk；完整音频为所有 delta 解码后的字节拼接，按 <code>block_id</code> 关联。</p>
+<h3 id="模型路由">模型路由</h3>
+<p>当不同类型的请求适合交给不同模型处理时（例如日常问答交给低成本模型，复杂推理交给更强的模型），<code>ModelRouterMiddleware</code> 可以为每次回复自动选择对话模型。</p>
+<p>它的工作方式如下：</p>
+<ol>
+<li>每次回复开始时，读取输入中最新一条用户消息的文本，交给路由模型从候选模型中选出一个；</li>
+<li>本次回复期间把 <code>agent.model</code> 替换为选中的模型，回复结束后恢复为智能体原来的模型；</li>
+<li>每次回复只选择一次，回复因用户确认等原因暂停后再恢复时，沿用之前的选择。</li>
+</ol>
+<p>路由模型出错、选中不存在的候选，或者输入中没有用户文本时，本次回复沿用智能体自己的模型，不会中断回复。</p>
+<p>路由模型可以是以下两种之一：</p>
+<table><thead><tr><th>路由模型</th><th>选择方式</th></tr></thead><tbody><tr><td>分类模型（<code>ClassifierModelBase</code>）</td><td>把候选模型作为一个单选问题交给分类模型，取概率最高的选项</td></tr><tr><td>对话模型（<code>ChatModelBase</code>）</td><td>通过结构化输出让模型从候选名称中选出一个</td></tr></tbody></table>
+<p>分类模型来自 <code>agentscope.classifier</code> 模块，它针对给定输入回答类型化的问题（二元判断、单选、评分），并给出每个答案的概率。AgentScope 内置以下实现：</p>
+<table><thead><tr><th>类</th><th>模型 API</th><th>输入</th></tr></thead><tbody><tr><td><code>JevClassifierModel</code></td><td>TypeSafe Jev</td><td>文本与可序列化为 JSON 的字典</td></tr><tr><td><code>OpenAIClassifierModel</code></td><td>OpenAI Decisions</td><td>文本、可序列化为 JSON 的字典，以及按顺序排列的文本块与 base64 图片块</td></tr></tbody></table>
+<p>根据选用的分类模型安装对应的可选依赖：</p>
+<div class="tab-set" data-tab-set=""><div class="tab-list" role="group" aria-label="代码示例"><button type="button" data-choice="0" aria-pressed="true">Jev</button><button type="button" data-choice="1" aria-pressed="false">OpenAI Decisions</button></div><div data-panel="0"><div class="code-example"><div class="code-bar"><span>Jev</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-bash" data-caption="Jev" data-lang="bash">pip install &quot;agentscope[classifier-jev]&quot;
+</code></pre></div></div><div data-panel="1" hidden=""><div class="code-example"><div class="code-bar"><span>OpenAI Decisions</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-bash" data-caption="OpenAI Decisions" data-lang="bash">pip install &quot;openai&gt;=3.26.0&quot;
+</code></pre></div></div></div>
+<p>下面的示例分别使用 Jev、OpenAI Decisions 和对话模型作为路由模型，在两个候选模型之间选择：</p>
+<div class="tab-set" data-tab-set=""><div class="tab-list" role="group" aria-label="代码示例"><button type="button" data-choice="0" aria-pressed="true">分类模型路由</button><button type="button" data-choice="1" aria-pressed="false">OpenAI Decisions 路由</button><button type="button" data-choice="2" aria-pressed="false">对话模型路由</button></div><div data-panel="0"><div class="code-example"><div class="code-bar"><span>分类模型路由</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="分类模型路由" data-lang="python">import os
+from agentscope.agent import Agent
+from agentscope.classifier import JevClassifierModel
+from agentscope.credential import DashScopeCredential, TypeSafeCredential
+from agentscope.middleware import ChatModelCandidate, ModelRouterMiddleware
+from agentscope.model import DashScopeChatModel
+
+credential = DashScopeCredential(api_key=os.environ[&quot;DASHSCOPE_API_KEY&quot;])
+fast = DashScopeChatModel(credential=credential, model=&quot;qwen-plus&quot;)
+strong = DashScopeChatModel(
+    credential=credential,
+    model=&quot;qwen3-235b-a22b-thinking-2507&quot;,
+)
+
+router = ModelRouterMiddleware(
+    # 路由模型：基于 TypeSafe API 的 Jev 分类模型
+    classifier_model=JevClassifierModel(
+        credential=TypeSafeCredential(api_key=os.environ[&quot;TYPESAFE_API_KEY&quot;]),
+    ),
+    # 候选模型：name 是分类模型返回的名称，description 说明何时选择它
+    candidates=[
+        ChatModelCandidate(
+            name=&quot;fast&quot;,
+            model=fast,
+            description=&quot;日常问答与简单任务&quot;,
+        ),
+        ChatModelCandidate(
+            name=&quot;strong&quot;,
+            model=strong,
+            description=&quot;需要多步推理、编程或数学的复杂任务&quot;,
+        ),
+    ],
+)
+
+agent = Agent(
+    name=&quot;assistant&quot;,
+    system_prompt=&quot;You are a helpful assistant.&quot;,
+    # 路由失败时使用的默认模型
+    model=fast,
+    middlewares=[router],
+)
+</code></pre></div></div><div data-panel="1" hidden=""><div class="code-example"><div class="code-bar"><span>OpenAI Decisions 路由</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="OpenAI Decisions 路由" data-lang="python">import os
+from agentscope.agent import Agent
+from agentscope.classifier import OpenAIClassifierModel
+from agentscope.credential import DashScopeCredential, OpenAICredential
+from agentscope.middleware import ChatModelCandidate, ModelRouterMiddleware
+from agentscope.model import DashScopeChatModel
+
+credential = DashScopeCredential(api_key=os.environ[&quot;DASHSCOPE_API_KEY&quot;])
+fast = DashScopeChatModel(credential=credential, model=&quot;qwen-plus&quot;)
+strong = DashScopeChatModel(
+    credential=credential,
+    model=&quot;qwen3-235b-a22b-thinking-2507&quot;,
+)
+
+router = ModelRouterMiddleware(
+    # Decisions API 会返回各候选项的概率
+    classifier_model=OpenAIClassifierModel(
+        credential=OpenAICredential(
+            api_key=os.environ[&quot;OPENAI_API_KEY&quot;],
+        ),
+    ),
+    candidates=[
+        ChatModelCandidate(
+            name=&quot;fast&quot;,
+            model=fast,
+            description=&quot;日常问答与简单任务&quot;,
+        ),
+        ChatModelCandidate(
+            name=&quot;strong&quot;,
+            model=strong,
+            description=&quot;复杂推理、编程或数学任务&quot;,
+        ),
+    ],
+)
+
+agent = Agent(
+    name=&quot;assistant&quot;,
+    system_prompt=&quot;You are a helpful assistant.&quot;,
+    # 路由失败时使用默认模型
+    model=fast,
+    middlewares=[router],
+)
+</code></pre></div></div><div data-panel="2" hidden=""><div class="code-example"><div class="code-bar"><span>对话模型路由</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="对话模型路由" data-lang="python">import os
+from agentscope.credential import DashScopeCredential
+from agentscope.middleware import ChatModelCandidate, ModelRouterMiddleware
+from agentscope.model import DashScopeChatModel
+
+credential = DashScopeCredential(api_key=os.environ[&quot;DASHSCOPE_API_KEY&quot;])
+fast = DashScopeChatModel(credential=credential, model=&quot;qwen-plus&quot;)
+strong = DashScopeChatModel(
+    credential=credential,
+    model=&quot;qwen3-235b-a22b-thinking-2507&quot;,
+)
+
+router = ModelRouterMiddleware(
+    # 路由模型也可以是任意对话模型，通过结构化输出完成选择
+    classifier_model=fast,
+    candidates=[
+        ChatModelCandidate(name=&quot;fast&quot;, model=fast, description=&quot;日常问答与简单任务&quot;),
+        ChatModelCandidate(name=&quot;strong&quot;, model=strong, description=&quot;需要多步推理的复杂任务&quot;),
+    ],
+    # 可选：自定义路由指令
+    instructions=&quot;Select the most suitable chat model for the user input.&quot;,
+)
+</code></pre></div></div></div>
+<p>构造参数如下：</p>
+<section class="parameter"><strong><code>classifier_model</code> <small>ClassifierModelBase | ChatModelBase</small><small> · 必填</small></strong><p>用于选择候选模型的路由模型。</p></section>
+<section class="parameter"><strong><code>candidates</code> <small>Sequence[ChatModelCandidate]</small><small> · 必填</small></strong><p>候选模型列表。每个 <code>ChatModelCandidate</code> 包含 <code>name</code>（路由模型返回的名称，必须唯一）、<code>model</code>（选中时使用的对话模型）和 <code>description</code>（何时选择该模型）。</p></section>
+<section class="parameter"><strong><code>instructions</code> <small>str</small></strong><p>路由问题的指令。默认为 <code>&quot;Select the most suitable chat model for responding to the user input.&quot;</code>。</p></section>
+<h3 id="长期记忆">长期记忆</h3>
+<p>AgentScope 以中间件的形式支持长期记忆，让智能体能够在多个会话间持久保存并调取信息。详见 <a href="/agentscope-course/building-blocks/long-term-memory/">长期记忆</a> 章节。</p>
+<h3 id="rag">RAG</h3>
+<p>AgentScope 中知识库同样以中间件形式提供，允许智能体在推理时访问外部知识库。详见 <a href="/agentscope-course/building-blocks/rag/">RAG</a> 章节。</p>
+<h2 id="自定义中间件">自定义中间件</h2>
+<p>继承基类 <code>MiddlewareBase</code> 并实现所需位置的 hook 即可。</p>
+<p>下面的示例用一个中间件覆盖了所有位置。每个 onion hook 都会收到一个 <code>input_kwargs</code> 字典，承载流入下一层的字段，通过 <code>next_handler(**input_kwargs)</code> 透传，也可以用关键字参数覆写其中某些字段：</p>
+<div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">from typing import AsyncGenerator, Awaitable, Callable
+
+from agentscope.agent import Agent
+from agentscope.event import AgentEvent
+from agentscope.message import Msg
+from agentscope.middleware import MiddlewareBase
+from agentscope.model import ChatResponse
+from agentscope.tool import ToolBase
+
+
+class FullObservabilityMiddleware(MiddlewareBase):
+    &quot;&quot;&quot;同时观察所有中间件位置，并贡献一个工具。&quot;&quot;&quot;
+
+    async def on_reply(
+        self,
+        agent: Agent,
+        # {&quot;inputs&quot;: Msg | list[Msg] | UserConfirmResultEvent | ExternalExecutionResultEvent | None}
+        input_kwargs: dict,
+        next_handler: Callable[..., AsyncGenerator[AgentEvent | Msg, None]],
+    ) -&gt; AsyncGenerator[AgentEvent | Msg, None]:
+        print(f&quot;[reply] start for {agent.name}&quot;)
+        async for item in next_handler(**input_kwargs):
+            yield item
+        print(f&quot;[reply] end for {agent.name}&quot;)
+
+    async def on_reasoning(
+        self,
+        agent: Agent,
+        # {&quot;tool_choice&quot;: ToolChoice | None}
+        input_kwargs: dict,
+        next_handler: Callable[..., AsyncGenerator[AgentEvent, None]],
+    ) -&gt; AsyncGenerator[AgentEvent, None]:
+        print(&quot;[reasoning] start&quot;)
+        async for event in next_handler(**input_kwargs):
+            yield event
+        print(&quot;[reasoning] end&quot;)
+
+    async def on_model_call(
+        self,
+        agent: Agent,
+        # {&quot;messages&quot;: list[Msg], &quot;tools&quot;: list[dict], &quot;tool_choice&quot;: ToolChoice | None, &quot;current_model&quot;: ChatModelBase}
+        input_kwargs: dict,
+        next_handler: Callable[
+            ..., Awaitable[ChatResponse | AsyncGenerator[ChatResponse, None]]
+        ],
+    ) -&gt; ChatResponse | AsyncGenerator[ChatResponse, None]:
+        print(f&quot;[model_call] {input_kwargs[&#x27;current_model&#x27;].model}&quot;)
+        result = await next_handler(**input_kwargs)
+        print(&quot;[model_call] done&quot;)
+        return result
+
+    async def on_compress_context(
+        self,
+        agent: Agent,
+        # {&quot;context_config&quot;: ContextConfig | None}
+        input_kwargs: dict,
+        next_handler: Callable[..., Awaitable[None]],
+    ) -&gt; None:
+        print(f&quot;[compress_context] checking context for {agent.name}&quot;)
+        await next_handler(**input_kwargs)
+        print(&quot;[compress_context] done&quot;)
+
+    async def on_system_prompt(
+        self,
+        agent: Agent,
+        current_prompt: str,
+    ) -&gt; str:
+        print(f&quot;[system_prompt] length={len(current_prompt)}&quot;)
+        return current_prompt
+
+    async def list_tools(self) -&gt; list[ToolBase]:
+        # 可选 hook。``Agent.__init__`` 不会自动调用；
+        # 如要让这些工具可被智能体使用，需要自行从中间件中收集
+        # 并传入 toolkit。
+        return []
+</code></pre></div>
+<h3 id="控制智能体流程">控制智能体流程</h3>
+<p><code>on_reply</code> 不只能观察事件，还可以通过「转发、替换或吞掉」事件改变整个 reply 的流程。其中，如果中间件收到 <code>ReplyEndEvent</code> 却不再 <code>yield</code>，Agent 会继续下一轮推理与行动；只有结束事件穿过整条中间件链时，reply 才真正结束。</p>
+<p>下面的中间件在 Agent 第一次准备结束时追加一条检查指令，并强制再执行一轮：</p>
+<div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">from collections.abc import AsyncGenerator, Callable
+
+from agentscope.agent import Agent
+from agentscope.event import AgentEvent, ReplyEndEvent
+from agentscope.message import HintBlock, Msg
+from agentscope.middleware import MiddlewareBase
+from agentscope.types import ReplyFinishedReason
+
+
+class ContinueOnceMiddleware(MiddlewareBase):
+    async def on_reply(
+        self,
+        agent: Agent,
+        input_kwargs: dict,
+        next_handler: Callable[..., AsyncGenerator[AgentEvent | Msg, None]],
+    ) -&gt; AsyncGenerator[AgentEvent | Msg, None]:
+        continued = False
+        async for item in next_handler(**input_kwargs):
+            can_continue = (
+                isinstance(item, ReplyEndEvent)
+                and item.finished_reason
+                in {
+                    ReplyFinishedReason.COMPLETED,
+                    ReplyFinishedReason.EXCEED_MAX_ITERS,
+                }
+                and not continued
+            )
+            if can_continue:
+                continued = True
+                agent.state.cur_iter = min(
+                    agent.state.cur_iter,
+                    agent.react_config.max_iters - 1,
+                )
+                agent.state.append_context(
+                    agent.name,
+                    [HintBlock(hint=&quot;结束前请再检查一遍结果。&quot;)],
+                )
+                continue  # 吞掉 ReplyEndEvent，进入下一轮
+            yield item
+</code></pre></div>
+<aside class="notice warning"><strong>注意</strong><p>吞掉 <code>EXCEED_MAX_ITERS</code> 前必须释放可用迭代次数（如上例调整 <code>cur_iter</code>），否则 Agent 无法产生新进展。<code>INTERRUPTED</code> 结束事件不能用该机制继续，应原样向外传递。实际中还应设置明确的重试上限，避免中间件导致无限 reply 循环。</p></aside>
+<h3 id="执行顺序">执行顺序</h3>
+<p>洋葱型 hook（<code>on_reply</code>、<code>on_reasoning</code>、<code>on_acting</code>、<code>on_model_call</code>）—— <strong>列表中第一个中间件处于最外层</strong>：</p>
+<div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">middlewares = [mw1, mw2]
+# 调用顺序：
+# mw1 前 → mw2 前 → 内部逻辑 → mw2 后 → mw1 后
+</code></pre></div>
+<p>对于流式 / 产出事件的 hook，内层中间件先看到每一个 yield 出的事件：</p>
+<div class="code-example"><div class="code-bar"><span>代码</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code data-caption="代码" data-lang="text">mw1_pre → mw2_pre → mw2_event → mw1_event → ... → mw2_post → mw1_post
+</code></pre></div>
+<p>Transformer 类 hook（<code>on_system_prompt</code>）—— 中间件<strong>从左到右串行接力</strong>：</p>
+<div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">middlewares = [mw1, mw2]
+# original_prompt → mw1.on_system_prompt() → mw2.on_system_prompt() → final
+</code></pre></div>
+<p>一次 reply 中各 hook 的整体执行顺序遵循 agent 生命周期：</p>
+<div class="code-example"><div class="code-bar"><span>代码</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code data-caption="代码" data-lang="text">on_reply
+  └── 每一轮 ReAct：
+        ├── on_compress_context → compress_context()
+        │     └── on_system_prompt（压缩前 token 计数）
+        ├── on_reasoning
+        │     ├── _prepare_model_input() → on_system_prompt
+        │     └── on_model_call
+        └── on_acting（本轮每个工具调用一次）
+</code></pre></div>
+<p><code>list_tools</code> 不在每次 reply 的执行路径上，智能体不会自动调用它 —— 它是一个便捷接口，让中间件可以声明自己的工具。是否收集这些工具由组装 toolkit 的调用方决定。</p>
+<h2 id="实用示例">实用示例</h2>
+<h3 id="计时中间件">计时中间件</h3>
+<p>下面的中间件记录每次模型调用的耗时：</p>
+<div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">import time
+from agentscope.middleware import MiddlewareBase
+
+class TimingMiddleware(MiddlewareBase):
+    async def on_model_call(self, agent, input_kwargs, next_handler):
+        model_name = input_kwargs[&quot;current_model&quot;].model
+        start = time.time()
+
+        result = await next_handler()
+
+        elapsed = time.time() - start
+        print(f&quot;[timing] {agent.name} → {model_name}: {elapsed:.2f}s&quot;)
+        return result
+</code></pre></div>
+<h3 id="限速中间件">限速中间件</h3>
+<p>下面的中间件在两次模型调用之间强制留出最小间隔：</p>
+<div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">import asyncio
+import time
+from agentscope.middleware import MiddlewareBase
+
+class RateLimitMiddleware(MiddlewareBase):
+    def __init__(self, min_interval: float = 1.0):
+        self._last_call = 0.0
+        self._min_interval = min_interval
+
+    async def on_model_call(self, agent, input_kwargs, next_handler):
+        now = time.time()
+        wait = self._min_interval - (now - self._last_call)
+        if wait &gt; 0:
+            await asyncio.sleep(wait)
+        self._last_call = time.time()
+        return await next_handler()
+</code></pre></div>
+<h3 id="动态系统提示中间件">动态系统提示中间件</h3>
+<p>下面的中间件在系统提示中注入实时上下文：</p>
+<div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">from datetime import datetime
+from agentscope.middleware import MiddlewareBase
+
+class DynamicContextMiddleware(MiddlewareBase):
+    def __init__(self, context_fn):
+        self._context_fn = context_fn
+
+    async def on_system_prompt(self, agent, current_prompt):
+        context = self._context_fn()
+        return f&quot;{current_prompt}\n\n## Current Context\n{context}&quot;
+
+agent = Agent(
+    ...
+    middlewares=[
+        DynamicContextMiddleware(
+            lambda: f&quot;Time: {datetime.now().isoformat()}&quot;
+        ),
+    ],
+)
+</code></pre></div>
+<h3 id="模型回退中间件">模型回退中间件</h3>
+<p>下面的中间件在主模型失败时切换到备用模型：</p>
+<div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">from agentscope.middleware import MiddlewareBase
+
+class ModelFallbackMiddleware(MiddlewareBase):
+    def __init__(self, fallback_model):
+        self._fallback = fallback_model
+
+    async def on_model_call(self, agent, input_kwargs, next_handler):
+        try:
+            return await next_handler()
+        except Exception as e:
+            print(f&quot;Primary model failed: {e}, switching to fallback&quot;)
+            return await next_handler(
+                current_model=self._fallback,
+            )
+</code></pre></div></article><footer><div class="paging"><a href="/agentscope-course/building-blocks/permission-system/tool-check/">上一节 · 工具内置检查</a><a href="/agentscope-course/building-blocks/rag/">下一节 · RAG</a></div><div class="credits"><a href="https://docs.agentscope.io/zh/versions/2.0.12/building-blocks/middleware" target="_blank" rel="noopener">在线原页</a> · <a href="/agentscope-course/mdx/building-blocks/middleware.mdx">原始 MDX</a> · <a href="https://github.com/agentscope-ai/docs/blob/e0ee835d1aca5d2b840d29bdd2f70770bbef69e8/zh/versions/2.0.12/building-blocks/middleware.mdx" target="_blank" rel="noopener">固定版本来源</a> · <a href="/agentscope-course/LICENSE.txt">MIT 许可</a></div></footer></main></div></body></html>

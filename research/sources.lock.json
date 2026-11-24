@@ -1,0 +1,532 @@
+{
+  "retrievedAt": "2026-11-21",
+  "timezone": "Asia/Taipei",
+  "scope": "三家官方实现的静态阅读。教学代码由课程独立编写。",
+  "frameworks": {
+    "hermes": {
+      "repository": "https://github.com/NousResearch/hermes-agent",
+      "ref": "main",
+      "commit": "0284ce17d9bf9ed2f1832ad8950dfac2394d45ab",
+      "commitDateUtc": "2026-11-20T20:42:55Z",
+      "license": "MIT",
+      "licenseUrl": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/LICENSE",
+      "versionNote": "主分支下载时解析到此提交。",
+      "installedVersion": null,
+      "externalTutorialVersion": null,
+      "upstreamRun": false,
+      "usage": "逐章以自写中文解释并链接原文件。没有移植上游代码。",
+      "files": [
+        {
+          "chapter": "s01",
+          "path": "agent/conversation_loop.py",
+          "line": 1762,
+          "symbol": "_run_conversation_turn",
+          "permalink": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/agent/conversation_loop.py#L1762",
+          "gitBlob": "0c2e904a691ff8b1b444a31a97c29b86625d531d"
+        },
+        {
+          "chapter": "s02",
+          "path": "tools/registry.py",
+          "line": 1076,
+          "symbol": "ToolRegistry.dispatch",
+          "permalink": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/tools/registry.py#L1076",
+          "gitBlob": "525cad5a0fb8c6fa5bd8b469da46c3050046d9db"
+        },
+        {
+          "chapter": "s03",
+          "path": "acp_adapter/edit_approval.py",
+          "line": 211,
+          "symbol": "maybe_require_edit_approval",
+          "permalink": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/acp_adapter/edit_approval.py#L211",
+          "gitBlob": "a757b3560c9d9b9b61e855d9c35e2359e195eb9d"
+        },
+        {
+          "chapter": "s04",
+          "path": "model_tools.py",
+          "line": 792,
+          "symbol": "_pre_dispatch_guards",
+          "permalink": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/model_tools.py#L792",
+          "gitBlob": "10d1cc9e0881b1823dfbbd52096652ce19d24b3d"
+        },
+        {
+          "chapter": "s05",
+          "path": "tools/todo_tool.py",
+          "line": 38,
+          "symbol": "TodoStore.write",
+          "permalink": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/tools/todo_tool.py#L38",
+          "gitBlob": "d2ccb8f1e5819eaef1a19acb406341ab9165a156"
+        },
+        {
+          "chapter": "s06",
+          "path": "tools/delegate_tool_child_run.py",
+          "line": 1017,
+          "symbol": "child.run_conversation",
+          "permalink": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/tools/delegate_tool_child_run.py#L1017",
+          "gitBlob": "d0b94aa6dee77495edee7c86de345ce6484c944d"
+        },
+        {
+          "chapter": "s07",
+          "path": "tools/skills_tool.py",
+          "line": 634,
+          "symbol": "skill_view",
+          "permalink": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/tools/skills_tool.py#L634",
+          "gitBlob": "45eb887478d6516276cc8331a83acc33783fe302"
+        },
+        {
+          "chapter": "s08",
+          "path": "agent/turn_context_compaction.py",
+          "line": 129,
+          "symbol": "run_turn_start_compaction",
+          "permalink": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/agent/turn_context_compaction.py#L129",
+          "gitBlob": "4156fbde8848b05d2d36cde852f9c29f811cf80e"
+        },
+        {
+          "chapter": "s09",
+          "path": "tools/memory_tool_store.py",
+          "line": 223,
+          "symbol": "MemoryStore.load_from_disk",
+          "permalink": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/tools/memory_tool_store.py#L223",
+          "gitBlob": "fc0c193f107051d2dcf9c2dbb8c5288f7e804d3a"
+        },
+        {
+          "chapter": "s10",
+          "path": "agent/system_prompt.py",
+          "line": 770,
+          "symbol": "build_system_prompt_parts",
+          "permalink": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/agent/system_prompt.py#L770",
+          "gitBlob": "e0c2987eea6a350d550a6df9bbe11c00f52a3b4b"
+        },
+        {
+          "chapter": "s11",
+          "path": "agent/turn_recovery.py",
+          "line": 654,
+          "symbol": "recover_after_classification",
+          "permalink": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/agent/turn_recovery.py#L654",
+          "gitBlob": "3ebd9932a3731e7b96f837c0e4b9509e8898cf32"
+        },
+        {
+          "chapter": "s12",
+          "path": "hermes_cli/kanban_db.py",
+          "line": 1157,
+          "symbol": "create_task",
+          "permalink": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/hermes_cli/kanban_db.py#L1157",
+          "gitBlob": "4e61aeece34b2c17a6e5f3aa729ddd4516cf05c5"
+        },
+        {
+          "chapter": "s13",
+          "path": "tools/process_registry.py",
+          "line": 675,
+          "symbol": "ProcessRegistry",
+          "permalink": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/tools/process_registry.py#L675",
+          "gitBlob": "c73761805346f984f26c1737a5a595e4c93bd9b3"
+        },
+        {
+          "chapter": "s14",
+          "path": "cron/scheduler.py",
+          "line": 2757,
+          "symbol": "run_one_job",
+          "permalink": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/cron/scheduler.py#L2757",
+          "gitBlob": "b051eb5f0263c8c2578be7841e73822fdaa50680"
+        },
+        {
+          "chapter": "s15",
+          "path": "hermes_cli/kanban_db.py",
+          "line": 1455,
+          "symbol": "assign_task",
+          "permalink": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/hermes_cli/kanban_db.py#L1455",
+          "gitBlob": "4e61aeece34b2c17a6e5f3aa729ddd4516cf05c5"
+        },
+        {
+          "chapter": "s16",
+          "path": "hermes_cli/kanban_db.py",
+          "line": 1671,
+          "symbol": "add_comment",
+          "permalink": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/hermes_cli/kanban_db.py#L1671",
+          "gitBlob": "4e61aeece34b2c17a6e5f3aa729ddd4516cf05c5"
+        },
+        {
+          "chapter": "s17",
+          "path": "hermes_cli/kanban_db_dispatch.py",
+          "line": 1806,
+          "symbol": "has_spawnable_ready",
+          "permalink": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/hermes_cli/kanban_db_dispatch.py#L1806",
+          "gitBlob": "dc3eab65e9931961efcb1a56916f35f1ce3543cd"
+        },
+        {
+          "chapter": "s18",
+          "path": "tools/subagent_worktree.py",
+          "line": 77,
+          "symbol": "create_subagent_worktree",
+          "permalink": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/tools/subagent_worktree.py#L77",
+          "gitBlob": "684f9fbf235b2c996832cc20b6fe4cae648e1987"
+        },
+        {
+          "chapter": "s19",
+          "path": "tools/mcp_tool_registration.py",
+          "line": 435,
+          "symbol": "_register_server_tools",
+          "permalink": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/tools/mcp_tool_registration.py#L435",
+          "gitBlob": "c3bcb2060a8b2c6a014709ab25428b9c55fbef58"
+        },
+        {
+          "chapter": "s20",
+          "path": "agent/conversation_loop.py",
+          "line": 1782,
+          "symbol": "run_conversation",
+          "permalink": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/agent/conversation_loop.py#L1782",
+          "gitBlob": "0c2e904a691ff8b1b444a31a97c29b86625d531d"
+        }
+      ]
+    },
+    "dsh": {
+      "repository": "https://github.com/deepseek-ai/deepseek-harness",
+      "ref": "master",
+      "commit": "ddefc45fbc7f8e46dd73185e68295696d1297887",
+      "commitDateUtc": "2026-09-17T13:19:19Z",
+      "license": "MIT",
+      "licenseUrl": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/LICENSE",
+      "versionNote": "核对工作区现有干净 checkout 的 HEAD。该快照与远端 master 可有版本差异。",
+      "installedVersion": null,
+      "externalTutorialVersion": null,
+      "upstreamRun": false,
+      "usage": "逐章以自写中文解释并链接原文件。没有移植上游代码。",
+      "files": [
+        {
+          "chapter": "s01",
+          "path": "packages/core/agent-loop/src/agent.ts",
+          "line": 353,
+          "symbol": "step",
+          "permalink": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/core/agent-loop/src/agent.ts#L353",
+          "gitBlob": "4ea7593551dd184a40a4b758ec1cdb342993aea3"
+        },
+        {
+          "chapter": "s02",
+          "path": "packages/core/tools/src/index.ts",
+          "line": 1043,
+          "symbol": "ToolRuntime.register",
+          "permalink": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/core/tools/src/index.ts#L1043",
+          "gitBlob": "6be7be61e257cd9e38c8a3122298316bf3df9892"
+        },
+        {
+          "chapter": "s03",
+          "path": "packages/interaction/user-approval/src/index.ts",
+          "line": 208,
+          "symbol": "ApprovalService.request",
+          "permalink": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/interaction/user-approval/src/index.ts#L208",
+          "gitBlob": "8a5f506bf1bacdf2ed04f778774245e6464ced6a"
+        },
+        {
+          "chapter": "s04",
+          "path": "packages/hooks/hooks-claude-code/src/index.ts",
+          "line": 237,
+          "symbol": "apply",
+          "permalink": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/hooks/hooks-claude-code/src/index.ts#L237",
+          "gitBlob": "469c1c0dc41d9537b9e8190a9cc0c34e17de3b6c"
+        },
+        {
+          "chapter": "s05",
+          "path": "packages/todo/tool-todo/src/index.ts",
+          "line": 1,
+          "symbol": "tool-todo",
+          "permalink": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/todo/tool-todo/src/index.ts#L1",
+          "gitBlob": "13e1157aca4754bcb56fa45f90bce6dc91fbaff2"
+        },
+        {
+          "chapter": "s06",
+          "path": "packages/subagent/subagent-spawn-in-process/src/index.ts",
+          "line": 41,
+          "symbol": "SpawnInProcessProvider",
+          "permalink": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/subagent/subagent-spawn-in-process/src/index.ts#L41",
+          "gitBlob": "73811155c1979f5328309b106dfe53a961ede7c9"
+        },
+        {
+          "chapter": "s07",
+          "path": "packages/skill/tool-skill/src/index.ts",
+          "line": 161,
+          "symbol": "apply",
+          "permalink": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/skill/tool-skill/src/index.ts#L161",
+          "gitBlob": "0099332fa27da10e154146959997e2427e3a767d"
+        },
+        {
+          "chapter": "s08",
+          "path": "packages/compaction/compaction-basic/src/index.ts",
+          "line": 144,
+          "symbol": "BasicCompactionEngine",
+          "permalink": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/compaction/compaction-basic/src/index.ts#L144",
+          "gitBlob": "8be02cb64ac1dd1a948403f0bc15a46212151790"
+        },
+        {
+          "chapter": "s09",
+          "path": "packages/core/agent-loop/src/runtime-context.ts",
+          "line": 109,
+          "symbol": "RuntimeContextProjection",
+          "permalink": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/core/agent-loop/src/runtime-context.ts#L109",
+          "gitBlob": "af9f3fa6409eff1c71dc45701285e0cbdd8e88ae"
+        },
+        {
+          "chapter": "s10",
+          "path": "packages/core/system-prompt/src/index.ts",
+          "line": 406,
+          "symbol": "SystemPrompt",
+          "permalink": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/core/system-prompt/src/index.ts#L406",
+          "gitBlob": "0003ae7a8d8a82b230187cf161e2c4aa25296d31"
+        },
+        {
+          "chapter": "s11",
+          "path": "packages/core/agent-loop/src/agent.ts",
+          "line": 450,
+          "symbol": "step",
+          "permalink": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/core/agent-loop/src/agent.ts#L450",
+          "gitBlob": "4ea7593551dd184a40a4b758ec1cdb342993aea3"
+        },
+        {
+          "chapter": "s12",
+          "path": "packages/experimental/agent-team/src/task-board.ts",
+          "line": 254,
+          "symbol": "TeamTaskBoard",
+          "permalink": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/experimental/agent-team/src/task-board.ts#L254",
+          "gitBlob": "cc7064ceb605647059e1c4cf02682979100d2bcd"
+        },
+        {
+          "chapter": "s13",
+          "path": "packages/jobs/jobs/src/index.ts",
+          "line": 90,
+          "symbol": "JobRegistry.list",
+          "permalink": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/jobs/jobs/src/index.ts#L90",
+          "gitBlob": "7d46dfa342a4a3980dc77c88ba39875facbef35e"
+        },
+        {
+          "chapter": "s14",
+          "path": "packages/schedule/schedule/src/runtime.ts",
+          "line": 35,
+          "symbol": "dueDecision",
+          "permalink": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/schedule/schedule/src/runtime.ts#L35",
+          "gitBlob": "1574574c3dea2beefd78a3b934b8b1bf432b411d"
+        },
+        {
+          "chapter": "s15",
+          "path": "packages/experimental/agent-team/src/index.ts",
+          "line": 59,
+          "symbol": "TeamService",
+          "permalink": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/experimental/agent-team/src/index.ts#L59",
+          "gitBlob": "9066e185ca1091f0c28f387e79ef7b1770d0f2a5"
+        },
+        {
+          "chapter": "s16",
+          "path": "packages/experimental/agent-team/src/types.ts",
+          "line": 224,
+          "symbol": "team/message/queued",
+          "permalink": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/experimental/agent-team/src/types.ts#L224",
+          "gitBlob": "f7b8ca414ff660dee034df67813803677bafaae5"
+        },
+        {
+          "chapter": "s17",
+          "path": "packages/experimental/agent-team/src/task-board.ts",
+          "line": 133,
+          "symbol": "TeamTaskBoard",
+          "permalink": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/experimental/agent-team/src/task-board.ts#L133",
+          "gitBlob": "cc7064ceb605647059e1c4cf02682979100d2bcd"
+        },
+        {
+          "chapter": "s18",
+          "path": "packages/subagent/subagent-spawn-in-process/src/index.ts",
+          "line": 41,
+          "symbol": "SpawnInProcessProvider",
+          "permalink": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/subagent/subagent-spawn-in-process/src/index.ts#L41",
+          "gitBlob": "73811155c1979f5328309b106dfe53a961ede7c9"
+        },
+        {
+          "chapter": "s19",
+          "path": "packages/mcp/mcp-client/src/index.ts",
+          "line": 154,
+          "symbol": "apply",
+          "permalink": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/mcp/mcp-client/src/index.ts#L154",
+          "gitBlob": "4efac455b608b0f758a5551f694674f170416646"
+        },
+        {
+          "chapter": "s20",
+          "path": "packages/core/agent-loop/src/agent.ts",
+          "line": 340,
+          "symbol": "turn",
+          "permalink": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/core/agent-loop/src/agent.ts#L340",
+          "gitBlob": "4ea7593551dd184a40a4b758ec1cdb342993aea3"
+        }
+      ]
+    },
+    "agentscope": {
+      "repository": "https://github.com/agentscope-ai/agentscope",
+      "ref": "v2.0.12",
+      "commit": "28ab5ef6b1d8969c6ed8a3975c2063478a5c4986",
+      "commitDateUtc": "2026-11-16T06:54:19Z",
+      "license": "Apache-2.0",
+      "licenseUrl": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/LICENSE",
+      "versionNote": "GitHub 标签 v2.0.12 指向该 commit。仅使用 2.0.12 的代码。",
+      "installedVersion": null,
+      "externalTutorialVersion": null,
+      "upstreamRun": false,
+      "usage": "逐章以自写中文解释并链接原文件。没有移植上游代码。",
+      "files": [
+        {
+          "chapter": "s01",
+          "path": "src/agentscope/agent/_agent.py",
+          "line": 1169,
+          "symbol": "Agent._reply_impl",
+          "permalink": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/agent/_agent.py#L1169",
+          "gitBlob": "b7e83f41a1dd225a34bc7118a1142c917eba4b77"
+        },
+        {
+          "chapter": "s02",
+          "path": "src/agentscope/tool/_toolkit.py",
+          "line": 225,
+          "symbol": "Toolkit.call_tool",
+          "permalink": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/tool/_toolkit.py#L225",
+          "gitBlob": "9d6ded5728c2a6b061118317d23a405be81e941c"
+        },
+        {
+          "chapter": "s03",
+          "path": "src/agentscope/agent/_agent.py",
+          "line": 2615,
+          "symbol": "Agent._execute_tool_call",
+          "permalink": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/agent/_agent.py#L2615",
+          "gitBlob": "b7e83f41a1dd225a34bc7118a1142c917eba4b77"
+        },
+        {
+          "chapter": "s04",
+          "path": "src/agentscope/middleware/_base.py",
+          "line": 124,
+          "symbol": "MiddlewareBase.on_acting",
+          "permalink": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/middleware/_base.py#L124",
+          "gitBlob": "e2c999e592837d58eb470f0cfdf42d83d8ec50ca"
+        },
+        {
+          "chapter": "s05",
+          "path": "src/agentscope/tool/_task/_create_task.py",
+          "line": 83,
+          "symbol": "TaskCreate.call",
+          "permalink": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/tool/_task/_create_task.py#L83",
+          "gitBlob": "a6a772968d56c6b22f6cd660af2d3c6efeccae81"
+        },
+        {
+          "chapter": "s06",
+          "path": "src/agentscope/app/_tool/_agent_create.py",
+          "line": 146,
+          "symbol": "AgentCreate",
+          "permalink": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/app/_tool/_agent_create.py#L146",
+          "gitBlob": "0f8ee4a1b5e777eff5c2885fc3c19d11ca506e62"
+        },
+        {
+          "chapter": "s07",
+          "path": "src/agentscope/tool/_builtin/_skill.py",
+          "line": 18,
+          "symbol": "SkillViewer",
+          "permalink": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/tool/_builtin/_skill.py#L18",
+          "gitBlob": "44e7055dd6a665172628bde5d03f889277564382"
+        },
+        {
+          "chapter": "s08",
+          "path": "src/agentscope/agent/_agent.py",
+          "line": 513,
+          "symbol": "Agent._compress_context_impl",
+          "permalink": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/agent/_agent.py#L513",
+          "gitBlob": "b7e83f41a1dd225a34bc7118a1142c917eba4b77"
+        },
+        {
+          "chapter": "s09",
+          "path": "src/agentscope/middleware/_longterm_memory/_mem0/_middleware.py",
+          "line": 285,
+          "symbol": "Mem0Middleware.on_reply",
+          "permalink": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/middleware/_longterm_memory/_mem0/_middleware.py#L285",
+          "gitBlob": "5c65f95b034a468aaaf44f90c7456a2dab7e91d7"
+        },
+        {
+          "chapter": "s10",
+          "path": "src/agentscope/agent/_agent.py",
+          "line": 3330,
+          "symbol": "Agent._get_system_prompt",
+          "permalink": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/agent/_agent.py#L3330",
+          "gitBlob": "b7e83f41a1dd225a34bc7118a1142c917eba4b77"
+        },
+        {
+          "chapter": "s11",
+          "path": "src/agentscope/agent/_agent.py",
+          "line": 1333,
+          "symbol": "Agent._get_repeated_tool_error",
+          "permalink": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/agent/_agent.py#L1333",
+          "gitBlob": "b7e83f41a1dd225a34bc7118a1142c917eba4b77"
+        },
+        {
+          "chapter": "s12",
+          "path": "src/agentscope/state/_task.py",
+          "line": 34,
+          "symbol": "Task",
+          "permalink": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/state/_task.py#L34",
+          "gitBlob": "9f68356c60b87499c6281b378773ecc58056f142"
+        },
+        {
+          "chapter": "s13",
+          "path": "src/agentscope/app/_manager/_background_task_manager.py",
+          "line": 540,
+          "symbol": "BackgroundTaskManager._finish_task",
+          "permalink": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/app/_manager/_background_task_manager.py#L540",
+          "gitBlob": "44ed7990d1a78dfbbb7a86e5d4923874f5f47c28"
+        },
+        {
+          "chapter": "s14",
+          "path": "src/agentscope/app/_manager/_scheduler/_scheduler_manager.py",
+          "line": 33,
+          "symbol": "SchedulerManager",
+          "permalink": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/app/_manager/_scheduler/_scheduler_manager.py#L33",
+          "gitBlob": "35380d77d471e65ee2a884a847f785dabe10b3ef"
+        },
+        {
+          "chapter": "s15",
+          "path": "src/agentscope/pipeline/_team_pipeline.py",
+          "line": 289,
+          "symbol": "TeamPipeline._run_assignments",
+          "permalink": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/pipeline/_team_pipeline.py#L289",
+          "gitBlob": "aa226155ecbe55e19a8c709227c2250dc74e447a"
+        },
+        {
+          "chapter": "s16",
+          "path": "src/agentscope/app/_tool/_team_say.py",
+          "line": 121,
+          "symbol": "TeamSay.__call__",
+          "permalink": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/app/_tool/_team_say.py#L121",
+          "gitBlob": "ad2affbe93f674306d2595cac4e3f47b3f33b89c"
+        },
+        {
+          "chapter": "s17",
+          "path": "src/agentscope/tool/_task/_update_task.py",
+          "line": 135,
+          "symbol": "TaskUpdate.call",
+          "permalink": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/tool/_task/_update_task.py#L135",
+          "gitBlob": "a1ebdd1af57054a04a82a4510d270e952c6d30e6"
+        },
+        {
+          "chapter": "s18",
+          "path": "src/agentscope/workspace/_local_workspace.py",
+          "line": 66,
+          "symbol": "LocalWorkspace",
+          "permalink": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/workspace/_local_workspace.py#L66",
+          "gitBlob": "b80b06a1f0773622896cf191e05763347ea729db"
+        },
+        {
+          "chapter": "s19",
+          "path": "src/agentscope/mcp/_mcp_client.py",
+          "line": 568,
+          "symbol": "MCPClient.list_tools",
+          "permalink": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/mcp/_mcp_client.py#L568",
+          "gitBlob": "f57a0f7433ebd2bb671e77a0c5b2318d623d8af6"
+        },
+        {
+          "chapter": "s20",
+          "path": "src/agentscope/agent/_agent.py",
+          "line": 279,
+          "symbol": "Agent.reply_stream",
+          "permalink": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/agent/_agent.py#L279",
+          "gitBlob": "b7e83f41a1dd225a34bc7118a1142c917eba4b77"
+        }
+      ]
+    }
+  }
+}

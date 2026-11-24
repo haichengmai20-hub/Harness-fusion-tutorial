@@ -1,0 +1,445 @@
+[
+  {
+    "point": 1,
+    "title": "提示词里提到工具，实际调用还需要什么？",
+    "question": "system 里写了 read_file，模型凭哪份数据知道它接受一个 path 参数？",
+    "tutorial": "s10 在 system 中拼入固定的 identity、tools、workspace 三段。tools 段只列工具名字。发请求时另传 TOOLS，里面才有 read_file 的参数 schema；模型选中它后，主循环按名字从 TOOL_HANDLERS 找处理函数。",
+    "snapshot": "快照也分别构造 system、tools 和 messages。普通路径把通过筛选的工具交给 toolToAPISchema，生成 name、description、input_schema 等字段，最后用 allTools 填请求。文字中的工具说明和 API 里的工具定义应分别检查。",
+    "oldNote": "335 行对照稿的请求形状图值得配合原研究笔记的四字段总图看。教学版 tools 说明是常量；从处理器表删工具可以改变缓存键，即便提示词里的名字尚未变。",
+    "check": "对同一次读取，分别指出 system 的说明文字、tools 中的参数定义、assistant 的 tool_use，以及下一条 user 消息中带相同 ID 的 tool_result。",
+    "refs": [
+      {
+        "label": "教学 · 三个常驻片段",
+        "path": "harness-fusion-tutorial/sources/learn-claude-code/s10_system_prompt/code.py",
+        "line": 54
+      },
+      {
+        "label": "教学 · 工具定义",
+        "path": "harness-fusion-tutorial/sources/learn-claude-code/s10_system_prompt/code.py",
+        "line": 134
+      },
+      {
+        "label": "教学 · 请求和分发",
+        "path": "harness-fusion-tutorial/sources/learn-claude-code/s10_system_prompt/code.py",
+        "line": 176
+      },
+      {
+        "label": "快照 · 构造工具 schema",
+        "path": "harness-fusion-tutorial/sources/claude-code/src/services/api/claude.ts",
+        "line": 1235
+      },
+      {
+        "label": "快照 · 请求字段汇合",
+        "path": "harness-fusion-tutorial/sources/claude-code/src/services/api/claude.ts",
+        "line": 1701
+      },
+      {
+        "label": "原研究笔记 · 请求总图",
+        "path": "claude-code-internals/notes/cc-prompt-assembly.md",
+        "line": 14
+      },
+      {
+        "label": "335 行对照稿 · 请求形状",
+        "path": "harness-fusion-tutorial/学习笔记/s10-prompt-cache与系统提示词组装-作业对照源码与旧笔记.md",
+        "line": 153
+      },
+      {
+        "label": "作业 · 三个工具",
+        "path": "harness-fusion-tutorial/learn-claude-code-homework-2026-11-23/s10_system_prompt/HOMEWORK.zh.md",
+        "line": 37
+      }
+    ]
+  },
+  {
+    "point": 1,
+    "title": "写完 MEMORY.md，哪一次请求才读到新规则？",
+    "question": "在两次提问之间从程序外改文件，下一问一定马上收到新内容吗？",
+    "tutorial": "程序启动时取一份 context。agent_loop 入口拿已有 context 拼 system；一轮工具结束后才重新读文件并重算，同一轮内的下一次模型请求可因此看到新内容。用户问题结束后，外层也会再取 context。若在外层取完以后才从程序外改文件，下问的第一次模型请求仍可能用旧值。",
+    "snapshot": "快照在 QueryEngine.submitMessage 内调用 fetchSystemPromptParts。默认路径并行取得默认提示、userContext 和 systemContext。动态段中，普通段按名复用已算结果，标为 cacheBreak 的段会重新计算。进入一次组装流程并不意味着重新从磁盘读取每个来源。",
+    "oldNote": "335 行对照稿第 53、172 行分别列出读文件和查缓存的时机，作业也保存了两问之间从外部改文件的回放。原研究笔记曾把默认提示列在 submitMessage 之前；实际调用发生在该方法内，各段可独立复用。",
+    "check": "在纸上分别放置三个动作：程序外改文件、update_context、下一次 messages.create。试着交换前两个动作，再预测哪次请求会先看到新偏好。",
+    "refs": [
+      {
+        "label": "教学 · 实际读文件",
+        "path": "harness-fusion-tutorial/sources/learn-claude-code/s10_system_prompt/code.py",
+        "line": 159
+      },
+      {
+        "label": "教学 · 入口使用已有 context",
+        "path": "harness-fusion-tutorial/sources/learn-claude-code/s10_system_prompt/code.py",
+        "line": 174
+      },
+      {
+        "label": "教学 · 工具轮次后的刷新",
+        "path": "harness-fusion-tutorial/sources/learn-claude-code/s10_system_prompt/code.py",
+        "line": 196
+      },
+      {
+        "label": "教学 · 提问结束后的刷新",
+        "path": "harness-fusion-tutorial/sources/learn-claude-code/s10_system_prompt/code.py",
+        "line": 214
+      },
+      {
+        "label": "快照 · 提交消息时组装",
+        "path": "harness-fusion-tutorial/sources/claude-code/src/QueryEngine.ts",
+        "line": 292
+      },
+      {
+        "label": "快照 · 默认三路输入",
+        "path": "harness-fusion-tutorial/sources/claude-code/src/utils/queryContext.ts",
+        "line": 61
+      },
+      {
+        "label": "快照 · 段缓存命中条件",
+        "path": "harness-fusion-tutorial/sources/claude-code/src/constants/systemPromptSections.ts",
+        "line": 50
+      },
+      {
+        "label": "原研究笔记 · 时序表",
+        "path": "claude-code-internals/notes/cc-prompt-assembly.md",
+        "line": 482
+      },
+      {
+        "label": "335 行对照稿 · 读取时机",
+        "path": "harness-fusion-tutorial/学习笔记/s10-prompt-cache与系统提示词组装-作业对照源码与旧笔记.md",
+        "line": 53
+      },
+      {
+        "label": "335 行对照稿 · 两处写法可互查",
+        "path": "harness-fusion-tutorial/学习笔记/s10-prompt-cache与系统提示词组装-作业对照源码与旧笔记.md",
+        "line": 172
+      },
+      {
+        "label": "作业 · 外部写文件离线回放",
+        "path": "harness-fusion-tutorial/learn-claude-code-homework-2026-11-23/s10_system_prompt/HOMEWORK.zh.md",
+        "line": 174
+      }
+    ]
+  },
+  {
+    "point": 1,
+    "title": "项目指令、记忆索引与 system 里的 memory 段",
+    "question": "同样写着“默认用中文”，在教学版和快照中，它会进入请求的哪个字段？",
+    "tutorial": "s10 只读 .memory/MEMORY.md，去掉两端空白后有内容，才把整个文件文本拼到 system 末尾的 Relevant memories 段。它没有沿索引再读各篇记忆。PROMPT_SECTIONS 里名为 memory 的模板没有被这个分支使用。",
+    "snapshot": "快照默认提示中的 memory 段由 loadMemoryPrompt 生成记忆使用说明。另一条路径收集项目指令与允许注入的自动记忆入口，由 getUserContext 提供 claudeMd 和日期，再由 prependUserContext 包装成 role=user 的元消息。若自动记忆索引过滤开关开启，AutoMem/TeamMem 会从这条前置路径移除。",
+    "oldNote": "原研究笔记把系统里的使用说明与用户上下文里的索引分开了。335 行对照稿的示例可用于比较字段，使用它时需保留自动记忆启用、索引过滤等条件。",
+    "check": "分别定位“如何维护记忆”的说明、记忆条目目录、用户实际提问。若打开索引过滤，哪部分可能仍在 system，哪部分需要转去附件查？",
+    "refs": [
+      {
+        "label": "教学 · 条件拼入完整文件内容",
+        "path": "harness-fusion-tutorial/sources/learn-claude-code/s10_system_prompt/code.py",
+        "line": 60
+      },
+      {
+        "label": "教学 · 读取入口文件",
+        "path": "harness-fusion-tutorial/sources/learn-claude-code/s10_system_prompt/code.py",
+        "line": 159
+      },
+      {
+        "label": "快照 · memory 说明段",
+        "path": "harness-fusion-tutorial/sources/claude-code/src/constants/prompts.ts",
+        "line": 495
+      },
+      {
+        "label": "快照 · 系统说明与正文的分工",
+        "path": "harness-fusion-tutorial/sources/claude-code/src/memdir/memdir.ts",
+        "line": 197
+      },
+      {
+        "label": "快照 · 收集自动记忆入口",
+        "path": "harness-fusion-tutorial/sources/claude-code/src/utils/claudemd.ts",
+        "line": 980
+      },
+      {
+        "label": "快照 · 条件过滤 AutoMem 和 TeamMem",
+        "path": "harness-fusion-tutorial/sources/claude-code/src/utils/claudemd.ts",
+        "line": 1146
+      },
+      {
+        "label": "快照 · userContext 字段",
+        "path": "harness-fusion-tutorial/sources/claude-code/src/context.ts",
+        "line": 185
+      },
+      {
+        "label": "快照 · 前置元消息",
+        "path": "harness-fusion-tutorial/sources/claude-code/src/utils/api.ts",
+        "line": 461
+      },
+      {
+        "label": "原研究笔记 · 自动记忆两条输入路径",
+        "path": "claude-code-internals/notes/cc-prompt-assembly.md",
+        "line": 257
+      },
+      {
+        "label": "335 行对照稿 · 索引位置",
+        "path": "harness-fusion-tutorial/学习笔记/s10-prompt-cache与系统提示词组装-作业对照源码与旧笔记.md",
+        "line": 231
+      },
+      {
+        "label": "作业 · 只读一个文件",
+        "path": "harness-fusion-tutorial/learn-claude-code-homework-2026-11-23/s10_system_prompt/HOMEWORK.zh.md",
+        "line": 36
+      }
+    ]
+  },
+  {
+    "point": 1,
+    "title": "按需召回的正文和技能目录怎样抵达模型？",
+    "question": "项目里已有一篇中文风格规范，要怎样证明本次请求真的收到它的内容？",
+    "tutorial": "本章只有主循环的一处模型调用。把文件名写进 MEMORY.md，只会使那行文字随 system 发出；s10 没有用目录做 side query，也没有列出 load_skill 工具。其他章节的实现须按各自版本读取。",
+    "snapshot": "相关记忆预取启用并有候选时，选择器可用单独的请求比较用户问题和记忆清单。命中文件经读取后生成 relevant_memories 附件，再转成带 system-reminder 的用户消息。技能目录另有 skill_listing 的消息分支；看到技能名只能证明目录可见。",
+    "oldNote": "原研究笔记把索引前置、相关记忆附件分成两条路。335 行对照稿还记录了技能目录的去向；其中比较教学 s07/s09 的表格注明使用主分支 448c75b，不能据此替代网站版 s10 的代码。",
+    "check": "从一个候选文件往后追：是否被选中、是否被读出、是否生成附件、正文是否出现在本次模型输入。只看目录或一次工具返回，哪一步仍无证据？",
+    "refs": [
+      {
+        "label": "教学 · 唯一主模型调用",
+        "path": "harness-fusion-tutorial/sources/learn-claude-code/s10_system_prompt/code.py",
+        "line": 176
+      },
+      {
+        "label": "快照 · 记忆选择器的辅助请求",
+        "path": "harness-fusion-tutorial/sources/claude-code/src/memdir/findRelevantMemories.ts",
+        "line": 98
+      },
+      {
+        "label": "快照 · 生成命中附件",
+        "path": "harness-fusion-tutorial/sources/claude-code/src/utils/attachments.ts",
+        "line": 2241
+      },
+      {
+        "label": "快照 · 相关记忆转用户消息",
+        "path": "harness-fusion-tutorial/sources/claude-code/src/utils/messages.ts",
+        "line": 3708
+      },
+      {
+        "label": "快照 · 技能目录转用户消息",
+        "path": "harness-fusion-tutorial/sources/claude-code/src/utils/messages.ts",
+        "line": 3728
+      },
+      {
+        "label": "原研究笔记 · 索引过滤与召回",
+        "path": "claude-code-internals/notes/cc-prompt-assembly.md",
+        "line": 259
+      },
+      {
+        "label": "335 行对照稿 · 各版本差异",
+        "path": "harness-fusion-tutorial/学习笔记/s10-prompt-cache与系统提示词组装-作业对照源码与旧笔记.md",
+        "line": 228
+      },
+      {
+        "label": "作业 · s10 没有记忆辅助调用",
+        "path": "harness-fusion-tutorial/learn-claude-code-homework-2026-11-23/s10_system_prompt/HOMEWORK.zh.md",
+        "line": 36
+      }
+    ]
+  },
+  {
+    "point": 2,
+    "title": "本地 [cache hit] 究竟省了什么？",
+    "question": "context 的键顺序换了、值没变；随后在索引里追加一行。两次还会打印相同的标记吗？",
+    "tutorial": "get_system_prompt 对整个 context 用 sort_keys=True 的 JSON 作键，只记最近一个键和字符串。键顺序改变而值相同可命中；记忆文本增加，即使段名仍相同，也会重拼。命中后每次 API 调用仍照常发送 system、messages、tools。",
+    "snapshot": "快照把普通动态段的计算结果按段名放入会话内缓存。memory 在这个机制中会复用结果，压缩后的清理路径会清除段缓存。这样可以省本地重复计算；模型服务端读了多少缓存是另一个观测。",
+    "oldNote": "原研究笔记区分了段的记忆化和 API 层前缀断点。335 行对照稿与作业还保留了两个实用反例：context 改变但输出字符串相同，和 A、B 交替导致单项缓存不断重算。",
+    "check": "预测 A→B→A→A 四次标记，再比对各次实际发出的 system 文本。哪一次证明了本地复用？还缺什么才能判断服务端也命中？",
+    "refs": [
+      {
+        "label": "教学 · 缓存键与输出",
+        "path": "harness-fusion-tutorial/sources/learn-claude-code/s10_system_prompt/code.py",
+        "line": 81
+      },
+      {
+        "label": "教学 · 命中后仍发送 system",
+        "path": "harness-fusion-tutorial/sources/learn-claude-code/s10_system_prompt/code.py",
+        "line": 176
+      },
+      {
+        "label": "快照 · 分段复用与重新计算",
+        "path": "harness-fusion-tutorial/sources/claude-code/src/constants/systemPromptSections.ts",
+        "line": 50
+      },
+      {
+        "label": "快照 · 压缩收尾清理",
+        "path": "harness-fusion-tutorial/sources/claude-code/src/services/compact/postCompactCleanup.ts",
+        "line": 62
+      },
+      {
+        "label": "原研究笔记 · 本地和服务端两层",
+        "path": "claude-code-internals/notes/cc-prompt-assembly.md",
+        "line": 186
+      },
+      {
+        "label": "335 行对照稿 · 单项缓存反例",
+        "path": "harness-fusion-tutorial/学习笔记/s10-prompt-cache与系统提示词组装-作业对照源码与旧笔记.md",
+        "line": 55
+      },
+      {
+        "label": "作业 · 三项离线核对",
+        "path": "harness-fusion-tutorial/learn-claude-code-homework-2026-11-23/s10_system_prompt/HOMEWORK.zh.md",
+        "line": 171
+      },
+      {
+        "label": "作业 · 两种命中",
+        "path": "harness-fusion-tutorial/learn-claude-code-homework-2026-11-23/s10_system_prompt/CACHE-HIT.zh.md",
+        "line": 17
+      }
+    ]
+  },
+  {
+    "point": 2,
+    "title": "静态边界、动态尾部和 API 的缓存断点",
+    "question": "为什么 system 的末段在变，较早的静态前缀仍可能复用？",
+    "tutorial": "s10 把各段用两个换行连成一个字符串，请求里不放 cache_control。可借它识别哪些文字稳定、哪些随记忆变化；实际服务端会如何分块无法从那一行日志确定。",
+    "snapshot": "默认系统提示把静态部分排在前面，可在全局缓存策略开启时放内部边界，再接动态段。请求构造器移除内部边界并将文本转成块。走全局边界分支时，静态合并块为 global，动态尾部本身不打标；缺边界或跳过全局策略时走另一种 org 范围的切块。只有 enablePromptCaching 且块的 cacheScope 非空才写标记。",
+    "oldNote": "原研究笔记列出 global、org、null 三种内部取值，335 行对照稿第 194 行进一步限定 MCP 分支的条件。哪一块自己带标记，与哪一块落入后一个断点覆盖的前缀，是两种不同的判断。",
+    "check": "分别画“静态块断点”和“后来消息上的断点”。若只改动态尾部，哪一个断点之前的输入仍相同？哪些后续前缀不能再直接按原内容匹配？",
+    "refs": [
+      {
+        "label": "教学 · 返回单个字符串",
+        "path": "harness-fusion-tutorial/sources/learn-claude-code/s10_system_prompt/code.py",
+        "line": 64
+      },
+      {
+        "label": "快照 · 内部边界与动态尾部",
+        "path": "harness-fusion-tutorial/sources/claude-code/src/constants/prompts.ts",
+        "line": 573
+      },
+      {
+        "label": "快照 · MCP 筛选条件",
+        "path": "harness-fusion-tutorial/sources/claude-code/src/services/api/claude.ts",
+        "line": 1212
+      },
+      {
+        "label": "快照 · 分块分支",
+        "path": "harness-fusion-tutorial/sources/claude-code/src/utils/api.ts",
+        "line": 362
+      },
+      {
+        "label": "快照 · 默认或回退块",
+        "path": "harness-fusion-tutorial/sources/claude-code/src/utils/api.ts",
+        "line": 429
+      },
+      {
+        "label": "快照 · 有条件写标记",
+        "path": "harness-fusion-tutorial/sources/claude-code/src/services/api/claude.ts",
+        "line": 3228
+      },
+      {
+        "label": "原研究笔记 · 分块表",
+        "path": "claude-code-internals/notes/cc-prompt-assembly.md",
+        "line": 304
+      },
+      {
+        "label": "335 行对照稿 · MCP 条件要读调用点",
+        "path": "harness-fusion-tutorial/学习笔记/s10-prompt-cache与系统提示词组装-作业对照源码与旧笔记.md",
+        "line": 194
+      },
+      {
+        "label": "作业 · 源码中的三层",
+        "path": "harness-fusion-tutorial/learn-claude-code-homework-2026-11-23/s10_system_prompt/CACHE-HIT.zh.md",
+        "line": 29
+      }
+    ]
+  },
+  {
+    "point": 2,
+    "title": "最后一个工具和最后一条消息一定有标记吗？",
+    "question": "源码注释提到工具末尾的标记，可以据此画成每次请求都固定有三个断点吗？",
+    "tutorial": "s10 的工具定义只有说明和参数，主请求没有传缓存标记。课程里的分块示意图可以帮助理解工具区与消息区，不能代替一次实际请求。",
+    "snapshot": "toolToAPISchema 支持可选 cacheControl，显式传入才写 schema.cache_control。普通工具转换调用可见 deferLoading，未见它传 cacheControl；后面的注释虽提到工具标记，仍不足以证明最后工具必带标记。消息侧选择一个候选位置，通常为最后一条，skipCacheWrite 时改选倒数第二条；是否在内容块落标，还取决于缓存开关和块类型。",
+    "oldNote": "原研究笔记第 317 行把最后一个工具画成固定带标记。335 行对照稿第 175 行已按调用点收窄了这个结论。对读时把“支持这个字段”“这条调用路径传了它”“实际请求中看见它”分别核验。",
+    "check": "先读工具转换函数的入参，再读它的调用点，最后查实际请求里哪些具体 block 带 cache_control。若只有注释，哪一个断点要留作待证？",
+    "refs": [
+      {
+        "label": "教学 · 工具表",
+        "path": "harness-fusion-tutorial/sources/learn-claude-code/s10_system_prompt/code.py",
+        "line": 134
+      },
+      {
+        "label": "快照 · 工具标记有显式条件",
+        "path": "harness-fusion-tutorial/sources/claude-code/src/utils/api.ts",
+        "line": 228
+      },
+      {
+        "label": "快照 · 普通工具转换实参",
+        "path": "harness-fusion-tutorial/sources/claude-code/src/services/api/claude.ts",
+        "line": 1237
+      },
+      {
+        "label": "快照 · 提到标记的注释",
+        "path": "harness-fusion-tutorial/sources/claude-code/src/services/api/claude.ts",
+        "line": 1388
+      },
+      {
+        "label": "快照 · 消息候选断点",
+        "path": "harness-fusion-tutorial/sources/claude-code/src/services/api/claude.ts",
+        "line": 3089
+      },
+      {
+        "label": "快照 · 消息内容块的标记条件",
+        "path": "harness-fusion-tutorial/sources/claude-code/src/services/api/claude.ts",
+        "line": 661
+      },
+      {
+        "label": "原研究笔记 · 最后工具的表述",
+        "path": "claude-code-internals/notes/cc-prompt-assembly.md",
+        "line": 317
+      },
+      {
+        "label": "335 行对照稿 · 三处标记的表述",
+        "path": "harness-fusion-tutorial/学习笔记/s10-prompt-cache与系统提示词组装-作业对照源码与旧笔记.md",
+        "line": 175
+      },
+      {
+        "label": "作业 · 对照源码说明",
+        "path": "harness-fusion-tutorial/learn-claude-code-homework-2026-11-23/s10_system_prompt/CACHE-HIT.zh.md",
+        "line": 29
+      }
+    ]
+  },
+  {
+    "point": 2,
+    "title": "从组装成功到实际命中，还缺哪份记录？",
+    "question": "两次都打印 [cache hit]，模型也都用中文回答。可以推断第二次省了多少输入 token 吗？",
+    "tutorial": "两个现象分别说明 Python 复用了字符串、模型给出了中文回答。本章没有记录请求响应的 usage。作业里的假模型可以复现读文件和字符串组装的时机，不能测出真实服务端的缓存读写。",
+    "snapshot": "快照的响应处理能读取 usage.cache_read_input_tokens 和 usage.cache_creation_input_tokens。前者是本次从缓存读取的数量，后者是新写入的数量；输入正文是否重复只是解释这些观测的一项条件。",
+    "oldNote": "335 行对照稿将作业、快照与旧笔记分开，并说明示范跑没有复现全部输出语言变化。原研究笔记还指出 transcript 可省略请求组装时插入的元消息，所以回看聊天记录也不足以复原完整请求前缀。",
+    "check": "同一组运行要配对保存请求字段与返回 usage，再解释为何读数变化；如果手边只有终端打印，把结论止于本地组装缓存。",
+    "refs": [
+      {
+        "label": "教学 · 本地打印位置",
+        "path": "harness-fusion-tutorial/sources/learn-claude-code/s10_system_prompt/code.py",
+        "line": 83
+      },
+      {
+        "label": "教学 · 唯一请求入口",
+        "path": "harness-fusion-tutorial/sources/learn-claude-code/s10_system_prompt/code.py",
+        "line": 176
+      },
+      {
+        "label": "快照 · 响应的缓存读写用量",
+        "path": "harness-fusion-tutorial/sources/claude-code/src/services/api/claude.ts",
+        "line": 2386
+      },
+      {
+        "label": "快照 · 读与写分项换算",
+        "path": "harness-fusion-tutorial/sources/claude-code/src/utils/modelCost.ts",
+        "line": 135
+      },
+      {
+        "label": "原研究笔记 · transcript 的证据边界",
+        "path": "claude-code-internals/notes/cc-prompt-assembly.md",
+        "line": 421
+      },
+      {
+        "label": "335 行对照稿 · 实跑与示范的差异",
+        "path": "harness-fusion-tutorial/学习笔记/s10-prompt-cache与系统提示词组装-作业对照源码与旧笔记.md",
+        "line": 58
+      },
+      {
+        "label": "作业 · 看哪个响应字段",
+        "path": "harness-fusion-tutorial/learn-claude-code-homework-2026-11-23/s10_system_prompt/CACHE-HIT.zh.md",
+        "line": 24
+      }
+    ]
+  }
+]

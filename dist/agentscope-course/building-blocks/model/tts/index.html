@@ -1,0 +1,381 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>语音合成 · AgentScope</title><link rel="stylesheet" href="/agentscope-course/reader.css"><script defer src="/agentscope-course/reader.js"></script></head><body><header class="mast"><a href="/agentscope-course/">AgentScope <small>中文文档</small></a><span>v2.0.12</span><button id="catalog" aria-controls="outline" aria-expanded="false">目录</button></header><div class="layout"><nav id="outline" aria-label="AgentScope 文档目录"><div class="group">快速开始</div><a href="/agentscope-course/" >AgentScope 2.0 是什么？</a><a href="/agentscope-course/quickstart/" >快速开始</a><a href="/agentscope-course/release-notes/" >更新日志</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/message-and-event/" >消息与事件</a><div class="group">核心模块 / 智能体</div><a href="/agentscope-course/building-blocks/agent/overview/" >智能体 · 概述</a><a href="/agentscope-course/building-blocks/agent/configure-agent/" >配置智能体</a><a href="/agentscope-course/building-blocks/agent/run-agent/" >运行智能体</a><a href="/agentscope-course/building-blocks/agent/interrupt-agent/" >中断智能体</a><a href="/agentscope-course/building-blocks/agent/human-in-the-loop/" >人机交互</a><div class="group">核心模块 / 模型</div><a href="/agentscope-course/building-blocks/model/overview/" >模型 · 概述</a><a href="/agentscope-course/building-blocks/model/llm/" >大语言模型</a><a href="/agentscope-course/building-blocks/model/tts/" aria-current="page">语音合成</a><a href="/agentscope-course/building-blocks/model/asr/" >语音识别</a><a href="/agentscope-course/building-blocks/model/embedding/" >嵌入模型</a><div class="group">核心模块 / 上下文管理</div><a href="/agentscope-course/building-blocks/context/overview/" >上下文管理 · 概述</a><a href="/agentscope-course/building-blocks/context/environment-awareness/" >感知环境</a><a href="/agentscope-course/building-blocks/context/compress-context/" >压缩上下文</a><a href="/agentscope-course/building-blocks/context/offload-context/" >卸载上下文</a><div class="group">核心模块 / 工具</div><a href="/agentscope-course/building-blocks/tool/overview/" >工具 · 概述</a><a href="/agentscope-course/building-blocks/tool/python-tool/" >Python 函数工具</a><a href="/agentscope-course/building-blocks/tool/mcp/" >MCP</a><a href="/agentscope-course/building-blocks/tool/skill/" >Skill</a><a href="/agentscope-course/building-blocks/tool/manage-tools/" >元工具</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/plan/" >计划模式</a><div class="group">核心模块 / 流水线</div><a href="/agentscope-course/building-blocks/pipeline/overview/" >流水线 · 概述</a><a href="/agentscope-course/building-blocks/pipeline/goal/" >目标流水线</a><a href="/agentscope-course/building-blocks/pipeline/team/" >团队流水线</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/sop/" >标准作业流程</a><div class="group">核心模块 / 权限系统</div><a href="/agentscope-course/building-blocks/permission-system/overview/" >权限系统 · 概述</a><a href="/agentscope-course/building-blocks/permission-system/permission-mode/" >权限模式</a><a href="/agentscope-course/building-blocks/permission-system/permission-rule/" >权限规则</a><a href="/agentscope-course/building-blocks/permission-system/tool-check/" >工具内置检查</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/middleware/" >中间件</a><a href="/agentscope-course/building-blocks/rag/" >RAG</a><a href="/agentscope-course/building-blocks/long-term-memory/" >长期记忆</a><div class="group">核心模块 / 工作区</div><a href="/agentscope-course/building-blocks/workspace/overview/" >工作区 · 概述</a><a href="/agentscope-course/building-blocks/workspace/run-workspace/" >运行工作区</a><a href="/agentscope-course/building-blocks/workspace/manage-resources/" >管理资源</a><a href="/agentscope-course/building-blocks/workspace/mcp-gateway/" >MCP 网关</a><div class="group">核心模块 / 实时语音智能体</div><a href="/agentscope-course/building-blocks/realtime/overview/" >实时语音智能体 · 概述</a><a href="/agentscope-course/building-blocks/realtime/speech-to-speech/" >语音到语音</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/console/" >终端 UI</a><a href="/agentscope-course/building-blocks/a2a/" >A2A 协议</a><div class="group">智能体即服务</div><a href="/agentscope-course/deploy/agent-service/" >架构</a><a href="/agentscope-course/deploy/agent-team/" >智能体团队</a><a href="/agentscope-course/deploy/sop/" >SOP 服务</a><a href="/agentscope-course/deploy/sharing/" >资源共享</a><a href="/agentscope-course/deploy/rag/" >RAG 服务</a><a href="/agentscope-course/deploy/workspace-manager/" >工作区管理</a><div class="group">智能体即服务 / MCP 与技能中心</div><a href="/agentscope-course/deploy/hub/overview/" >MCP 与技能中心 · 概览</a><a href="/agentscope-course/deploy/hub/mcp-hub/" >MCP 中心</a><a href="/agentscope-course/deploy/hub/skill-hub/" >技能中心</a><div class="group">智能体即服务 / 消息渠道</div><a href="/agentscope-course/deploy/channel/overview/" >消息渠道 · 概览</a><a href="/agentscope-course/deploy/channel/routing/" >会话路由</a><a href="/agentscope-course/deploy/channel/feishu/" >飞书</a><a href="/agentscope-course/deploy/channel/dingtalk/" >钉钉</a><a href="/agentscope-course/deploy/channel/discord/" >Discord</a><a href="/agentscope-course/deploy/channel/custom/" >自定义渠道</a><div class="group">其他</div><a href="/agentscope-course/others/faq/" >常见问题</a><a href="/agentscope-course/others/change-log/" >版本迁移</a><div class="group">智能体即服务 / API</div><a href="/agentscope-course/api/">API 参考</a></nav><main><div class="context">核心模块 / 模型</div><article class="prose-custom" id="content"><h1>语音合成</h1><p class="dek">将文本转换为语音，支持标准与实时两种合成模式</p><p>语音合成模型（TTS）将文本转换为合成语音音频，支持标准模式和实时（流式输入）合成模式。AgentScope 当前提供以下模型类：</p>
+<table><thead><tr><th>模型 API</th><th>模型类</th><th>说明</th></tr></thead><tbody><tr><td>OpenAI</td><td><code>OpenAITTSModel</code></td><td>tts-1、tts-1-hd、gpt-4o-mini-tts；多种音色；可配置输出格式（mp3、wav、opus 等）</td></tr><tr><td>Gemini</td><td><code>GeminiTTSModel</code></td><td>Gemini 2.5 preview 与 Gemini 3.8 Flash / Flash-Lite TTS；按模型选择音色，支持流式输出</td></tr><tr><td>MiniMax</td><td><code>MiniMaxTTSModel</code></td><td>speech-01、speech-02、speech-2.6、speech-2.8；完整文本输入，可选流式输出</td></tr><tr><td>DashScope</td><td><code>DashScopeTTSModel</code></td><td>Qwen3-TTS，多种音色，流式输出</td></tr><tr><td>DashScope (Realtime)</td><td><code>DashScopeRealtimeTTSModel</code></td><td>Qwen3-TTS WebSocket 流式输入，适合对接大语言模型的流式输出</td></tr><tr><td>DashScope (CosyVoice)</td><td><code>DashScopeCosyVoiceTTSModel</code></td><td>CosyVoice-v3，支持标准与实时（流式输入）两种模式；cosyvoice-v3-flash/plus</td></tr></tbody></table>
+<h2 id="minimax-与-gemini-38">MiniMax 与 Gemini 3.8</h2>
+<p><code>MiniMaxTTSModel</code> 使用 <code>MiniMaxCredential</code>，默认模型为
+<code>speech-2.8-hd</code>，接收完整文本并支持流式输出：</p>
+<div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">import asyncio
+import os
+
+from agentscope.credential import MiniMaxCredential
+from agentscope.tts import MiniMaxTTSModel
+
+
+async def main() -&gt; None:
+    tts = MiniMaxTTSModel(
+        credential=MiniMaxCredential(
+            api_key=os.environ[&quot;MINIMAX_API_KEY&quot;],
+        ),
+        model=&quot;speech-2.8-hd&quot;,
+        stream=False,
+    )
+    # Use the same synthesize interface as other TTS models.
+    response = await tts.synthesize(&quot;Welcome to AgentScope.&quot;)
+    print(response.content)
+
+
+asyncio.run(main())
+</code></pre></div>
+<p><code>GeminiTTSModel</code> 还支持 <code>gemini-3.8-flash-tts</code> 和
+<code>gemini-3.8-flash-lite-tts</code>。可用音色和控制参数以所选模型卡片的参数 schema 为准。</p>
+<h2 id="克隆并复用音色">克隆并复用音色</h2>
+<p><code>agentscope.tts</code> 导出 <code>DashScopeVoiceCloningClient</code> 和
+<code>OpenAIVoiceCloningClient</code>。两者的 <code>create_voice()</code> 方法返回模型 API 的音色 ID，
+无需依赖智能体服务。</p>
+<p>DashScope 需要设置 <code>Parameters(target_model=...)</code>。Qwen 模型接收音频字节和文件名，
+CosyVoice 则要求公开可访问的 <code>audio_url</code>。合成时复用相同凭证与目标模型，
+将返回的 ID 作为 <code>Parameters(voice=voice_id)</code> 传入。</p>
+<p>OpenAI 需要先通过 <code>create_consent()</code> 上传说话者授权录音，再将授权 ID 放入
+<code>Parameters(name=..., consent=...)</code>，并传入样本音频字节调用 <code>create_voice()</code>。
+支持自定义音色的 <code>OpenAITTSModel</code> 使用 <code>voice={&quot;id&quot;: voice_id}</code>。</p>
+<p><a href="/agentscope-course/deploy/agent-service/#%E9%9F%B3%E8%89%B2%E6%A1%A3%E6%A1%88">智能体服务</a>
+提供音色档案持久化，以及可用引擎发现、音色克隆和授权录音接口。</p>
+<h2 id="创建模型">创建模型</h2>
+<p>每个模型接收一个凭证、一个模型名，以及可选的 API 专属 <code>Parameters</code> 对象。下面的 tab 分别展示标准和实时两类初始化场景：</p>
+<div class="tab-set" data-tab-set=""><div class="tab-list" role="group" aria-label="代码示例"><button type="button" data-choice="0" aria-pressed="true">OpenAI</button><button type="button" data-choice="1" aria-pressed="false">Gemini</button><button type="button" data-choice="2" aria-pressed="false">标准模式</button><button type="button" data-choice="3" aria-pressed="false">实时模式（Qwen3 流式输入）</button><button type="button" data-choice="4" aria-pressed="false">标准模式（CosyVoice）</button><button type="button" data-choice="5" aria-pressed="false">实时模式（CosyVoice 流式输入）</button></div><div data-panel="0"><div class="code-example"><div class="code-bar"><span>OpenAI</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="OpenAI" data-lang="python">import os
+from agentscope.tts import OpenAITTSModel
+from agentscope.credential import OpenAICredential
+
+tts = OpenAITTSModel(
+    credential=OpenAICredential(api_key=os.environ[&quot;OPENAI_API_KEY&quot;]),
+    model=&quot;tts-1&quot;,
+    parameters=OpenAITTSModel.Parameters(voice=&quot;alloy&quot;, response_format=&quot;mp3&quot;),
+    stream=True,
+)
+</code></pre></div></div><div data-panel="1" hidden=""><div class="code-example"><div class="code-bar"><span>Gemini</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="Gemini" data-lang="python">import os
+from agentscope.tts import GeminiTTSModel
+from agentscope.credential import GeminiCredential
+
+tts = GeminiTTSModel(
+    credential=GeminiCredential(api_key=os.environ[&quot;GEMINI_API_KEY&quot;]),
+    model=&quot;gemini-2.5-flash-preview-tts&quot;,
+    parameters=GeminiTTSModel.Parameters(voice=&quot;Kore&quot;),
+    stream=True,
+)
+</code></pre></div></div><div data-panel="2" hidden=""><div class="code-example"><div class="code-bar"><span>标准模式</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="标准模式" data-lang="python">import os
+from agentscope.tts import DashScopeTTSModel
+from agentscope.credential import DashScopeCredential
+
+tts = DashScopeTTSModel(
+    credential=DashScopeCredential(api_key=os.environ[&quot;DASHSCOPE_API_KEY&quot;]),
+    model=&quot;qwen3-tts-flash&quot;,
+    parameters=DashScopeTTSModel.Parameters(voice=&quot;Cherry&quot;),
+    stream=True,
+)
+</code></pre></div></div><div data-panel="3" hidden=""><div class="code-example"><div class="code-bar"><span>实时模式（Qwen3 流式输入）</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="实时模式（Qwen3 流式输入）" data-lang="python">import os
+from agentscope.tts import DashScopeRealtimeTTSModel
+from agentscope.credential import DashScopeCredential
+
+tts = DashScopeRealtimeTTSModel(
+    credential=DashScopeCredential(api_key=os.environ[&quot;DASHSCOPE_API_KEY&quot;]),
+    model=&quot;qwen3-tts-flash-realtime&quot;,
+    parameters=DashScopeRealtimeTTSModel.Parameters(voice=&quot;Serena&quot;),
+    stream=True,
+)
+</code></pre></div></div><div data-panel="4" hidden=""><div class="code-example"><div class="code-bar"><span>标准模式（CosyVoice）</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="标准模式（CosyVoice）" data-lang="python">import os
+from agentscope.tts import DashScopeCosyVoiceTTSModel
+from agentscope.credential import DashScopeCredential
+
+tts = DashScopeCosyVoiceTTSModel(
+    credential=DashScopeCredential(api_key=os.environ[&quot;DASHSCOPE_API_KEY&quot;]),
+    model=&quot;cosyvoice-v3-flash&quot;,
+    parameters=DashScopeCosyVoiceTTSModel.Parameters(voice=&quot;longanhuan&quot;),
+    stream=True,
+)
+</code></pre></div></div><div data-panel="5" hidden=""><div class="code-example"><div class="code-bar"><span>实时模式（CosyVoice 流式输入）</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="实时模式（CosyVoice 流式输入）" data-lang="python">import os
+from agentscope.tts import DashScopeCosyVoiceTTSModel
+from agentscope.credential import DashScopeCredential
+
+tts = DashScopeCosyVoiceTTSModel(
+    credential=DashScopeCredential(api_key=os.environ[&quot;DASHSCOPE_API_KEY&quot;]),
+    model=&quot;cosyvoice-v3-flash&quot;,
+    parameters=DashScopeCosyVoiceTTSModel.Parameters(voice=&quot;longanhuan&quot;, realtime=True),
+    stream=True,
+)
+</code></pre></div></div></div>
+<p>所有语音合成模型通用的构造参数：</p>
+<table><thead><tr><th>参数</th><th>类型</th><th>说明</th></tr></thead><tbody><tr><td><code>credential</code></td><td><code>CredentialBase</code></td><td>API 专属凭证</td></tr><tr><td><code>model</code></td><td><code>str</code></td><td>模型标识符（如 <code>&quot;qwen3-tts-flash&quot;</code>）</td></tr><tr><td><code>parameters</code></td><td><code>Parameters | None</code></td><td>API 专属参数，如 <code>voice</code></td></tr><tr><td><code>stream</code></td><td><code>bool</code></td><td>是否流式输出音频</td></tr></tbody></table>
+<p><code>DashScopeRealtimeTTSModel</code> 和 <code>DashScopeCosyVoiceTTSModel</code>（实时模式）的额外参数：</p>
+<table><thead><tr><th>参数</th><th>类型</th><th>默认值</th><th>说明</th></tr></thead><tbody><tr><td><code>cold_start_length</code></td><td><code>int | None</code></td><td><code>None</code></td><td>首次向 API 发送前的最小字符数</td></tr><tr><td><code>cold_start_words</code></td><td><code>int | None</code></td><td><code>None</code></td><td>首次发送前的最小词数</td></tr><tr><td><code>max_retries</code></td><td><code>int</code></td><td><code>3</code></td><td>WebSocket 失败最大重试次数</td></tr><tr><td><code>retry_delay</code></td><td><code>float</code></td><td><code>5.0</code></td><td>初始重试延迟（秒，指数退避）</td></tr></tbody></table>
+<h2 id="调用模型">调用模型</h2>
+<p>通过 <code>synthesize()</code> 方法合成语音：</p>
+<div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">async def synthesize(
+    self,
+    text: str | None = None,
+    **kwargs: Any,
+) -&gt; TTSResponse | AsyncGenerator[TTSResponse, None]:
+</code></pre></div>
+<p>返回类型取决于 <code>stream</code> 设置：</p>
+<ul>
+<li><strong><code>stream=False</code></strong>：返回单个 <code>TTSResponse</code>，包含完整音频。</li>
+<li><strong><code>stream=True</code></strong>：返回 <code>AsyncGenerator[TTSResponse, None]</code>，每个 chunk 携带增量音频；最后一个 chunk 的 <code>is_last=True</code>。</li>
+</ul>
+<p>每个 <code>TTSResponse</code> 包含：</p>
+<table><thead><tr><th>字段</th><th>类型</th><th>说明</th></tr></thead><tbody><tr><td><code>content</code></td><td><code>DataBlock | None</code></td><td>音频数据，格式由 <code>content.source.media_type</code> 指示（如 <code>&quot;audio/wav&quot;</code>、<code>&quot;audio/pcm;rate=24000&quot;</code>）</td></tr><tr><td><code>is_last</code></td><td><code>bool</code></td><td>是否为流式最后一个 chunk</td></tr><tr><td><code>usage</code></td><td><code>TTSUsage | None</code></td><td>token 统计（<code>input_tokens</code>、<code>output_tokens</code>）和耗时 <code>time</code>（秒）</td></tr><tr><td><code>id</code></td><td><code>str</code></td><td>自动生成的唯一标识</td></tr><tr><td><code>metadata</code></td><td><code>dict | None</code></td><td>可选的 API 专属元数据</td></tr></tbody></table>
+<div class="tab-set" data-tab-set=""><div class="tab-list" role="group" aria-label="代码示例"><button type="button" data-choice="0" aria-pressed="true">OpenAI</button><button type="button" data-choice="1" aria-pressed="false">Gemini</button><button type="button" data-choice="2" aria-pressed="false">DashScope</button></div><div data-panel="0"><div class="code-example"><div class="code-bar"><span>OpenAI</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="OpenAI" data-lang="python">import asyncio
+import os
+from agentscope.tts import OpenAITTSModel
+from agentscope.credential import OpenAICredential
+
+async def main():
+    tts = OpenAITTSModel(
+        credential=OpenAICredential(api_key=os.environ[&quot;OPENAI_API_KEY&quot;]),
+        model=&quot;tts-1&quot;,
+        parameters=OpenAITTSModel.Parameters(voice=&quot;alloy&quot;),
+        stream=True,
+    )
+
+    async for chunk in await tts.synthesize(&quot;你好，世界！&quot;):
+        if chunk.content:
+            # chunk.content 是包含 base64 编码 audio/mpeg 数据的 DataBlock
+            print(f&quot;音频 chunk: {len(chunk.content.source.data)} bytes&quot;)
+
+asyncio.run(main())
+</code></pre></div></div><div data-panel="1" hidden=""><div class="code-example"><div class="code-bar"><span>Gemini</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="Gemini" data-lang="python">import asyncio
+import os
+from agentscope.tts import GeminiTTSModel
+from agentscope.credential import GeminiCredential
+
+async def main():
+    tts = GeminiTTSModel(
+        credential=GeminiCredential(api_key=os.environ[&quot;GEMINI_API_KEY&quot;]),
+        model=&quot;gemini-2.5-flash-preview-tts&quot;,
+        parameters=GeminiTTSModel.Parameters(voice=&quot;Kore&quot;),
+        stream=True,
+    )
+
+    async for chunk in await tts.synthesize(&quot;你好，世界！&quot;):
+        if chunk.content:
+            # chunk.content 是包含 base64 编码 audio/wav 数据的 DataBlock
+            print(f&quot;音频 chunk: {len(chunk.content.source.data)} bytes&quot;)
+
+asyncio.run(main())
+</code></pre></div></div><div data-panel="2" hidden=""><div class="code-example"><div class="code-bar"><span>DashScope</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="DashScope" data-lang="python">import asyncio
+import os
+from agentscope.tts import DashScopeTTSModel
+from agentscope.credential import DashScopeCredential
+
+async def main():
+    tts = DashScopeTTSModel(
+        credential=DashScopeCredential(api_key=os.environ[&quot;DASHSCOPE_API_KEY&quot;]),
+        model=&quot;qwen3-tts-flash&quot;,
+        parameters=DashScopeTTSModel.Parameters(voice=&quot;Cherry&quot;),
+        stream=True,
+    )
+
+    # 流式合成
+    async for chunk in await tts.synthesize(&quot;你好，世界！&quot;):
+        if chunk.content:
+            # chunk.content 是包含 base64 编码 audio/wav 数据的 DataBlock
+            print(f&quot;音频 chunk: {len(chunk.content.source.data)} bytes&quot;)
+
+asyncio.run(main())
+</code></pre></div></div></div>
+<h2 id="实时合成流式输入">实时合成（流式输入）</h2>
+<p>实时模型（<code>DashScopeRealtimeTTSModel</code> 和 <code>realtime=True</code> 的 <code>DashScopeCosyVoiceTTSModel</code>）支持增量推送文本，典型场景是对接大语言模型的流式输出。两者共享相同的 <code>push()</code> / <code>synthesize()</code> 接口，通过 <code>async with</code> 或手动调用 <code>connect()</code> / <code>close()</code> 管理生命周期：</p>
+<aside class="notice note"><strong>说明</strong><p><code>DashScopeRealtimeTTSModel</code>（Qwen3）以 token 级别粒度产出音频，每次 <code>push()</code> 通常都能返回音频数据。而 <code>realtime=True</code> 的 <code>DashScopeCosyVoiceTTSModel</code> 依赖 CosyVoice 服务端自动分句后才进行合成，音频只在检测到完整句子边界后才返回，因此 <code>push()</code> 对不完整的句子可能返回空响应。调用 <code>synthesize()</code> 会强制合成所有剩余文本（包括未完成的句子）。</p></aside>
+<div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">import asyncio
+import os
+from agentscope.tts import DashScopeRealtimeTTSModel
+from agentscope.credential import DashScopeCredential
+
+async def main():
+    tts = DashScopeRealtimeTTSModel(
+        credential=DashScopeCredential(api_key=os.environ[&quot;DASHSCOPE_API_KEY&quot;]),
+        model=&quot;qwen3-tts-flash-realtime&quot;,
+        parameters=DashScopeRealtimeTTSModel.Parameters(voice=&quot;Cherry&quot;),
+        stream=True,
+    )
+
+    async with tts:
+        # 增量推送文本，每次 push() 返回当前已可用的音频
+        # （尚无音频时 content=None）
+        resp1 = await tts.push(&quot;你好，&quot;)
+        if resp1.content:
+            print(&quot;第一次 push 后有音频&quot;)
+
+        resp2 = await tts.push(&quot;今天过得怎么样？&quot;)
+        if resp2.content:
+            print(&quot;第二次 push 后有音频&quot;)
+
+        # 结束：刷新剩余缓冲文本并收集最终音频。
+        # text= 可选：传入则先追加再结束；
+        # 不传则只结束之前 push 的文本。
+        response = await tts.synthesize()
+
+asyncio.run(main())
+</code></pre></div>
+<p>实时模式的生命周期方法：</p>
+<table><thead><tr><th>方法</th><th>说明</th></tr></thead><tbody><tr><td><code>connect()</code></td><td>打开 WebSocket 连接</td></tr><tr><td><code>push(text)</code></td><td>增量追加文本（非阻塞），返回当前已可用的音频</td></tr><tr><td><code>synthesize()</code></td><td>结束合成，返回剩余音频</td></tr><tr><td><code>close()</code></td><td>断开连接</td></tr></tbody></table>
+<h2 id="与智能体集成">与智能体集成</h2>
+<p>在智能体层，语音合成通过 <a href="/agentscope-course/building-blocks/middleware/#语音生成"><code>TTSMiddleware</code></a> 集成，它会拦截智能体的文本输出并自动合成语音：</p>
+<div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">from agentscope.agent import Agent
+from agentscope.middleware import TTSMiddleware
+from agentscope.tts import DashScopeTTSModel
+from agentscope.credential import DashScopeCredential
+
+agent = Agent(
+    name=&quot;assistant&quot;,
+    model=chat_model,
+    middlewares=[
+        TTSMiddleware(
+            DashScopeTTSModel(
+                credential=DashScopeCredential(api_key=&quot;...&quot;),
+                model=&quot;qwen3-tts-flash&quot;,
+                parameters=DashScopeTTSModel.Parameters(voice=&quot;Cherry&quot;),
+                stream=True,
+            ),
+        ),
+    ],
+)
+
+# 智能体的回复流中同时包含文本和音频事件
+async for event in agent.reply_stream(user_msg):
+    # TextBlockDeltaEvent：文本内容
+    # DataBlockDeltaEvent：音频内容（WAV）
+    ...
+</code></pre></div>
+<p>中间件会根据模型类型自动选择最优合成策略：</p>
+<table><thead><tr><th>模型类型</th><th>中间件行为</th></tr></thead><tbody><tr><td>标准模式</td><td>等待完整文本生成后一次性合成</td></tr><tr><td>实时模式</td><td>随文本增量到达实时推送，并发流式返回音频</td></tr></tbody></table>
+<h2 id="tts-模型卡片">TTS 模型卡片</h2>
+<p><code>TTSModelCard</code> 描述语音合成模型的能力（可用音色、流式支持与参数范围），其 schema 与覆盖机制与通用的<a href="/agentscope-course/building-blocks/model/overview/#%E5%89%8D%E7%AB%AF%E9%9B%86%E6%88%90">模型卡片</a>一致。每张卡片由模型实现旁的 YAML 文件定义，下面的 tab 分别展示各模型 API 的一张卡片：</p>
+<div class="tab-set" data-tab-set=""><div class="tab-list" role="group" aria-label="代码示例"><button type="button" data-choice="0" aria-pressed="true">OpenAI TTS-1</button><button type="button" data-choice="1" aria-pressed="false">Gemini TTS</button><button type="button" data-choice="2" aria-pressed="false">Qwen3 TTS</button><button type="button" data-choice="3" aria-pressed="false">CosyVoice</button></div><div data-panel="0"><div class="code-example"><div class="code-bar"><span>OpenAI TTS-1</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-yaml" data-caption="OpenAI TTS-1" data-lang="yaml">name: tts-1
+label: TTS-1
+status: active
+input_types:
+  - text/plain
+output_types:
+  - audio/mpeg
+  - audio/opus
+  - audio/aac
+  - audio/flac
+  - audio/wav
+  - audio/pcm
+voices:
+  - alloy
+  - ash
+  - ballad
+  - coral
+  - echo
+  - fable
+  - onyx
+  - nova
+  - sage
+  - shimmer
+  - verse
+parameter_overrides:
+  instructions:
+    hidden: true
+</code></pre></div></div><div data-panel="1" hidden=""><div class="code-example"><div class="code-bar"><span>Gemini TTS</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-yaml" data-caption="Gemini TTS" data-lang="yaml">name: gemini-2.5-flash-preview-tts
+label: Gemini 2.5 Flash Preview TTS
+status: active
+input_types:
+  - text/plain
+output_types:
+  - audio/wav
+voices:
+  - Zephyr
+  - Puck
+  - Charon
+  - Kore
+  - Fenrir
+  - Leda
+  - Orus
+  - Aoede
+parameter_overrides: {}
+</code></pre></div></div><div data-panel="2" hidden=""><div class="code-example"><div class="code-bar"><span>Qwen3 TTS</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-yaml" data-caption="Qwen3 TTS" data-lang="yaml">name: qwen3-tts-flash
+label: Qwen3-TTS-Flash
+status: active
+input_types:
+  - text/plain
+output_types:
+  - audio/wav
+voices:
+  - Cherry
+  - Serena
+  - Ethan
+  - Chelsie
+parameter_overrides: {}
+</code></pre></div></div><div data-panel="3" hidden=""><div class="code-example"><div class="code-bar"><span>CosyVoice</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-yaml" data-caption="CosyVoice" data-lang="yaml">name: cosyvoice-v3-flash
+label: CosyVoice-v3-Flash
+status: active
+input_types:
+  - text/plain
+output_types:
+  - audio/wav
+voices:
+  - longanhuan
+  - longanyang
+  - longhuhu_v3
+  - longyingmu_v3
+  - longxiaochun_v3
+  - longxiaoxia_v3
+  - longlaotie_v3
+  - longshuo_v3
+  - longshu_v3
+parameter_overrides: {}
+</code></pre></div></div></div>
+<p><code>voices</code> 列表会自动作为 <code>voice</code> 字段的 enum 约束注入 <code>parameter_schema</code>，前端据此渲染下拉选择器。</p>
+<table><thead><tr><th>字段</th><th>类型</th><th>说明</th></tr></thead><tbody><tr><td><code>name</code></td><td><code>str</code></td><td>模型标识符（如 <code>&quot;qwen3-tts-flash&quot;</code>）</td></tr><tr><td><code>label</code></td><td><code>str</code></td><td>显示名称（如 <code>&quot;Qwen3-TTS-Flash&quot;</code>）</td></tr><tr><td><code>status</code></td><td><code>str</code></td><td><code>&quot;active&quot;</code>、<code>&quot;deprecated&quot;</code> 或 <code>&quot;sunset&quot;</code></td></tr><tr><td><code>realtime</code></td><td><code>bool</code></td><td>是否支持流式输入</td></tr><tr><td><code>input_types</code></td><td><code>list[str]</code></td><td>接受的输入 MIME 类型（固定 <code>[&quot;text/plain&quot;]</code>）</td></tr><tr><td><code>output_types</code></td><td><code>list[str]</code></td><td>输出 MIME 类型（通常 <code>[&quot;audio/wav&quot;]</code>）</td></tr><tr><td><code>parameter_schema</code></td><td><code>dict</code></td><td>合并后的 JSON Schema：基于 <code>Parameters</code> 类生成，并注入 YAML 中的 <code>voices</code> enum</td></tr><tr><td><code>parameters_overrides</code></td><td><code>dict</code></td><td>逐模型覆盖（语法与 Chat 模型卡片一致）</td></tr></tbody></table>
+<p>通过凭证获取语音合成模型卡片：</p>
+<div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">from agentscope.credential import DashScopeCredential, GeminiCredential
+
+cards = DashScopeCredential.list_tts_models()
+for card in cards:
+    print(f&quot;{card.name} (realtime={card.realtime}): {card.label}&quot;)
+
+# Gemini TTS 模型卡片
+gemini_cards = GeminiCredential.list_tts_models()
+</code></pre></div>
+<p>或直接通过模型类：</p>
+<div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">from agentscope.tts import OpenAITTSModel, GeminiTTSModel, DashScopeTTSModel, DashScopeCosyVoiceTTSModel
+
+# OpenAI TTS 模型
+openai_cards = OpenAITTSModel.list_models()
+
+# Gemini TTS 模型
+gemini_cards = GeminiTTSModel.list_models()
+
+# Qwen3 TTS 模型
+cards = DashScopeTTSModel.list_models()
+
+# CosyVoice 模型
+cosyvoice_cards = DashScopeCosyVoiceTTSModel.list_models()
+</code></pre></div>
+<h2 id="自定义模型-api">自定义模型 API</h2>
+<p>接入新的语音合成 API，需实现 <code>TTSModelBase</code> 子类并在凭证上注册：</p>
+<div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">from typing import Literal, Type, TYPE_CHECKING, AsyncGenerator, Any
+from pydantic import BaseModel, Field
+from agentscope.tts import TTSModelBase, TTSResponse
+from agentscope.credential import CredentialBase
+
+if TYPE_CHECKING:
+    from agentscope.tts import TTSModelBase as TTSBase
+
+class MyTTSModel(TTSModelBase):
+    class Parameters(BaseModel):
+        voice: str = Field(default=&quot;default&quot;, title=&quot;Voice&quot;)
+
+    type: Literal[&quot;my_tts&quot;] = &quot;my_tts&quot;
+
+    async def synthesize(
+        self, text: str | None = None, **kwargs: Any
+    ) -&gt; TTSResponse | AsyncGenerator[TTSResponse, None]:
+        # 调用你的模型 API
+        ...
+
+# 在凭证上注册
+class MyCredential(CredentialBase):
+    @classmethod
+    def get_tts_model_classes(cls) -&gt; list[Type[&quot;TTSBase&quot;]]:
+        return [MyTTSModel]
+</code></pre></div></article><footer><div class="paging"><a href="/agentscope-course/building-blocks/model/llm/">上一节 · 大语言模型</a><a href="/agentscope-course/building-blocks/model/asr/">下一节 · 语音识别</a></div><div class="credits"><a href="https://docs.agentscope.io/zh/versions/2.0.12/building-blocks/model/tts" target="_blank" rel="noopener">在线原页</a> · <a href="/agentscope-course/mdx/building-blocks/model/tts.mdx">原始 MDX</a> · <a href="https://github.com/agentscope-ai/docs/blob/e0ee835d1aca5d2b840d29bdd2f70770bbef69e8/zh/versions/2.0.12/building-blocks/model/tts.mdx" target="_blank" rel="noopener">固定版本来源</a> · <a href="/agentscope-course/LICENSE.txt">MIT 许可</a></div></footer></main></div></body></html>

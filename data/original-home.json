@@ -1,0 +1,110 @@
+{
+  "hermes": {
+    "title": "Hermes · 消息列表",
+    "entry": "AIAgent.run_conversation 进入单轮循环。模型消息带 tool_calls 时，run_tool_round 准备工具执行。",
+    "growth": "执行器用原 tool_call_id 生成一条工具结果，追加到 messages。下一步重新组装 api_messages，模型才有机会读取结果并解释。",
+    "stop": "无工具调用时进入文字收尾路径。正常收尾通过后退出本轮，某些停止检查也能要求继续。",
+    "refs": [
+      {
+        "label": "循环分流",
+        "path": "agent/conversation_loop.py",
+        "line": 1762,
+        "url": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/agent/conversation_loop.py#L1762"
+      },
+      {
+        "label": "构造带 ID 的结果",
+        "path": "agent/tool_executor.py",
+        "line": 1164,
+        "url": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/agent/tool_executor.py#L1164"
+      },
+      {
+        "label": "追加消息",
+        "path": "agent/tool_executor.py",
+        "line": 1181,
+        "url": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/agent/tool_executor.py#L1181"
+      },
+      {
+        "label": "组装下次请求",
+        "path": "agent/turn_request_assembly.py",
+        "line": 300,
+        "url": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/agent/turn_request_assembly.py#L300"
+      },
+      {
+        "label": "正常收尾",
+        "path": "agent/turn_final_response.py",
+        "line": 417,
+        "url": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/agent/turn_final_response.py#L417"
+      }
+    ]
+  },
+  "dsh": {
+    "title": "dsh · 会话事件",
+    "entry": "运行中 Agent 的 turn 驱动 step。一个模型步骤产出助手消息，step 从消息中筛出 tool-call 块，交给 executeToolCalls。",
+    "growth": "tool/call 保存 callId；tool/result 携带同一 ID，并用 sourceEventSeqs 指回调用事件。下一步用 session.deriveMessages() 将当前事件投影为模型消息。",
+    "stop": "没有工具调用时 step 返回 completed。工具也可以显式结束本轮；其他普通工具返回后进入下一步。turn/end 另存结束原因。",
+    "refs": [
+      {
+        "label": "处理模型与工具",
+        "path": "packages/core/agent-loop/src/agent.ts",
+        "line": 487,
+        "url": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/core/agent-loop/src/agent.ts#L487"
+      },
+      {
+        "label": "调用与结果配对",
+        "path": "packages/core/agent-loop/src/tool-calls.ts",
+        "line": 269,
+        "url": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/core/agent-loop/src/tool-calls.ts#L269"
+      },
+      {
+        "label": "读出模型消息",
+        "path": "packages/core/agent-loop/src/agent.ts",
+        "line": 605,
+        "url": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/core/agent-loop/src/agent.ts#L605"
+      },
+      {
+        "label": "记录结束原因",
+        "path": "packages/core/agent-loop/src/agent.ts",
+        "line": 340,
+        "url": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/core/agent-loop/src/agent.ts#L340"
+      }
+    ]
+  },
+  "agentscope": {
+    "title": "AgentScope · 状态和事件",
+    "entry": "Agent.reply_stream 面向观察者发出事件，Agent.reply 消费同类回复流程并返回消息。内部 _next_action 选择推理、执行工具或退出。",
+    "growth": "执行后把保留的 ToolResultBlock 写入 Agent.state.context，按原 tool_call.id 将调用标记 FINISHED，再发出结果结束事件。下次请求从 context 读取消息。",
+    "stop": "普通文字回答完成时 _next_action 返回 Exit。等待外部确认也能退出当前回复流程，须检查 finished_reason 和待确认的工具状态。",
+    "refs": [
+      {
+        "label": "流式入口",
+        "path": "src/agentscope/agent/_agent.py",
+        "line": 279,
+        "url": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/agent/_agent.py#L279"
+      },
+      {
+        "label": "写回结果与调用状态",
+        "path": "src/agentscope/agent/_agent.py",
+        "line": 2738,
+        "url": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/agent/_agent.py#L2738"
+      },
+      {
+        "label": "构造下次模型输入",
+        "path": "src/agentscope/agent/_agent.py",
+        "line": 3355,
+        "url": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/agent/_agent.py#L3355"
+      },
+      {
+        "label": "等待确认与可执行工具",
+        "path": "src/agentscope/agent/_agent.py",
+        "line": 3657,
+        "url": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/agent/_agent.py#L3657"
+      },
+      {
+        "label": "文字回答退出",
+        "path": "src/agentscope/agent/_agent.py",
+        "line": 3816,
+        "url": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/agent/_agent.py#L3816"
+      }
+    ]
+  }
+}

@@ -1,0 +1,122 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>权限模式 · AgentScope</title><link rel="stylesheet" href="/agentscope-course/reader.css"><script defer src="/agentscope-course/reader.js"></script></head><body><header class="mast"><a href="/agentscope-course/">AgentScope <small>中文文档</small></a><span>v2.0.12</span><button id="catalog" aria-controls="outline" aria-expanded="false">目录</button></header><div class="layout"><nav id="outline" aria-label="AgentScope 文档目录"><div class="group">快速开始</div><a href="/agentscope-course/" >AgentScope 2.0 是什么？</a><a href="/agentscope-course/quickstart/" >快速开始</a><a href="/agentscope-course/release-notes/" >更新日志</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/message-and-event/" >消息与事件</a><div class="group">核心模块 / 智能体</div><a href="/agentscope-course/building-blocks/agent/overview/" >智能体 · 概述</a><a href="/agentscope-course/building-blocks/agent/configure-agent/" >配置智能体</a><a href="/agentscope-course/building-blocks/agent/run-agent/" >运行智能体</a><a href="/agentscope-course/building-blocks/agent/interrupt-agent/" >中断智能体</a><a href="/agentscope-course/building-blocks/agent/human-in-the-loop/" >人机交互</a><div class="group">核心模块 / 模型</div><a href="/agentscope-course/building-blocks/model/overview/" >模型 · 概述</a><a href="/agentscope-course/building-blocks/model/llm/" >大语言模型</a><a href="/agentscope-course/building-blocks/model/tts/" >语音合成</a><a href="/agentscope-course/building-blocks/model/asr/" >语音识别</a><a href="/agentscope-course/building-blocks/model/embedding/" >嵌入模型</a><div class="group">核心模块 / 上下文管理</div><a href="/agentscope-course/building-blocks/context/overview/" >上下文管理 · 概述</a><a href="/agentscope-course/building-blocks/context/environment-awareness/" >感知环境</a><a href="/agentscope-course/building-blocks/context/compress-context/" >压缩上下文</a><a href="/agentscope-course/building-blocks/context/offload-context/" >卸载上下文</a><div class="group">核心模块 / 工具</div><a href="/agentscope-course/building-blocks/tool/overview/" >工具 · 概述</a><a href="/agentscope-course/building-blocks/tool/python-tool/" >Python 函数工具</a><a href="/agentscope-course/building-blocks/tool/mcp/" >MCP</a><a href="/agentscope-course/building-blocks/tool/skill/" >Skill</a><a href="/agentscope-course/building-blocks/tool/manage-tools/" >元工具</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/plan/" >计划模式</a><div class="group">核心模块 / 流水线</div><a href="/agentscope-course/building-blocks/pipeline/overview/" >流水线 · 概述</a><a href="/agentscope-course/building-blocks/pipeline/goal/" >目标流水线</a><a href="/agentscope-course/building-blocks/pipeline/team/" >团队流水线</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/sop/" >标准作业流程</a><div class="group">核心模块 / 权限系统</div><a href="/agentscope-course/building-blocks/permission-system/overview/" >权限系统 · 概述</a><a href="/agentscope-course/building-blocks/permission-system/permission-mode/" aria-current="page">权限模式</a><a href="/agentscope-course/building-blocks/permission-system/permission-rule/" >权限规则</a><a href="/agentscope-course/building-blocks/permission-system/tool-check/" >工具内置检查</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/middleware/" >中间件</a><a href="/agentscope-course/building-blocks/rag/" >RAG</a><a href="/agentscope-course/building-blocks/long-term-memory/" >长期记忆</a><div class="group">核心模块 / 工作区</div><a href="/agentscope-course/building-blocks/workspace/overview/" >工作区 · 概述</a><a href="/agentscope-course/building-blocks/workspace/run-workspace/" >运行工作区</a><a href="/agentscope-course/building-blocks/workspace/manage-resources/" >管理资源</a><a href="/agentscope-course/building-blocks/workspace/mcp-gateway/" >MCP 网关</a><div class="group">核心模块 / 实时语音智能体</div><a href="/agentscope-course/building-blocks/realtime/overview/" >实时语音智能体 · 概述</a><a href="/agentscope-course/building-blocks/realtime/speech-to-speech/" >语音到语音</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/console/" >终端 UI</a><a href="/agentscope-course/building-blocks/a2a/" >A2A 协议</a><div class="group">智能体即服务</div><a href="/agentscope-course/deploy/agent-service/" >架构</a><a href="/agentscope-course/deploy/agent-team/" >智能体团队</a><a href="/agentscope-course/deploy/sop/" >SOP 服务</a><a href="/agentscope-course/deploy/sharing/" >资源共享</a><a href="/agentscope-course/deploy/rag/" >RAG 服务</a><a href="/agentscope-course/deploy/workspace-manager/" >工作区管理</a><div class="group">智能体即服务 / MCP 与技能中心</div><a href="/agentscope-course/deploy/hub/overview/" >MCP 与技能中心 · 概览</a><a href="/agentscope-course/deploy/hub/mcp-hub/" >MCP 中心</a><a href="/agentscope-course/deploy/hub/skill-hub/" >技能中心</a><div class="group">智能体即服务 / 消息渠道</div><a href="/agentscope-course/deploy/channel/overview/" >消息渠道 · 概览</a><a href="/agentscope-course/deploy/channel/routing/" >会话路由</a><a href="/agentscope-course/deploy/channel/feishu/" >飞书</a><a href="/agentscope-course/deploy/channel/dingtalk/" >钉钉</a><a href="/agentscope-course/deploy/channel/discord/" >Discord</a><a href="/agentscope-course/deploy/channel/custom/" >自定义渠道</a><div class="group">其他</div><a href="/agentscope-course/others/faq/" >常见问题</a><a href="/agentscope-course/others/change-log/" >版本迁移</a><div class="group">智能体即服务 / API</div><a href="/agentscope-course/api/">API 参考</a></nav><main><div class="context">核心模块 / 权限系统</div><article class="prose-custom" id="content"><h1>权限模式</h1><p class="dek">根据智能体的部署方式选择合适的全局策略</p><link rel="preload" as="image" href="/agentscope-course/diagrams/diagram-4cf95486b01198.svg"/><link rel="preload" as="image" href="/agentscope-course/diagrams/diagram-a114567a401736.svg"/><link rel="preload" as="image" href="/agentscope-course/diagrams/diagram-bc1a9e2a3dfe2e.svg"/><link rel="preload" as="image" href="/agentscope-course/diagrams/diagram-90ec2ec1561bc4.svg"/><link rel="preload" as="image" href="/agentscope-course/diagrams/diagram-e82af256c12dfa.svg"/><p>权限模式是每次工具调用决策背后的全局策略：它决定哪些决策点生效，以及无人裁决的调用如何收尾。AgentScope 支持五种模式，分别适配不同的部署场景：</p>
+<table><thead><tr><th>模式</th><th>行为</th><th>适用场景</th></tr></thead><tbody><tr><td><code>DEFAULT</code></td><td>只读调用自动放行（<code>Read</code> / <code>Glob</code> / <code>Grep</code>，以及 <code>ls</code>、<code>git status</code>、<code>cat</code> 等只读 Bash 命令）；其余操作在没有允许规则命中时都会询问用户。安全 ASK 无法被允许规则覆盖</td><td>最安全，推荐默认值</td></tr><tr><td><code>ACCEPT_EDITS</code></td><td><code>DEFAULT</code> 放行的一切，<strong>外加</strong>工作目录内的编辑操作无需询问即自动放行：对已配置工作目录下文件的 <code>Write</code> / <code>Edit</code>，以及<strong>所有目标路径都在工作目录内</strong>的 Bash 文件系统命令（<code>mkdir</code>/<code>touch</code>/<code>rm</code>/<code>cp</code>/<code>mv</code>/<code>sed</code>）</td><td>用户在场的活跃开发</td></tr><tr><td><code>EXPLORE</code></td><td>放行只读操作，拒绝任何修改。不咨询允许规则与工具的安全检查：只读保证不会被规则放行掉。用户配置的拒绝/询问规则仍然优先于只读自动放行</td><td>代码探索、规划</td></tr><tr><td><code>BYPASS</code></td><td>完全信任：拒绝/询问规则与工具返回的 DENY 仍然生效，但<strong>工具的安全 ASK 会被跳过</strong>（<code>rm -rf /</code>、写入 <code>~/.bashrc</code>、命令注入等都会放行），其余一切均放行。请用拒绝规则保护特定路径</td><td>沙箱环境或完全可信的运行</td></tr><tr><td><code>DONT_ASK</code></td><td><code>ACCEPT_EDITS</code> 的无人值守版本：只读自动放行、工作目录内编辑自动放行，但任何原本会询问（不在场的）用户的操作都被转为 <strong>DENY</strong>。永不返回 ASK</td><td>无人值守 / 计划任务</td></tr></tbody></table>
+<h2 id="设置模式">设置模式</h2>
+<p>可以在创建智能体时通过 <code>AgentState.permission_context</code> 设置模式，也可以在运行时切换：</p>
+<div class="tab-set" data-tab-set=""><div class="tab-list" role="group" aria-label="代码示例"><button type="button" data-choice="0" aria-pressed="true">初始化时配置</button><button type="button" data-choice="1" aria-pressed="false">运行时切换</button><button type="button" data-choice="2" aria-pressed="false">ACCEPT_EDITS 配合工作目录</button></div><div data-panel="0"><div class="code-example"><div class="code-bar"><span>初始化时配置</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="初始化时配置" data-lang="python">from agentscope.agent import Agent
+from agentscope.state import AgentState
+from agentscope.permission import PermissionContext, PermissionMode
+
+agent = Agent(
+    name=&quot;my_agent&quot;,
+    system_prompt=&quot;...&quot;,
+    model=model,
+    state=AgentState(
+        permission_context=PermissionContext(
+            mode=PermissionMode.DEFAULT,
+        )
+    ),
+)
+</code></pre></div></div><div data-panel="1" hidden=""><div class="code-example"><div class="code-bar"><span>运行时切换</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="运行时切换" data-lang="python"># 切换到只读模式
+agent.state.permission_context.mode = PermissionMode.EXPLORE
+
+# 切换到无人值守模式以执行批处理
+agent.state.permission_context.mode = PermissionMode.DONT_ASK
+</code></pre></div></div><div data-panel="2" hidden=""><div class="code-example"><div class="code-bar"><span>ACCEPT_EDITS 配合工作目录</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="ACCEPT_EDITS 配合工作目录" data-lang="python">from agentscope.permission import AdditionalWorkingDirectory
+
+agent = Agent(
+    name=&quot;my_agent&quot;,
+    system_prompt=&quot;...&quot;,
+    model=model,
+    state=AgentState(
+        permission_context=PermissionContext(
+            mode=PermissionMode.ACCEPT_EDITS,
+            working_directories={
+                &quot;/my/project&quot;: AdditionalWorkingDirectory(
+                    path=&quot;/my/project&quot;,
+                    source=&quot;userSettings&quot;,
+                )
+            },
+        )
+    ),
+)
+</code></pre></div></div></div>
+<h2 id="各模式的决策流程">各模式的决策流程</h2>
+<p>每种模式都沿<a href="/agentscope-course/building-blocks/permission-system/overview/#%E5%86%B3%E7%AD%96%E7%9F%A9%E9%98%B5">决策矩阵</a>中的决策点依次评估；下面的流程图把每种模式展开为完整的决策流程。ASK 结果会触发用户确认；如果用户接受自动生成的建议规则，规则会被持久化以供后续调用使用。</p>
+<div class="tab-set" data-tab-set=""><div class="tab-list" role="group" aria-label="文档标签"><button type="button" data-choice="0" aria-pressed="true">DEFAULT</button><button type="button" data-choice="1" aria-pressed="false">EXPLORE</button><button type="button" data-choice="2" aria-pressed="false">ACCEPT_EDITS</button><button type="button" data-choice="3" aria-pressed="false">BYPASS</button><button type="button" data-choice="4" aria-pressed="false">DONT_ASK</button></div><div data-panel="0"><div class="mdx-group"><figure class="diagram"><img src="/agentscope-course/diagrams/diagram-4cf95486b01198.svg" alt="本节流程图"/><details><summary>查看流程图原文</summary><pre><code class="language-mermaid" data-caption="mermaid" data-lang="mermaid">flowchart TD
+    A([工具调用]) --&gt; D1{命中拒绝规则?}
+    D1 --&gt;|是| DENY([DENY])
+    D1 --&gt;|否| D2{命中询问规则?}
+    D2 --&gt;|是| ASK([ASK])
+    D2 --&gt;|否| D3{check_read_only?}
+    D3 --&gt;|True| ALLOW([ALLOW])
+    D3 --&gt;|False| D4[工具 check_permissions]
+    D4 --&gt;|ALLOW| ALLOW
+    D4 --&gt;|DENY| DENY
+    D4 --&gt;|&quot;安全 ASK (bypass_immune)&quot;| ASK
+    D4 --&gt;|PASSTHROUGH / 普通 ASK| D5{命中允许规则?}
+    D5 --&gt;|是| ALLOW
+    D5 --&gt;|否| ASK
+    style DENY fill:#ff6b6b,color:#fff
+    style ALLOW fill:#51cf66,color:#fff
+    style ASK fill:#ffd43b,color:#333
+</code></pre></details></figure></div></div><div data-panel="1" hidden=""><div class="mdx-group"><figure class="diagram"><img src="/agentscope-course/diagrams/diagram-a114567a401736.svg" alt="本节流程图"/><details><summary>查看流程图原文</summary><pre><code class="language-mermaid" data-caption="mermaid" data-lang="mermaid">flowchart TD
+    A([工具调用]) --&gt; E1{命中拒绝规则?}
+    E1 --&gt;|是| DENY([DENY])
+    E1 --&gt;|否| E2{命中询问规则?}
+    E2 --&gt;|是| ASK([ASK])
+    E2 --&gt;|否| E3{check_read_only?}
+    E3 --&gt;|True| ALLOW([ALLOW])
+    E3 --&gt;|False| DENY
+    style DENY fill:#ff6b6b,color:#fff
+    style ALLOW fill:#51cf66,color:#fff
+    style ASK fill:#ffd43b,color:#333
+</code></pre></details></figure></div></div><div data-panel="2" hidden=""><div class="mdx-group"><figure class="diagram"><img src="/agentscope-course/diagrams/diagram-bc1a9e2a3dfe2e.svg" alt="本节流程图"/><details><summary>查看流程图原文</summary><pre><code class="language-mermaid" data-caption="mermaid" data-lang="mermaid">flowchart TD
+    A([工具调用]) --&gt; AE1{命中拒绝规则?}
+    AE1 --&gt;|是| DENY([DENY])
+    AE1 --&gt;|否| AE2{命中询问规则?}
+    AE2 --&gt;|是| ASK([ASK])
+    AE2 --&gt;|否| AE3{check_read_only?}
+    AE3 --&gt;|True| ALLOW([ALLOW])
+    AE3 --&gt;|False| AE4[工具 check_permissions]
+    AE4 --&gt;|ALLOW| ALLOW
+    AE4 --&gt;|DENY| DENY
+    AE4 --&gt;|&quot;安全 ASK (bypass_immune)&quot;| ASK
+    AE4 --&gt;|PASSTHROUGH / 普通 ASK| AE5{命中允许规则?}
+    AE5 --&gt;|是| ALLOW
+    AE5 --&gt;|否| ASK
+    style DENY fill:#ff6b6b,color:#fff
+    style ALLOW fill:#51cf66,color:#fff
+    style ASK fill:#ffd43b,color:#333
+</code></pre></details></figure></div></div><div data-panel="3" hidden=""><div class="mdx-group"><figure class="diagram"><img src="/agentscope-course/diagrams/diagram-90ec2ec1561bc4.svg" alt="本节流程图"/><details><summary>查看流程图原文</summary><pre><code class="language-mermaid" data-caption="mermaid" data-lang="mermaid">flowchart TD
+    A([工具调用]) --&gt; B1{命中拒绝规则?}
+    B1 --&gt;|是| DENY([DENY])
+    B1 --&gt;|否| B2{命中询问规则?}
+    B2 --&gt;|是| ASK([ASK])
+    B2 --&gt;|否| B3{check_read_only?}
+    B3 --&gt;|True| ALLOW([ALLOW])
+    B3 --&gt;|False| B4[工具 check_permissions]
+    B4 --&gt;|ALLOW| ALLOW
+    B4 --&gt;|DENY| DENY
+    B4 --&gt;|&quot;任何 ASK (安全 ASK 被跳过) / PASSTHROUGH&quot;| B5{命中允许规则?}
+    B5 --&gt;|是或否| ALLOW
+    style DENY fill:#ff6b6b,color:#fff
+    style ALLOW fill:#51cf66,color:#fff
+    style ASK fill:#ffd43b,color:#333
+</code></pre></details></figure></div></div><div data-panel="4" hidden=""><div class="mdx-group"><figure class="diagram"><img src="/agentscope-course/diagrams/diagram-e82af256c12dfa.svg" alt="本节流程图"/><details><summary>查看流程图原文</summary><pre><code class="language-mermaid" data-caption="mermaid" data-lang="mermaid">flowchart TD
+    A([工具调用]) --&gt; DA1{命中拒绝规则?}
+    DA1 --&gt;|是| DENY([DENY])
+    DA1 --&gt;|否| DA2{命中询问规则?}
+    DA2 --&gt;|是| DENY
+    DA2 --&gt;|否| DA3{check_read_only?}
+    DA3 --&gt;|True| ALLOW([ALLOW])
+    DA3 --&gt;|False| DA4[工具 check_permissions]
+    DA4 --&gt;|ALLOW| ALLOW
+    DA4 --&gt;|DENY| DENY
+    DA4 --&gt;|&quot;任何 ASK (含安全 ASK)&quot;| DENY
+    DA4 --&gt;|PASSTHROUGH| DA5{命中允许规则?}
+    DA5 --&gt;|是| ALLOW
+    DA5 --&gt;|否| DENY
+    style DENY fill:#ff6b6b,color:#fff
+    style ALLOW fill:#51cf66,color:#fff
+</code></pre></details></figure></div></div></div>
+<aside class="notice note"><strong>说明</strong><p><strong>拒绝规则</strong>与<strong>显式询问规则</strong>在每种模式下都始终生效（包括 <code>BYPASS</code>）。</p><p><strong>工具发出的安全 ASK</strong>（<code>bypass_immune=True</code>）在 <code>DEFAULT</code>、<code>ACCEPT_EDITS</code>、<code>DONT_ASK</code> 下被尊重，允许规则无法将其静默。<code>BYPASS</code> 模式按设计跳过：BYPASS 的语义是「用户已主动放弃安全提示，只剩拒绝/询问规则作为护栏」。详见<a href="/agentscope-course/building-blocks/permission-system/tool-check/#%E5%AE%89%E5%85%A8%E6%A3%80%E6%9F%A5%E5%A5%91%E7%BA%A6">安全检查契约</a>。</p></aside></article><footer><div class="paging"><a href="/agentscope-course/building-blocks/permission-system/overview/">上一节 · 权限系统 · 概述</a><a href="/agentscope-course/building-blocks/permission-system/permission-rule/">下一节 · 权限规则</a></div><div class="credits"><a href="https://docs.agentscope.io/zh/versions/2.0.12/building-blocks/permission-system/permission-mode" target="_blank" rel="noopener">在线原页</a> · <a href="/agentscope-course/mdx/building-blocks/permission-system/permission-mode.mdx">原始 MDX</a> · <a href="https://github.com/agentscope-ai/docs/blob/e0ee835d1aca5d2b840d29bdd2f70770bbef69e8/zh/versions/2.0.12/building-blocks/permission-system/permission-mode.mdx" target="_blank" rel="noopener">固定版本来源</a> · <a href="/agentscope-course/LICENSE.txt">MIT 许可</a></div></footer></main></div></body></html>

@@ -1,0 +1,714 @@
+{
+  "index": [
+    {
+      "label": "全栈能力，生产级打磨",
+      "needle": "全栈能力，生产级打磨",
+      "topic": "s20",
+      "crosswalk": null,
+      "question": "从本地 Agent 扩展到服务时，哪些职责转移给外层？",
+      "detail": "先在本页定位智能体、工具包与工作区，再沿服务入口核对多租户及会话管理的职责。"
+    }
+  ],
+  "quickstart": [
+    {
+      "label": "第一个智能体",
+      "needle": "第一个智能体",
+      "topic": "s01",
+      "crosswalk": 1,
+      "question": "等待最终回复和逐步观察推理过程应分别调用哪个入口？",
+      "detail": "同一个 Agent 接收 UserMsg。reply 返回最后的消息，reply_stream 逐项产生事件；工具开始事件出现在最终消息之前。"
+    }
+  ],
+  "release-notes": [
+    {
+      "label": "v2.0.12",
+      "needle": "v2.0.12",
+      "topic": null,
+      "crosswalk": null,
+      "question": "正在阅读的 API 行为属于哪个发布版本？",
+      "detail": "按版本标题检查本次修复，再沿发布链接查更完整的提交记录。"
+    }
+  ],
+  "building-blocks/message-and-event": [
+    {
+      "label": "从事件流重建消息",
+      "needle": "从事件流重建消息",
+      "topic": "s01",
+      "crosswalk": 2,
+      "question": "上层如何把一串增量事件还原成完整回复？",
+      "detail": "每个事件通过 append_event 追加到消息对象。工具请求和结果的配对还需要查看对应内容块与事件携带的标识。"
+    }
+  ],
+  "building-blocks/agent/overview": [
+    {
+      "label": "主循环",
+      "needle": "主循环",
+      "topic": "s01",
+      "crosswalk": 1,
+      "question": "什么时候推理、执行工具、暂停或结束？",
+      "detail": "主循环图把等待外部事件单列为出口。阅读图中各条边，可以区分等待确认和已经生成最终消息。"
+    }
+  ],
+  "building-blocks/agent/configure-agent": [
+    {
+      "label": "参数说明",
+      "needle": "参数说明",
+      "topic": "s10",
+      "crosswalk": 1,
+      "question": "哪些能力在构造 Agent 时注入？",
+      "detail": "沿参数表检查 system_prompt、model、toolkit 和各配置对象；再到上下文一节查看它们如何参与单次请求。"
+    }
+  ],
+  "building-blocks/agent/run-agent": [
+    {
+      "label": "观察消息",
+      "needle": "观察消息",
+      "topic": "s01",
+      "crosswalk": 2,
+      "question": "只把信息加入上下文时会触发一次模型调用吗？",
+      "detail": "比较 observe 与 reply。前者更新可供后续推理读取的上下文，后者才驱动本轮回复。"
+    },
+    {
+      "label": "持久化状态",
+      "needle": "持久化状态",
+      "topic": "s12",
+      "crosswalk": 1,
+      "question": "进程外保存的是什么，恢复时又装回哪里？",
+      "detail": "对照本节导出与装载状态的示例。任务信息能否跨运行保留，还取决于应用是否保存并重新装载这份状态。"
+    }
+  ],
+  "building-blocks/agent/interrupt-agent": [
+    {
+      "label": "asyncio.CancelledError",
+      "needle": "asyncio.CancelledError",
+      "topic": "s11",
+      "crosswalk": null,
+      "question": "使用者中断回复后，怎样继续对话？",
+      "detail": "运行中的协程可通过取消进入中断分支；下一次输入使用保留下来的上下文。调用者主动取消和模型服务瞬时失败走不同路径。"
+    }
+  ],
+  "building-blocks/agent/human-in-the-loop": [
+    {
+      "label": "用户确认",
+      "needle": "用户确认",
+      "topic": "s03",
+      "crosswalk": 2,
+      "question": "怎样区分正在等待批准与会话已结束？",
+      "detail": "ASK 触发确认事件，应用把结果事件递回 reply 或 reply_stream 恢复执行。等待提示的 finished_reason 为 None。"
+    },
+    {
+      "label": "外部工具执行",
+      "needle": "外部工具执行",
+      "topic": "s02",
+      "crosswalk": 1,
+      "question": "工具函数在外部执行时，由谁把结果送回来？",
+      "detail": "查找外部工具的请求与结果事件，在客户端执行和服务端恢复之间追踪同一次调用。"
+    }
+  ],
+  "building-blocks/model/overview": [
+    {
+      "label": "前端集成",
+      "needle": "前端集成",
+      "topic": null,
+      "crosswalk": null,
+      "question": "应用如何知道当前模型后端支持哪些能力？",
+      "detail": "先看模型族、凭证与前端集成示例，再决定界面可以向用户暴露哪些输入输出方式。"
+    }
+  ],
+  "building-blocks/model/llm": [
+    {
+      "label": "格式化器",
+      "needle": "格式化器",
+      "topic": "s01",
+      "crosswalk": 2,
+      "question": "框架消息如何变成模型服务接受的输入？",
+      "detail": "沿 formatter 的输入与输出看模型调用前的适配。同一工具消息在不同厂商的接口里可能有不同表示。"
+    },
+    {
+      "label": "内容块错误",
+      "needle": "内容块错误",
+      "topic": "s11",
+      "crosswalk": null,
+      "question": "一条错误如何随模型输出返回？",
+      "detail": "观察本节定义的内容块错误，再与中断模型调用一节对读。错误报告、取消和重试需要分别确认。"
+    }
+  ],
+  "building-blocks/model/tts": [
+    {
+      "label": "实时合成（流式输入）",
+      "needle": "实时合成（流式输入）",
+      "topic": null,
+      "crosswalk": null,
+      "question": "合成器何时能开始接收流式文本？",
+      "detail": "比较完整输入与增量输入的调用顺序，沿音频输出判断何时开始播放。"
+    }
+  ],
+  "building-blocks/model/asr": [
+    {
+      "label": "转写音频",
+      "needle": "转写音频",
+      "topic": null,
+      "crosswalk": null,
+      "question": "把一份音频转成可消费的文字需要哪些步骤？",
+      "detail": "对照创建识别模型、传入音频以及读取响应三步，分清模型配置与转写结果。"
+    }
+  ],
+  "building-blocks/model/embedding": [
+    {
+      "label": "嵌入缓存",
+      "needle": "嵌入缓存",
+      "topic": null,
+      "crosswalk": null,
+      "question": "重复计算同一输入的向量时在哪里复用已有结果？",
+      "detail": "先看生成向量的接口，再读缓存和自定义模型 API，区分向量计算、缓存和下游检索。"
+    }
+  ],
+  "building-blocks/context/overview": [
+    {
+      "label": "组装上下文",
+      "needle": "组装上下文",
+      "topic": "s10",
+      "crosswalk": 1,
+      "question": "一次推理实际能看到哪些消息和配置？",
+      "detail": "沿组装顺序辨认系统提示、输入消息与随运行变化的提示，再比较其保留范围。"
+    }
+  ],
+  "building-blocks/context/environment-awareness": [
+    {
+      "label": "注入机制",
+      "needle": "注入机制",
+      "topic": "s10",
+      "crosswalk": 1,
+      "question": "本轮如何知道任务进度或上下文占用？",
+      "detail": "运行时状态在推理前以 HintBlock 进入上下文。沿注入时机核对当前值与历史值的可见性。"
+    },
+    {
+      "label": "配置注入",
+      "needle": "配置注入",
+      "topic": "s05",
+      "crosswalk": 2,
+      "question": "怎样让模型看到计划状态，而不仅是读到上轮自述？",
+      "detail": "检查注入配置和计划字段；触发依据应从这些设置判断，不能假定和其他教程的提醒计数器相同。"
+    }
+  ],
+  "building-blocks/context/compress-context": [
+    {
+      "label": "自动压缩",
+      "needle": "自动压缩",
+      "topic": "s08",
+      "crosswalk": 4,
+      "question": "长上下文什么时候变成更短的摘要？",
+      "detail": "沿 ContextConfig 的阈值和保留策略阅读前后消息。手动压缩还有独立入口。"
+    },
+    {
+      "label": "截断工具结果",
+      "needle": "截断工具结果",
+      "topic": "s08",
+      "crosswalk": 2,
+      "question": "过长的单次工具输出和整个历史分别怎样处理？",
+      "detail": "本节给出工具结果的长度控制。对照消息压缩一节，定位发生变化的是一个结果还是一段历史。"
+    }
+  ],
+  "building-blocks/context/offload-context": [
+    {
+      "label": "挂载卸载器",
+      "needle": "挂载卸载器",
+      "topic": "s08",
+      "crosswalk": 3,
+      "question": "工具输出移出上下文后，通过什么引用再找到原文？",
+      "detail": "跟随 Offloader 的保存方法和返回引用，检查替代内容指向何处，再查看工作区回读路径。"
+    }
+  ],
+  "building-blocks/tool/overview": [
+    {
+      "label": "JSON Schema",
+      "needle": "JSON Schema",
+      "topic": "s02",
+      "crosswalk": 1,
+      "question": "工具以什么合同对模型可见？",
+      "detail": "工具定义通过 JSON Schema 描述输入，实际调用使用统一接口。继续读 Python 函数工具的小节可看到实现。"
+    }
+  ],
+  "building-blocks/tool/python-tool": [
+    {
+      "label": "将函数包装为工具",
+      "needle": "将函数包装为工具",
+      "topic": "s02",
+      "crosswalk": 1,
+      "question": "如何把一个 Python 函数包装为可分发的工具？",
+      "detail": "对照原函数定义、包装后的接口和注册过程，分别确认公开参数与实际运行的函数。"
+    },
+    {
+      "label": "工具中间件",
+      "needle": "工具中间件",
+      "topic": "s04",
+      "crosswalk": 2,
+      "question": "在哪一层能观察一次具体工具调用的结果？",
+      "detail": "阅读工具中间件的包装位置，把工具输入、下游执行与返回值连在同一调用中看。"
+    }
+  ],
+  "building-blocks/tool/mcp": [
+    {
+      "label": "注册 MCP 客户端",
+      "needle": "注册 MCP 客户端",
+      "topic": "s19",
+      "crosswalk": 1,
+      "question": "有状态服务需要在注册前完成什么动作？",
+      "detail": "先连接有状态 MCP 客户端，再交给 Toolkit。可见能力由服务发现结果和暴露名单共同决定。"
+    },
+    {
+      "label": "筛选暴露的工具",
+      "needle": "筛选暴露的工具",
+      "topic": "s19",
+      "crosswalk": 2,
+      "question": "怎样让工具集合只包含允许公开的远端能力？",
+      "detail": "客户端可以配置 enable_tools 或 disable_tools。本节验证暴露边界，同名工具的处理还需按原实现单独核查。"
+    }
+  ],
+  "building-blocks/tool/skill": [
+    {
+      "label": "注册 Skill",
+      "needle": "注册 Skill",
+      "topic": "s07",
+      "crosswalk": 1,
+      "question": "模型发现某项技能时已经拿到完整正文了吗？",
+      "detail": "先核对 Toolkit 的 skills_or_loaders，再查看注册后的查看器能读取什么信息。"
+    },
+    {
+      "label": "Skill 的工作方式",
+      "needle": "Skill 的工作方式",
+      "topic": "s07",
+      "crosswalk": 2,
+      "question": "技能正文通过哪次动作进入工作过程？",
+      "detail": "模型通过 Skill 查看器读取 Markdown 指令，之后调用已有工具执行相应任务。"
+    }
+  ],
+  "building-blocks/tool/manage-tools": [
+    {
+      "label": "使用元工具",
+      "needle": "使用元工具",
+      "topic": "s02",
+      "crosswalk": 1,
+      "question": "什么动作会改变本轮可用工具组？",
+      "detail": "通过 reset_tools 管理工具组的激活状态。工具已经注册与当前向模型暴露是两个可单独检查的状态。"
+    }
+  ],
+  "building-blocks/plan": [
+    {
+      "label": "使用计划工具",
+      "needle": "使用计划工具",
+      "topic": "s05",
+      "crosswalk": 1,
+      "question": "创建、查看和修改计划分别通过哪个工具？",
+      "detail": "沿 TaskCreate、TaskGet、TaskList、TaskUpdate 的调用检查同一任务对象如何发生变化。"
+    },
+    {
+      "label": "存储",
+      "needle": "存储",
+      "topic": "s12",
+      "crosswalk": 1,
+      "question": "任务状态究竟归属于哪一个对象？",
+      "detail": "任务对象位于 agent.state.tasks_context。查看字段后，再核对保存智能体状态时哪些内容持久化。"
+    }
+  ],
+  "building-blocks/pipeline/overview": [
+    {
+      "label": "统一接口",
+      "needle": "统一接口",
+      "topic": "s15",
+      "crosswalk": null,
+      "question": "多智能体流程怎样呈现为一个可消费的事件流？",
+      "detail": "比较 Pipeline 对外调用合同与各实现内部的角色顺序，分清调用者看到的合同与成员分工。"
+    }
+  ],
+  "building-blocks/pipeline/goal": [
+    {
+      "label": "运行流水线",
+      "needle": "运行流水线",
+      "topic": "s20",
+      "crosswalk": 4,
+      "question": "执行者给出结果后，哪个角色判断目标是否达成？",
+      "detail": "验证者按目标给出反馈，执行者按需返工，直到通过或达到迭代上限。"
+    }
+  ],
+  "building-blocks/pipeline/team": [
+    {
+      "label": "分派任务",
+      "needle": "分派任务",
+      "topic": "s06",
+      "crosswalk": 2,
+      "question": "成员在自己上下文完成的工作如何回到队长？",
+      "detail": "队长通过工具派发任务，成员的最终回复作为工具结果回传。返回合同可以与短生命周期的子任务对读。"
+    },
+    {
+      "label": "运行流水线",
+      "needle": "运行流水线",
+      "topic": "s15",
+      "crosswalk": 1,
+      "question": "由谁决定下一个承担工作的角色？",
+      "detail": "队长决定把任务分给哪个成员及分派次数，成员在各自上下文执行。"
+    }
+  ],
+  "building-blocks/sop": [
+    {
+      "label": "推进步骤",
+      "needle": "推进步骤",
+      "topic": "s12",
+      "crosswalk": null,
+      "question": "固定流程的下一步何时获准开始？",
+      "detail": "SOP 指定步骤及验收方式；执行者怎样完成当前步骤与流程是否准许前进是两件事。"
+    }
+  ],
+  "building-blocks/permission-system/overview": [
+    {
+      "label": "决策矩阵",
+      "needle": "决策矩阵",
+      "topic": "s03",
+      "crosswalk": 1,
+      "question": "规则、模式和工具内部判断在什么顺序给出决定？",
+      "detail": "沿模式对应的一列自上而下阅读。找到第一项实际裁决，继续检查无人裁决时的兜底。"
+    }
+  ],
+  "building-blocks/permission-system/permission-mode": [
+    {
+      "label": "各模式的决策流程",
+      "needle": "各模式的决策流程",
+      "topic": "s03",
+      "crosswalk": 1,
+      "question": "相同请求在不同全局模式下会经过哪些检查？",
+      "detail": "固定工具和参数，对照各模式的流程图，逐一指出缓解风险或询问用户的决策点。"
+    }
+  ],
+  "building-blocks/permission-system/permission-rule": [
+    {
+      "label": "配置规则",
+      "needle": "配置规则",
+      "topic": "s03",
+      "crosswalk": 1,
+      "question": "怎样表达针对特定工具和调用形状的规则？",
+      "detail": "PermissionRule 将匹配条件与 ALLOW、DENY、ASK 关联。还要结合模式和其他规则确定最终行为。"
+    }
+  ],
+  "building-blocks/permission-system/tool-check": [
+    {
+      "label": "安全检查契约",
+      "needle": "安全检查契约",
+      "topic": "s03",
+      "crosswalk": 1,
+      "question": "具体工具从真实入参中补充什么权限信息？",
+      "detail": "区分只读性判断与工具自身的权限判断。记录两者何时返回明确决定、何时交给上层。"
+    }
+  ],
+  "building-blocks/middleware": [
+    {
+      "label": "on_acting",
+      "needle": "on_acting",
+      "topic": "s04",
+      "crosswalk": 2,
+      "question": "工具执行边界和整轮回复边界分别由谁包裹？",
+      "detail": "on_acting 包裹工具执行，而 on_reply 包裹一轮完整回复；两处能拿到的返回值和作用范围不同。"
+    }
+  ],
+  "building-blocks/rag": [
+    {
+      "label": "RAG 使用",
+      "needle": "RAG 使用",
+      "topic": null,
+      "crosswalk": null,
+      "question": "从引入材料到取得检索结果，哪些模块可以单独替换？",
+      "detail": "先读模块职责，再按使用示例把输入文档、知识库与查询结果对应起来。"
+    }
+  ],
+  "building-blocks/long-term-memory": [
+    {
+      "label": "Agentic Memory",
+      "needle": "Agentic Memory",
+      "topic": "s09",
+      "crosswalk": 1,
+      "question": "智能体如何接入跨会话的信息？",
+      "detail": "比较不同长期记忆中间件向本轮上下文注入、检索和写回信息的时机。"
+    },
+    {
+      "label": "ReMe",
+      "needle": "ReMe",
+      "topic": "s09",
+      "crosswalk": 2,
+      "question": "谁从每次回复后提取值得长期保留的信息？",
+      "detail": "ReMeMiddleware 监听对话并通过 auto_memory 执行提取写回。这个路径可与模型主动调用存储工具的实现区分。"
+    }
+  ],
+  "building-blocks/workspace/overview": [
+    {
+      "label": "接口",
+      "needle": "接口",
+      "topic": "s18",
+      "crosswalk": null,
+      "question": "运行环境与资源生命周期在哪一层管理？",
+      "detail": "工作区集中管理工具运行环境、技能与 MCP 资源。这能对读隔离边界；Git 分支和三方合并要另查。"
+    }
+  ],
+  "building-blocks/workspace/run-workspace": [
+    {
+      "label": "创建工作区",
+      "needle": "创建工作区",
+      "topic": "s18",
+      "crosswalk": 1,
+      "question": "怎样让工具操作落在指定的执行环境中？",
+      "detail": "先选工作区后端再把资源交给智能体。对比共享目录与独立实例时，要先确定实际工作目录和挂载关系。"
+    }
+  ],
+  "building-blocks/workspace/manage-resources": [
+    {
+      "label": "管理 MCP 服务",
+      "needle": "管理 MCP 服务",
+      "topic": "s19",
+      "crosswalk": 1,
+      "question": "工作区运行期间添加的服务如何进入资源集合？",
+      "detail": "查看动态添加、删除与持久化，再把工作区资源和上层智能体可见能力串起来。"
+    }
+  ],
+  "building-blocks/workspace/mcp-gateway": [
+    {
+      "label": "MCP 网关",
+      "needle": "MCP 网关",
+      "topic": "s19",
+      "crosswalk": 3,
+      "question": "沙箱里的进程与主机侧工具请求如何连接？",
+      "detail": "本页沿工作区边界说明 MCP 网关。分别找出网关、沙箱内服务和使用能力的客户端。"
+    }
+  ],
+  "building-blocks/realtime/overview": [
+    {
+      "label": "实时语音智能体",
+      "needle": "实时语音智能体",
+      "topic": null,
+      "crosswalk": null,
+      "question": "实时语音入口与普通文本回复的交互合同有什么不同？",
+      "detail": "从实验性实时接口的定位读起，按链接进入语音到语音章节，确认使用的实时能力和模型。"
+    }
+  ],
+  "building-blocks/realtime/speech-to-speech": [
+    {
+      "label": "模型选择与轮次归属",
+      "needle": "模型选择与轮次归属",
+      "topic": null,
+      "crosswalk": null,
+      "question": "由哪个组件划定一次语音交互的轮次？",
+      "detail": "以同一段输入对照不同模型的轮次处理、音频传输与对应事件。"
+    }
+  ],
+  "building-blocks/console": [
+    {
+      "label": "嵌入事件渲染器",
+      "needle": "嵌入事件渲染器",
+      "topic": "s01",
+      "crosswalk": null,
+      "question": "终端如何在最终回复之前展示工具与模型的中间事件？",
+      "detail": "事件渲染器消费 reply_stream 的输出。显示动作来自渲染器，实际工具执行由内层 Agent 负责。"
+    }
+  ],
+  "building-blocks/a2a": [
+    {
+      "label": "协议转换",
+      "needle": "协议转换",
+      "topic": "s16",
+      "crosswalk": null,
+      "question": "远程智能体的通信数据如何转成框架内部事件？",
+      "detail": "沿 Agent2Agent 与本地接口之间的转换跟踪请求与结果。具体的队内消息关联和重试合同仍取决于对方实现。"
+    }
+  ],
+  "deploy/agent-service": [
+    {
+      "label": "Cron 调度",
+      "needle": "Cron 调度",
+      "topic": "s14",
+      "crosswalk": 2,
+      "question": "定时触发由哪个进程持有，如何和会话执行衔接？",
+      "detail": "服务持久化 ScheduleRecord。启用调度器的进程在启动时恢复 cron 计划，触发与向会话投递事件通过服务的运行时原语衔接。"
+    },
+    {
+      "label": "后台任务状态",
+      "needle": "后台任务状态",
+      "topic": "s13",
+      "crosswalk": 1,
+      "question": "用户在哪里看到一个已提交任务的后台状态？",
+      "detail": "沿服务层的后台任务状态与事件读取接口区分提交、执行中和取得结果。"
+    },
+    {
+      "label": "消息队列与运行中输入",
+      "needle": "消息队列与运行中输入",
+      "topic": "s20",
+      "crosswalk": 1,
+      "question": "回复运行时收到的新输入由谁保存、何时进入执行过程？",
+      "detail": "从服务的队列层进入正在运行的一轮，对照 SDK Agent 自身的推理循环。"
+    }
+  ],
+  "deploy/agent-team": [
+    {
+      "label": "职责",
+      "needle": "职责",
+      "topic": "s15",
+      "crosswalk": 1,
+      "question": "Leader 派生的 worker 拥有哪些独立资源？",
+      "detail": "每个成员是独立会话，拥有自己的状态、工作区绑定和事件流；Leader 通过团队工具管理这些成员。"
+    },
+    {
+      "label": "汇报",
+      "needle": "汇报",
+      "topic": "s15",
+      "crosswalk": 2,
+      "question": "成员向 Leader 汇报后，结果走哪条通信路径？",
+      "detail": "沿本节角色汇报流程辨认发送者、接收会话及持续工作状态。"
+    }
+  ],
+  "deploy/sop": [
+    {
+      "label": "运行流程",
+      "needle": "运行流程",
+      "topic": "s12",
+      "crosswalk": null,
+      "question": "持久保存的流程定义怎样关联一次具体运行？",
+      "detail": "比较定义与运行的接口，再检查挂起、恢复及删除作用在哪一类资源上。"
+    }
+  ],
+  "deploy/sharing": [
+    {
+      "label": "工作原理",
+      "needle": "工作原理",
+      "topic": null,
+      "crosswalk": null,
+      "question": "不同用户对同一资源的可见与编辑权怎么区分？",
+      "detail": "从所有者与共享方的视角阅读资源授权。这里讨论服务资源访问，执行工具前的权限决策另见权限系统。"
+    }
+  ],
+  "deploy/rag": [
+    {
+      "label": "运行原理",
+      "needle": "运行原理",
+      "topic": null,
+      "crosswalk": null,
+      "question": "服务如何把文档入库与后续检索分开？",
+      "detail": "根据部署形态和 REST API 追踪知识库中的资源，再定位检索请求从哪一层进入。"
+    }
+  ],
+  "deploy/workspace-manager": [
+    {
+      "label": "隔离粒度",
+      "needle": "隔离粒度",
+      "topic": "s18",
+      "crosswalk": 1,
+      "question": "共享与隔离发生在用户、会话还是工作区实例上？",
+      "detail": "查看管理器如何分配、缓存与删除工作区。它决定服务端隔离粒度，未直接提供 Git 工作树合并。"
+    }
+  ],
+  "deploy/hub/overview": [
+    {
+      "label": "工作方式",
+      "needle": "工作方式",
+      "topic": null,
+      "crosswalk": null,
+      "question": "服务端注册的资源目录如何变成某个工作区可用的能力？",
+      "detail": "沿浏览目录、安装能力与分配工作区的步骤观察资源归属。"
+    }
+  ],
+  "deploy/hub/mcp-hub": [
+    {
+      "label": "快速上手",
+      "needle": "快速上手",
+      "topic": "s19",
+      "crosswalk": 1,
+      "question": "MCP 中心的注册与接入单个工具服务有什么区别？",
+      "detail": "中心提供应用可浏览和安装的服务目录。具体工具仍来自安装的服务及后续发现。"
+    }
+  ],
+  "deploy/hub/skill-hub": [
+    {
+      "label": "快速上手",
+      "needle": "快速上手",
+      "topic": "s07",
+      "crosswalk": 1,
+      "question": "应用里能浏览的技能如何分配给工作区？",
+      "detail": "技能中心提供安装和分配入口。正文是否已被当前模型读取，需要进一步追踪技能查看器。"
+    }
+  ],
+  "deploy/channel/overview": [
+    {
+      "label": "支持的平台",
+      "needle": "支持的平台",
+      "topic": null,
+      "crosswalk": null,
+      "question": "外部即时通讯平台通过什么入口与智能体服务对话？",
+      "detail": "沿渠道配置找出接收平台消息、路由到会话和回发响应的职责。"
+    }
+  ],
+  "deploy/channel/routing": [
+    {
+      "label": "会话划分",
+      "needle": "会话划分",
+      "topic": null,
+      "crosswalk": null,
+      "question": "同一群聊中两个人发来的消息是否共用上下文？",
+      "detail": "session_scope 决定按聊天或按聊天中的用户划分会话。先验证路由规则，再核对落到哪个 session。"
+    }
+  ],
+  "deploy/channel/feishu": [
+    {
+      "label": "验证与排查",
+      "needle": "验证与排查",
+      "topic": null,
+      "crosswalk": null,
+      "question": "飞书长连接已建立后，如何判断平台事件真正送达服务？",
+      "detail": "按本节的验证与排查顺序核对应用配置、连接状态和消息流向。"
+    }
+  ],
+  "deploy/channel/dingtalk": [
+    {
+      "label": "自定义卡片",
+      "needle": "自定义卡片",
+      "topic": null,
+      "crosswalk": null,
+      "question": "钉钉接入里的长连接、卡片与智能体回复分别负责哪一步？",
+      "detail": "沿 Stream 接入与卡片相关设置区分消息传输、交互展现与后端运行。"
+    }
+  ],
+  "deploy/channel/discord": [
+    {
+      "label": "启动智能体服务",
+      "needle": "启动智能体服务",
+      "topic": null,
+      "crosswalk": null,
+      "question": "Discord Gateway 和 AgentScope 服务端各自维持什么连接？",
+      "detail": "沿创建 Bot、服务启动、添加渠道的步骤跟踪实际消息通路。"
+    }
+  ],
+  "deploy/channel/custom": [
+    {
+      "label": "工具确认",
+      "needle": "工具确认",
+      "topic": "s03",
+      "crosswalk": 2,
+      "question": "渠道如何把用户对工具的决定送回处于等待状态的智能体？",
+      "detail": "在渠道职责中找出工具确认回调，再和人机交互文档的确认事件对读。"
+    }
+  ],
+  "others/faq": [
+    {
+      "label": "AgentScope 2.0 与 1.0 兼容吗？",
+      "needle": "AgentScope 2.0 与 1.0 兼容吗？",
+      "topic": null,
+      "crosswalk": null,
+      "question": "重新安装一个版本能否让原有应用完成迁移？",
+      "detail": "先核对两个主版本涉及的消息、事件、工具与状态接口变化，再到迁移文档逐项检查。"
+    }
+  ],
+  "others/change-log": [
+    {
+      "label": "Permission",
+      "needle": "Permission",
+      "topic": "s03",
+      "crosswalk": null,
+      "question": "从 1.x 迁移时，哪些权限机制需要重新对接？",
+      "detail": "这是版本迁移页。按模块核对新接口，再到当前版权限系统详细页确认具体规则。"
+    }
+  ]
+}

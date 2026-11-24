@@ -1,0 +1,175 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>模型 · 概述 · AgentScope</title><link rel="stylesheet" href="/agentscope-course/reader.css"><script defer src="/agentscope-course/reader.js"></script></head><body><header class="mast"><a href="/agentscope-course/">AgentScope <small>中文文档</small></a><span>v2.0.12</span><button id="catalog" aria-controls="outline" aria-expanded="false">目录</button></header><div class="layout"><nav id="outline" aria-label="AgentScope 文档目录"><div class="group">快速开始</div><a href="/agentscope-course/" >AgentScope 2.0 是什么？</a><a href="/agentscope-course/quickstart/" >快速开始</a><a href="/agentscope-course/release-notes/" >更新日志</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/message-and-event/" >消息与事件</a><div class="group">核心模块 / 智能体</div><a href="/agentscope-course/building-blocks/agent/overview/" >智能体 · 概述</a><a href="/agentscope-course/building-blocks/agent/configure-agent/" >配置智能体</a><a href="/agentscope-course/building-blocks/agent/run-agent/" >运行智能体</a><a href="/agentscope-course/building-blocks/agent/interrupt-agent/" >中断智能体</a><a href="/agentscope-course/building-blocks/agent/human-in-the-loop/" >人机交互</a><div class="group">核心模块 / 模型</div><a href="/agentscope-course/building-blocks/model/overview/" aria-current="page">模型 · 概述</a><a href="/agentscope-course/building-blocks/model/llm/" >大语言模型</a><a href="/agentscope-course/building-blocks/model/tts/" >语音合成</a><a href="/agentscope-course/building-blocks/model/asr/" >语音识别</a><a href="/agentscope-course/building-blocks/model/embedding/" >嵌入模型</a><div class="group">核心模块 / 上下文管理</div><a href="/agentscope-course/building-blocks/context/overview/" >上下文管理 · 概述</a><a href="/agentscope-course/building-blocks/context/environment-awareness/" >感知环境</a><a href="/agentscope-course/building-blocks/context/compress-context/" >压缩上下文</a><a href="/agentscope-course/building-blocks/context/offload-context/" >卸载上下文</a><div class="group">核心模块 / 工具</div><a href="/agentscope-course/building-blocks/tool/overview/" >工具 · 概述</a><a href="/agentscope-course/building-blocks/tool/python-tool/" >Python 函数工具</a><a href="/agentscope-course/building-blocks/tool/mcp/" >MCP</a><a href="/agentscope-course/building-blocks/tool/skill/" >Skill</a><a href="/agentscope-course/building-blocks/tool/manage-tools/" >元工具</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/plan/" >计划模式</a><div class="group">核心模块 / 流水线</div><a href="/agentscope-course/building-blocks/pipeline/overview/" >流水线 · 概述</a><a href="/agentscope-course/building-blocks/pipeline/goal/" >目标流水线</a><a href="/agentscope-course/building-blocks/pipeline/team/" >团队流水线</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/sop/" >标准作业流程</a><div class="group">核心模块 / 权限系统</div><a href="/agentscope-course/building-blocks/permission-system/overview/" >权限系统 · 概述</a><a href="/agentscope-course/building-blocks/permission-system/permission-mode/" >权限模式</a><a href="/agentscope-course/building-blocks/permission-system/permission-rule/" >权限规则</a><a href="/agentscope-course/building-blocks/permission-system/tool-check/" >工具内置检查</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/middleware/" >中间件</a><a href="/agentscope-course/building-blocks/rag/" >RAG</a><a href="/agentscope-course/building-blocks/long-term-memory/" >长期记忆</a><div class="group">核心模块 / 工作区</div><a href="/agentscope-course/building-blocks/workspace/overview/" >工作区 · 概述</a><a href="/agentscope-course/building-blocks/workspace/run-workspace/" >运行工作区</a><a href="/agentscope-course/building-blocks/workspace/manage-resources/" >管理资源</a><a href="/agentscope-course/building-blocks/workspace/mcp-gateway/" >MCP 网关</a><div class="group">核心模块 / 实时语音智能体</div><a href="/agentscope-course/building-blocks/realtime/overview/" >实时语音智能体 · 概述</a><a href="/agentscope-course/building-blocks/realtime/speech-to-speech/" >语音到语音</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/console/" >终端 UI</a><a href="/agentscope-course/building-blocks/a2a/" >A2A 协议</a><div class="group">智能体即服务</div><a href="/agentscope-course/deploy/agent-service/" >架构</a><a href="/agentscope-course/deploy/agent-team/" >智能体团队</a><a href="/agentscope-course/deploy/sop/" >SOP 服务</a><a href="/agentscope-course/deploy/sharing/" >资源共享</a><a href="/agentscope-course/deploy/rag/" >RAG 服务</a><a href="/agentscope-course/deploy/workspace-manager/" >工作区管理</a><div class="group">智能体即服务 / MCP 与技能中心</div><a href="/agentscope-course/deploy/hub/overview/" >MCP 与技能中心 · 概览</a><a href="/agentscope-course/deploy/hub/mcp-hub/" >MCP 中心</a><a href="/agentscope-course/deploy/hub/skill-hub/" >技能中心</a><div class="group">智能体即服务 / 消息渠道</div><a href="/agentscope-course/deploy/channel/overview/" >消息渠道 · 概览</a><a href="/agentscope-course/deploy/channel/routing/" >会话路由</a><a href="/agentscope-course/deploy/channel/feishu/" >飞书</a><a href="/agentscope-course/deploy/channel/dingtalk/" >钉钉</a><a href="/agentscope-course/deploy/channel/discord/" >Discord</a><a href="/agentscope-course/deploy/channel/custom/" >自定义渠道</a><div class="group">其他</div><a href="/agentscope-course/others/faq/" >常见问题</a><a href="/agentscope-course/others/change-log/" >版本迁移</a><div class="group">智能体即服务 / API</div><a href="/agentscope-course/api/">API 参考</a></nav><main><div class="context">核心模块 / 模型</div><article class="prose-custom" id="content"><h1>概述</h1><p class="dek">通过凭证接入模型 API，并用模型卡片发现可用模型</p><p>模型层通过两层结构把 AgentScope 与模型 API 连接起来：顶层是 <strong>API 凭证（Credential）</strong>，其下是该 API 开放的各模型族，包括<strong>大语言模型（LLM）</strong>、<strong>语音合成（TTS）</strong>、<strong>语音识别（ASR）</strong>、<strong>嵌入模型（Embedding）</strong> 和 <strong>实时模型（Realtime）</strong>。</p>
+<p><strong>凭证</strong>承载某个模型 API 的认证字段（<code>api_key</code>、<code>base_url</code> 等）。从一个凭证出发，可以发现该 API 在每个模型族下提供的全部模型。下表列出内置凭证及其下的模型类：</p>
+<table><thead><tr><th>凭证</th><th>大语言模型（LLM）</th><th>语音合成（TTS）</th><th>语音识别（ASR）</th><th>嵌入模型（Embedding）</th><th>实时模型</th></tr></thead><tbody><tr><td><code>DashScopeCredential</code></td><td><code>DashScopeChatModel</code></td><td><code>DashScopeTTSModel</code><br/><code>DashScopeRealtimeTTSModel</code><br/><code>DashScopeCosyVoiceTTSModel</code></td><td><code>DashScopeASRModel</code><br/><code>DashScopeRealtimeASRModel</code></td><td><code>DashScopeEmbeddingModel</code></td><td><code>DashScopeRealtimeModel</code><br/><code>DashScopeAudioRealtimeModel</code></td></tr><tr><td><code>OpenAICredential</code></td><td><code>OpenAIChatModel</code><br/><code>OpenAIResponseModel</code></td><td><code>OpenAITTSModel</code></td><td><code>OpenAIASRModel</code></td><td><code>OpenAIEmbeddingModel</code></td><td><code>OpenAIRealtimeModel</code><br/><code>OpenAILiveModel</code></td></tr><tr><td><code>MiniMaxCredential</code></td><td><code>MiniMaxChatModel</code></td><td><code>MiniMaxTTSModel</code></td><td>—</td><td>—</td><td>—</td></tr><tr><td><code>GeminiCredential</code></td><td><code>GeminiChatModel</code></td><td><code>GeminiTTSModel</code></td><td>—</td><td><code>GeminiEmbeddingModel</code></td><td><code>GeminiRealtimeModel</code></td></tr><tr><td><code>AnthropicCredential</code></td><td><code>AnthropicChatModel</code></td><td>—</td><td>—</td><td>—</td><td>—</td></tr><tr><td><code>DeepSeekCredential</code></td><td><code>DeepSeekChatModel</code></td><td>—</td><td>—</td><td>—</td><td>—</td></tr><tr><td><code>MoonshotCredential</code></td><td><code>MoonshotChatModel</code></td><td>—</td><td>—</td><td>—</td><td>—</td></tr><tr><td><code>VolcengineCredential</code></td><td><code>VolcengineChatModel</code></td><td>—</td><td>—</td><td>—</td><td>—</td></tr><tr><td><code>XAICredential</code></td><td><code>XAIChatModel</code></td><td>—</td><td>—</td><td>—</td><td><code>XAIRealtimeModel</code></td></tr><tr><td><code>OllamaCredential</code></td><td><code>OllamaChatModel</code></td><td>—</td><td>—</td><td><code>OllamaEmbeddingModel</code></td><td>—</td></tr></tbody></table>
+<p>这种分层与前端的自然交互流程（先注册凭证，再从凭证下挑选模型）一致，让界面只需鉴权一次，就能展示该 API 支持的所有模型族。</p>
+<p>所有模型族共享同一种构造模式：模型接收一个<strong>凭证</strong>、一个<strong>模型名</strong>，以及可选的 API 专属 <strong><code>Parameters</code></strong> 对象。各模型族的创建与调用细节参见对应页面：</p>
+<ul>
+<li><a href="/agentscope-course/building-blocks/model/llm/">大语言模型</a>：驱动智能体的对话与工具调用</li>
+<li><a href="/agentscope-course/building-blocks/model/tts/">语音合成</a>：将文本转换为合成语音音频</li>
+<li><a href="/agentscope-course/building-blocks/model/asr/">语音识别</a>：将语音音频转写为文本</li>
+<li><a href="/agentscope-course/building-blocks/model/embedding/">嵌入模型</a>：将文本与多媒体内容转换为稠密向量</li>
+</ul>
+<aside class="notice tip"><strong>提示</strong><p><strong>实时模型</strong>驱动语音到语音的实时对话，创建与使用方式参见<a href="/agentscope-course/building-blocks/realtime/speech-to-speech/">语音到语音</a>。</p></aside>
+<h2 id="前端集成">前端集成</h2>
+<h3 id="什么是模型卡片">什么是模型卡片</h3>
+<p>模型卡片（ModelCard）是对模型能力与约束的声明式描述，用于驱动前端：模型选择器、参数表单、能力开关都可以基于它动态渲染，无需在前端硬编码任何与特定模型 API 相关的逻辑。每个模型族有自己的卡片类：</p>
+<table><thead><tr><th>卡片类</th><th>模型族</th><th><code>type</code> 判别值</th></tr></thead><tbody><tr><td><code>ModelCard</code></td><td>大语言模型</td><td><code>&quot;chat_model&quot;</code></td></tr><tr><td><code>TTSModelCard</code></td><td>语音合成</td><td><code>&quot;tts_model&quot;</code></td></tr><tr><td><code>ASRModelCard</code></td><td>语音识别</td><td><code>&quot;asr_model&quot;</code></td></tr><tr><td><code>EmbeddingModelCard</code></td><td>嵌入模型</td><td><code>&quot;embedding_model&quot;</code></td></tr></tbody></table>
+<p>大语言模型、语音合成和嵌入模型卡片共享下列核心字段。ASR 卡片使用相同的
+<code>name</code>、<code>label</code>、<code>input_types</code>、<code>output_types</code> 和 <code>parameter_schema</code> 字段，
+但当前不包含生命周期状态和逐模型参数覆盖。</p>
+<table><thead><tr><th>字段</th><th>类型</th><th>说明</th></tr></thead><tbody><tr><td><code>name</code></td><td><code>str</code></td><td>模型标识符（例如 <code>&quot;claude-sonnet-4-6&quot;</code>）</td></tr><tr><td><code>label</code></td><td><code>str</code></td><td>用于展示的可读名称（例如 <code>&quot;Claude Sonnet 4.6&quot;</code>）</td></tr><tr><td><code>status</code></td><td><code>&quot;active&quot; | &quot;deprecated&quot; | &quot;sunset&quot;</code></td><td>模型生命周期状态</td></tr><tr><td><code>input_types</code></td><td><code>list[str]</code></td><td>接受的输入 MIME 类型，前端据此过滤附件上传组件（例如仅在支持 <code>image/*</code> 时显示图片按钮）</td></tr><tr><td><code>output_types</code></td><td><code>list[str]</code></td><td>模型可输出的 MIME 类型，用于标注模型能力（例如出现 <code>application/x-thinking</code> 时启用思考开关）</td></tr><tr><td><code>parameter_schema</code></td><td><code>dict</code></td><td>最终用于渲染参数表单的 JSON Schema，由基础 schema 与逐模型覆盖合并而来（见下文）</td></tr><tr><td><code>parameter_overrides</code></td><td><code>dict[str, dict]</code></td><td>合并前来自 YAML 的原始逐模型覆盖</td></tr></tbody></table>
+<p>在核心字段之外，每种卡片还有各自的专属字段：</p>
+<table><thead><tr><th>卡片类</th><th>专属字段</th></tr></thead><tbody><tr><td><code>ModelCard</code></td><td><code>model_class</code>（模型实现标识，如 <code>openai_chat</code> 或 <code>openai_response</code>）、<code>context_size</code>（最大上下文窗口 token 数）、<code>output_size</code>（最大输出 token 数）、<code>deprecated_at</code>（弃用日期）</td></tr><tr><td><code>TTSModelCard</code></td><td><code>realtime</code>（是否支持流式输入）、<code>deprecated_at</code>；YAML 中的 <code>voices</code> 列表会作为 <code>voice</code> 字段的 enum 注入 <code>parameter_schema</code></td></tr><tr><td><code>ASRModelCard</code></td><td><code>realtime</code>（是否接受流式音频输入）</td></tr><tr><td><code>EmbeddingModelCard</code></td><td><code>dimensions</code>（默认输出向量维度，必填）、<code>supported_dimensions</code>（俄罗斯套娃式模型允许的维度集合，<code>None</code> 表示维度固定）、<code>context_size</code>（可选）</td></tr></tbody></table>
+<p><code>input_types</code> 与 <code>output_types</code> 都用 MIME 类型描述模态，常见取值如下：</p>
+<table><thead><tr><th>MIME 类型</th><th>含义</th></tr></thead><tbody><tr><td><code>text/plain</code></td><td>文本</td></tr><tr><td><code>application/x-thinking</code></td><td>推理 / 思考链</td></tr><tr><td><code>application/x-embedding</code></td><td>稠密向量</td></tr><tr><td><code>image/*</code>（如 <code>image/png</code>、<code>image/jpeg</code>）</td><td>图片</td></tr><tr><td><code>audio/*</code>（如 <code>audio/wav</code>、<code>audio/mp3</code>）</td><td>音频</td></tr><tr><td><code>video/*</code>（如 <code>video/mp4</code>）</td><td>视频</td></tr></tbody></table>
+<p>每张卡片由模型实现旁的 YAML 文件定义。下面三个 tab 分别展示各模型族的一张真实卡片：</p>
+<div class="tab-set" data-tab-set=""><div class="tab-list" role="group" aria-label="代码示例"><button type="button" data-choice="0" aria-pressed="true">Chat (claude-sonnet-4-6)</button><button type="button" data-choice="1" aria-pressed="false">TTS (qwen3-tts-flash)</button><button type="button" data-choice="2" aria-pressed="false">Embedding (text-embedding-v4)</button><button type="button" data-choice="3" aria-pressed="false">ASR (gpt-4o-mini-transcribe)</button></div><div data-panel="0"><div class="code-example"><div class="code-bar"><span>Chat (claude-sonnet-4-6)</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-yaml" data-caption="Chat (claude-sonnet-4-6)" data-lang="yaml">name: claude-sonnet-4-6
+label: Claude Sonnet 4.6
+status: active
+
+input_types:
+  - text/plain
+  - application/x-thinking
+  - image/jpeg
+  - image/png
+  - image/gif
+  - image/webp
+
+output_types:
+  - text/plain
+  - application/x-thinking
+
+context_size: 1000000
+output_size: 65536
+
+parameter_overrides:
+  max_tokens: {&quot;maximum&quot;: 65536}
+</code></pre></div></div><div data-panel="1" hidden=""><div class="code-example"><div class="code-bar"><span>TTS (qwen3-tts-flash)</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-yaml" data-caption="TTS (qwen3-tts-flash)" data-lang="yaml">name: qwen3-tts-flash
+label: Qwen3-TTS-Flash
+status: active
+
+input_types:
+  - text/plain
+
+output_types:
+  - audio/wav
+
+# 会作为 voice 字段的 enum 注入 parameter_schema，
+# 前端据此渲染下拉选择器
+voices:
+  - Cherry
+  - Serena
+  - Ethan
+  - Chelsie
+
+parameter_overrides: {}
+</code></pre></div></div><div data-panel="2" hidden=""><div class="code-example"><div class="code-bar"><span>Embedding (text-embedding-v4)</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-yaml" data-caption="Embedding (text-embedding-v4)" data-lang="yaml">name: text-embedding-v4
+label: Text Embedding v4
+status: active
+
+input_types:
+  - text/plain
+
+output_types:
+  - application/x-embedding
+
+context_size: 8192
+
+# 默认输出向量维度，以及这个俄罗斯套娃式
+# 模型支持截断到的全部维度
+dimensions: 1024
+supported_dimensions: [2048, 1536, 1024, 768, 512, 256, 128, 64]
+</code></pre></div></div><div data-panel="3" hidden=""><div class="code-example"><div class="code-bar"><span>ASR (gpt-4o-mini-transcribe)</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-yaml" data-caption="ASR (gpt-4o-mini-transcribe)" data-lang="yaml">name: gpt-4o-mini-transcribe
+label: GPT-4o Mini Transcribe
+input_types:
+  - audio/flac
+  - audio/mpeg
+  - audio/mp4
+  - audio/ogg
+  - audio/wav
+  - audio/webm
+</code></pre></div></div></div>
+<h3 id="参数-schema-与覆盖">参数 Schema 与覆盖</h3>
+<p>暴露给前端的 <code>parameter_schema</code> 由两层叠加而成：</p>
+<ol>
+<li><strong>基础 schema</strong>：由模型的 <code>Parameters</code> 类通过 <code>model_json_schema()</code> 自动生成，列出全部可调参数（<code>temperature</code>、<code>max_tokens</code>、<code>thinking_enable</code> 等），并给出类型与 API 通用范围。</li>
+<li><strong>逐模型覆盖</strong>：YAML 中的 <code>parameter_overrides</code> 块会按字段叠加在基础 schema 之上。</li>
+</ol>
+<p>覆盖之所以重要，是因为同一个 API 下不同模型的可调范围并不一致：每个 Qwen 模型都接受 <code>max_tokens</code>，但上限各不相同。借助覆盖，模型卡片可以收紧某个范围、固定默认值，或隐藏某个不适用的参数。</p>
+<table><thead><tr><th>覆盖写法</th><th>效果</th></tr></thead><tbody><tr><td><code>param: { ... }</code></td><td>浅合并到基础字段（例如 <code>max_tokens: {maximum: 16384}</code>）</td></tr><tr><td><code>param: { hidden: true }</code></td><td>在前端隐藏该参数</td></tr><tr><td><code>param: null</code></td><td>完全移除该参数</td></tr></tbody></table>
+<aside class="notice note"><strong>说明</strong><p>部分调整无需显式覆盖即会自动生效：<code>output_types</code> 中没有 <code>application/x-thinking</code> 时，Chat 卡片会自动去掉 <code>thinking_enable</code> / <code>thinking_budget</code>，并将 <code>max_tokens</code> 上限设为 <code>output_size</code>；TTS 卡片会把 <code>voices</code> 列表转换为 <code>voice</code> 字段的 enum。</p></aside>
+<h3 id="获取模型卡片">获取模型卡片</h3>
+<p>模型卡片的发现遵循 <strong>凭证类 ⇒ 模型类 ⇒ 模型卡片</strong> 的层级：每个凭证都知道各模型族下与之关联的模型类（<code>get_chat_model_classes()</code>、<code>get_tts_model_classes()</code>、<code>get_asr_model_classes()</code>、<code>get_embedding_model_class()</code>），每个模型类则从实现旁的 <code>_models/</code> 目录加载 YAML 卡片定义：</p>
+<div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">from agentscope.credential import DashScopeCredential
+
+# 凭证类 -&gt; 模型类
+model_cls = DashScopeCredential.get_chat_model_class()  # -&gt; DashScopeChatModel
+
+# 模型类 -&gt; 模型卡片
+cards = model_cls.list_models()                          # -&gt; list[ModelCard]
+</code></pre></div>
+<p>实践中，链路两端都可以直接调用 <code>list_models()</code>。下面三个 tab 分别展示各模型族的获取方式：</p>
+<div class="tab-set" data-tab-set=""><div class="tab-list" role="group" aria-label="代码示例"><button type="button" data-choice="0" aria-pressed="true">Chat</button><button type="button" data-choice="1" aria-pressed="false">TTS</button><button type="button" data-choice="2" aria-pressed="false">Embedding</button><button type="button" data-choice="3" aria-pressed="false">ASR</button></div><div data-panel="0"><div class="code-example"><div class="code-bar"><span>Chat</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="Chat" data-lang="python">from agentscope.credential import DashScopeCredential
+from agentscope.model import AnthropicChatModel
+
+# Via credential class: aggregates all linked chat model classes
+cards = DashScopeCredential.list_models()
+
+# 或直接通过模型类
+cards = AnthropicChatModel.list_models()
+
+for card in cards:
+    print(f&quot;{card.name}: context={card.context_size}, inputs={card.input_types}&quot;)
+</code></pre></div></div><div data-panel="1" hidden=""><div class="code-example"><div class="code-bar"><span>TTS</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="TTS" data-lang="python">from agentscope.credential import DashScopeCredential
+from agentscope.tts import DashScopeTTSModel
+
+# 通过凭证类：汇总所有关联 TTS 模型类的卡片
+cards = DashScopeCredential.list_tts_models()
+
+# 或直接通过某个 TTS 模型类
+cards = DashScopeTTSModel.list_models()
+
+for card in cards:
+    print(f&quot;{card.name} (realtime={card.realtime}): {card.label}&quot;)
+</code></pre></div></div><div data-panel="2" hidden=""><div class="code-example"><div class="code-bar"><span>Embedding</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="Embedding" data-lang="python">from agentscope.credential import DashScopeCredential
+from agentscope.embedding import OpenAIEmbeddingModel
+
+# 从凭证发现嵌入模型类
+embed_cls = DashScopeCredential.get_embedding_model_class()
+cards = embed_cls.list_models()
+
+# 或直接通过模型类
+cards = OpenAIEmbeddingModel.list_models()
+
+for card in cards:
+    print(f&quot;{card.name}: dimensions={card.dimensions}&quot;)
+</code></pre></div></div><div data-panel="3" hidden=""><div class="code-example"><div class="code-bar"><span>ASR</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="ASR" data-lang="python">from agentscope.asr import OpenAIASRModel
+from agentscope.credential import OpenAICredential
+
+# Via credential class
+cards = OpenAICredential.list_asr_models()
+
+# Or directly on the model class
+cards = OpenAIASRModel.list_models()
+
+for card in cards:
+    print(f&quot;{card.name} (realtime={card.realtime}): {card.input_types}&quot;)
+</code></pre></div></div></div>
+<p>这种设计让前端只需一个凭证，就能发现所有可用模型、它们的能力与合法参数范围，无需硬编码任何与特定模型 API 相关的逻辑。</p>
+<h3 id="选择-openai-api">选择 OpenAI API</h3>
+<p><code>OpenAICredential.list_models()</code> 合并 <code>OpenAIChatModel</code> 与
+<code>OpenAIResponseModel</code> 的模型卡片。同一个模型名称可能出现两次，但参数和能力不同。
+选择模型时应同时使用 <code>card.model_class</code> 和 <code>card.name</code> 作为标识，并根据所选卡片的
+<code>parameter_schema</code> 展示参数表单：</p>
+<div class="code-example"><div class="code-bar"><span>查询 OpenAI API 选项</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="查询 OpenAI API 选项" data-lang="python">from agentscope.credential import OpenAICredential
+
+# Each card identifies its API as well as its model name.
+for card in OpenAICredential.list_models():
+    print(f&quot;{card.model_class}: {card.name}&quot;)
+</code></pre></div>
+<p>直接使用 Python 时，Chat Completions 对应 <code>OpenAIChatModel</code>，Responses
+对应 <code>OpenAIResponseModel</code>。使用智能体服务时，将所选卡片的实现标识保存到
+<code>ChatModelConfig.model_class</code>。留空会沿用默认选择逻辑，标准 OpenAI 凭证默认使用
+Chat Completions；显式指定的模型类必须属于所选凭证支持的实现。</p>
+<h2 id="延伸阅读">延伸阅读</h2>
+<div class="cards"><div class="card"><strong><a href="/agentscope-course/building-blocks/model/llm/">大语言模型</a></strong><p>创建与调用对话模型、生成结构化输出、接入自定义模型 API。</p><a href="/agentscope-course/building-blocks/model/llm/" data-card-cta="了解更多">了解更多</a></div><div class="card"><strong><a href="/agentscope-course/building-blocks/model/tts/">语音合成</a></strong><p>标准与实时两种模式的语音合成，以及与智能体的集成。</p><a href="/agentscope-course/building-blocks/model/tts/" data-card-cta="了解更多">了解更多</a></div><div class="card"><strong><a href="/agentscope-course/building-blocks/model/asr/">语音识别</a></strong><p>使用内置模型转写音频，或接入自定义模型 API。</p><a href="/agentscope-course/building-blocks/model/asr/" data-card-cta="了解更多">了解更多</a></div><div class="card"><strong><a href="/agentscope-course/building-blocks/model/embedding/">嵌入模型</a></strong><p>文本与多模态内容嵌入，内置分批、重试与缓存。</p><a href="/agentscope-course/building-blocks/model/embedding/" data-card-cta="了解更多">了解更多</a></div></div></article><footer><div class="paging"><a href="/agentscope-course/building-blocks/agent/human-in-the-loop/">上一节 · 人机交互</a><a href="/agentscope-course/building-blocks/model/llm/">下一节 · 大语言模型</a></div><div class="credits"><a href="https://docs.agentscope.io/zh/versions/2.0.12/building-blocks/model/overview" target="_blank" rel="noopener">在线原页</a> · <a href="/agentscope-course/mdx/building-blocks/model/overview.mdx">原始 MDX</a> · <a href="https://github.com/agentscope-ai/docs/blob/e0ee835d1aca5d2b840d29bdd2f70770bbef69e8/zh/versions/2.0.12/building-blocks/model/overview.mdx" target="_blank" rel="noopener">固定版本来源</a> · <a href="/agentscope-course/LICENSE.txt">MIT 许可</a></div></footer></main></div></body></html>

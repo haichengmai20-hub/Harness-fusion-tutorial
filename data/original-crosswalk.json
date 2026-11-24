@@ -1,0 +1,1050 @@
+{
+  "s01": [
+    {
+      "section": "Agent While-Loop",
+      "find": "stop_reason !=",
+      "question": "模型给出命令后，谁决定继续调用工具，谁决定结束？",
+      "baseline": "原课从“查看目录并运行 Python 文件”开始。教学循环读取模型响应的 stop_reason；请求工具时执行 bash，否则退出。",
+      "frames": {
+        "hermes": "Hermes 在 _run_conversation_turn 看助手消息的 tool_calls；有调用走工具轮次，无调用走文本收尾。",
+        "dsh": "dsh 的 step 先识别 max-tokens，再从助手内容筛取 tool-call。没有调用块时返回 completed。",
+        "agentscope": "Agent._next_action 根据回复状态选择推理、工具或结束。单次 ModelCallEndEvent 仍可能后接工具。"
+      },
+      "match": {
+        "hermes": "对应",
+        "dsh": "对应",
+        "agentscope": "对应"
+      },
+      "links": {
+        "hermes": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/agent/conversation_loop.py#L1762",
+        "dsh": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/core/agent-loop/src/agent.ts#L353",
+        "agentscope": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/agent/_agent.py#L1169"
+      }
+    },
+    {
+      "section": "agent_loop",
+      "find": "tool_use_id",
+      "question": "执行 bash 后，第二次模型请求凭什么知道结果属于哪次调用？",
+      "baseline": "原课把 stdout 组成 tool_result，写上原调用块的 id，再追加到 messages 后重新请求模型。",
+      "frames": {
+        "hermes": "run_tool_round 处理请求的工具并将结果交回会话；固定源码入口没有要求采用原课的 user 消息封装。",
+        "dsh": "executeToolCalls 与 appendToolResult 保留调用关联，再从 Session 构建下一步。可同时核对 callId 和事件序号。",
+        "agentscope": "Agent 的工具结果事件带 tool_call_id。检查 ToolResultEndEvent 后的上下文，再追 _prepare_model_input。"
+      },
+      "match": {
+        "hermes": "部分对应",
+        "dsh": "对应",
+        "agentscope": "对应"
+      },
+      "links": {
+        "hermes": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/agent/conversation_loop.py#L1762",
+        "dsh": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/core/agent-loop/src/agent.ts#L353",
+        "agentscope": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/agent/_agent.py#L1169"
+      }
+    }
+  ],
+  "s02": [
+    {
+      "section": "全局视角：工具分发",
+      "find": "全局视角：工具分发",
+      "question": "read_file 代替手拼 bash 后，哪里公开工具，哪里真正执行？",
+      "baseline": "原课将模型可见的 TOOLS 与本地分发表分开。增加读文件能力只需注册说明和处理函数，主循环仍复用上一章。",
+      "frames": {
+        "hermes": "ToolRegistry.register 保存定义和 handler，dispatch 用请求名称定位注册项。",
+        "dsh": "ToolRuntime.register 收集定义，schemas 导出当前作用域的清单；executeToolCalls 使用本地调度链。",
+        "agentscope": "Toolkit.add_tool 接入函数，get_tool_schemas 供模型选工具，call_tool 收到调用块后才执行。"
+      },
+      "match": {
+        "hermes": "对应",
+        "dsh": "对应",
+        "agentscope": "对应"
+      },
+      "links": {
+        "hermes": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/tools/registry.py#L1076",
+        "dsh": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/core/tools/src/index.ts#L1043",
+        "agentscope": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/tool/_toolkit.py#L225"
+      }
+    },
+    {
+      "section": "多个工具调用",
+      "find": "Read both README.md and requirements.txt",
+      "question": "同时读 README 和 requirements 时，怎样识别两份输出？能据此判断并发吗？",
+      "baseline": "原课让模型请求读取两个文件再写摘要，一次响应可包含多个工具块。教学循环逐块处理，是否可并发在深入部分另讲。",
+      "frames": {
+        "hermes": "注册表按块选择 handler；要判断两次读取是否重叠执行，还须跟 run_tool_round 的调度。",
+        "dsh": "step 从同一助手消息收集多个调用交给 executeToolCalls；按调用身份核对结果。并发顺序还受调度策略控制。",
+        "agentscope": "call_tool 可为同一调用产出多个 ToolChunk；应按调用 ID 区分两份读取，再查 Agent 层的并发设置。"
+      },
+      "match": {
+        "hermes": "部分对应",
+        "dsh": "对应",
+        "agentscope": "部分对应"
+      },
+      "links": {
+        "hermes": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/tools/registry.py#L1076",
+        "dsh": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/core/tools/src/index.ts#L1043",
+        "agentscope": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/tool/_toolkit.py#L225"
+      }
+    }
+  ],
+  "s03": [
+    {
+      "section": "check_permission()",
+      "find": "check_permission()",
+      "question": "已找到合法工具，硬拒绝、询问用户和直接放行分别在哪一步裁决？",
+      "baseline": "原课在分发前按顺序检查。教学例子用只读查看与需要确认的操作区分拒绝、询问、放行。",
+      "frames": {
+        "hermes": "终端调用在 _run_approval_guards 根据命令、环境及配置决定放行、拒绝或等待宿主确认。普通编辑另有 ACP 路径。",
+        "dsh": "ApprovalService.request 处理进入审批链的调用，记录 asked 和决定；工具及运行配置决定是否发问。",
+        "agentscope": "Agent._execute_tool_call 分支处理 ALLOW、DENY、ASK。ASK 将对应调用标为 ASKING，并产生确认事件。"
+      },
+      "match": {
+        "hermes": "对应",
+        "dsh": "部分对应",
+        "agentscope": "对应"
+      },
+      "links": {
+        "hermes": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/tools/terminal_tool.py#L1190",
+        "dsh": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/interaction/user-approval/src/index.ts#L208",
+        "agentscope": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/agent/_agent.py#L2615"
+      }
+    },
+    {
+      "section": "Permission Desk",
+      "find": "Permission denied.",
+      "question": "拒绝之后调用者收到什么？如何判断没有进入执行器？",
+      "baseline": "教学分支将拒绝原因作为结果写回，并跳过本次 handler；用户仍能看到模型继续处理这个结果。",
+      "frames": {
+        "hermes": "_run_approval_guards 对明确拒绝或仍待审批的命令抛出 _Rejected，回传 blocked 或 pending_approval，阻止命令进入执行阶段。",
+        "dsh": "Session 中的审批询问和裁决可以配回本次工具请求；还需沿触发审批的那种工具看拒绝后的返回。",
+        "agentscope": "DENY 生成错误工具结果；ALLOW 才走实际工具路径。可用同一调用块的状态对照。"
+      },
+      "match": {
+        "hermes": "对应",
+        "dsh": "部分对应",
+        "agentscope": "对应"
+      },
+      "links": {
+        "hermes": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/tools/terminal_tool.py#L1197",
+        "dsh": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/interaction/user-approval/src/index.ts#L208",
+        "agentscope": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/agent/_agent.py#L2615"
+      }
+    }
+  ],
+  "s04": [
+    {
+      "section": "register_hook()",
+      "find": "register_hook()",
+      "question": "怎样把权限检查和日志挂到执行前，并保留阻止调用的能力？",
+      "baseline": "原课把上一章的直接检查移到 PreToolUse 注册表，trigger_hooks 执行回调并识别阻止信号。",
+      "frames": {
+        "hermes": "前置插件经过 _pre_dispatch_guards，可阻止调用或返回变更的参数，再决定是否分发。",
+        "dsh": "兼容插件订阅 tools/pre-execute；可以拒绝、询问或调用 next 放行。先确认 profile 安装了该插件。",
+        "agentscope": "on_acting 是异步中间件。检查后继续迭代 next_handler 才进入下层；不能按回调名称硬套 PreToolUse。"
+      },
+      "match": {
+        "hermes": "对应",
+        "dsh": "对应",
+        "agentscope": "部分对应"
+      },
+      "links": {
+        "hermes": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/model_tools.py#L792",
+        "dsh": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/hooks/hooks-claude-code/src/index.ts#L237",
+        "agentscope": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/middleware/_base.py#L124"
+      }
+    },
+    {
+      "section": "PostToolUse",
+      "find": "PostToolUse",
+      "question": "想在一次工具写入后记日志，哪里能同时获得本次调用和返回结果？",
+      "baseline": "原课在工具执行后才触发 PostToolUse，把 block 与 output 交给观察逻辑；Stop 另在循环退出前触发。",
+      "frames": {
+        "hermes": "工具分发完成后 _emit_post_tool_call_hook 取得名称、参数、结果；前置拒绝要另看是否能走到这个点。",
+        "dsh": "tools/post-execute 接收本次 exec 与 result。之前的 pre-execute 还拿不到这一返回。",
+        "agentscope": "在 on_acting 里消费下一层的事件流，再处理结果。单一中间件可包住两端，Stop 仍需查回复层。"
+      },
+      "match": {
+        "hermes": "对应",
+        "dsh": "对应",
+        "agentscope": "部分对应"
+      },
+      "links": {
+        "hermes": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/model_tools.py#L792",
+        "dsh": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/hooks/hooks-claude-code/src/index.ts#L237",
+        "agentscope": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/middleware/_base.py#L124"
+      }
+    },
+    {
+      "section": "Stop",
+      "find": "Stop 的非 None 返回值会强制续跑",
+      "question": "同一个回调返回值，在工具执行前和结束会话时分别会改变什么？",
+      "baseline": "原课的 PreToolUse 返回阻止信号可跳过工具，Stop 返回非空则强制再走一轮。教学版不使用 PostToolUse 的返回值改变控制流。",
+      "frames": {
+        "hermes": "前置守卫能拦截工具。会话是否继续由工具后的轮次或文本收尾逻辑决定；不能把前置守卫的返回约定套到 Stop。",
+        "dsh": "兼容插件处理 Stop 的 deny 时，通过 agent.steer 插入续跑消息；PreToolUse 的拒绝作用于单个工具。",
+        "agentscope": "on_acting 的提前返回影响工具链；整轮是否结束由 _next_action 判断，不能把任意中间件返回值当作 Stop 续跑信号。"
+      },
+      "match": {
+        "hermes": "部分对应",
+        "dsh": "对应",
+        "agentscope": "部分对应"
+      },
+      "links": {
+        "hermes": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/model_tools.py#L792",
+        "dsh": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/hooks/hooks-claude-code/src/index.ts#L270",
+        "agentscope": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/agent/_agent.py#L3657"
+      }
+    }
+  ],
+  "s05": [
+    {
+      "section": "todo_write",
+      "find": "CURRENT_TODOS",
+      "question": "重构多个 Python 文件并跑测试时，后一次写计划如何更新上一次的清单？",
+      "baseline": "原课将 pending、in_progress、completed 项写入当前待办列表，展示 snake_case 重构的进度，工具动作仍由其他步骤执行。",
+      "frames": {
+        "hermes": "TodoStore.write 接收整批待办。merge 开关决定替换或按条目合并，状态不证明对应代码已改。",
+        "dsh": "todo_write 追加 todo/write；最新完整清单构成当前投影，漏写的旧项会消失。",
+        "agentscope": "TaskCreate/TaskUpdate 以任务 ID 创建和改单项；可以表达进度，但没有要求重发整份待办。"
+      },
+      "match": {
+        "hermes": "对应",
+        "dsh": "对应",
+        "agentscope": "部分对应"
+      },
+      "links": {
+        "hermes": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/tools/todo_tool.py#L38",
+        "dsh": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/todo/tool-todo/src/index.ts#L1",
+        "agentscope": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/tool/_task/_create_task.py#L83"
+      }
+    },
+    {
+      "section": "TodoWrite Nag System",
+      "find": "rounds_since_todo >= 3",
+      "question": "连续做别的事时，谁提醒模型回到计划？",
+      "baseline": "原课教学代码计算距离上次 todo_write 的轮数，达到三轮时把提醒加入消息。课文也标明这个阈值属于教学实现。",
+      "frames": {
+        "hermes": "TodoStore 的写入与 revision 证明清单可更新；它没有给出按三轮计数的模型消息注入。",
+        "dsh": "todo/write 与 UI 投影能回看计划。按遗漏轮次注入提醒的环节还需在 Agent 的 pre-step 链核对。",
+        "agentscope": "任务工具允许改状态；尚未定位把连续未更新轮数变成提醒消息的回调。"
+      },
+      "match": {
+        "hermes": "待核",
+        "dsh": "待核",
+        "agentscope": "待核"
+      },
+      "links": {
+        "hermes": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/tools/todo_tool.py#L38",
+        "dsh": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/todo/tool-todo/src/index.ts#L1",
+        "agentscope": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/tool/_task/_create_task.py#L83"
+      }
+    }
+  ],
+  "s06": [
+    {
+      "section": "Subagent Context Isolation",
+      "find": "SUB_SYSTEM",
+      "question": "把调查测试框架交给子任务时，子任务的首条消息和可用工具来自哪里？",
+      "baseline": "原课用新的 messages 列表接收 description，子任务工具集合排除 task，避免递归委派。",
+      "frames": {
+        "hermes": "child.run_conversation 在独立子 Agent 上调用。输入由委派路径构造；是否继承工具和父材料需看调用参数。",
+        "dsh": "进程内 SpawnInProcessProvider 使用空 seed，继承父对话的标志为 false，工具过滤与深度在提供者中处理。",
+        "agentscope": "Agent Service 的 AgentCreate 为团队成员创建身份，用委派 prompt 作第一条用户消息；其生命周期属于团队。"
+      },
+      "match": {
+        "hermes": "部分对应",
+        "dsh": "对应",
+        "agentscope": "部分对应"
+      },
+      "links": {
+        "hermes": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/tools/delegate_tool_child_run.py#L1017",
+        "dsh": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/subagent/subagent-spawn-in-process/src/index.ts#L41",
+        "agentscope": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/app/_tool/_agent_create.py#L146"
+      }
+    },
+    {
+      "section": "extract_text(last_message)",
+      "find": "extract_text(last_message)",
+      "question": "父任务只想要调查结论，孩子读过的几十份文件会怎样返回？",
+      "baseline": "原课的子循环退出后仅抽出最终消息的文本给父任务，子任务的整段工具记录留在自己的消息序列。",
+      "frames": {
+        "hermes": "子任务结束后，委派实现整理结果或错误条目；父任务消费子结果即可，不必重放整个子会话。",
+        "dsh": "spawn 子会话独立，父任务不能靠共享宿主自然读到全部历史。最终结果的封装需再查驱动。",
+        "agentscope": "成员有自己的对话；团队分派、回传可沿管线检查。团队成员的整段生存期和原课临时子调用不同。"
+      },
+      "match": {
+        "hermes": "对应",
+        "dsh": "部分对应",
+        "agentscope": "部分对应"
+      },
+      "links": {
+        "hermes": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/tools/delegate_tool_child_run.py#L1017",
+        "dsh": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/subagent/subagent-spawn-in-process/src/index.ts#L41",
+        "agentscope": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/pipeline/_team_pipeline.py#L289"
+      }
+    }
+  ],
+  "s07": [
+    {
+      "section": "list_skills()",
+      "find": "list_skills()",
+      "question": "项目同时有 SQL、React 规范，第一次请求为何不用携带两份完整正文？",
+      "baseline": "原课启动时从 SKILL.md 扫出 name、description；展示可选项后，模型再决定是否读取某一份。",
+      "frames": {
+        "hermes": "skills_list 列出可发现的技能，skill_view 另行按名取内容。目录和正文有各自的调用入口。",
+        "dsh": "tool-skill 在 agent/pre-step 维护发现信息，供模型选择；正文由技能工具读取。",
+        "agentscope": "Toolkit.get_skill_instructions 公开可用技能信息，活动工具组影响这一轮可见的目录。"
+      },
+      "match": {
+        "hermes": "对应",
+        "dsh": "对应",
+        "agentscope": "对应"
+      },
+      "links": {
+        "hermes": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/tools/skills_tool.py#L634",
+        "dsh": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/skill/tool-skill/src/index.ts#L161",
+        "agentscope": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/tool/_builtin/_skill.py#L18"
+      }
+    },
+    {
+      "section": "load_skill(\"sql-style\")",
+      "find": "load_skill(\"sql-style\")",
+      "question": "模型选择 SQL 规范后，哪一份响应才真正带来了写 SQL 的约束？",
+      "baseline": "原课按名称读取指定技能，把正文通过 tool_result 放回当前对话，后续请求才能用到细则。",
+      "frames": {
+        "hermes": "skill_view 的结果携带所选技能内容。应核对本次工具结果与下一次输入。",
+        "dsh": "已注册的 skill 工具按请求的名称读取并返回正文；pre-step 发现不代表正文已进入消息。",
+        "agentscope": "SkillViewer 接受目标名称并受已启用的技能组约束；从实际结果检查正文。"
+      },
+      "match": {
+        "hermes": "对应",
+        "dsh": "对应",
+        "agentscope": "对应"
+      },
+      "links": {
+        "hermes": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/tools/skills_tool.py#L634",
+        "dsh": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/skill/tool-skill/src/index.ts#L161",
+        "agentscope": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/tool/_builtin/_skill.py#L18"
+      }
+    }
+  ],
+  "s08": [
+    {
+      "section": "L1: snip_compact — 裁掉无关的旧对话",
+      "find": "L1: snip_compact — 裁掉无关的旧对话",
+      "question": "裁去很久前的对话时，怎样避免把工具请求和紧随其后的结果拆散？",
+      "baseline": "原课保留开头和近端消息，在两个裁剪边界检查工具调用与结果是否成对；裁的是消息区间。",
+      "frames": {
+        "hermes": "压缩器确定保护尾部时会重调切点，避免将一次工具组拆开。其预算规则独立于原课的固定条数。",
+        "dsh": "工具配对检查限制 compactRegion 的起止区间，切口会拆开 call/result 时拒绝压缩。",
+        "agentscope": "_split_context_for_compression 按 token 预算决定保留近端上下文；精确切口与原课头尾条数规则不同。"
+      },
+      "match": {
+        "hermes": "对应",
+        "dsh": "对应",
+        "agentscope": "部分对应"
+      },
+      "links": {
+        "hermes": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/agent/context_compressor.py#L4255",
+        "dsh": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/compaction/compaction-basic/src/region.ts#L350",
+        "agentscope": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/agent/_agent.py#L2935"
+      }
+    },
+    {
+      "section": "L2: micro_compact — 旧工具结果占位",
+      "find": "L2: micro_compact — 旧工具结果占位",
+      "question": "读取十份文件后，若要保住消息顺序，能否只缩短旧工具结果？",
+      "baseline": "原课保留最近三条完整结果，将较老且较长的工具结果正文换成占位文字；这个步骤不调用模型。",
+      "frames": {
+        "hermes": "_prune_old_tool_results 面向较早的工具结果缩减正文，并保留保护区。需要按该版本自己的阈值判断哪条会变短。",
+        "dsh": "pruneSession 记录 compaction/prune，再用新的 tool/result 替换会话投影中的旧节点，保留被替换的序号。",
+        "agentscope": "_split_tool_result_for_compression 能在预算内保留部分正文；该函数针对当前工具结果，不能直接解释为只保留最后三条旧结果。"
+      },
+      "match": {
+        "hermes": "对应",
+        "dsh": "对应",
+        "agentscope": "部分对应"
+      },
+      "links": {
+        "hermes": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/agent/context_compressor.py#L3139",
+        "dsh": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/compaction/compaction-tool-result-pruner/src/index.ts#L136",
+        "agentscope": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/agent/_agent.py#L3116"
+      }
+    },
+    {
+      "section": "L3: tool_result_budget — 大结果落盘",
+      "find": "L3: tool_result_budget — 大结果落盘",
+      "question": "大文件和命令输出占满历史时，原文在哪里，下一次请求又带了什么？",
+      "baseline": "原课先处理旧上下文与工具结果，再将超预算的大输出移到旁路文件，在消息中保留指向原文的占位。",
+      "frames": {
+        "hermes": "工具执行器把过大结果交给 maybe_persist_tool_result，返回预览与路径。没有可写位置时可退回内联截断。",
+        "dsh": "spill-policy 的 post 钩子可将过大结果替换成预览与 locator；spill-local 提供文件存储。替换文本还必须满足字节上限。",
+        "agentscope": "工具结果切分后，配置了 offloader 时保存被省略内容，将路径写入保留结果的 reminder；Workspace 后端执行写入。"
+      },
+      "match": {
+        "hermes": "对应",
+        "dsh": "对应",
+        "agentscope": "对应"
+      },
+      "links": {
+        "hermes": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/tools/tool_result_storage.py#L699",
+        "dsh": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/spill/spill-policy/src/index.ts#L170",
+        "agentscope": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/agent/_agent.py#L2705"
+      }
+    },
+    {
+      "section": "L4: compact_history — LLM 全量摘要",
+      "find": "L4: compact_history — LLM 全量摘要",
+      "question": "全量压缩后，哪些内容还在模型的活跃消息里？如果请求已因超限失败，还有哪条补救路径？",
+      "baseline": "前三层缩减后仍超阈值时，compact_history 先把完整对话写到 .transcripts/，再把全部旧消息替换成一条摘要。教学版没有提供 transcript 检索工具。服务端已拒绝超长请求时，另有 reactive_compact 补救路径。",
+      "frames": {
+        "hermes": "轮次起点有独立压缩路径，CompactionOutcome 携带下一步的消息；超限的恢复状态另在 turn_recovery 管理。",
+        "dsh": "compaction-basic 可对选中历史前缀调用 summarizeWithLlm，保留后缀；请求溢出另由有次数上限的 request-error 分支处理。",
+        "agentscope": "_compress_context_impl 构造摘要，_prepare_model_input 再送 summary 和保留的 context。压缩器自身失败时也有截断后备策略。"
+      },
+      "match": {
+        "hermes": "部分对应",
+        "dsh": "对应",
+        "agentscope": "部分对应"
+      },
+      "links": {
+        "hermes": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/agent/turn_context_compaction.py#L129",
+        "dsh": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/compaction/compaction-basic/src/index.ts#L233",
+        "agentscope": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/agent/_agent.py#L513"
+      }
+    }
+  ],
+  "s09": [
+    {
+      "section": "加载：两条路径",
+      "find": "加载：两条路径",
+      "question": "用户说偏好用 Tab 缩进，换一段对话后，偏好怎样重新进入模型输入？",
+      "baseline": "原课用 Markdown 文件和索引保存长期内容；组装新请求时加载索引或相关记忆。仅有旧会话原文还不能说明新会话已读到偏好。",
+      "frames": {
+        "hermes": "MemoryStore.load_from_disk 加载 MEMORY.md、USER.md 并建立提示词快照。检查新会话所用配置目录及实际提示。",
+        "dsh": "RuntimeContextProjection 能恢复指定 Session 的上下文；不同用户会话按偏好检索的存储键、选择器仍待核实。",
+        "agentscope": "配置 Mem0Middleware 后，on_reply 可先检索记忆并注入。本轮匹配哪个主体、召回哪些条目都可沿 _async_search 查。"
+      },
+      "match": {
+        "hermes": "部分对应",
+        "dsh": "待核",
+        "agentscope": "对应"
+      },
+      "links": {
+        "hermes": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/tools/memory_tool_store.py#L223",
+        "dsh": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/core/agent-loop/src/runtime-context.ts#L109",
+        "agentscope": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/middleware/_longterm_memory/_mem0/_middleware.py#L285"
+      }
+    },
+    {
+      "section": "写入：每轮结束后提取",
+      "find": "写入：每轮结束后提取",
+      "question": "谁决定把一句话升格成下次可用的偏好？写入是显式调用还是回合收尾？",
+      "baseline": "原课在回合结束处从近期消息提取新记忆，参考已有条目避免重复；之后还有独立的低频整理。",
+      "frames": {
+        "hermes": "MemoryStore.add 有显式写入及重复内容检查；从磁盘加载成功不能据此认定每轮都自动提取。",
+        "dsh": "持久化 Session 保存事件；还缺证据把回合结束、长期事实提取和下个会话的检索串起来。",
+        "agentscope": "Mem0Middleware 有 _async_add 与提取后备分支，写入也受中间件配置控制。需对照这条链，不能套用 Markdown 索引布局。"
+      },
+      "match": {
+        "hermes": "部分对应",
+        "dsh": "待核",
+        "agentscope": "部分对应"
+      },
+      "links": {
+        "hermes": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/tools/memory_tool_store.py#L403",
+        "dsh": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/core/agent-loop/src/runtime-context.ts#L109",
+        "agentscope": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/middleware/_longterm_memory/_mem0/_middleware.py#L536"
+      }
+    }
+  ],
+  "s10": [
+    {
+      "section": "assemble_system_prompt: 按需拼接",
+      "find": "assemble_system_prompt: 按需拼接",
+      "question": "开了技能、记忆或新工具时，哪些运行状态决定系统提示具体多出哪一段？",
+      "baseline": "原课定义有名字的提示片段，按当前能力状态挑选并拼接。模型见到的提示随运行态变化，读静态模板看不全。",
+      "frames": {
+        "hermes": "build_system_prompt_parts 处理多个段，build_system_prompt 合成最终文本；从段来源追到最终请求。",
+        "dsh": "SystemPrompt 接受命名 section、context 和 variable，再在当前作用域按顺序组装。",
+        "agentscope": "Agent._get_system_prompt 合入技能与工作区信息，on_system_prompt 中间件还能改文本；_prepare_model_input 使用最终结果。"
+      },
+      "match": {
+        "hermes": "对应",
+        "dsh": "对应",
+        "agentscope": "对应"
+      },
+      "links": {
+        "hermes": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/agent/system_prompt.py#L770",
+        "dsh": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/core/system-prompt/src/index.ts#L406",
+        "agentscope": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/agent/_agent.py#L3330"
+      }
+    },
+    {
+      "section": "get_system_prompt: 缓存避免重复拼接",
+      "find": "get_system_prompt: 缓存避免重复拼接",
+      "question": "能力状态变化后，上次拼好的系统提示还能复用吗？",
+      "baseline": "原课用状态签名决定是否复用组装结果；比较同配置连续请求以及能力变化后的请求，就能检查缓存失效。",
+      "frames": {
+        "hermes": "_frozen_plugin_prompt_sections 固定会话的插件提示快照；这是特定片段的冻结，不能当作全提示用同一个状态签名缓存。",
+        "dsh": "SystemPrompt 可随 section 和上下文变量变动重组；现有组装接口未证明采用原课的签名缓存。",
+        "agentscope": "on_system_prompt 可逐个改写结果；需要额外检查最终提示缓存键，才能断定某次配置变化应否命中。"
+      },
+      "match": {
+        "hermes": "部分对应",
+        "dsh": "部分对应",
+        "agentscope": "部分对应"
+      },
+      "links": {
+        "hermes": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/agent/system_prompt.py#L119",
+        "dsh": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/core/system-prompt/src/index.ts#L406",
+        "agentscope": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/agent/_agent.py#L3330"
+      }
+    }
+  ],
+  "s11": [
+    {
+      "section": "路径 1: 输出被截断",
+      "find": "路径 1: 输出被截断",
+      "question": "答案被输出上限截断时，恢复的是这次生成的尾部，还是重新执行工具？",
+      "baseline": "原课把 max_tokens 单列为模型层问题，按已有恢复状态调整输出预算或请求续写，同时限制重复恢复。",
+      "frames": {
+        "hermes": "纯文本被长度限制截断时，_continue_text 累计续写次数，保留片段并增加续写提示；到达上限后以拼接的已有文本收尾。",
+        "dsh": "step 将模型的 max-tokens 转成专门结束原因。仅此分支无法证明会按原课的预算阶梯续写。",
+        "agentscope": "当前核对的 Agent 上下文压缩与连续工具错误提醒都没有证明输出截断后的自动续写策略。"
+      },
+      "match": {
+        "hermes": "对应",
+        "dsh": "部分对应",
+        "agentscope": "待核"
+      },
+      "links": {
+        "hermes": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/agent/turn_truncation.py#L313",
+        "dsh": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/core/agent-loop/src/agent.ts#L485",
+        "agentscope": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/agent/_agent.py#L1333"
+      }
+    },
+    {
+      "section": "路径 2: 上下文超限",
+      "find": "路径 2: 上下文超限",
+      "question": "请求因为输入过长被拒，重试前要改变哪份数据？",
+      "baseline": "原课在上下文超限分支先做应急压缩，再尝试发送变短的消息；原样重发无法消除长度原因。",
+      "frames": {
+        "hermes": "turn_recovery 有供应商溢出恢复状态，同时在轮次入口检查压缩。具体走哪条分支取决于供应商返回的错误类型。",
+        "dsh": "compaction-basic 处理 agent/request-error 中的 overflow，检查 maxOverflowRetries，有条件压缩后返回 retry。",
+        "agentscope": "压缩摘要调用本身溢出时，_compress_context_impl 可丢弃部分旧上下文再试；这条路径与原始业务请求超限要分开。"
+      },
+      "match": {
+        "hermes": "部分对应",
+        "dsh": "对应",
+        "agentscope": "部分对应"
+      },
+      "links": {
+        "hermes": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/agent/turn_recovery.py#L654",
+        "dsh": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/compaction/compaction-basic/src/index.ts#L181",
+        "agentscope": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/agent/_agent.py#L646"
+      }
+    },
+    {
+      "section": "路径 3: 临时故障",
+      "find": "路径 3: 临时故障",
+      "question": "429 或模型服务过载时，谁给出等待时间，谁限制重试次数？",
+      "baseline": "原课将暂时故障交给带退避与抖动的重试，对持续过载另设后备模型路径。本题观察模型调用层。",
+      "frames": {
+        "hermes": "compute_error_backoff 结合限流和错误信息确定等待；可使用服务端 Retry-After，并受配置上限约束。不会因这次模型错误自动重跑工具。",
+        "dsh": "step 将 failure、retryPolicy 交给 agent/request-error；处理器明确返回 retry 才重发。本入口没有固定原课的抖动公式。",
+        "agentscope": "已核对的重复工具错误提醒只观察工具失败。要确认 429/529 的等待时间与预算，应继续查所用模型适配器。"
+      },
+      "match": {
+        "hermes": "对应",
+        "dsh": "部分对应",
+        "agentscope": "待核"
+      },
+      "links": {
+        "hermes": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/agent/turn_recovery.py#L1488",
+        "dsh": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/core/agent-loop/src/agent.ts#L448",
+        "agentscope": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/agent/_agent.py#L1333"
+      }
+    }
+  ],
+  "s12": [
+    {
+      "section": "Task: 数据结构",
+      "find": "Task: 数据结构",
+      "question": "关闭再打开会话，如何找回同一个任务的身份、负责人和未满足的依赖？",
+      "baseline": "原课在 .tasks 目录为每个任务保存 JSON，按持久 ID 读取 owner、status、blockedBy；聊天顺序不参与重建。",
+      "frames": {
+        "hermes": "Kanban 的 SQLite 任务和关系表保存任务身份与父子边；可按 task_id 重查，存储形式与原课 JSON 不同。",
+        "dsh": "团队任务板由团队事件构造有 ID 的快照；能读取 status 和 blockedBy。宿主重启后的恢复依赖实际 Session 存储。",
+        "agentscope": "Task 的 owner、blocks、blocked_by 是状态字段；是否能跨进程恢复要核对所选 Agent Service 的状态保存与加载。"
+      },
+      "match": {
+        "hermes": "对应",
+        "dsh": "部分对应",
+        "agentscope": "部分对应"
+      },
+      "links": {
+        "hermes": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/hermes_cli/kanban_db.py#L1157",
+        "dsh": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/experimental/agent-team/src/task-board.ts#L254",
+        "agentscope": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/state/_task.py#L34"
+      }
+    },
+    {
+      "section": "can_start: 依赖检查",
+      "find": "can_start: 依赖检查",
+      "question": "B 依赖 A，B 已经创建，什么条件成立才能把 B 列为可启动？",
+      "baseline": "原课将任务与 blockedBy 写入独立任务记录，检查所有阻塞项的完成状态后才能启动 B。",
+      "frames": {
+        "hermes": "Kanban 将任务和父子边存 SQLite。create_task 与边查询能找到前置项，分发器还检查是否真的可启动。",
+        "dsh": "TeamTaskBoard 保存 blockedBy，计算 ready，并在 claim 分支再次核对前置任务的状态。",
+        "agentscope": "Task.blocked_by 与 blocks 明确表示方向；这些字段存在不能单独证明每个部署的领取器都会执行同一检查。"
+      },
+      "match": {
+        "hermes": "部分对应",
+        "dsh": "对应",
+        "agentscope": "部分对应"
+      },
+      "links": {
+        "hermes": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/hermes_cli/kanban_db.py#L1157",
+        "dsh": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/experimental/agent-team/src/task-board.ts#L254",
+        "agentscope": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/state/_task.py#L34"
+      }
+    },
+    {
+      "section": "complete_task: 完成与解锁",
+      "find": "complete_task: 完成与解锁",
+      "question": "认领和完成分别改什么，为什么一次完成会影响另一个任务？",
+      "baseline": "原课把认领与完成分成两次转换。前置项完成后，依赖它的任务才可能解除阻塞，原课以任务文件持久化。",
+      "frames": {
+        "hermes": "assign_task 处理归属，任务状态与父子边由看板维护。要判断解锁，沿就绪检查读取下游状态。",
+        "dsh": "TeamTaskBoard 将 claim、状态变更及依赖分开处理；完成上游后可以重新读下游 ready。",
+        "agentscope": "TaskUpdate 更新 owner、状态或依赖；跨重启保存及完成后的调度取决于实际配置的状态后端。"
+      },
+      "match": {
+        "hermes": "部分对应",
+        "dsh": "对应",
+        "agentscope": "部分对应"
+      },
+      "links": {
+        "hermes": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/hermes_cli/kanban_db.py#L2036",
+        "dsh": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/experimental/agent-team/src/task-board.ts#L254",
+        "agentscope": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/state/_task.py#L34"
+      }
+    }
+  ],
+  "s13": [
+    {
+      "section": "start_background_task: 后台执行与生命周期",
+      "find": "start_background_task: 后台执行与生命周期",
+      "question": "npm install 很慢时，主循环怎样先获得可追踪的身份，再去读 package.json？",
+      "baseline": "原课将慢操作从同步工具路径分出，登记后台任务并立即返回标识，独立工作者负责真正执行。",
+      "frames": {
+        "hermes": "终端后台执行会登记 ProcessSession；主轮可持有 session_id，之后按 ID poll、wait 或取日志。",
+        "dsh": "本地 JobRegistry.start 检查所有者和容量后启动、登记任务，返回 JobId。实际观察可使用同一 ID 查询。",
+        "agentscope": "工具卸载中间件登记 asyncio_task、session_id 等信息，取回 task_id，并在占位工具结果中公布身份；完成监听另行交付结果。"
+      },
+      "match": {
+        "hermes": "对应",
+        "dsh": "对应",
+        "agentscope": "对应"
+      },
+      "links": {
+        "hermes": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/tools/process_registry.py#L1179",
+        "dsh": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/jobs/jobs-local/src/index.ts#L131",
+        "agentscope": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/app/middleware/_tool_offload_middleware.py#L437"
+      }
+    },
+    {
+      "section": "collect_background_results: 通知收集",
+      "find": "collect_background_results: 通知收集",
+      "question": "命令已经结束，完成通知通过什么入口到达后续模型轮次？",
+      "baseline": "原课收集已完成结果，将通知放进循环，而非让最初的 bash 调用一直阻塞。登记、执行完和通知被读到是三个时刻。",
+      "frames": {
+        "hermes": "ProcessSession 可配置 notify_on_complete；不能接收通知的宿主还可按 ID 轮询。不能只凭进程退出推断模型已读。",
+        "dsh": "tool-jobs 为有 owner 的未报告完成项生成消息。wakeup 且空闲、预算允许时调用 owner.followup 主动唤醒；其余交给 owner.inject，等待消费。",
+        "agentscope": "服务层工具卸载中间件把带 task_id 的完成结果交给对应会话 inbox，并安排 wakeup。下次 reasoning 才会消费通知。"
+      },
+      "match": {
+        "hermes": "部分对应",
+        "dsh": "对应",
+        "agentscope": "对应"
+      },
+      "links": {
+        "hermes": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/tools/process_registry.py#L585",
+        "dsh": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/jobs/tool-jobs/src/index.ts#L278",
+        "agentscope": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/app/middleware/_tool_offload_middleware.py#L417"
+      }
+    }
+  ],
+  "s14": [
+    {
+      "section": "cron_matches: 五段式匹配",
+      "find": "cron_matches: 五段式匹配",
+      "question": "每两分钟复查一次与只提醒一次，调度器如何判断本次到期？",
+      "baseline": "原课把计划、时间匹配与执行分开，用五段式规则匹配当前时间，再控制重复与一次性任务。",
+      "frames": {
+        "hermes": "cron 调度器区分 cron 与 interval 类型，_process_due_job 处理已到期实例；完整表达式语法应追到计划解析器。",
+        "dsh": "dueDecision 处理一次性及固定间隔计划；不能据此承诺可解析原课所有五段表达式。",
+        "agentscope": "SchedulerManager 根据计划构造 APScheduler trigger，含 CronTrigger 分支；由 trigger 定义到期条件。"
+      },
+      "match": {
+        "hermes": "部分对应",
+        "dsh": "部分对应",
+        "agentscope": "对应"
+      },
+      "links": {
+        "hermes": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/cron/scheduler.py#L2757",
+        "dsh": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/schedule/schedule/src/runtime.ts#L35",
+        "agentscope": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/app/_manager/_scheduler/_scheduler_manager.py#L418"
+      }
+    },
+    {
+      "section": "Queue Processor + agent_loop: 交付端",
+      "find": "Queue Processor + agent_loop: 交付端",
+      "question": "到点时，是调度线程直接替模型跑检查，还是先把工作交付给会话？",
+      "baseline": "原课让调度线程将到期提示入队，由 queue processor 取得后协调 agent_loop；触发成功早于工具执行。",
+      "frames": {
+        "hermes": "_process_due_job 与 run_one_job 区分到期实例、领取和执行；应用的作业投递路线不等于原课内存队列。",
+        "dsh": "ScheduleRuntime.driveOnce 使用到期决定推进计划；实际会话处理与工具结果要沿配置的接收者继续追。",
+        "agentscope": "服务层到期回调把提醒交给目标会话 inbox 并安排唤醒，实际工具执行发生在后续分发。"
+      },
+      "match": {
+        "hermes": "部分对应",
+        "dsh": "部分对应",
+        "agentscope": "对应"
+      },
+      "links": {
+        "hermes": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/cron/scheduler.py#L4183",
+        "dsh": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/schedule/schedule/src/runtime.ts#L35",
+        "agentscope": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/app/_manager/_scheduler/_scheduler_manager.py#L33"
+      }
+    }
+  ],
+  "s15": [
+    {
+      "section": "spawn_teammate_thread: 启动队友",
+      "find": "spawn_teammate_thread: 启动队友",
+      "question": "让 Alice 管后端、Bob 管测试，谁创建长期成员，谁持有各自对话？",
+      "baseline": "原课用队友线程驱动独立循环，Lead 保留成员的姓名和角色，后续还可以继续联系同一名队友。",
+      "frames": {
+        "hermes": "Kanban 按 profile 指派任务并分发给 worker。任务归属可以核对，固定队友线程的生命周期需要分别检查。",
+        "dsh": "实验性 TeamService 组合成员名册、成员会话、任务板和生命周期；负责人可跨多次分派引用同一团队。",
+        "agentscope": "TeamPipeline 持有成员 Agent，由 leader 将工作分派给成员，按成员调用归并事件。服务层另有 AgentCreate。"
+      },
+      "match": {
+        "hermes": "部分对应",
+        "dsh": "对应",
+        "agentscope": "部分对应"
+      },
+      "links": {
+        "hermes": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/hermes_cli/kanban_db.py#L1455",
+        "dsh": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/experimental/agent-team/src/index.ts#L59",
+        "agentscope": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/pipeline/_team_pipeline.py#L289"
+      }
+    },
+    {
+      "section": "MessageBus: 文件收件箱",
+      "find": "MessageBus: 文件收件箱",
+      "question": "队友完成后给 Lead 留下一条消息，Lead 在哪里取到它，谁负责投递？",
+      "baseline": "原课为每个收件人写 JSONL 文件，read_inbox 消费消息，Lead 在循环中将收到的内容并入自己的上下文。",
+      "frames": {
+        "hermes": "任务评论可按 task_id 写入和增量读取；这条路径是看板讨论，尚未证明有原课按收件人消费的文件邮箱。",
+        "dsh": "TeamService 的 TeamMailbox 按成员记录入队和投递状态；查看目标成员会话判断是否送达。",
+        "agentscope": "服务层 TeamSay 解析成员名或广播范围，调用 deliver_to_inbox。库级 TeamPipeline 的直接事件归并另有入口。"
+      },
+      "match": {
+        "hermes": "部分对应",
+        "dsh": "对应",
+        "agentscope": "对应"
+      },
+      "links": {
+        "hermes": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/hermes_cli/kanban_db.py#L1671",
+        "dsh": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/experimental/agent-team/src/types.ts#L224",
+        "agentscope": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/app/_tool/_team_say.py#L283"
+      }
+    }
+  ],
+  "s16": [
+    {
+      "section": "四步协议流程",
+      "find": "四步协议流程",
+      "question": "Lead 想让 Alice 安全关机，要凭哪条回执知道她真的同意？",
+      "baseline": "原课先登记 pending 请求，再发关机消息。队友以同一 request_id 回应，Lead 才将请求转为同意或拒绝。",
+      "frames": {
+        "hermes": "看板评论挂在任务 ID 上。现有证据无法把某条评论认定为关机请求的明确同意。",
+        "dsh": "TeamMessageId 和 queued/delivered 可核对投递；delivered 只说明交付，仍缺与原课关机意愿相匹配的响应。",
+        "agentscope": "TeamSay 可定向发送给负责人；已核对的路由没有证明普通成员发言会推动关机握手状态机。"
+      },
+      "match": {
+        "hermes": "待核",
+        "dsh": "部分对应",
+        "agentscope": "部分对应"
+      },
+      "links": {
+        "hermes": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/hermes_cli/kanban_db.py#L1671",
+        "dsh": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/experimental/agent-team/src/types.ts#L224",
+        "agentscope": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/app/_tool/_team_say.py#L121"
+      }
+    },
+    {
+      "section": "match_response: 类型校验",
+      "find": "match_response: 类型校验",
+      "question": "同一个队友同时有计划审批和关机请求，错误类型的回复能否解锁计划？",
+      "baseline": "原课使用 request_id 匹配待处理项，同时核对协议类型。普通消息、关机响应与计划批准在接收端分别处理。",
+      "frames": {
+        "hermes": "add_comment、list_comments_after 可以归属到任务与评论；附带类型的请求/应答匹配还没有源码依据。",
+        "dsh": "团队消息类型能区分入队和投递，现有类型定义不能确认 plan_approval 与 shutdown 的配对检查。",
+        "agentscope": "TeamSay 的 content/to 支持路由。服务层是否按请求 ID 校验相应审批类型，不能从发送 API 推出。"
+      },
+      "match": {
+        "hermes": "待核",
+        "dsh": "待核",
+        "agentscope": "待核"
+      },
+      "links": {
+        "hermes": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/hermes_cli/kanban_db.py#L1671",
+        "dsh": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/experimental/agent-team/src/types.ts#L224",
+        "agentscope": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/app/_tool/_team_say.py#L121"
+      }
+    }
+  ],
+  "s17": [
+    {
+      "section": "idle_poll: 空闲轮询",
+      "find": "idle_poll: 空闲轮询",
+      "question": "模型结束当前工作后，为什么队友还能发现下一件事，而不是直接退出？",
+      "baseline": "原课让工作者转入空闲阶段，优先检查收件箱，再扫描未领取任务；收到工作、关机指令或超时会走不同路径。",
+      "frames": {
+        "hermes": "has_spawnable_ready 在看板分发侧检查可启动候选。调度器视角与原课每位队友轮询收件箱的视角有别。",
+        "dsh": "TeamTaskBoard 暴露 ready，成员还需由已配置的驱动唤醒；任务视图本身不会执行空闲轮询。",
+        "agentscope": "TaskUpdate 可更改任务归属；在此部署何处唤醒空闲成员、检查收件箱并决定退出，仍待核对。"
+      },
+      "match": {
+        "hermes": "部分对应",
+        "dsh": "部分对应",
+        "agentscope": "待核"
+      },
+      "links": {
+        "hermes": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/hermes_cli/kanban_db_dispatch.py#L1806",
+        "dsh": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/experimental/agent-team/src/task-board.ts#L133",
+        "agentscope": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/tool/_task/_update_task.py#L135"
+      }
+    },
+    {
+      "section": "claim_task: owner 检查",
+      "find": "claim_task: owner 检查",
+      "question": "两个队友都读到同一张任务卡，谁在认领时重新核对依赖和所有者？",
+      "baseline": "原课先筛出 pending、无 owner 且前置项就绪的任务，再在 claim 时检查 owner；课文另讨论真实并发下需要的锁。",
+      "frames": {
+        "hermes": "Kanban 的 claim_task 在写事务中重检父任务，以条件转换从 ready 进入 running。成功返回任务，抢不到返回 None。",
+        "dsh": "TeamTaskBoard 的 claim 先拒绝其他 owner，再重查 pending 与依赖；通过后同时写 ownerId 和 in_progress。",
+        "agentscope": "TaskUpdate 可写 owner 与依赖，但还未核定两名工作者并发请求时的有条件更新及失败反馈。"
+      },
+      "match": {
+        "hermes": "对应",
+        "dsh": "对应",
+        "agentscope": "待核"
+      },
+      "links": {
+        "hermes": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/hermes_cli/kanban_db.py#L2171",
+        "dsh": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/experimental/agent-team/src/task-board.ts#L133",
+        "agentscope": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/tool/_task/_update_task.py#L135"
+      }
+    }
+  ],
+  "s18": [
+    {
+      "section": "队友工具的 cwd 切换",
+      "find": "队友工具的 cwd 切换",
+      "question": "Alice 和 Bob 都修改 config.py，文件名相同时谁决定实际写到哪个目录？",
+      "baseline": "原课创建与任务 ID 绑定的 worktree，调用文件及命令工具时传入该任务的工作目录，使同名文件分别落在独立检出中。",
+      "frames": {
+        "hermes": "创建工作树后，委派实现为 child_task_id 设置专属路径，并把隔离说明附到子任务目标；父、子工具由此有不同执行目录。",
+        "dsh": "进程内 spawn 能隔离会话；该入口没有证明会给两个成员创建不同 Git 工作树并切换 cwd。",
+        "agentscope": "LocalWorkspace 有独立根路径；工作区提示建议使用会话专用 worktree。自动检出分支与工具 cwd 绑定仍待核定。"
+      },
+      "match": {
+        "hermes": "对应",
+        "dsh": "待核",
+        "agentscope": "部分对应"
+      },
+      "links": {
+        "hermes": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/tools/delegate_tool_child_run.py#L909",
+        "dsh": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/subagent/subagent-spawn-in-process/src/index.ts#L41",
+        "agentscope": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/workspace/_local_workspace.py#L66"
+      }
+    },
+    {
+      "section": "收尾：Keep 还是 Remove",
+      "find": "收尾：Keep 还是 Remove",
+      "question": "子任务结束后发现工作树有改动，何时保留，何时可以安全清理？",
+      "baseline": "原课把 keep、remove 分开，清理前检查改动，并记录工作树事件；是否保留不能仅凭任务已经结束。",
+      "frames": {
+        "hermes": "finalize_subagent_worktree 核查基线、提交与脏状态。干净且无提交时可回收，含变更时可归档；原课由使用者显式选 keep/remove，两者的决策主体不同。",
+        "dsh": "独立 Session 的结束不足以证明工作树已清理，已核的 spawn 入口未给出 dirty 检查或归档结果。",
+        "agentscope": "LocalWorkspace 的路径管理没有证实会基于 Git 改动执行 keep/remove；需要独立检查清理流程。"
+      },
+      "match": {
+        "hermes": "部分对应",
+        "dsh": "待核",
+        "agentscope": "待核"
+      },
+      "links": {
+        "hermes": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/tools/subagent_worktree.py#L141",
+        "dsh": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/subagent/subagent-spawn-in-process/src/index.ts#L41",
+        "agentscope": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/workspace/_local_workspace.py#L66"
+      }
+    }
+  ],
+  "s19": [
+    {
+      "section": "connect_mcp：连接 + 发现",
+      "find": "connect_mcp：连接 + 发现",
+      "question": "新服务刚接入时，第一批可用工具从哪里来？它们什么时候能被模型选中？",
+      "baseline": "原课的 connect_mcp 建立命名客户端，mock 服务交给它一套工具定义。下一轮组装工具池时，模型才会看到新增能力。",
+      "frames": {
+        "hermes": "_register_server_tools 从服务端已发现的工具建立候选并登记；过滤条件决定最终可见集合。此入口从已有清单开始。",
+        "dsh": "mcp-client 的 apply 建立受作用域管理的连接并注册服务端上下文，连接通过发现的清单向 ctx.tools 挂载定义，释放时撤销。",
+        "agentscope": "MCPClient._discover_tools 取得远端清单，list_tools 将可用项包装成 ToolBase；上层 Toolkit 接入后才暴露给模型。"
+      },
+      "match": {
+        "hermes": "部分对应",
+        "dsh": "对应",
+        "agentscope": "对应"
+      },
+      "links": {
+        "hermes": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/tools/mcp_tool_registration.py#L443",
+        "dsh": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/mcp/mcp-client/src/index.ts#L182",
+        "agentscope": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/mcp/_mcp_client.py#L523"
+      }
+    },
+    {
+      "section": "assemble_tool_pool：组装工具池",
+      "find": "assemble_tool_pool：组装工具池",
+      "question": "docs 与 deploy 服务都提供同名工具时，模型究竟会看到哪个名字？",
+      "baseline": "原课的 mock server 先公布工具，再将标准化的服务名和工具名拼成有命名空间的公开名，与内建工具合并。",
+      "frames": {
+        "hermes": "注册流程先收集候选再解析名称冲突；_resolve_name_collisions 处理归一化歧义，不能预设最后名字与原课相同。",
+        "dsh": "mcp-client 保留每个服务的命名空间；工具定义分别保留 publicName、rawName 与 inputSchema。",
+        "agentscope": "MCPTool 用 mcp__服务名__清洗后的工具名作公开名称，保留原始 tool.name 给远端调用；清洗字符的规则与原课不同。"
+      },
+      "match": {
+        "hermes": "对应",
+        "dsh": "对应",
+        "agentscope": "对应"
+      },
+      "links": {
+        "hermes": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/tools/mcp_tool_registration.py#L443",
+        "dsh": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/mcp/mcp-client/src/tools.ts#L130",
+        "agentscope": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/tool/_adapters.py#L257"
+      }
+    },
+    {
+      "section": "MCPClient：发现 + 调用",
+      "find": "MCPClient：发现 + 调用",
+      "question": "模型选了公开的 docs 搜索工具，哪段代码还原服务端名称，结果如何沿普通工具路径返回？",
+      "baseline": "原课在组装分发表时给每个远端工具绑定客户端和原名。connect 后才能选择并调用；教学版执行 mock handler。",
+      "frames": {
+        "hermes": "MCP 工具处理器用 server.session.call_tool(tool_name, arguments=args) 调指定服务，原始工具名与参数通过所选连接传给服务端。",
+        "dsh": "远端工具定义把 call 绑定到 client.callTool，送原 tool.name 与本次 arguments；对模型公开的是另一个 publicName。",
+        "agentscope": "MCPTool 的适配器调用 client.call_tool(self._tool.name, arguments=kwargs)，处理进度与结果，供 Toolkit 按工具流消费。"
+      },
+      "match": {
+        "hermes": "对应",
+        "dsh": "对应",
+        "agentscope": "对应"
+      },
+      "links": {
+        "hermes": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/tools/mcp_tool_handlers.py#L623",
+        "dsh": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/mcp/mcp-client/src/tools.ts#L138",
+        "agentscope": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/tool/_adapters.py#L410"
+      }
+    }
+  ],
+  "s20": [
+    {
+      "section": "组件在循环中的位置",
+      "find": "组件在循环中的位置",
+      "question": "一次完整 turn 发给模型之前，待处理通知、压缩、提示组装怎样归位？",
+      "baseline": "原课把 cron/后台通知、上下文处理、记忆及工具状态放入请求前的准备阶段，再由模型决定是否申请工具。",
+      "frames": {
+        "hermes": "在 _run_conversation_turn 追轮次入口，再查 run_turn_start_compaction 和请求组装；是否启用 cron 投递要看实际宿主。",
+        "dsh": "step 由 Session 与插件准备模型请求；压缩、调度等由安装的 pre-step 或会话组件组合，并非固定全开。",
+        "agentscope": "_prepare_model_input 组合系统消息、摘要与上下文；Agent Service 的提醒 inbox 属于额外服务层。"
+      },
+      "match": {
+        "hermes": "部分对应",
+        "dsh": "部分对应",
+        "agentscope": "部分对应"
+      },
+      "links": {
+        "hermes": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/agent/turn_context_compaction.py#L129",
+        "dsh": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/core/agent-loop/src/agent.ts#L605",
+        "agentscope": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/agent/_agent.py#L3330"
+      }
+    },
+    {
+      "section": "权限和 hooks",
+      "find": "权限和 hooks",
+      "question": "模型要用工具时，在哪里先做权限决定，又从哪里把执行结果带回下一轮？",
+      "baseline": "原课把 PreToolUse 与权限检查置于分发之前，工具池可含内建及 MCP 工具；结果再经过 PostToolUse 并回到消息列表。",
+      "frames": {
+        "hermes": "前置守卫可能阻止或修改调用，实际分发后有后置插件并将结果交回会话；ACP 编辑审批只在相应路径生效。",
+        "dsh": "step 收集工具调用，executeToolCalls 负责执行与 Session 结果；兼容 hooks 和审批需由运行 profile 启用。",
+        "agentscope": "_execute_tool_call 在外层处理权限；on_acting 围绕后面的实际工具操作迭代事件。观察到许可和结果，仍不能把顺序套成原课的前置权限 Hook。"
+      },
+      "match": {
+        "hermes": "对应",
+        "dsh": "对应",
+        "agentscope": "部分对应"
+      },
+      "links": {
+        "hermes": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/model_tools.py#L792",
+        "dsh": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/core/agent-loop/src/agent.ts#L489",
+        "agentscope": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/agent/_agent.py#L2615"
+      }
+    },
+    {
+      "section": "子 agent 与团队",
+      "find": "子 agent 与团队",
+      "question": "一次任务需要短暂委派和长期协作时，临时子任务的返回点与队友收件箱分别接在哪里？",
+      "baseline": "原课并置两条入口。task 交给独立子循环并返回摘要，spawn_teammate 创建可继续收信的队友，Lead 在后续轮次处理消息。",
+      "frames": {
+        "hermes": "临时委派会整理 child.run_conversation 的结果。持续协作还可走看板任务和评论；不能将两者当作同一上下文返回。",
+        "dsh": "进程内 spawn 可用独立子 Session 做单次委派；启用 agent-team 后，成员身份、TeamMailbox 与任务板由 TeamService 管理。",
+        "agentscope": "TeamPipeline 能将分派结果归回 leader，Agent Service 的 TeamSay 又可投递成员 inbox。两种入口位于不同层，所需运行条件不同。"
+      },
+      "match": {
+        "hermes": "部分对应",
+        "dsh": "对应",
+        "agentscope": "部分对应"
+      },
+      "links": {
+        "hermes": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/tools/delegate_tool_child_run.py#L1017",
+        "dsh": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/experimental/agent-team/src/index.ts#L59",
+        "agentscope": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/pipeline/_team_pipeline.py#L289"
+      }
+    },
+    {
+      "section": "工具与分发",
+      "find": "工具与分发",
+      "question": "模型没申请下一次工具时，是否已经说明前面的操作都达到了业务目标？",
+      "baseline": "原课的综合循环依据助手响应中是否含工具块来分流，退出侧还可触发 Stop。结束信号和具体工具结果在不同位置。",
+      "frames": {
+        "hermes": "_run_conversation_turn 选择 run_tool_round 或 finish_text_response；要答“任务是否成功”仍须检查相应工具返回。",
+        "dsh": "step 可因无 tool-call 得到 completed；turn/end 还有其他结束原因，实际动作应从 Session 的工具记录查。",
+        "agentscope": "_next_action 检查待处理动作及文本终局，决定是否继续。回复结束后，验证具体工具是否成功仍要读对应结果。"
+      },
+      "match": {
+        "hermes": "对应",
+        "dsh": "对应",
+        "agentscope": "对应"
+      },
+      "links": {
+        "hermes": "https://github.com/NousResearch/hermes-agent/blob/0284ce17d9bf9ed2f1832ad8950dfac2394d45ab/agent/conversation_loop.py#L1762",
+        "dsh": "https://github.com/deepseek-ai/deepseek-harness/blob/ddefc45fbc7f8e46dd73185e68295696d1297887/packages/core/agent-loop/src/agent.ts#L485",
+        "agentscope": "https://github.com/agentscope-ai/agentscope/blob/28ab5ef6b1d8969c6ed8a3975c2063478a5c4986/src/agentscope/agent/_agent.py#L3816"
+      }
+    }
+  ]
+}

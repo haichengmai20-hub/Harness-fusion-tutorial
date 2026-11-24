@@ -1,0 +1,20 @@
+{
+  "s10": {
+    "pointsFile": "s10-source-points.json",
+    "documents": {
+      "confirmed": {
+        "title": "已确认定稿 · 请求字段与缓存断点",
+        "file": "学习笔记/s10-请求字段与缓存断点.md",
+        "sha256": "e88629cb3b571ace7bfa89a6204b914bbf6222d9b4119c8397795b27934125dc"
+      },
+      "evidence": {
+        "title": "作业、源码与旧笔记逐项对照",
+        "file": "学习笔记/s10-prompt-cache与系统提示词组装-作业对照源码与旧笔记.md"
+      },
+      "lab": {
+        "title": "Harness Lab · 比较两次请求",
+        "file": "docs/s10-harness-lab.md"
+      }
+    }
+  }
+}

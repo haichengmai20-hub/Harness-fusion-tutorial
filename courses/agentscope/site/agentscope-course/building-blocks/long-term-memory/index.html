@@ -1,0 +1,296 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>长期记忆 · AgentScope</title><link rel="stylesheet" href="/agentscope-course/reader.css"><script defer src="/agentscope-course/reader.js"></script></head><body><header class="mast"><a href="/agentscope-course/">AgentScope <small>中文文档</small></a><span>v2.0.12</span><button id="catalog" aria-controls="outline" aria-expanded="false">目录</button></header><div class="layout"><nav id="outline" aria-label="AgentScope 文档目录"><div class="group">快速开始</div><a href="/agentscope-course/" >AgentScope 2.0 是什么？</a><a href="/agentscope-course/quickstart/" >快速开始</a><a href="/agentscope-course/release-notes/" >更新日志</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/message-and-event/" >消息与事件</a><div class="group">核心模块 / 智能体</div><a href="/agentscope-course/building-blocks/agent/overview/" >智能体 · 概述</a><a href="/agentscope-course/building-blocks/agent/configure-agent/" >配置智能体</a><a href="/agentscope-course/building-blocks/agent/run-agent/" >运行智能体</a><a href="/agentscope-course/building-blocks/agent/interrupt-agent/" >中断智能体</a><a href="/agentscope-course/building-blocks/agent/human-in-the-loop/" >人机交互</a><div class="group">核心模块 / 模型</div><a href="/agentscope-course/building-blocks/model/overview/" >模型 · 概述</a><a href="/agentscope-course/building-blocks/model/llm/" >大语言模型</a><a href="/agentscope-course/building-blocks/model/tts/" >语音合成</a><a href="/agentscope-course/building-blocks/model/asr/" >语音识别</a><a href="/agentscope-course/building-blocks/model/embedding/" >嵌入模型</a><div class="group">核心模块 / 上下文管理</div><a href="/agentscope-course/building-blocks/context/overview/" >上下文管理 · 概述</a><a href="/agentscope-course/building-blocks/context/environment-awareness/" >感知环境</a><a href="/agentscope-course/building-blocks/context/compress-context/" >压缩上下文</a><a href="/agentscope-course/building-blocks/context/offload-context/" >卸载上下文</a><div class="group">核心模块 / 工具</div><a href="/agentscope-course/building-blocks/tool/overview/" >工具 · 概述</a><a href="/agentscope-course/building-blocks/tool/python-tool/" >Python 函数工具</a><a href="/agentscope-course/building-blocks/tool/mcp/" >MCP</a><a href="/agentscope-course/building-blocks/tool/skill/" >Skill</a><a href="/agentscope-course/building-blocks/tool/manage-tools/" >元工具</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/plan/" >计划模式</a><div class="group">核心模块 / 流水线</div><a href="/agentscope-course/building-blocks/pipeline/overview/" >流水线 · 概述</a><a href="/agentscope-course/building-blocks/pipeline/goal/" >目标流水线</a><a href="/agentscope-course/building-blocks/pipeline/team/" >团队流水线</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/sop/" >标准作业流程</a><div class="group">核心模块 / 权限系统</div><a href="/agentscope-course/building-blocks/permission-system/overview/" >权限系统 · 概述</a><a href="/agentscope-course/building-blocks/permission-system/permission-mode/" >权限模式</a><a href="/agentscope-course/building-blocks/permission-system/permission-rule/" >权限规则</a><a href="/agentscope-course/building-blocks/permission-system/tool-check/" >工具内置检查</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/middleware/" >中间件</a><a href="/agentscope-course/building-blocks/rag/" >RAG</a><a href="/agentscope-course/building-blocks/long-term-memory/" aria-current="page">长期记忆</a><div class="group">核心模块 / 工作区</div><a href="/agentscope-course/building-blocks/workspace/overview/" >工作区 · 概述</a><a href="/agentscope-course/building-blocks/workspace/run-workspace/" >运行工作区</a><a href="/agentscope-course/building-blocks/workspace/manage-resources/" >管理资源</a><a href="/agentscope-course/building-blocks/workspace/mcp-gateway/" >MCP 网关</a><div class="group">核心模块 / 实时语音智能体</div><a href="/agentscope-course/building-blocks/realtime/overview/" >实时语音智能体 · 概述</a><a href="/agentscope-course/building-blocks/realtime/speech-to-speech/" >语音到语音</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/console/" >终端 UI</a><a href="/agentscope-course/building-blocks/a2a/" >A2A 协议</a><div class="group">智能体即服务</div><a href="/agentscope-course/deploy/agent-service/" >架构</a><a href="/agentscope-course/deploy/agent-team/" >智能体团队</a><a href="/agentscope-course/deploy/sop/" >SOP 服务</a><a href="/agentscope-course/deploy/sharing/" >资源共享</a><a href="/agentscope-course/deploy/rag/" >RAG 服务</a><a href="/agentscope-course/deploy/workspace-manager/" >工作区管理</a><div class="group">智能体即服务 / MCP 与技能中心</div><a href="/agentscope-course/deploy/hub/overview/" >MCP 与技能中心 · 概览</a><a href="/agentscope-course/deploy/hub/mcp-hub/" >MCP 中心</a><a href="/agentscope-course/deploy/hub/skill-hub/" >技能中心</a><div class="group">智能体即服务 / 消息渠道</div><a href="/agentscope-course/deploy/channel/overview/" >消息渠道 · 概览</a><a href="/agentscope-course/deploy/channel/routing/" >会话路由</a><a href="/agentscope-course/deploy/channel/feishu/" >飞书</a><a href="/agentscope-course/deploy/channel/dingtalk/" >钉钉</a><a href="/agentscope-course/deploy/channel/discord/" >Discord</a><a href="/agentscope-course/deploy/channel/custom/" >自定义渠道</a><div class="group">其他</div><a href="/agentscope-course/others/faq/" >常见问题</a><a href="/agentscope-course/others/change-log/" >版本迁移</a><div class="group">智能体即服务 / API</div><a href="/agentscope-course/api/">API 参考</a></nav><main><div class="context">核心模块</div><article class="prose-custom" id="content"><h1>长期记忆</h1><p class="dek">基于智能体中间件实现的，跨会话长期记忆</p><link rel="preload" as="image" href="/agentscope-course/diagrams/diagram-7e3dd652659f58.svg"/><p><strong>长期记忆</strong> 是智能体跨会话保留信息的能力，包括用户偏好、历史决策，以及在会话中总结、凝练的知识或规则。</p>
+<p>AgentScope 通过 <a href="/agentscope-course/building-blocks/middleware/">智能体中间件</a> 的形式实现不同长期记忆能力。每个长期记忆实现都是一个 <code>MiddlewareBase</code> 的子类，以非侵入式的方式完成记忆的注入、检索和写回。</p>
+<p>AgentScope 目前支持以下长期记忆，更多实现正在开发中：</p>
+<table><thead><tr><th>名称</th><th>代码接口</th><th>描述</th></tr></thead><tbody><tr><td>Agentic Memory</td><td><code>AgenticMemoryMiddleware</code></td><td>基于 Markdown 文件的长期记忆，由智能体自主创建、维护和使用。</td></tr><tr><td>ReMe</td><td><code>ReMeMiddleware</code></td><td>由 <a href="https://github.com/agentscope-ai/ReMe">ReMe</a> 驱动的进程内、文件型长期记忆，自动从对话中提取并写回记忆。</td></tr><tr><td>Mem0</td><td><code>Mem0Middleware</code></td><td>由 <a href="https://github.com/mem0ai/mem0">mem0</a> 驱动的、开箱即用的长期记忆后端。</td></tr><tr><td>开发中 ...</td><td></td><td></td></tr></tbody></table>
+<h2 id="agentic-memory">Agentic Memory</h2>
+<p>Agentic Memory 是 AgentScope 原生的长期记忆实现，通过 Markdown 文件的读写和检索实现长期记忆功能。
+运行中智能体自主创建各种 Markdown 格式的记忆文件，并通过一个固定的 <code>MEMORY.md</code> 文件维护所有记忆文件的索引，并自动注入到系统提示中，是一种“渐进暴露”的实现方式。</p>
+<aside class="notice tip"><strong>提示</strong><p>Agentic Memory 通过 <code>backend</code> 参数支持切换不同的运行环境（例如本地、Docker、E2B、云端等），可以在不同的沙箱环境中运行，默认使用 <code>LocalBackend</code>。</p></aside>
+<p>运行时，智能体通过内置的 <code>Read</code>、<code>Write</code> 和 <code>Edit</code> 工具创建、访问和修改长期记忆，典型的文件结构如下：</p>
+<div class="code-example"><div class="code-bar"><span>text</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-text" data-caption="text" data-lang="text">&lt;workdir&gt;/Memory/
+├── MEMORY.md
+├── &lt;agent_created_topic&gt;.md
+├── &lt;agent_created_feedback&gt;.md
+└── ...
+</code></pre></div>
+<p>其中每个 Markdown 文件都遵循 frontmatter 规范，包含 <code>name</code>、<code>description</code> 和 <code>type</code> 字段，便于后续检索和注入：</p>
+<div class="code-example"><div class="code-bar"><span>markdown</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-markdown" data-caption="markdown" data-lang="markdown">---
+name: {{memory name}}
+description: {{one-line description — used to decide relevance in future conversations, so be specific}}
+type: {{user, feedback, project, reference}}
+---
+
+{{memory content — for feedback/project types, structure as: rule/fact, then **Why:** and **How to apply:** lines}}
+</code></pre></div>
+<p><code>MEMORY.md</code> 则保持简短，只作为索引并自动注入到系统提示中，示例如下：</p>
+<div class="code-example"><div class="code-bar"><span>markdown</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-markdown" data-caption="markdown" data-lang="markdown">- [User profile](user_profile.md) — User location and answer-style preference.
+- [Feedback on answer style](feedback_answer_style.md) — User prefers concise Chinese answers.
+</code></pre></div>
+<p>Agentic Memory 有两种检索链路：一种是智能体根据提示词和 <code>MEMORY.md</code> 索引自主检索相关文件；另一种是在调用智能体 <code>reply</code>/<code>reply_stream</code> 时，启动一个异步任务使用 LLM 来选择相关的 Markdown 文件，并在后续推理前检查该异步任务是否结束，再以 <code>HintBlock</code> 的形式插入检索结果。</p>
+<p>需要注意检索过程是异步的：注入发生在推理-行动循环中推理<strong>开始前</strong>的检查点，具体时机取决于检索过程耗时；如果本次回复没有进入后续推理轮次（例如模型没有产生工具调用），则该次回复可能不会注入检索到的长期记忆内容。具体工作流程如下：</p>
+<figure class="diagram"><img src="/agentscope-course/diagrams/diagram-7e3dd652659f58.svg" alt="本节流程图"/><details><summary>查看流程图原文</summary><pre><code class="language-mermaid" data-caption="mermaid" data-lang="mermaid">flowchart TD
+    A[User message] --&gt; B[agent.reply / reply_stream]
+    B --&gt; C[on_reply starts async retrieval task]
+    B --&gt; E
+
+    subgraph MainLoop[Reasoning-acting loop]
+        E{Before reasoning:&lt;br/&gt;is async retrieval done?}
+        E --&gt;|Yes| F[Inject selected memories as HintBlock]
+        E --&gt;|No| G[Skip memory injection this iteration]
+        F --&gt; H[Reasoning]
+        G --&gt; H
+        H --&gt; I{Tool calls?}
+        I --&gt;|Yes| J[Acting: run tools such as Read / Write]
+        J --&gt; K[Agent may update topic .md files and MEMORY.md]
+        K --&gt; E
+        I --&gt;|No| L[Return assistant response]
+    end
+
+    subgraph AsyncTask[Async memory retrieval task]
+        C --&gt; M[List Markdown topic files]
+        M --&gt; N[Parse filename, frontmatter description, mtime]
+        N --&gt; O[LLM selects relevant filenames]
+        O --&gt; P[Read selected Markdown files]
+        P --&gt; Q[Task finished with formatted memory context]
+    end
+
+    Q -. checked before each reasoning .-&gt; E
+</code></pre></details></figure>
+<p>通过如下代码在不同的环境中使用 Agentic Memory：</p>
+<div class="tab-set" data-tab-set=""><div class="tab-list" role="group" aria-label="代码示例"><button type="button" data-choice="0" aria-pressed="true">本地环境</button><button type="button" data-choice="1" aria-pressed="false">Docker 环境</button><button type="button" data-choice="2" aria-pressed="false">E2B 环境</button></div><div data-panel="0"><div class="code-example"><div class="code-bar"><span>本地环境</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="本地环境" data-lang="python">from agentscope.agent import Agent
+from agentscope.middleware import AgenticMemoryMiddleware
+from agentscope.permission import AdditionalWorkingDirectory, PermissionMode
+from agentscope.tool import Read, Toolkit, Write, Edit
+
+
+workdir = &quot;/tmp/agentscope_ltm_demo&quot;
+memory = AgenticMemoryMiddleware(workdir=workdir)
+
+agent = Agent(
+    name=&quot;assistant&quot;,
+    system_prompt=&quot;You are a helpful assistant.&quot;,
+    model=my_chat_model,
+    toolkit=Toolkit(tools=[Read(), Write(), Edit()]),
+    middlewares=[memory],
+)
+
+# [可选] 允许示例中的 Write 工具写入 workdir。生产环境请根据安全策略配置权限。
+agent.state.permission_context.mode = PermissionMode.ACCEPT_EDITS
+agent.state.permission_context.working_directories[workdir] = (
+    AdditionalWorkingDirectory(path=workdir, source=&quot;long-term-memory-demo&quot;)
+)
+
+await agent.reply(&quot;请记住：我住在杭州，并且偏好简洁的中文回答。&quot;)
+
+# 重新创建一个智能体，只要复用同一个 workdir，就能使用同一份 Markdown 记忆。
+new_agent = Agent(
+    name=&quot;assistant&quot;,
+    system_prompt=&quot;You are a helpful assistant.&quot;,
+    model=my_chat_model,
+    toolkit=Toolkit(tools=[Read(), Write()]),
+    middlewares=[AgenticMemoryMiddleware(workdir=workdir)],
+)
+
+await new_agent.reply(&quot;你还记得我的所在地和回答风格偏好吗？&quot;)
+</code></pre></div></div><div data-panel="1" hidden=""><div class="code-example"><div class="code-bar"><span>Docker 环境</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="Docker 环境" data-lang="python">from agentscope.agent import Agent
+from agentscope.middleware import AgenticMemoryMiddleware
+from agentscope.tool import Read, Toolkit, Write
+from agentscope.workspace import DockerWorkspace
+
+
+workspace = DockerWorkspace()
+await workspace.initialize()
+
+# 获取 Docker 沙箱的 backend
+backend = workspace.get_backend()
+memory = AgenticMemoryMiddleware(
+    workdir=workspace.workdir,
+    # 切换到沙箱环境中
+    backend=backend,
+)
+
+agent = Agent(
+    name=&quot;assistant&quot;,
+    system_prompt=&quot;You are a helpful assistant.&quot;,
+    model=my_chat_model,
+    toolkit=Toolkit(
+        # Docker workspace 默认工具中自带 Read / Write / Edit 工具
+        tools=await workspace.list_tools(),
+        # 也可以自己传入 Read / Write / Edit 工具
+        # tools=[Read(backend=backend), Write(backend=backend), Edit(backend=backend)],
+    ),
+    middlewares=[memory],
+)
+
+try:
+    await agent.reply(&quot;请记住：我正在 Docker 沙箱中测试长期记忆。&quot;)
+finally:
+    await workspace.close()
+</code></pre></div></div><div data-panel="2" hidden=""><div class="code-example"><div class="code-bar"><span>E2B 环境</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="E2B 环境" data-lang="python">from agentscope.agent import Agent
+from agentscope.middleware import AgenticMemoryMiddleware
+from agentscope.tool import Read, Toolkit, Write
+from agentscope.workspace import E2BWorkspace
+
+
+workspace = E2BWorkspace()
+await workspace.initialize()
+
+# 获取 E2B 沙箱的 backend
+backend = workspace.get_backend()
+memory = AgenticMemoryMiddleware(
+    workdir= workspace.workdir,
+    # 切换到沙箱环境中
+    backend=backend,
+)
+
+agent = Agent(
+    name=&quot;assistant&quot;,
+    system_prompt=&quot;You are a helpful assistant.&quot;,
+    model=my_chat_model,
+    toolkit=Toolkit(
+        # E2B workspace 默认工具中自带 Read / Write / Edit 工具
+        tools=await workspace.list_tools(),
+        # 也可以自己传入 Read / Write / Edit 工具
+        # tools=[Read(backend=backend), Write(backend=backend), Edit(backend=backend)],
+    ),
+    middlewares=[memory],
+)
+
+try:
+    await agent.reply(&quot;请记住：我正在 E2B 沙箱中测试长期记忆。&quot;)
+finally:
+    await workspace.close()
+</code></pre></div></div></div>
+<h2 id="reme">ReMe</h2>
+<p><a href="https://github.com/agentscope-ai/ReMe">ReMe</a> 是 AgentScope 团队维护的文件型记忆工具箱。<code>ReMeMiddleware</code> 将 ReMe 嵌入当前进程，不需要单独启动服务；它监听智能体的对话，在每次回复后通过 ReMe 的 <code>auto_memory</code> 任务自动提取并写回记忆。智能体不负责保存记忆，ReMe 也不会提供手动新增记忆的工具。</p>
+<aside class="notice tip"><strong>提示</strong><p>ReMe 的工作区由 <code>workspace_dir</code> 指定，里面保存记忆卡片和检索索引。只要不同会话复用同一个工作区，就可以实现跨会话召回。</p></aside>
+<h3 id="安装">安装</h3>
+<p><code>ReMeMiddleware</code> 的依赖位于 AgentScope 的可选依赖中：</p>
+<div class="code-example"><div class="code-bar"><span>bash</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-bash" data-caption="bash" data-lang="bash">pip install &quot;agentscope[reme]&quot;
+</code></pre></div>
+<h3 id="快速开始">快速开始</h3>
+<p>可以把 AgentScope 的聊天模型和 embedding 模型注入 ReMe。聊天模型用于 <code>auto_memory</code> 的记忆抽取；传入 embedding 模型后，AgentScope 的最小化内置配置会自动启用向量检索。下面的 <code>my_chat_model</code>、<code>my_embedding_model</code> 替换为你使用的模型实例：</p>
+<div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">import asyncio
+
+from agentscope.agent import Agent
+from agentscope.middleware import ReMeMiddleware
+from agentscope.state import AgentState
+from agentscope.tool import Toolkit
+
+
+async def main():
+    memory = ReMeMiddleware(
+        workspace_dir=&quot;.reme&quot;,
+        parameters=ReMeMiddleware.Parameters(
+            chat_model=my_chat_model,
+            embedding_model=my_embedding_model,
+            mode=&quot;both&quot;,
+            top_k=5,
+        ),
+    )
+
+    agent = Agent(
+        name=&quot;assistant&quot;,
+        system_prompt=&quot;You are a helpful assistant.&quot;,
+        model=my_chat_model,
+        # both / agent_control 模式需要显式把 memory_search 加入 toolkit。
+        toolkit=Toolkit(tools=await memory.list_tools()),
+        middlewares=[memory],
+        # 为可恢复的会话指定稳定的 ID；不指定时 AgentState 会自动生成。
+        state=AgentState(session_id=&quot;alice-main&quot;),
+    )
+
+    try:
+        await agent.reply(&quot;请记住：我住在杭州，并且偏好简洁的中文回答。&quot;)
+    finally:
+        # AgentScope 不会自动管理中间件生命周期。
+        await memory.close()
+
+
+asyncio.run(main())
+</code></pre></div>
+<p><code>ReMeMiddleware</code> 始终构建一份由 AgentScope 维护的最小化 ReMe 配置。它包含对话写回、将 daily 记忆整理为 digest 的定时与手动 dream 任务，以及覆盖 daily 和 digest 的检索，但不会加载与中间件无关的 ReMe 独立任务。不注入聊天模型时，LLM 组件读取 ReMe 的 <code>LLM_*</code> 环境变量；不传入 <code>embedding_model</code> 时保持 BM25 关键词检索，传入后则根据模型的实际向量维度创建并启用向量存储。</p>
+<h3 id="控制模式">控制模式</h3>
+<p><code>ReMeMiddleware.Parameters.mode</code> 默认为 <code>&quot;both&quot;</code>，只决定检索方式；对话写回在三种模式下都会自动执行。</p>
+<table><thead><tr><th>模式</th><th>行为</th></tr></thead><tbody><tr><td><code>static_control</code></td><td>中间件在 <code>reply</code> 开始时后台检索，并在后续推理步骤前把结果以 <code>AssistantMsg(name=&quot;memory&quot;)</code> 的提示注入上下文；智能体对检索过程无感知。检索与回复并发执行，因此单次模型调用就结束的回复可能来不及注入。</td></tr><tr><td><code>agent_control</code></td><td>不自动检索，只通过 <code>list_tools()</code> 暴露 <code>memory_search(query, limit)</code> 工具，并在系统提示中追加使用提示；智能体自行决定何时搜索。对话仍会在回复后自动写回。</td></tr><tr><td><code>both</code></td><td>同时启用自动检索和 <code>memory_search</code> 工具。</td></tr></tbody></table>
+<p>在 <code>static_control</code> 模式下，<code>await memory.list_tools()</code> 返回空列表；在 <code>agent_control</code> 和 <code>both</code> 模式下，必须像上面的示例一样将返回的工具传入 <code>Toolkit</code>。<code>memory_search</code> 只有查询功能，没有 <code>add_memory</code>；记忆写入始终由中间件自动完成。</p>
+<h3 id="会话作用域与生命周期">会话作用域与生命周期</h3>
+<ul>
+<li>写回按 <code>agent.state.session_id</code> 隔离。可以通过 <code>AgentState(session_id=&quot;...&quot;)</code> 为可恢复会话指定稳定 ID；该 ID 不需要配置在中间件上。</li>
+<li>检索覆盖整个 <code>workspace_dir</code>，而不是只覆盖当前 <code>session_id</code>。因此，使用同一工作区的新智能体可以召回旧会话写入的记忆。</li>
+<li>一个 <code>ReMeMiddleware</code> 可以安全地在多个智能体和会话之间共享；中间件会在每次 hook 调用时读取对应智能体的 <code>session_id</code>。应用退出时应显式调用 <code>await memory.close()</code>。</li>
+</ul>
+<p><code>auto_memory</code> 写回完成后，记忆卡片还需要经过 ReMe 的索引任务才会可检索。刚写回后立即搜索时，结果可能暂时不可见；示例 <a href="https://github.com/agentscope-ai/agentscope/tree/main/examples/long_term_memory/reme"><code>examples/long_term_memory/reme</code></a> 为了演示确定性结果，会在写回后显式触发一次索引。</p>
+<h3 id="关键参数">关键参数</h3>
+<table><thead><tr><th>位置</th><th>参数</th><th>默认值</th><th>说明</th></tr></thead><tbody><tr><td><code>ReMeMiddleware(...)</code></td><td><code>workspace_dir</code></td><td><code>&quot;.reme&quot;</code></td><td>ReMe 记忆卡片和索引所在的工作区目录。</td></tr><tr><td><code>Parameters</code></td><td><code>chat_model</code></td><td><code>None</code></td><td>注入 ReMe 的 LLM，用于 <code>auto_memory</code>；为空时最小化配置使用 ReMe 的 <code>LLM_*</code> 环境变量。</td></tr><tr><td><code>Parameters</code></td><td><code>embedding_model</code></td><td><code>None</code></td><td>注入 ReMe 的 embedding 模型；传入时创建并启用维度匹配的向量存储，为空时保持 BM25 检索。</td></tr><tr><td><code>Parameters</code></td><td><code>mode</code></td><td><code>&quot;both&quot;</code></td><td><code>static_control</code>、<code>agent_control</code> 或 <code>both</code>。</td></tr><tr><td><code>Parameters</code></td><td><code>top_k</code></td><td><code>5</code></td><td>每次自动检索最多返回的记忆数，也是 <code>memory_search</code> 的默认 <code>limit</code>。</td></tr></tbody></table>
+<h2 id="mem0">Mem0</h2>
+<p><code>Mem0Middleware</code> 是由 <a href="https://github.com/mem0ai/mem0">mem0</a> 驱动的、开箱即用的长期记忆后端，同时支持 <code>mem0.AsyncMemory</code>（开源版）与 <code>mem0.AsyncMemoryClient</code>（托管 Platform 版）。在使用 <code>mem0.AsyncMemory</code>（开源版）时，可以让 mem0 自身的记忆抽取与 embedding 都走你现有的 AgentScope 模型 —— 因此 mem0 无需单独的 provider key。</p>
+<h3 id="安装-2">安装</h3>
+<p><code>Mem0Middleware</code> 的依赖位于 AgentScope 的可选依赖中：</p>
+<div class="code-example"><div class="code-bar"><span>bash</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-bash" data-caption="bash" data-lang="bash">pip install &quot;agentscope[mem0]&quot;
+</code></pre></div>
+<h3 id="快速开始-2">快速开始</h3>
+<p>最快捷的方式是直接传入你的 AgentScope chat 与 embedding 模型；中间件会在内部构建一个开源版 mem0 存储，并把记忆抽取与 embedding 都接到这两个模型上。</p>
+<div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">import asyncio
+
+from agentscope.agent import Agent
+from agentscope.middleware import Mem0Middleware
+from agentscope.tool import Toolkit
+
+
+async def main():
+    mw = Mem0Middleware(
+        user_id=&quot;alice&quot;,
+        chat_model=my_chat_model,
+        embedding_model=my_embedding_model,
+        mode=&quot;both&quot;,
+    )
+
+    agent = Agent(
+        name=&quot;assistant&quot;,
+        system_prompt=&quot;You are a helpful assistant.&quot;,
+        model=my_chat_model,
+        toolkit=Toolkit(tools=await mw.list_tools()),
+        middlewares=[mw],
+    )
+
+    # 本次会话写入的记忆，会在后续相同 ``user_id`` 的会话中重新出现。
+    await agent(...)
+
+
+asyncio.run(main())
+</code></pre></div>
+<aside class="notice note"><strong>说明</strong><p><code>Mem0Middleware</code> 通过 <code>list_tools()</code> 提供 <code>search_memory</code> / <code>add_memory</code> 工具，而智能体 <strong>不会</strong> 自动调用它。要让这些工具对智能体可用，需要开发者手动传入 toolkit —— <code>Toolkit(tools=await mw.list_tools())</code>。在 <code>static_control</code> 模式下 <code>list_tools()</code> 返回空列表。</p></aside>
+<h3 id="控制模式-2">控制模式</h3>
+<p><code>mode</code> 参数决定智能体与 mem0 的交互方式，默认为 <code>&quot;both&quot;</code>，与 AgentScope 1.x 的 <code>ReActAgent.long_term_memory_mode</code> 一致。</p>
+<table><thead><tr><th>模式</th><th>行为</th></tr></thead><tbody><tr><td><code>static_control</code></td><td>中间件在每次 reply 前检索 mem0，把检索到的记忆以 <code>AssistantMsg(name=&quot;memory&quot;)</code> 注入上下文，并在 reply 后把新的对话写回。智能体对 mem0 无感知。</td></tr><tr><td><code>agent_control</code></td><td>中间件暴露 <code>search_memory</code> / <code>add_memory</code> 工具，并在系统提示中追加一段简短的使用提示。由智能体自行决定何时读写记忆；没有自动检索或写回。</td></tr><tr><td><code>both</code></td><td>两种模式同时生效 —— 既自动检索，又提供按需调用的工具。</td></tr></tbody></table>
+<h3 id="构造方式">构造方式</h3>
+<p><code>Mem0Middleware</code> 支持三种接入 mem0 后端的方式：</p>
+<div class="tab-set" data-tab-set=""><div class="tab-list" role="group" aria-label="文档标签"><button type="button" data-choice="0" aria-pressed="true">AgentScope 模型</button><button type="button" data-choice="1" aria-pressed="false">模型 + 自定义 config</button><button type="button" data-choice="2" aria-pressed="false">预构建 client</button></div><div data-panel="0"><div class="mdx-group"><p>传入 AgentScope 模型，让中间件在内部构建开源版 <code>AsyncMemory</code>（mem0 默认的 Qdrant 存储）。embedding 模型的 <code>dimensions</code> 必须与向量存储匹配（默认 Qdrant 期望 <code>1536</code>）。</p><div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">Mem0Middleware(
+    user_id=&quot;alice&quot;,
+    chat_model=my_chat_model,
+    embedding_model=my_embedding_model,
+)
+</code></pre></div></div></div><div data-panel="1" hidden=""><div class="mdx-group"><p>以你自己的 <code>mem0.configs.base.MemoryConfig</code> 为基础，自定义向量存储、history DB 或 reranker，同时仍让 LLM 与 embedder 走 AgentScope。只有 <code>.llm</code> / <code>.embedder</code> 槽位会被覆盖，其余字段全部保留。</p><div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">Mem0Middleware(
+    user_id=&quot;alice&quot;,
+    chat_model=my_chat_model,
+    embedding_model=my_embedding_model,
+    mem0_config=my_mem0_config,
+)
+</code></pre></div></div></div><div data-panel="2" hidden=""><div class="mdx-group"><p>当你需要完全掌控时（例如使用托管 Platform，或在多个智能体间共享同一存储），可传入预构建的 mem0 client。一旦提供 <code>client</code>，它具有绝对优先级，<code>chat_model</code> / <code>embedding_model</code> / <code>mem0_config</code> 都会被忽略。</p><div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">from mem0 import AsyncMemoryClient
+
+Mem0Middleware(
+    user_id=&quot;alice&quot;,
+    client=AsyncMemoryClient(api_key=&quot;m0-...&quot;),
+)
+</code></pre></div></div></div></div>
+<aside class="notice warning"><strong>注意</strong><p><code>Mem0Middleware</code> 要求使用<strong>异步</strong> mem0 client（<code>mem0.AsyncMemory</code> 或 <code>mem0.AsyncMemoryClient</code>）。同步的 <code>Memory</code> / <code>MemoryClient</code> 不受支持。</p></aside>
+<h3 id="关键参数-2">关键参数</h3>
+<table><thead><tr><th>参数</th><th>类型</th><th>默认值</th><th>说明</th></tr></thead><tbody><tr><td><code>user_id</code></td><td><code>str</code></td><td><em>（必填）</em></td><td>用户记忆的 mem0 命名空间。</td></tr><tr><td><code>mode</code></td><td><code>&quot;static_control&quot; | &quot;agent_control&quot; | &quot;both&quot;</code></td><td><code>&quot;both&quot;</code></td><td>智能体与 mem0 的交互方式（见上文）。</td></tr><tr><td><code>agent_id</code></td><td><code>str | None</code></td><td><code>None</code></td><td>可选的更细粒度命名空间。</td></tr><tr><td><code>top_k</code></td><td><code>int</code></td><td><code>5</code></td><td>每次 static-control 检索返回的最大记忆数；同时作为 <code>search_memory</code> 工具的默认值。</td></tr><tr><td><code>threshold</code></td><td><code>float | None</code></td><td><code>None</code></td><td>最小相似度分数；<code>None</code> 表示交由 mem0 决定。</td></tr><tr><td><code>scope_search_by_agent</code></td><td><code>bool</code></td><td><code>True</code></td><td>为 <code>True</code> 时检索同时按 <code>user_id</code> 与 <code>agent_id</code> 过滤；为 <code>False</code> 时同一用户的记忆在多个智能体间共享。</td></tr><tr><td><code>await_write</code></td><td><code>bool</code></td><td><code>True</code></td><td>为 <code>True</code> 时回合结束后的写入会内联等待；为 <code>False</code> 时为异步触发（更快，但异常只在日志中体现）。</td></tr></tbody></table>
+<h3 id="供智能体调用的工具">供智能体调用的工具</h3>
+<p>在 <code>agent_control</code> 与 <code>both</code> 模式下，中间件提供两个模型可按需调用的工具：</p>
+<ul>
+<li><strong><code>search_memory(keywords, limit=5)</code></strong> —— 用一组简短、精准的关键词检索记忆。每个关键词作为独立查询发起，结果合并并去重。</li>
+<li><strong><code>add_memory(thinking, content)</code></strong> —— 记录持久信息。只有 <code>content</code>（一组独立完整的句子）会被写入 mem0；<code>thinking</code> 留在对话记录中以便审计。</li>
+</ul>
+<p>两个工具都会自动放行（auto-allow），并直接从中间件实例读取 <code>user_id</code> / <code>agent_id</code>，因此除了把它们加入 toolkit 之外无需额外接线。</p></article><footer><div class="paging"><a href="/agentscope-course/building-blocks/rag/">上一节 · RAG</a><a href="/agentscope-course/building-blocks/workspace/overview/">下一节 · 工作区 · 概述</a></div><div class="credits"><a href="https://docs.agentscope.io/zh/versions/2.0.12/building-blocks/long-term-memory" target="_blank" rel="noopener">在线原页</a> · <a href="/agentscope-course/mdx/building-blocks/long-term-memory.mdx">原始 MDX</a> · <a href="https://github.com/agentscope-ai/docs/blob/e0ee835d1aca5d2b840d29bdd2f70770bbef69e8/zh/versions/2.0.12/building-blocks/long-term-memory.mdx" target="_blank" rel="noopener">固定版本来源</a> · <a href="/agentscope-course/LICENSE.txt">MIT 许可</a></div></footer></main></div></body></html>

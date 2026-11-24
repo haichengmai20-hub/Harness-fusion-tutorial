@@ -1,0 +1,450 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RAG · AgentScope</title><link rel="stylesheet" href="/agentscope-course/reader.css"><script defer src="/agentscope-course/reader.js"></script></head><body><header class="mast"><a href="/agentscope-course/">AgentScope <small>中文文档</small></a><span>v2.0.12</span><button id="catalog" aria-controls="outline" aria-expanded="false">目录</button></header><div class="layout"><nav id="outline" aria-label="AgentScope 文档目录"><div class="group">快速开始</div><a href="/agentscope-course/" >AgentScope 2.0 是什么？</a><a href="/agentscope-course/quickstart/" >快速开始</a><a href="/agentscope-course/release-notes/" >更新日志</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/message-and-event/" >消息与事件</a><div class="group">核心模块 / 智能体</div><a href="/agentscope-course/building-blocks/agent/overview/" >智能体 · 概述</a><a href="/agentscope-course/building-blocks/agent/configure-agent/" >配置智能体</a><a href="/agentscope-course/building-blocks/agent/run-agent/" >运行智能体</a><a href="/agentscope-course/building-blocks/agent/interrupt-agent/" >中断智能体</a><a href="/agentscope-course/building-blocks/agent/human-in-the-loop/" >人机交互</a><div class="group">核心模块 / 模型</div><a href="/agentscope-course/building-blocks/model/overview/" >模型 · 概述</a><a href="/agentscope-course/building-blocks/model/llm/" >大语言模型</a><a href="/agentscope-course/building-blocks/model/tts/" >语音合成</a><a href="/agentscope-course/building-blocks/model/asr/" >语音识别</a><a href="/agentscope-course/building-blocks/model/embedding/" >嵌入模型</a><div class="group">核心模块 / 上下文管理</div><a href="/agentscope-course/building-blocks/context/overview/" >上下文管理 · 概述</a><a href="/agentscope-course/building-blocks/context/environment-awareness/" >感知环境</a><a href="/agentscope-course/building-blocks/context/compress-context/" >压缩上下文</a><a href="/agentscope-course/building-blocks/context/offload-context/" >卸载上下文</a><div class="group">核心模块 / 工具</div><a href="/agentscope-course/building-blocks/tool/overview/" >工具 · 概述</a><a href="/agentscope-course/building-blocks/tool/python-tool/" >Python 函数工具</a><a href="/agentscope-course/building-blocks/tool/mcp/" >MCP</a><a href="/agentscope-course/building-blocks/tool/skill/" >Skill</a><a href="/agentscope-course/building-blocks/tool/manage-tools/" >元工具</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/plan/" >计划模式</a><div class="group">核心模块 / 流水线</div><a href="/agentscope-course/building-blocks/pipeline/overview/" >流水线 · 概述</a><a href="/agentscope-course/building-blocks/pipeline/goal/" >目标流水线</a><a href="/agentscope-course/building-blocks/pipeline/team/" >团队流水线</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/sop/" >标准作业流程</a><div class="group">核心模块 / 权限系统</div><a href="/agentscope-course/building-blocks/permission-system/overview/" >权限系统 · 概述</a><a href="/agentscope-course/building-blocks/permission-system/permission-mode/" >权限模式</a><a href="/agentscope-course/building-blocks/permission-system/permission-rule/" >权限规则</a><a href="/agentscope-course/building-blocks/permission-system/tool-check/" >工具内置检查</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/middleware/" >中间件</a><a href="/agentscope-course/building-blocks/rag/" aria-current="page">RAG</a><a href="/agentscope-course/building-blocks/long-term-memory/" >长期记忆</a><div class="group">核心模块 / 工作区</div><a href="/agentscope-course/building-blocks/workspace/overview/" >工作区 · 概述</a><a href="/agentscope-course/building-blocks/workspace/run-workspace/" >运行工作区</a><a href="/agentscope-course/building-blocks/workspace/manage-resources/" >管理资源</a><a href="/agentscope-course/building-blocks/workspace/mcp-gateway/" >MCP 网关</a><div class="group">核心模块 / 实时语音智能体</div><a href="/agentscope-course/building-blocks/realtime/overview/" >实时语音智能体 · 概述</a><a href="/agentscope-course/building-blocks/realtime/speech-to-speech/" >语音到语音</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/console/" >终端 UI</a><a href="/agentscope-course/building-blocks/a2a/" >A2A 协议</a><div class="group">智能体即服务</div><a href="/agentscope-course/deploy/agent-service/" >架构</a><a href="/agentscope-course/deploy/agent-team/" >智能体团队</a><a href="/agentscope-course/deploy/sop/" >SOP 服务</a><a href="/agentscope-course/deploy/sharing/" >资源共享</a><a href="/agentscope-course/deploy/rag/" >RAG 服务</a><a href="/agentscope-course/deploy/workspace-manager/" >工作区管理</a><div class="group">智能体即服务 / MCP 与技能中心</div><a href="/agentscope-course/deploy/hub/overview/" >MCP 与技能中心 · 概览</a><a href="/agentscope-course/deploy/hub/mcp-hub/" >MCP 中心</a><a href="/agentscope-course/deploy/hub/skill-hub/" >技能中心</a><div class="group">智能体即服务 / 消息渠道</div><a href="/agentscope-course/deploy/channel/overview/" >消息渠道 · 概览</a><a href="/agentscope-course/deploy/channel/routing/" >会话路由</a><a href="/agentscope-course/deploy/channel/feishu/" >飞书</a><a href="/agentscope-course/deploy/channel/dingtalk/" >钉钉</a><a href="/agentscope-course/deploy/channel/discord/" >Discord</a><a href="/agentscope-course/deploy/channel/custom/" >自定义渠道</a><div class="group">其他</div><a href="/agentscope-course/others/faq/" >常见问题</a><a href="/agentscope-course/others/change-log/" >版本迁移</a><div class="group">智能体即服务 / API</div><a href="/agentscope-course/api/">API 参考</a></nav><main><div class="context">核心模块</div><article class="prose-custom" id="content"><h1>RAG</h1><p class="dek">为智能体构建检索增强生成（RAG）能力。</p><p>AgentScope 中的 RAG 由如下<strong>可独立替换</strong>的功能模块组成：</p>
+<table><thead><tr><th>功能模块</th><th>描述</th></tr></thead><tbody><tr><td>解析器<br/>Parser</td><td>把原始文件拆分成若干 <code>Section</code> 对象，每个 <code>Section</code> 对应文件的一个自然边界（PDF 页、PPTX 幻灯片、Markdown 标题段、整张图片等）</td></tr><tr><td>切块器<br/>Chunker</td><td>把 <code>Section</code> 切成最终入库的 <code>Chunk</code>，并保证不跨 <code>Section</code> 合并</td></tr><tr><td>嵌入模型<br/>Embedding Model</td><td>把 <code>Chunk</code> 的文本或多模态内容嵌入为向量</td></tr><tr><td>向量库<br/>Vector Store</td><td>连接向量数据库，存储 <code>Chunk</code> 的向量与元信息，并支持检索</td></tr><tr><td>知识库句柄<br/>KnowledgeBase</td><td>把嵌入模型 + 向量库 + collection 绑定在一起，封装 <code>insert_document</code> / <code>search</code> / <code>list_documents</code> / <code>delete_document</code> 四个一站式接口</td></tr></tbody></table>
+<p>本章主要介绍<strong>在非服务化场景下</strong>使用 RAG 功能，包括索引文件、检索知识、集成到智能体等。</p>
+<aside class="notice tip"><strong>提示</strong><p>嵌入模型的介绍和配置方式请见<a href="/agentscope-course/building-blocks/model/embedding/">嵌入模型章节</a>；服务化版本的 RAG（带 HTTP 服务、文件托管、分布式索引）请见 <a href="/agentscope-course/deploy/rag/">RAG 服务</a>。</p></aside>
+<h2 id="现有实现">现有实现</h2>
+<p>AgentScope 为每个模块提供了开箱即用的默认实现，全部基于基类继承，方便用户替换：</p>
+<h3 id="解析器">解析器</h3>
+<table><thead><tr><th>类</th><th>描述</th><th>支持文件类型</th></tr></thead><tbody><tr><td><code>TextParser</code></td><td>文本数据解析器，整文件作为一个 <code>Section</code> 返回，由下游切块器切分</td><td><code>text/plain</code><br/><code>text/markdown</code><br/><code>text/csv</code><br/><code>text/html</code><br/><code>text/x-rst</code><br/><code>application/json</code><br/><code>application/xml</code><br/><code>application/x-yaml</code></td></tr><tr><td><code>PDFParser</code></td><td>PDF 解析器，<strong>每页一个 <code>Section</code></strong>，元信息中携带从 1 开始的页码 <code>page</code> 字段。</td><td><code>application/pdf</code></td></tr><tr><td><code>PPTParser</code></td><td>PowerPoint (<code>.pptx</code>) 解析器，按幻灯片顺序遍历形状：<br/>- 文本/表格合并为同一 <code>Section</code>，<br/>- 图片作为独立 <code>DataBlock</code> 读取。<br/>元信息中携带从 1 开始的幻灯片序号 <code>slide</code> 字段。</td><td><code>application/vnd.openxmlformats-officedocument.presentationml.presentation</code></td></tr><tr><td><code>WordParser</code></td><td>Word（<code>.docx</code>）解析器，按文档元素顺序遍历：<br/>- 相邻段落（默认含表格）合并为同一文本 <code>Section</code>，<br/>- 内嵌图片作为独立 <code>DataBlock</code> 读取。</td><td><code>application/vnd.openxmlformats-officedocument.wordprocessingml.document</code></td></tr><tr><td><code>ExcelParser</code></td><td>Excel（<code>.xlsx</code> / <code>.xls</code>）解析器，按工作表顺序读取：<br/>- 每张表的内容渲染为 Markdown 或 JSON 文本，<br/>- 内嵌图片（<code>include_image=True</code> 时）作为独立 <code>DataBlock</code> 读取。<br/><code>separate_sheet=True</code> 时元信息携带 <code>sheet</code> 字段。</td><td><code>application/vnd.openxmlformats-officedocument.spreadsheetml.sheet</code><br/><code>application/vnd.ms-excel</code></td></tr><tr><td><code>ImageParser</code></td><td>图片解析器，将整张图片读取为一个 <code>Section</code></td><td><code>image/png</code><br/><code>image/jpeg</code><br/><code>image/gif</code><br/><code>image/bmp</code><br/><code>image/webp</code></td></tr></tbody></table>
+<aside class="notice tip"><strong>提示</strong><p>PDF、PPT、Word、Excel 解析依赖额外的第三方库，可以通过 <code>pip install agentscope[rag]</code> 一次性安装。</p></aside>
+<h3 id="切块器">切块器</h3>
+<table><thead><tr><th>类</th><th>描述</th></tr></thead><tbody><tr><td><code>ApproxTokenChunker</code></td><td>按近似 Token 数进行切分，不依赖任何 tokenizer。<br/>近似策略：<code>len(text.encode(&quot;utf-8&quot;)) // 4</code>；多模态 <code>DataBlock</code> 整块透传不切分</td></tr><tr><td>开发中 ...</td><td></td></tr></tbody></table>
+<p>切块器通过 Pydantic 参数模型声明可调项。例如，使用 <code>ApproxTokenChunker.Parameters</code> 配置切块大小与重叠：</p>
+<div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">from agentscope.rag import ApproxTokenChunker
+
+chunker = ApproxTokenChunker(
+    parameters=ApproxTokenChunker.Parameters(
+        chunk_size=256,
+        overlap=32,
+    ),
+)
+</code></pre></div>
+<h3 id="嵌入模型">嵌入模型</h3>
+<p>请见<a href="/agentscope-course/building-blocks/model/embedding/">嵌入模型章节</a>。</p>
+<h3 id="向量数据库">向量数据库</h3>
+<table><thead><tr><th>类</th><th>描述</th></tr></thead><tbody><tr><td><code>QdrantStore</code></td><td>基于 Qdrant 的向量数据库实现，支持内存（<code>location=&quot;:memory:&quot;</code>）、本地磁盘（<code>path=...</code>）、远程服务（<code>url=...</code>）三种部署方式</td></tr><tr><td><code>MilvusLiteStore</code></td><td>基于 Milvus Lite 的向量数据库实现，支持本地持久化 <code>.db</code> 文件（<code>uri=&quot;./rag_demo.db&quot;</code>）以及 Milvus 兼容的服务端 URI</td></tr><tr><td><code>MongoDBStore</code></td><td>基于 MongoDB Vector Search 的实现（Atlas 或自建集群），每个知识库对应指定数据库中的一个集合。<code>metadata_filter</code> 会用到的字段必须在构造时通过 <code>filter_fields</code> 声明，才会进入向量索引</td></tr><tr><td><code>ElasticsearchStore</code></td><td>基于 Elasticsearch 稠密向量索引的实现，使用近似 kNN 检索，每个知识库对应一个索引</td></tr></tbody></table>
+<aside class="notice tip"><strong>提示</strong><p><code>agentscope[rag]</code> 只包含文档解析所需的依赖，向量数据库各有独立的可选依赖：<code>agentscope[vdb-qdrant]</code>、<code>agentscope[vdb-milvus]</code>、<code>agentscope[vdb-mongodb]</code>、<code>agentscope[vdb-elasticsearch]</code>。</p></aside>
+<h2 id="rag-使用">RAG 使用</h2>
+<p>AgentScope 推荐通过<strong>知识库句柄 <code>KnowledgeBase</code></strong> 作为入口使用 RAG。它把嵌入模型、向量库、collection（以及可选的 <code>metadata_filter</code> 多租户隔离配置）绑定在一起，对外只暴露四个动作：</p>
+<table><thead><tr><th>方法</th><th>描述</th></tr></thead><tbody><tr><td><code>insert_document(chunks, document_id=None, document_metadata=None)</code></td><td>把一批 <code>Chunk</code> 作为同一个文档批量嵌入并写入，返回 <code>document_id</code></td></tr><tr><td><code>search(queries, top_k=5, score_threshold=None)</code></td><td>对一组查询（<code>str</code> / <code>TextBlock</code> / <code>DataBlock</code>）执行向量检索，自动去重排序</td></tr><tr><td><code>delete_document(document_id)</code></td><td>按 <code>document_id</code> 删除整个文档的所有 chunk</td></tr><tr><td><code>list_documents()</code></td><td>返回当前知识库中所有文档的 <code>DocumentSummary</code> 列表</td></tr></tbody></table>
+<h3 id="索引文件">索引文件</h3>
+<p>索引文件需要经过 <strong>文件解析 → 切块 → 嵌入入库</strong> 三步，对应上述三个模块。下面展示端到端的索引流程。</p>
+<div class="steps"><section class="step"><h3>解析文件</h3><p>使用解析器的 <code>parse</code> 方法把原始文件读取成 <code>Section</code> 数组，每个 <code>Section</code> 对应文件的一个自然边界（PDF 页 / PPT 幻灯片 / 图片 …）。</p><p><code>parse(file, filename)</code> 的 <code>file</code> 参数同时支持 <strong><code>bytes</code></strong> 与 <strong><code>str</code></strong>：</p><ul>
+<li><code>bytes</code> 直接作为原始文件内容；</li>
+<li><code>str</code> 在二进制解析器（<code>PDFParser</code> / <code>PPTParser</code> / <code>WordParser</code> / <code>ExcelParser</code> / <code>ImageParser</code>）中表示<strong>文件路径</strong>，解析器自动读盘；</li>
+<li><code>str</code> 在 <code>TextParser</code> 中按运行时判断——若该字符串指向一个存在的文件就当作路径读盘并按 <code>encoding</code> 解码，否则当作已解码的文本内容直接使用。</li>
+</ul><div class="tab-set" data-tab-set=""><div class="tab-list" role="group" aria-label="代码示例"><button type="button" data-choice="0" aria-pressed="true">文本文件</button><button type="button" data-choice="1" aria-pressed="false">PDF</button><button type="button" data-choice="2" aria-pressed="false">PowerPoint</button><button type="button" data-choice="3" aria-pressed="false">Word</button><button type="button" data-choice="4" aria-pressed="false">Excel</button><button type="button" data-choice="5" aria-pressed="false">图片</button></div><div data-panel="0"><div class="code-example"><div class="code-bar"><span>文本文件</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="文本文件" data-lang="python">from agentscope.rag import TextParser
+
+parser = TextParser()
+
+# 1) 直接传入 bytes
+sections = await parser.parse(
+    file=b&quot;# Cats\nCats sleep 12-16 hours per day.\n&quot;,
+    filename=&quot;cats.md&quot;,
+)
+
+# 2) 传入文件路径（存在的文件会自动读盘）
+sections = await parser.parse(file=&quot;./cats.md&quot;, filename=&quot;cats.md&quot;)
+</code></pre></div></div><div data-panel="1" hidden=""><div class="code-example"><div class="code-bar"><span>PDF</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="PDF" data-lang="python">from agentscope.rag import PDFParser
+
+parser = PDFParser()
+
+# 1) 直接传入文件路径
+sections = await parser.parse(file=&quot;./report.pdf&quot;, filename=&quot;report.pdf&quot;)
+
+# 2) 也可以直接传 bytes（例如来自 HTTP 上传 / blob 存储）
+with open(&quot;report.pdf&quot;, &quot;rb&quot;) as f:
+    sections = await parser.parse(file=f.read(), filename=&quot;report.pdf&quot;)
+
+# 每个 section.metadata 包含 {&quot;page&quot;: N}
+</code></pre></div></div><div data-panel="2" hidden=""><div class="code-example"><div class="code-bar"><span>PowerPoint</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="PowerPoint" data-lang="python">from agentscope.rag import PPTParser
+
+parser = PPTParser(
+    include_image=True,          # 是否抽取嵌入的图片
+    separate_table=False,        # 是否把表格独立为单独的 Section
+    table_format=&quot;markdown&quot;,     # 表格渲染格式：&quot;markdown&quot; 或 &quot;json&quot;
+    slide_prefix=&quot;&lt;slide index={index}&gt;&quot;,
+    slide_suffix=&quot;&lt;/slide&gt;&quot;,
+)
+
+# 文件路径
+sections = await parser.parse(file=&quot;./deck.pptx&quot;, filename=&quot;deck.pptx&quot;)
+</code></pre></div></div><div data-panel="3" hidden=""><div class="code-example"><div class="code-bar"><span>Word</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="Word" data-lang="python">from agentscope.rag import WordParser
+
+parser = WordParser(
+    include_image=True,        # 是否抽取嵌入的图片
+    separate_table=False,      # 是否把表格独立为单独的 Section
+    table_format=&quot;markdown&quot;,   # 表格渲染格式：&quot;markdown&quot; 或 &quot;json&quot;
+)
+
+# 文件路径
+sections = await parser.parse(file=&quot;./doc.docx&quot;, filename=&quot;doc.docx&quot;)
+</code></pre></div></div><div data-panel="4" hidden=""><div class="code-example"><div class="code-bar"><span>Excel</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="Excel" data-lang="python">from agentscope.rag import ExcelParser
+
+parser = ExcelParser(
+    include_sheet_names=True,        # 是否把工作表名作为标题前置
+    include_cell_coordinates=False,  # 是否携带 [A1] 这样的单元格坐标
+    include_image=False,             # 是否抽取嵌入的图片
+    separate_sheet=False,            # 是否让各工作表的内容互不混合
+    table_format=&quot;markdown&quot;,         # 表格渲染格式：&quot;markdown&quot; 或 &quot;json&quot;
+)
+
+# 文件路径
+sections = await parser.parse(file=&quot;./table.xlsx&quot;, filename=&quot;table.xlsx&quot;)
+# separate_sheet=True 时，各 section.metadata 携带 {&quot;sheet&quot;: &quot;&lt;工作表名&gt;&quot;}
+</code></pre></div></div><div data-panel="5" hidden=""><div class="code-example"><div class="code-bar"><span>图片</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="图片" data-lang="python">from agentscope.rag import ImageParser
+
+parser = ImageParser()
+
+# 文件路径
+sections = await parser.parse(file=&quot;./cat.png&quot;, filename=&quot;cat.png&quot;)
+# 整张图片包裹为一个 DataBlock，元信息记录 media_type
+</code></pre></div></div></div></section><section class="step"><h3>切分 Chunk</h3><p>使用切块器的 <code>chunk</code> 方法把 <code>Section</code> 数组切成最终入库的 <code>Chunk</code> 数组。约定：不跨 <code>Section</code> 合并；多模态 <code>DataBlock</code> 整块透传；<code>chunk_index</code> 从 0 连续编号，<code>total_chunks</code> 在每个 chunk 上都是同一值。</p><div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">from agentscope.rag import ApproxTokenChunker
+
+chunker = ApproxTokenChunker(
+    parameters=ApproxTokenChunker.Parameters(
+        chunk_size=256,
+        overlap=32,
+    ),
+)
+chunks = await chunker.chunk(sections)
+</code></pre></div></section><section class="step"><h3>写入知识库</h3><p>构造一个 <code>KnowledgeBase</code> 句柄，把 chunk 数组写入即可——嵌入与写库由句柄一并完成。同一文档的所有 chunk 共享一个 <code>document_id</code>，便于后续按文档级别整体删除。</p><div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">from agentscope.credential import DashScopeCredential
+from agentscope.embedding import DashScopeEmbeddingModel
+from agentscope.rag import KnowledgeBase, QdrantStore
+
+embedding_model = DashScopeEmbeddingModel(
+    credential=DashScopeCredential(api_key=&quot;YOUR_API_KEY&quot;),
+    model=&quot;text-embedding-v4&quot;,
+    dimensions=1024,
+)
+
+# QdrantStore 是一个 async context manager；进入时打开客户端连接
+store = QdrantStore(location=&quot;:memory:&quot;)  # 或 url=&quot;http://...&quot; 指向真实集群
+
+async with store:
+    knowledge = KnowledgeBase(
+        name=&quot;demo-kb&quot;,
+        description=&quot;A toy corpus.&quot;,
+        embedding_model=embedding_model,
+        vector_store=store,
+        collection=&quot;demo-kb&quot;,
+    )
+    # backing 的 collection 会在首次操作时按 embedding_model.dimensions 自动建立
+    document_id = await knowledge.insert_document(
+        chunks,
+        document_metadata={&quot;filename&quot;: &quot;cats.md&quot;},
+    )
+</code></pre></div><aside class="notice note"><strong>说明</strong><p><code>KnowledgeBase</code> 不会自己创建 / 关闭向量库连接，使用前需要先把 <code>VectorStoreBase</code> 实例置于 <code>async with</code> 上下文中。</p></aside><p>如果希望使用其他后端，安装对应的可选依赖后，只需要替换向量库的构造方式：</p><div class="tab-set" data-tab-set=""><div class="tab-list" role="group" aria-label="代码示例"><button type="button" data-choice="0" aria-pressed="true">Milvus Lite</button><button type="button" data-choice="1" aria-pressed="false">MongoDB</button><button type="button" data-choice="2" aria-pressed="false">Elasticsearch</button></div><div data-panel="0"><div class="code-example"><div class="code-bar"><span>Milvus Lite</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="Milvus Lite" data-lang="python">from agentscope.rag import MilvusLiteStore
+
+# 本地持久化 .db 文件；需要 agentscope[vdb-milvus]
+store = MilvusLiteStore(uri=&quot;./rag_demo.db&quot;)
+</code></pre></div></div><div data-panel="1" hidden=""><div class="code-example"><div class="code-bar"><span>MongoDB</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="MongoDB" data-lang="python">from agentscope.rag import MongoDBStore
+
+# MongoDB Vector Search（Atlas 或自建集群）；需要 agentscope[vdb-mongodb]
+store = MongoDBStore(
+    uri=&quot;mongodb+srv://user:pass@cluster.mongodb.net&quot;,
+    database=&quot;agentscope_rag&quot;,
+    # metadata_filter 会用到的字段必须在这里声明，
+    # 才会被纳入向量检索索引
+    filter_fields=[&quot;chunk.metadata.tenant_id&quot;],
+)
+</code></pre></div></div><div data-panel="2" hidden=""><div class="code-example"><div class="code-bar"><span>Elasticsearch</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="Elasticsearch" data-lang="python">from agentscope.rag import ElasticsearchStore
+
+# 稠密向量索引 + 近似 kNN 检索；需要 agentscope[vdb-elasticsearch]
+store = ElasticsearchStore(hosts=&quot;http://localhost:9200&quot;)
+</code></pre></div></div></div></section></div>
+<h3 id="向量检索">向量检索</h3>
+<p>通过 <code>KnowledgeBase.search</code> 直接传入查询字符串/<code>TextBlock</code>/<code>DataBlock</code> 即可，无需手动嵌入：</p>
+<div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">async with store:
+    results = await knowledge.search(
+        queries=[&quot;When do cats sleep?&quot;],
+        top_k=3,
+        score_threshold=None,  # 命中分数下限，None 表示不过滤
+    )
+    for r in results:
+        print(r.score, r.document_id, r.chunk.content)
+</code></pre></div>
+<p><code>search</code> 内部做了以下几件事：</p>
+<ol>
+<li><strong>过滤不可用查询</strong>：若绑定的嵌入模型 <code>supports_multimodal == False</code>，会静默丢弃 <code>DataBlock</code> 类型的查询；</li>
+<li><strong>批量嵌入</strong>：所有查询一次性批量嵌入，再并发地对 collection 检索；</li>
+<li><strong>去重</strong>：按 <code>(document_id, chunk_index)</code> 去重，保留每条记录的最高分；</li>
+<li><strong>截断</strong>：按分数降序排序后截断为 <code>top_k</code>。</li>
+</ol>
+<p>返回结果是 <code>VectorSearchResult</code> 数组，每条记录包含 <code>score</code>、<code>document_id</code> 与命中 <code>chunk</code>。</p>
+<aside class="notice note"><strong>说明</strong><p><code>score</code> 统一为<strong>越大越相关</strong>：使用距离度量（如 L2）的向量库会在返回前取负，因此这类知识库的分数为负值，<code>score_threshold</code> 也要相应地填负数。分数只在同一个知识库内部可比，不同嵌入模型或不同度量的知识库之间没有可比性。</p></aside>
+<h3 id="文档管理">文档管理</h3>
+<p><code>KnowledgeBase</code> 暴露了文档级别的两个辅助方法：</p>
+<div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python"># 列出所有文档（每个文档一个 DocumentSummary）
+summaries = await knowledge.list_documents()
+for s in summaries:
+    print(s.document_id, s.source, s.chunk_count, s.metadata)
+
+# 按 document_id 删除整个文档对应的所有 chunk
+await knowledge.delete_document(document_id)
+</code></pre></div>
+<p><code>DocumentSummary</code> 包含 <code>document_id</code>、原始文件名 <code>source</code>、<code>chunk_count</code>，以及由解析器/上传方写入第一条 chunk 的 <code>metadata</code>。</p>
+<h3 id="多租户隔离metadata_filter">多租户隔离：<code>metadata_filter</code></h3>
+<p>如果多个逻辑知识库需要共用同一个物理 collection，可以在构造 <code>KnowledgeBase</code> 时传入 <code>metadata_filter</code>（典型场景：每条记录都带一个 <code>{&quot;tenant_id&quot;: &quot;...&quot;}</code> payload）：</p>
+<div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">knowledge = KnowledgeBase(
+    name=&quot;tenant-a-kb&quot;,
+    description=&quot;...&quot;,
+    embedding_model=embedding_model,
+    vector_store=store,
+    collection=&quot;shared&quot;,
+    metadata_filter={&quot;tenant_id&quot;: &quot;tenant-a&quot;},
+)
+</code></pre></div>
+<p><code>metadata_filter</code> 是<strong>深度防御</strong>机制：</p>
+<ul>
+<li><code>search</code> 与 <code>list_documents</code> 严格按这些 <code>key == value</code> 过滤记录——永远跨不出当前作用域；</li>
+<li><code>insert_document</code> 会<strong>强制覆盖</strong>每个 chunk 的同名 metadata 字段，从而即使解析器/调用方误写也不会让记录跨域泄漏。</li>
+</ul>
+<p><code>None</code>（默认值）表示禁用过滤，对应&quot;每个知识库独占自己的 collection&quot;的部署形态。</p>
+<h3 id="多模态支持">多模态支持</h3>
+<p>AgentScope 的 RAG 原生支持多模态数据的入库与检索，关键在于解析器与嵌入模型能力的匹配——前者要能把多模态文件解析成 <code>DataBlock</code>，后者要能直接对 <code>DataBlock</code> 做嵌入：</p>
+<ul>
+<li>
+<p><strong>查看 Parser 支持的文件类型</strong>：每个 <code>ParserBase</code> 子类通过类属性 <code>supported_media_types</code>（IANA 媒体类型列表）声明能力，可直接读取或在 IDE 中自动补全。</p>
+<div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">&gt;&gt;&gt; from agentscope.rag import TextParser, ImageParser
+&gt;&gt;&gt; TextParser.supported_media_types
+[&#x27;text/plain&#x27;, &#x27;text/markdown&#x27;, &#x27;text/csv&#x27;, &#x27;text/html&#x27;, &#x27;text/x-rst&#x27;,
+ &#x27;application/json&#x27;, &#x27;application/xml&#x27;, &#x27;application/x-yaml&#x27;]
+&gt;&gt;&gt; ImageParser.supported_media_types
+[&#x27;image/png&#x27;, &#x27;image/jpeg&#x27;, &#x27;image/gif&#x27;, &#x27;image/bmp&#x27;, &#x27;image/webp&#x27;]
+</code></pre></div>
+</li>
+<li>
+<p><strong>查看嵌入模型支持的模态</strong>：通过实例属性 <code>embedding_model.supports_multimodal</code> 判断模型是否能直接处理 <code>DataBlock</code>（图片 / 视频 / 音频）。</p>
+<div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">&gt;&gt;&gt; embedding_model.supports_multimodal
+True
+</code></pre></div>
+</li>
+</ul>
+<p>当解析器输出带有多模态内容的 <code>Chunk</code>、且 <code>embedding_model.supports_multimodal == True</code> 时，入库与检索链路无需额外配置即可工作。文本模型遇到 <code>DataBlock</code> 查询时会在 <code>KnowledgeBase.search</code> 内部被静默丢弃，不会报错。</p>
+<h3 id="集成到智能体">集成到智能体</h3>
+<p>通过 <code>RAGMiddleware</code> 把检索接入智能体类 <code>Agent</code> 的推理-行动循环。中间件不拥有嵌入模型或向量库——它消费的是<strong>一组已经构造好的 <code>KnowledgeBase</code> 句柄</strong>，可以混合多个使用不同嵌入模型的知识库。</p>
+<p><code>RAGMiddleware</code> 支持两种工作模式（<code>RAGMiddleware.Parameters.mode</code>），可以单独使用，也可以<strong>叠加使用</strong>（同时挂两个不同 <code>mode</code> 的实例）：</p>
+<table><thead><tr><th>模式</th><th>触发时机</th><th>检索关键词</th><th>注入方式</th></tr></thead><tbody><tr><td><code>&quot;static&quot;</code></td><td>每次 reply 的<strong>首次推理</strong>前</td><td>reply 方法的输入消息作为检索关键词，支持多模态数据</td><td>检索结果被包装成 <code>HintBlock</code> 并注入到上下文中</td></tr><tr><td><code>&quot;agentic&quot;</code>（默认）</td><td>模型自主调用检索工具</td><td>模型自主给出</td><td>暴露 <code>search_knowledge</code> 工具，由智能体自己判断何时检索、用什么 query</td></tr></tbody></table>
+<p>参数全部封装在嵌套的 <code>RAGMiddleware.Parameters</code> 模型中：</p>
+<table><thead><tr><th>字段</th><th>默认值</th><th>描述</th></tr></thead><tbody><tr><td><code>mode</code></td><td><code>&quot;agentic&quot;</code></td><td>集成模式，详见上表</td></tr><tr><td><code>top_k</code></td><td><code>5</code></td><td>单次检索返回的最大命中数；跨所有知识库与 query 输入去重后截断</td></tr><tr><td><code>score_threshold</code></td><td><code>None</code></td><td>命中分数下限，<code>None</code> 表示不过滤；分数越大越相关，距离度量下为负值</td></tr><tr><td><code>rerank_candidate_k</code></td><td><code>None</code></td><td>交给重排模型判断的候选数，从中保留 <code>top_k</code> 条；必须不小于 <code>top_k</code>，默认为其两倍，上限 50。未配置重排模型时忽略</td></tr><tr><td><code>emit_hint_event</code></td><td><code>True</code></td><td><code>static</code> 模式下是否额外发出 <code>HintBlockEvent</code> 供前端展示命中片段</td></tr><tr><td><code>persist_hint</code></td><td><code>False</code></td><td><code>static</code> 模式下注入块是否持久留在上下文（默认推理后即移除，避免污染下一轮）</td></tr></tbody></table>
+<p>此外，<code>RAGMiddleware.list_tools()</code> 在 <code>agentic</code> 模式下会返回一个 <code>search_knowledge</code> 工具——需要手动把它注册到智能体的 <code>Toolkit</code> 里，模型才能调用。该工具的描述里会自动列出已挂载的所有知识库的 <code>name</code> / <code>description</code>，模型也可以通过 <code>knowledge_bases=[...]</code> 参数把搜索限定到指定子集。</p>
+<p>通过如下代码给智能体实例配置 RAG 功能：</p>
+<div class="tab-set" data-tab-set=""><div class="tab-list" role="group" aria-label="代码示例"><button type="button" data-choice="0" aria-pressed="true">static 模式</button><button type="button" data-choice="1" aria-pressed="false">agentic 模式</button><button type="button" data-choice="2" aria-pressed="false">两种模式组合</button></div><div data-panel="0"><div class="code-example"><div class="code-bar"><span>static 模式</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="static 模式" data-lang="python">from agentscope.middleware import RAGMiddleware
+from agentscope.tool import Toolkit
+
+static_mw = RAGMiddleware(
+    knowledge_bases=[knowledge],       # 一个或多个 KnowledgeBase 句柄
+    parameters=RAGMiddleware.Parameters(
+        mode=&quot;static&quot;,
+        top_k=3,
+        emit_hint_event=False,
+    ),
+)
+
+agent = Agent(
+    name=&quot;static-agent&quot;,
+    system_prompt=&quot;使用检索到的资料回答用户问题。&quot;,
+    model=chat_model,
+    toolkit=Toolkit(),
+    middlewares=[static_mw],
+)
+</code></pre></div></div><div data-panel="1" hidden=""><div class="code-example"><div class="code-bar"><span>agentic 模式</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="agentic 模式" data-lang="python">from agentscope.middleware import RAGMiddleware
+from agentscope.tool import Toolkit
+
+agentic_mw = RAGMiddleware(
+    knowledge_bases=[knowledge],
+    parameters=RAGMiddleware.Parameters(mode=&quot;agentic&quot;, top_k=3),
+)
+
+# 注意：agentic 模式下需要手动把 search_knowledge 工具注入到 Toolkit
+toolkit = Toolkit(tools=await agentic_mw.list_tools())
+
+agent = Agent(
+    name=&quot;agentic-agent&quot;,
+    system_prompt=&quot;必要时调用 search_knowledge 工具查询资料。&quot;,
+    model=chat_model,
+    toolkit=toolkit,
+    middlewares=[agentic_mw],
+)
+</code></pre></div></div><div data-panel="2" hidden=""><div class="code-example"><div class="code-bar"><span>两种模式组合</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="两种模式组合" data-lang="python">from agentscope.middleware import RAGMiddleware
+from agentscope.tool import Toolkit
+
+# static 自动给首轮一个背景；agentic 让模型在需要时再补检索
+static_mw = RAGMiddleware(
+    knowledge_bases=[knowledge],
+    parameters=RAGMiddleware.Parameters(mode=&quot;static&quot;, top_k=3),
+)
+agentic_mw = RAGMiddleware(
+    knowledge_bases=[knowledge],
+    parameters=RAGMiddleware.Parameters(mode=&quot;agentic&quot;, top_k=3),
+)
+
+# 注意：agentic 模式下需要手动把 search_knowledge 工具注入到 Toolkit
+toolkit = Toolkit(tools=await agentic_mw.list_tools())
+
+agent = Agent(
+    name=&quot;hybrid-agent&quot;,
+    system_prompt=&quot;使用检索资料回答；必要时主动调用 search_knowledge 补充。&quot;,
+    model=chat_model,
+    toolkit=toolkit,
+    middlewares=[static_mw, agentic_mw],
+)
+</code></pre></div></div></div>
+<h3 id="重排检索结果">重排检索结果</h3>
+<p>向量检索按嵌入相似度排序，语义上更贴近问题的片段未必排在前面。给 <code>RAGMiddleware</code> 传入 <code>rerank_model</code>，检索会先取回 <code>rerank_candidate_k</code> 条候选，再由该模型读完内容后挑出最终的 <code>top_k</code> 条：</p>
+<div class="code-example"><div class="code-bar"><span>配置重排模型</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="配置重排模型" data-lang="python">from agentscope.middleware import RAGMiddleware
+from agentscope.model import DashScopeChatModel
+from agentscope.credential import DashScopeCredential
+
+rag_mw = RAGMiddleware(
+    knowledge_bases=[knowledge],
+    rerank_model=DashScopeChatModel(       # 承担重排的对话模型
+        credential=DashScopeCredential(api_key=&quot;YOUR_API_KEY&quot;),
+        model=&quot;qwen-max&quot;,
+    ),
+    parameters=RAGMiddleware.Parameters(
+        mode=&quot;agentic&quot;,
+        top_k=3,                # 最终保留 3 条
+        rerank_candidate_k=10,  # 先取 10 条候选交给重排模型
+    ),
+)
+</code></pre></div>
+<p>两种模式都会走重排。使用时需要了解：</p>
+<table><thead><tr><th>特性</th><th>说明</th></tr></thead><tbody><tr><td>候选数量</td><td><code>rerank_candidate_k</code> 必须不小于 <code>top_k</code>，默认取 <code>2 × top_k</code>，上限 50；候选太少时重排只能在向量检索已经返回的结果里换顺序</td></tr><tr><td>失败处理</td><td>重排是尽力而为的，模型调用失败时记录一条警告并回退到向量检索的顺序，不会中断本次检索</td></tr><tr><td>多模态候选</td><td>重排模型无法阅读的候选（如它不支持的模态）会被排到最后或直接剔除</td></tr><tr><td>提示词</td><td><code>rerank_prompt</code> 可以覆盖重排指令，必须包含 <code>{query}</code> 占位符，可选 <code>{top_k}</code>；候选内容由框架以内容块的形式追加在指令之后</td></tr></tbody></table>
+<aside class="notice warning"><strong>注意</strong><p>重排每次检索都会额外调用一次大模型。候选数越多、内容越长，延迟与成本越高，建议从默认的 <code>2 × top_k</code> 开始调整。</p></aside>
+<h2 id="自定义拓展">自定义拓展</h2>
+<p>RAG 的所有模块都采用基类继承的方式，用户可以自定义 Parser、Chunker、Embedding Model、Vector Store——只要继承对应基类、实现核心方法，就能被无缝接入上面的流水线。</p>
+<aside class="notice tip"><strong>提示</strong><p>欢迎贡献新的 Parser、Chunker、Vector Store 到 AgentScope 官方仓库！</p></aside>
+<h3 id="自定义解析器">自定义解析器</h3>
+<p>继承 <code>ParserBase</code>，在类属性 <code>supported_media_types</code> 中声明能处理的 IANA 媒体类型，并实现 <code>async def parse(file, filename)</code> 把字节流拆成若干 <code>Section</code>：</p>
+<div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">from agentscope.message import TextBlock
+from agentscope.rag import ParserBase, Section
+
+
+class MyMarkdownParser(ParserBase):
+    supported_media_types = [&quot;text/markdown&quot;]
+
+    async def parse(
+        self,
+        file: bytes | str,
+        filename: str,
+    ) -&gt; list[Section]:
+        text = file.decode(&quot;utf-8&quot;) if isinstance(file, bytes) else file
+        # 按二级标题切成若干 Section，保留来源
+        return [
+            Section(
+                content=TextBlock(text=block),
+                source=filename,
+                metadata={&quot;index&quot;: index},
+            )
+            for index, block in enumerate(text.split(&quot;\n## &quot;))
+        ]
+</code></pre></div>
+<p>需要时也可以重写 <code>supported_extensions()</code>（默认由 <code>supported_media_types</code> 反查得到；如果你的解析器希望前端文件选择器只展示某几个扩展名，建议显式覆盖）。</p>
+<h3 id="自定义切块器">自定义切块器</h3>
+<p>继承 <code>ChunkerBase</code>，实现 <code>async def chunk(sections)</code> 把若干 <code>Section</code> 切成入库的 <code>Chunk</code>。约定：不跨 <code>Section</code> 合并；多模态 <code>DataBlock</code> 整块透传；<code>chunk_index</code> 在结果内从 0 连续编号；<code>total_chunks</code> 在每个 chunk 上一致：</p>
+<div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">from pydantic import Field
+
+from agentscope.message import TextBlock
+from agentscope.rag import Chunk, ChunkerBase, Section
+
+
+class FixedCharChunker(ChunkerBase):
+    chunker_type = &quot;fixed_char&quot;
+
+    class Parameters(ChunkerBase.Parameters):
+        chunk_size: int = Field(default=1000, ge=1)
+
+    async def chunk(self, sections: list[Section]) -&gt; list[Chunk]:
+        chunks: list[Chunk] = []
+        for section in sections:
+            # 多模态内容不切分，整块透传
+            if not isinstance(section.content, TextBlock):
+                chunks.append(
+                    Chunk(
+                        content=section.content,
+                        source=section.source,
+                        chunk_index=0,
+                        total_chunks=0,
+                        metadata=dict(section.metadata),
+                    ),
+                )
+                continue
+            text = section.content.text
+            for start in range(0, len(text), self.parameters.chunk_size):
+                chunks.append(
+                    Chunk(
+                        content=TextBlock(
+                            text=text[
+                                start : start + self.parameters.chunk_size
+                            ],
+                        ),
+                        source=section.source,
+                        chunk_index=0,
+                        total_chunks=0,
+                        metadata=dict(section.metadata),
+                    ),
+                )
+        # 统一编号
+        for index, chunk in enumerate(chunks):
+            chunk.chunk_index = index
+            chunk.total_chunks = len(chunks)
+        return chunks
+</code></pre></div>
+<p><code>chunker_type</code> 用于持久化和重建切块器，同一应用内必须唯一；<code>Parameters</code> 的 JSON Schema 会直接用于服务端配置表单和参数校验。</p>
+<h3 id="自定义向量数据库">自定义向量数据库</h3>
+<p>继承 <code>VectorStoreBase</code>，实现 <code>create_collection</code> / <code>delete_collection</code> / <code>has_collection</code> / <code>insert</code> / <code>delete</code> / <code>search</code> / <code>list_documents</code>，并通过 <code>__aenter__</code> / <code>__aexit__</code> 管理底层连接的生命周期：</p>
+<div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">from typing import Any
+from agentscope.rag import (
+    DocumentSummary,
+    VectorRecord,
+    VectorSearchResult,
+    VectorStoreBase,
+)
+
+
+class MyVectorStore(VectorStoreBase):
+    async def __aenter__(self) -&gt; &quot;MyVectorStore&quot;:
+        self._client = await connect_my_backend(...)
+        return self
+
+    async def __aexit__(self, exc_type, exc, tb) -&gt; None:
+        await self._client.close()
+
+    async def create_collection(self, name: str, dimensions: int) -&gt; None: ...
+
+    async def delete_collection(self, name: str) -&gt; None: ...
+
+    async def has_collection(self, name: str) -&gt; bool: ...
+
+    async def insert(
+        self,
+        collection: str,
+        records: list[VectorRecord],
+    ) -&gt; None: ...
+
+    async def delete(self, collection: str, document_id: str) -&gt; None: ...
+
+    async def search(
+        self,
+        collection: str,
+        query_vector: list[float],
+        top_k: int = 5,
+        metadata_filter: dict[str, Any] | None = None,
+    ) -&gt; list[VectorSearchResult]: ...
+
+    async def list_documents(
+        self,
+        collection: str,
+        metadata_filter: dict[str, Any] | None = None,
+    ) -&gt; list[DocumentSummary]: ...
+</code></pre></div>
+<p>实现要点：</p>
+<ul>
+<li><code>delete</code> 按 <code>document_id</code> 删除该文档的<strong>所有</strong>记录，调用方按文档为单位增删。</li>
+<li><code>search</code> / <code>list_documents</code> 必须把 <code>metadata_filter</code> 翻译成对应后端的 payload filter，以支持多租户隔离。</li>
+<li><code>insert</code> 时需要把 <code>VectorRecord.document_id</code> 与 <code>chunk</code> 都持久化下来——否则 <code>delete</code> 与 <code>list_documents</code> 都无法工作。</li>
+</ul>
+<h2 id="延伸阅读">延伸阅读</h2>
+<div class="cards"><div class="card"><strong><a href="/agentscope-course/deploy/rag/">RAG 服务</a></strong><p>多租户、分布式的 RAG 服务，支持 HTTP API、文件托管、向量数据库托管。</p><a href="/agentscope-course/deploy/rag/" data-card-cta="查看部署文档">查看部署文档</a></div><div class="card"><strong><a href="/agentscope-course/building-blocks/middleware/">中间件</a></strong><p>了解 <code>RAGMiddleware</code> 是如何嵌入 reply / reasoning 钩子的。</p><a href="/agentscope-course/building-blocks/middleware/" data-card-cta="了解中间件机制">了解中间件机制</a></div><div class="card"><strong><a href="/agentscope-course/building-blocks/model/embedding/">嵌入模型</a></strong><p>可用的嵌入模型及其参数。</p><a href="/agentscope-course/building-blocks/model/embedding/" data-card-cta="查看模型列表">查看模型列表</a></div></div></article><footer><div class="paging"><a href="/agentscope-course/building-blocks/middleware/">上一节 · 中间件</a><a href="/agentscope-course/building-blocks/long-term-memory/">下一节 · 长期记忆</a></div><div class="credits"><a href="https://docs.agentscope.io/zh/versions/2.0.12/building-blocks/rag" target="_blank" rel="noopener">在线原页</a> · <a href="/agentscope-course/mdx/building-blocks/rag.mdx">原始 MDX</a> · <a href="https://github.com/agentscope-ai/docs/blob/e0ee835d1aca5d2b840d29bdd2f70770bbef69e8/zh/versions/2.0.12/building-blocks/rag.mdx" target="_blank" rel="noopener">固定版本来源</a> · <a href="/agentscope-course/LICENSE.txt">MIT 许可</a></div></footer></main></div></body></html>

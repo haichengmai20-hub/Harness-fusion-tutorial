@@ -1,0 +1,95 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>会话路由 · AgentScope</title><link rel="stylesheet" href="/agentscope-course/reader.css"><script defer src="/agentscope-course/reader.js"></script></head><body><header class="mast"><a href="/agentscope-course/">AgentScope <small>中文文档</small></a><span>v2.0.12</span><button id="catalog" aria-controls="outline" aria-expanded="false">目录</button></header><div class="layout"><nav id="outline" aria-label="AgentScope 文档目录"><div class="group">快速开始</div><a href="/agentscope-course/" >AgentScope 2.0 是什么？</a><a href="/agentscope-course/quickstart/" >快速开始</a><a href="/agentscope-course/release-notes/" >更新日志</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/message-and-event/" >消息与事件</a><div class="group">核心模块 / 智能体</div><a href="/agentscope-course/building-blocks/agent/overview/" >智能体 · 概述</a><a href="/agentscope-course/building-blocks/agent/configure-agent/" >配置智能体</a><a href="/agentscope-course/building-blocks/agent/run-agent/" >运行智能体</a><a href="/agentscope-course/building-blocks/agent/interrupt-agent/" >中断智能体</a><a href="/agentscope-course/building-blocks/agent/human-in-the-loop/" >人机交互</a><div class="group">核心模块 / 模型</div><a href="/agentscope-course/building-blocks/model/overview/" >模型 · 概述</a><a href="/agentscope-course/building-blocks/model/llm/" >大语言模型</a><a href="/agentscope-course/building-blocks/model/tts/" >语音合成</a><a href="/agentscope-course/building-blocks/model/asr/" >语音识别</a><a href="/agentscope-course/building-blocks/model/embedding/" >嵌入模型</a><div class="group">核心模块 / 上下文管理</div><a href="/agentscope-course/building-blocks/context/overview/" >上下文管理 · 概述</a><a href="/agentscope-course/building-blocks/context/environment-awareness/" >感知环境</a><a href="/agentscope-course/building-blocks/context/compress-context/" >压缩上下文</a><a href="/agentscope-course/building-blocks/context/offload-context/" >卸载上下文</a><div class="group">核心模块 / 工具</div><a href="/agentscope-course/building-blocks/tool/overview/" >工具 · 概述</a><a href="/agentscope-course/building-blocks/tool/python-tool/" >Python 函数工具</a><a href="/agentscope-course/building-blocks/tool/mcp/" >MCP</a><a href="/agentscope-course/building-blocks/tool/skill/" >Skill</a><a href="/agentscope-course/building-blocks/tool/manage-tools/" >元工具</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/plan/" >计划模式</a><div class="group">核心模块 / 流水线</div><a href="/agentscope-course/building-blocks/pipeline/overview/" >流水线 · 概述</a><a href="/agentscope-course/building-blocks/pipeline/goal/" >目标流水线</a><a href="/agentscope-course/building-blocks/pipeline/team/" >团队流水线</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/sop/" >标准作业流程</a><div class="group">核心模块 / 权限系统</div><a href="/agentscope-course/building-blocks/permission-system/overview/" >权限系统 · 概述</a><a href="/agentscope-course/building-blocks/permission-system/permission-mode/" >权限模式</a><a href="/agentscope-course/building-blocks/permission-system/permission-rule/" >权限规则</a><a href="/agentscope-course/building-blocks/permission-system/tool-check/" >工具内置检查</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/middleware/" >中间件</a><a href="/agentscope-course/building-blocks/rag/" >RAG</a><a href="/agentscope-course/building-blocks/long-term-memory/" >长期记忆</a><div class="group">核心模块 / 工作区</div><a href="/agentscope-course/building-blocks/workspace/overview/" >工作区 · 概述</a><a href="/agentscope-course/building-blocks/workspace/run-workspace/" >运行工作区</a><a href="/agentscope-course/building-blocks/workspace/manage-resources/" >管理资源</a><a href="/agentscope-course/building-blocks/workspace/mcp-gateway/" >MCP 网关</a><div class="group">核心模块 / 实时语音智能体</div><a href="/agentscope-course/building-blocks/realtime/overview/" >实时语音智能体 · 概述</a><a href="/agentscope-course/building-blocks/realtime/speech-to-speech/" >语音到语音</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/console/" >终端 UI</a><a href="/agentscope-course/building-blocks/a2a/" >A2A 协议</a><div class="group">智能体即服务</div><a href="/agentscope-course/deploy/agent-service/" >架构</a><a href="/agentscope-course/deploy/agent-team/" >智能体团队</a><a href="/agentscope-course/deploy/sop/" >SOP 服务</a><a href="/agentscope-course/deploy/sharing/" >资源共享</a><a href="/agentscope-course/deploy/rag/" >RAG 服务</a><a href="/agentscope-course/deploy/workspace-manager/" >工作区管理</a><div class="group">智能体即服务 / MCP 与技能中心</div><a href="/agentscope-course/deploy/hub/overview/" >MCP 与技能中心 · 概览</a><a href="/agentscope-course/deploy/hub/mcp-hub/" >MCP 中心</a><a href="/agentscope-course/deploy/hub/skill-hub/" >技能中心</a><div class="group">智能体即服务 / 消息渠道</div><a href="/agentscope-course/deploy/channel/overview/" >消息渠道 · 概览</a><a href="/agentscope-course/deploy/channel/routing/" aria-current="page">会话路由</a><a href="/agentscope-course/deploy/channel/feishu/" >飞书</a><a href="/agentscope-course/deploy/channel/dingtalk/" >钉钉</a><a href="/agentscope-course/deploy/channel/discord/" >Discord</a><a href="/agentscope-course/deploy/channel/custom/" >自定义渠道</a><div class="group">其他</div><a href="/agentscope-course/others/faq/" >常见问题</a><a href="/agentscope-course/others/change-log/" >版本迁移</a><div class="group">智能体即服务 / API</div><a href="/agentscope-course/api/">API 参考</a></nav><main><div class="context">智能体即服务 / 消息渠道</div><article class="prose-custom" id="content"><h1>会话路由</h1><p class="dek">决定 IM 平台来的消息交给哪个智能体、进入哪个会话。</p><p>路由（Routing）决定：从 IM 平台收到的一条消息，交给哪个智能体、进入它的哪个会话。「交给哪个智能体」决定谁来回答，「进入哪个会话」决定这条消息和此前哪些消息共享同一段对话上下文。同一个会话里的消息彼此可见，不同会话互不相通。目前会话有两种划分方式：<strong>一个聊天共用一个会话</strong>，或<strong>群聊里每个成员各自一个会话</strong>。</p>
+<p>考虑到一个渠道中，聊天和用户都是伴随着第一次输入才出现的：任何人第一次私聊机器人，都会带来一个此前从未见过的聊天。因此路由不是一张事先写好的对照表，而是一组有先后顺序的规则，逐条匹配、命中即停，并用一条兜底规则保证任何消息都有确定去向。</p>
+<h2 id="路由规则">路由规则</h2>
+<p>一条路由规则（binding）由四个字段构成：前两个是&quot;匹配什么消息&quot;，后两个是&quot;命中后怎么处理&quot;。</p>
+<table><thead><tr><th>字段</th><th>说明</th><th>默认值</th></tr></thead><tbody><tr><td><code>match_key</code></td><td>拿消息的哪个字段来匹配：<code>chat_id</code>（来自哪个聊天）、<code>user_id</code>（谁发的），或 <code>metadata</code> 里的键（如 <code>chat_type</code>）</td><td><code>chat_id</code></td></tr><tr><td><code>match_value</code></td><td>要匹配的具体值，或 <code>&quot;*&quot;</code> 表示匹配任意（兜底）</td><td><code>&quot;*&quot;</code></td></tr><tr><td><code>agent_id</code></td><td>命中后交给哪个智能体</td><td>必填</td></tr><tr><td><code>session_scope</code></td><td>命中后这条消息进入哪个会话，取值见下节</td><td><code>per_chat</code></td></tr></tbody></table>
+<p><code>match_value</code> 是<strong>精确匹配</strong>（不是前缀，也不是正则），只有 <code>&quot;*&quot;</code> 例外，它匹配一切。当 <code>match_key</code> 指向 <code>metadata</code> 里的键时，可匹配的值由平台决定，例如飞书的 <code>chat_type</code> 取值为 <code>group</code> / <code>p2p</code>，钉钉为 <code>group</code> / <code>private</code>，Discord 为 <code>guild</code> / <code>dm</code>，详见各平台接入页。</p>
+<h2 id="会话划分">会话划分</h2>
+<p><code>session_scope</code> 决定命中同一条规则的消息如何归入会话。进入同一个会话的消息共享上下文。</p>
+<table><thead><tr><th>取值</th><th>含义</th><th>适用场景</th></tr></thead><tbody><tr><td><code>per_chat</code></td><td>一个聊天一个会话</td><td>默认值。私聊天然是一人一个会话；群聊则整群共享同一段上下文</td></tr><tr><td><code>per_chat_user</code></td><td>同一聊天里，每个用户各自一个会话</td><td>仅群聊有意义：把群里每个成员隔离到各自的会话，互不干扰</td></tr></tbody></table>
+<p>即便匹配到同一个智能体，<code>per_chat</code> 与 <code>per_chat_user</code> 也会把消息归入不同会话。因此<strong>改动划分方式后，后续消息会按新方式重新归组</strong>。不同智能体之间永远不共享会话。</p>
+<h2 id="匹配顺序">匹配顺序</h2>
+<p>规则按列表顺序自上而下匹配，<strong>首条命中即停</strong>，与防火墙规则、Nginx location 的匹配方式一致。把具体的例外规则放在前面，把兜底规则放在最后。</p>
+<p>保存配置时会做三项校验，保证任何消息都有确定且唯一的去向：</p>
+<aside class="notice warning"><strong>注意</strong><ul>
+<li>必须有且仅有一条兜底规则（<code>match_value</code> 为 <code>&quot;*&quot;</code>）；</li>
+<li>兜底规则必须在最后，否则它后面的规则永远不会被命中；</li>
+<li>不允许出现重复的 <code>(match_key, match_value)</code> 组合。</li>
+</ul></aside>
+<h2 id="完整示例">完整示例</h2>
+<p>假设你已经部署了两个智能体：通用助手 <code>friday</code>，以及产品专家 <code>product-expert</code>。下面用一条真实消息，看它在不同规则下分别交给哪个智能体、进入哪个会话。</p>
+<div class="steps"><section class="step"><h3>收到一条消息</h3><p>机器人在一个叫&quot;产品团队&quot;的飞书群里，收到成员 Alice 的一句话。这条消息大致长这样（只列出与路由相关的字段）：</p><div class="code-example"><div class="code-bar"><span>入站消息</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-json" data-caption="入站消息" data-lang="json">{
+  &quot;channel_user_id&quot;: &quot;ou_alice&quot;,
+  &quot;chat_id&quot;: &quot;oc_product_team&quot;,
+  &quot;content&quot;: [
+    {
+      &quot;type&quot;: &quot;text&quot;,
+      &quot;text&quot;: &quot;帮我查下今天的排期&quot;
+    }
+  ],
+  &quot;metadata&quot;: {
+    &quot;chat_type&quot;: &quot;group&quot;
+  }
+}
+</code></pre></div></section><section class="step"><h3>用规则决定去向</h3><p>同一条消息，配上不同的规则，会去往不同的智能体和会话。下面每个标签页是一种配置：</p><div class="tab-set" data-tab-set=""><div class="tab-list" role="group" aria-label="代码示例"><button type="button" data-choice="0" aria-pressed="true">全部交给 friday</button><button type="button" data-choice="1" aria-pressed="false">产品群走专属智能体</button><button type="button" data-choice="2" aria-pressed="false">群里每人各聊各的</button></div><div data-panel="0"><div class="code-example"><div class="code-bar"><span>全部交给 friday</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-json" data-caption="全部交给 friday" data-lang="json">{
+  &quot;bindings&quot;: [
+    // 适用：一个通用助手服务所有聊天
+    // 这条兜底规则匹配任何消息，都交给通用助手 friday，
+    // &quot;产品团队&quot;群里所有人共用同一个会话
+    {
+      &quot;match_key&quot;: &quot;chat_id&quot;,
+      &quot;match_value&quot;: &quot;*&quot;,
+      &quot;agent_id&quot;: &quot;friday&quot;,
+      &quot;session_scope&quot;: &quot;per_chat&quot;
+    }
+  ]
+}
+</code></pre></div></div><div data-panel="1" hidden=""><div class="code-example"><div class="code-bar"><span>产品群走专属智能体</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-json" data-caption="产品群走专属智能体" data-lang="json">{
+  &quot;bindings&quot;: [
+    // 适用：某个群需要专门的智能体，其余聊天走通用助手
+    // 来自&quot;产品团队&quot;群的消息命中这条，交给产品专家 product-expert
+    {
+      &quot;match_key&quot;: &quot;chat_id&quot;,
+      &quot;match_value&quot;: &quot;oc_product_team&quot;,
+      &quot;agent_id&quot;: &quot;product-expert&quot;,
+      &quot;session_scope&quot;: &quot;per_chat&quot;
+    },
+    // 其余聊天没命中上面，落到这条兜底，交给 friday
+    {
+      &quot;match_key&quot;: &quot;chat_id&quot;,
+      &quot;match_value&quot;: &quot;*&quot;,
+      &quot;agent_id&quot;: &quot;friday&quot;,
+      &quot;session_scope&quot;: &quot;per_chat&quot;
+    }
+  ]
+}
+</code></pre></div></div><div data-panel="2" hidden=""><div class="code-example"><div class="code-bar"><span>群里每人各聊各的</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-json" data-caption="群里每人各聊各的" data-lang="json">{
+  &quot;bindings&quot;: [
+    // 适用：群里多人分别和机器人对话，各自独立、互不干扰
+    // 群聊消息命中这条，交给 friday；群里每个人各自一个会话，
+    // Alice 的会话只属于她，别人看不到
+    {
+      &quot;match_key&quot;: &quot;chat_type&quot;,
+      &quot;match_value&quot;: &quot;group&quot;,
+      &quot;agent_id&quot;: &quot;friday&quot;,
+      &quot;session_scope&quot;: &quot;per_chat_user&quot;
+    },
+    // 私聊等其余情况落到兜底
+    {
+      &quot;match_key&quot;: &quot;chat_id&quot;,
+      &quot;match_value&quot;: &quot;*&quot;,
+      &quot;agent_id&quot;: &quot;friday&quot;,
+      &quot;session_scope&quot;: &quot;per_chat&quot;
+    }
+  ]
+}
+</code></pre></div></div></div></section><section class="step"><h3>兜底规则</h3><p>每份配置的最后都必须有一条兜底规则（<code>match_value</code> 为 <code>&quot;*&quot;</code>），保证没命中任何前面规则的消息也有确定去向。上面三个例子的最后一条都是它：</p><div class="code-example"><div class="code-bar"><span>兜底规则</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-json" data-caption="兜底规则" data-lang="json">{
+  &quot;match_key&quot;: &quot;chat_id&quot;,
+  &quot;match_value&quot;: &quot;*&quot;,
+  &quot;agent_id&quot;: &quot;friday&quot;,
+  &quot;session_scope&quot;: &quot;per_chat&quot;
+}
+</code></pre></div></section></div>
+<aside class="notice tip"><strong>提示</strong><p>配置路由前，调用 <code>GET /channels/{id}/chat_ids</code> 可以列出机器人已知的聊天及其 <code>chat_id</code>，直接复制即可，不必手工抄写平台 ID。</p></aside>
+<h2 id="延伸阅读">延伸阅读</h2>
+<div class="cards"><div class="card"><strong><a href="/agentscope-course/deploy/channel/feishu/">接入飞书</a></strong><p>创建飞书机器人，让智能体在飞书里收发消息。</p><a href="/agentscope-course/deploy/channel/feishu/" data-card-cta="查看详情">查看详情</a></div><div class="card"><strong><a href="/agentscope-course/deploy/channel/discord/">接入 Discord</a></strong><p>创建 Discord Bot，让智能体在 Discord 里收发消息。</p><a href="/agentscope-course/deploy/channel/discord/" data-card-cta="查看详情">查看详情</a></div></div></article><footer><div class="paging"><a href="/agentscope-course/deploy/channel/overview/">上一节 · 消息渠道 · 概览</a><a href="/agentscope-course/deploy/channel/feishu/">下一节 · 飞书</a></div><div class="credits"><a href="https://docs.agentscope.io/zh/versions/2.0.12/deploy/channel/routing" target="_blank" rel="noopener">在线原页</a> · <a href="/agentscope-course/mdx/deploy/channel/routing.mdx">原始 MDX</a> · <a href="https://github.com/agentscope-ai/docs/blob/e0ee835d1aca5d2b840d29bdd2f70770bbef69e8/zh/versions/2.0.12/deploy/channel/routing.mdx" target="_blank" rel="noopener">固定版本来源</a> · <a href="/agentscope-course/LICENSE.txt">MIT 许可</a></div></footer></main></div></body></html>

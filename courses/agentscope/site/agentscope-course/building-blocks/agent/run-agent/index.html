@@ -1,0 +1,203 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>运行智能体 · AgentScope</title><link rel="stylesheet" href="/agentscope-course/reader.css"><script defer src="/agentscope-course/reader.js"></script></head><body><header class="mast"><a href="/agentscope-course/">AgentScope <small>中文文档</small></a><span>v2.0.12</span><button id="catalog" aria-controls="outline" aria-expanded="false">目录</button></header><div class="layout"><nav id="outline" aria-label="AgentScope 文档目录"><div class="group">快速开始</div><a href="/agentscope-course/" >AgentScope 2.0 是什么？</a><a href="/agentscope-course/quickstart/" >快速开始</a><a href="/agentscope-course/release-notes/" >更新日志</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/message-and-event/" >消息与事件</a><div class="group">核心模块 / 智能体</div><a href="/agentscope-course/building-blocks/agent/overview/" >智能体 · 概述</a><a href="/agentscope-course/building-blocks/agent/configure-agent/" >配置智能体</a><a href="/agentscope-course/building-blocks/agent/run-agent/" aria-current="page">运行智能体</a><a href="/agentscope-course/building-blocks/agent/interrupt-agent/" >中断智能体</a><a href="/agentscope-course/building-blocks/agent/human-in-the-loop/" >人机交互</a><div class="group">核心模块 / 模型</div><a href="/agentscope-course/building-blocks/model/overview/" >模型 · 概述</a><a href="/agentscope-course/building-blocks/model/llm/" >大语言模型</a><a href="/agentscope-course/building-blocks/model/tts/" >语音合成</a><a href="/agentscope-course/building-blocks/model/asr/" >语音识别</a><a href="/agentscope-course/building-blocks/model/embedding/" >嵌入模型</a><div class="group">核心模块 / 上下文管理</div><a href="/agentscope-course/building-blocks/context/overview/" >上下文管理 · 概述</a><a href="/agentscope-course/building-blocks/context/environment-awareness/" >感知环境</a><a href="/agentscope-course/building-blocks/context/compress-context/" >压缩上下文</a><a href="/agentscope-course/building-blocks/context/offload-context/" >卸载上下文</a><div class="group">核心模块 / 工具</div><a href="/agentscope-course/building-blocks/tool/overview/" >工具 · 概述</a><a href="/agentscope-course/building-blocks/tool/python-tool/" >Python 函数工具</a><a href="/agentscope-course/building-blocks/tool/mcp/" >MCP</a><a href="/agentscope-course/building-blocks/tool/skill/" >Skill</a><a href="/agentscope-course/building-blocks/tool/manage-tools/" >元工具</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/plan/" >计划模式</a><div class="group">核心模块 / 流水线</div><a href="/agentscope-course/building-blocks/pipeline/overview/" >流水线 · 概述</a><a href="/agentscope-course/building-blocks/pipeline/goal/" >目标流水线</a><a href="/agentscope-course/building-blocks/pipeline/team/" >团队流水线</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/sop/" >标准作业流程</a><div class="group">核心模块 / 权限系统</div><a href="/agentscope-course/building-blocks/permission-system/overview/" >权限系统 · 概述</a><a href="/agentscope-course/building-blocks/permission-system/permission-mode/" >权限模式</a><a href="/agentscope-course/building-blocks/permission-system/permission-rule/" >权限规则</a><a href="/agentscope-course/building-blocks/permission-system/tool-check/" >工具内置检查</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/middleware/" >中间件</a><a href="/agentscope-course/building-blocks/rag/" >RAG</a><a href="/agentscope-course/building-blocks/long-term-memory/" >长期记忆</a><div class="group">核心模块 / 工作区</div><a href="/agentscope-course/building-blocks/workspace/overview/" >工作区 · 概述</a><a href="/agentscope-course/building-blocks/workspace/run-workspace/" >运行工作区</a><a href="/agentscope-course/building-blocks/workspace/manage-resources/" >管理资源</a><a href="/agentscope-course/building-blocks/workspace/mcp-gateway/" >MCP 网关</a><div class="group">核心模块 / 实时语音智能体</div><a href="/agentscope-course/building-blocks/realtime/overview/" >实时语音智能体 · 概述</a><a href="/agentscope-course/building-blocks/realtime/speech-to-speech/" >语音到语音</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/console/" >终端 UI</a><a href="/agentscope-course/building-blocks/a2a/" >A2A 协议</a><div class="group">智能体即服务</div><a href="/agentscope-course/deploy/agent-service/" >架构</a><a href="/agentscope-course/deploy/agent-team/" >智能体团队</a><a href="/agentscope-course/deploy/sop/" >SOP 服务</a><a href="/agentscope-course/deploy/sharing/" >资源共享</a><a href="/agentscope-course/deploy/rag/" >RAG 服务</a><a href="/agentscope-course/deploy/workspace-manager/" >工作区管理</a><div class="group">智能体即服务 / MCP 与技能中心</div><a href="/agentscope-course/deploy/hub/overview/" >MCP 与技能中心 · 概览</a><a href="/agentscope-course/deploy/hub/mcp-hub/" >MCP 中心</a><a href="/agentscope-course/deploy/hub/skill-hub/" >技能中心</a><div class="group">智能体即服务 / 消息渠道</div><a href="/agentscope-course/deploy/channel/overview/" >消息渠道 · 概览</a><a href="/agentscope-course/deploy/channel/routing/" >会话路由</a><a href="/agentscope-course/deploy/channel/feishu/" >飞书</a><a href="/agentscope-course/deploy/channel/dingtalk/" >钉钉</a><a href="/agentscope-course/deploy/channel/discord/" >Discord</a><a href="/agentscope-course/deploy/channel/custom/" >自定义渠道</a><div class="group">其他</div><a href="/agentscope-course/others/faq/" >常见问题</a><a href="/agentscope-course/others/change-log/" >版本迁移</a><div class="group">智能体即服务 / API</div><a href="/agentscope-course/api/">API 参考</a></nav><main><div class="context">核心模块 / 智能体</div><article class="prose-custom" id="content"><h1>运行智能体</h1><p class="dek">运行智能体，处理它的回复、上下文与状态</p><p><code>Agent</code> 类将智能体的行为抽象为一组接口，分别适用于不同的目标：</p>
+<table><thead><tr><th>行为</th><th>接口</th><th>适用场景</th></tr></thead><tbody><tr><td><a href="#%E5%9B%9E%E5%A4%8D">回复</a></td><td><code>reply</code>、<code>reply_stream</code></td><td>驱动推理-行动循环，一次性返回结果或实时产出事件流</td></tr><tr><td><a href="#%E7%BB%93%E6%9E%84%E5%8C%96%E8%BE%93%E5%87%BA">结构化输出</a></td><td><code>structured_schema</code> 参数</td><td>要求回复产出符合 JSON schema 的字段</td></tr><tr><td><a href="#%E8%A7%82%E5%AF%9F%E6%B6%88%E6%81%AF">观察消息</a></td><td><code>observe</code></td><td>将消息注入上下文而不触发回复</td></tr><tr><td><a href="#%E5%8E%8B%E7%BC%A9%E4%B8%8A%E4%B8%8B%E6%96%87">压缩上下文</a></td><td><code>compress_context</code></td><td>把长对话控制在模型的上下文窗口之内</td></tr><tr><td><a href="#%E6%8C%81%E4%B9%85%E5%8C%96%E7%8A%B6%E6%80%81">持久化状态</a></td><td><code>agent.state</code> 搭配存储后端</td><td>在一个进程中暂停会话，在另一个进程中恢复</td></tr></tbody></table>
+<h2 id="回复">回复</h2>
+<p><code>reply</code> 和 <code>reply_stream</code> 都接受相同的 <code>inputs</code> 参数，驱动相同的推理-行动循环，区别只在结果的交付方式。<code>inputs</code> 参数支持：</p>
+<table><thead><tr><th>输入</th><th>效果</th></tr></thead><tbody><tr><td>单个 <code>Msg</code> 或 <code>Msg</code> 列表</td><td>开始一次新的回复</td></tr><tr><td><code>UserConfirmResultEvent</code>、<code>ExternalExecutionResultEvent</code></td><td>从暂停状态恢复（参见<a href="/agentscope-course/building-blocks/agent/human-in-the-loop/">人机交互</a>）</td></tr><tr><td><code>UserInterruptEvent</code></td><td>终止一次暂停中的回复（参见<a href="/agentscope-course/building-blocks/agent/interrupt-agent/">中断智能体</a>）</td></tr><tr><td><code>None</code></td><td>不输入新内容，从当前状态继续</td></tr></tbody></table>
+<h3 id="基础回复">基础回复</h3>
+<p>一次调用返回一条最终 <code>Msg</code>：运行智能体最简单的方式，适合不关心中间事件的自动化场景。</p>
+<p><code>reply</code> 在内部消费所有事件，并在智能体完成后返回最终 <code>Msg</code>。如果回复因等待外部交互而暂停，它会返回一条 <code>finished_reason</code> 为 <code>None</code> 的等待提示消息，表示回复尚未结束。</p>
+<div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">import asyncio
+from agentscope.message import UserMsg
+
+async def main():
+    msg = UserMsg(name=&quot;user&quot;, content=&quot;当前目录有哪些文件？&quot;)
+    result = await agent.reply(msg)
+    print(result.get_text_content())
+
+asyncio.run(main())
+</code></pre></div>
+<p>除文本内容外，返回的 <code>Msg</code> 还携带本次回复的完整结果。每次调用后值得检查的字段如下：</p>
+<table><thead><tr><th>字段</th><th>类型</th><th>描述</th></tr></thead><tbody><tr><td><code>content</code></td><td><code>list[ContentBlock]</code></td><td>各轮迭代产出的全部内容块（文本、思考、工具调用与工具结果）</td></tr><tr><td><code>finished_reason</code></td><td><code>ReplyFinishedReason | None</code></td><td>回复的结束方式：<code>completed</code>、<code>interrupted</code>、<code>exceed_max_iters</code> 或 <code>error</code>；<code>None</code> 表示暂停中、尚未结束</td></tr><tr><td><code>structured_output</code></td><td><code>dict | None</code></td><td>传入 <code>structured_schema</code> 时经过校验的结果（参见<a href="#%E7%BB%93%E6%9E%84%E5%8C%96%E8%BE%93%E5%87%BA">结构化输出</a>）</td></tr><tr><td><code>usage</code></td><td><code>Usage | None</code></td><td>本次回复所有模型调用累计的输入/输出 token 数</td></tr><tr><td><code>error</code></td><td><code>ErrorInfo | None</code></td><td>结构化错误信息，仅当 <code>finished_reason</code> 为 <code>error</code> 时填充</td></tr><tr><td><code>finished_at</code></td><td><code>str | None</code></td><td>回复结束时间（ISO 8601 时间戳）</td></tr></tbody></table>
+<aside class="notice note"><strong>说明</strong><p><code>finished_reason</code> 为 <code>exceed_max_iters</code> 时，消息里通常仍有可用的文本答复：迭代预算用尽而智能体还没有给出最终文本时，框架会追加一次禁用工具的模型调用，要求它把已完成的工作与结论总结出来。这次收尾调用最多一次，它也没有产出文本时，回复才会以空文本结束。</p></aside>
+<p>完整的 <code>Msg</code> 结构与内容块类型参见<a href="/agentscope-course/building-blocks/message-and-event/">消息与事件</a>。</p>
+<h3 id="流式回复">流式回复</h3>
+<p>智能体实时产出文本增量、工具调用进度和生命周期事件，这是构建交互式界面的基础。</p>
+<p><code>reply_stream</code> 逐一产出 <code>AgentEvent</code> 对象：</p>
+<div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">async def main():
+    msg = UserMsg(name=&quot;user&quot;, content=&quot;总结一下 README 的内容。&quot;)
+    async for event in agent.reply_stream(msg):
+        if hasattr(event, &quot;delta&quot;):
+            print(event.delta, end=&quot;&quot;, flush=True)
+
+asyncio.run(main())
+</code></pre></div>
+<p>传入 <code>yield_final_msg=True</code> 可以让流的最后一项额外产出最终 <code>Msg</code>。当你在事件之外还需要组装好的回复消息（例如它的 <code>structured_output</code> 属性）时很有用：</p>
+<div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">from agentscope.message import Msg
+
+async for chunk in agent.reply_stream(msg, yield_final_msg=True):
+    if isinstance(chunk, Msg):
+        print(&quot;最终消息:&quot;, chunk.get_text_content())
+</code></pre></div>
+<h2 id="在回复过程中补充输入">在回复过程中补充输入</h2>
+<p>为智能体挂载 <code>SteeringMiddleware</code> 和 <code>SteeringQueue</code>，即可在回复过程中
+补充指令。收到 <code>ReplyStartEvent</code> 后，使用当前回复的标识提交输入：</p>
+<div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">import asyncio
+import os
+
+from agentscope.agent import Agent
+from agentscope.credential import DashScopeCredential
+from agentscope.event import ReplyStartEvent
+from agentscope.message import UserMsg
+from agentscope.middleware import SteeringMiddleware, SteeringQueue
+from agentscope.model import DashScopeChatModel
+
+
+async def main() -&gt; None:
+    queue = SteeringQueue()
+    agent = Agent(
+        name=&quot;Friday&quot;,
+        system_prompt=&quot;You are a helpful assistant.&quot;,
+        model=DashScopeChatModel(
+            credential=DashScopeCredential(
+                api_key=os.environ[&quot;DASHSCOPE_API_KEY&quot;],
+            ),
+            model=&quot;qwen-plus&quot;,
+        ),
+        middlewares=[SteeringMiddleware(queue)],
+    )
+    receipt = None
+    async for event in agent.reply_stream(
+        UserMsg(name=&quot;user&quot;, content=&quot;Plan a product launch.&quot;),
+    ):
+        if isinstance(event, ReplyStartEvent):
+            # A UI callback can submit input while this reply is active.
+            receipt = queue.submit(
+                UserMsg(name=&quot;user&quot;, content=&quot;Focus on a small team.&quot;),
+                session_id=agent.state.session_id,
+                reply_id=event.reply_id,
+            )
+    if receipt is not None:
+        print(await receipt.wait())
+
+
+asyncio.run(main())
+</code></pre></div>
+<p>补充输入会在下一次推理调用前或纯文本响应后注入，并受智能体迭代预算限制。
+正在执行的模型或工具调用会正常完成。回执状态包括 <code>pending</code>、<code>injected</code>、
+<code>unconsumed</code> 和 <code>failed</code>；<code>injected</code> 仅表示输入已进入上下文，
+不保证模型已经遵循指令。</p>
+<p>该队列仅用于同一事件循环，不提供持久化。回复结束或暂停时尚未消费的输入会
+标记为 <code>unconsumed</code>，由应用继续处理。服务端持久化队列见
+<a href="/agentscope-course/deploy/agent-service/#%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E4%B8%8E%E8%BF%90%E8%A1%8C%E4%B8%AD%E8%BE%93%E5%85%A5">智能体服务</a>。</p>
+<h2 id="结构化输出">结构化输出</h2>
+<p>可以要求一次回复产出符合 JSON schema 的字段，典型场景是生成报告，或输出用于驱动工作流的控制字段。</p>
+<p>通过 <code>structured_schema</code> 传入一个 Pydantic 模型类。智能体会装配一个内置的 <code>GenerateStructuredOutput</code> 工具，其输入 schema 就是你的 schema：智能体先自由推理和调用其他工具，最后通过该工具提交结果。校验错误会反馈给模型重试，通过校验的结果以普通 dict 的形式落在最终消息的 <code>structured_output</code> 属性上（消息文本只是占位内容）。</p>
+<div class="tab-set" data-tab-set=""><div class="tab-list" role="group" aria-label="代码示例"><button type="button" data-choice="0" aria-pressed="true">基础回复</button><button type="button" data-choice="1" aria-pressed="false">流式回复</button></div><div data-panel="0"><div class="code-example"><div class="code-bar"><span>基础回复</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="基础回复" data-lang="python">from pydantic import BaseModel, Field
+from agentscope.message import UserMsg
+
+class WeatherReport(BaseModel):
+    city: str = Field(description=&quot;城市名&quot;)
+    temperature: float = Field(description=&quot;摄氏温度&quot;)
+
+result = await agent.reply(
+    UserMsg(name=&quot;user&quot;, content=&quot;杭州今天天气怎么样？&quot;),
+    structured_schema=WeatherReport,
+)
+print(result.structured_output)  # {&quot;city&quot;: &quot;杭州&quot;, &quot;temperature&quot;: ...}
+</code></pre></div></div><div data-panel="1" hidden=""><div class="code-example"><div class="code-bar"><span>流式回复</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="流式回复" data-lang="python">from agentscope.message import Msg, UserMsg
+
+async for chunk in agent.reply_stream(
+    UserMsg(name=&quot;user&quot;, content=&quot;杭州今天天气怎么样？&quot;),
+    structured_schema=WeatherReport,
+    yield_final_msg=True,
+):
+    if isinstance(chunk, Msg):
+        print(chunk.structured_output)
+</code></pre></div></div></div>
+<p>结构化输出的要求以单次回复为作用域，并且能跨越人机交互暂停、状态持久化和进程重启，因为 schema 会以普通 dict 的形式存入智能体状态。恢复一次暂停的回复时，不要再次传入 <code>structured_schema</code>；回复会沿用暂停时保存的 schema 继续。</p>
+<aside class="notice note"><strong>说明</strong><ul>
+<li>校验方式随回复的运行方式自适应。进程内运行时，由模型类本身校验输出：默认值（含 <code>default_factory</code>）会被填充、多余字段被丢弃、自定义校验器会执行。从序列化状态恢复后，只剩下 JSON schema：schema 中声明的默认值会被填充、多余字段被保留、自定义校验器被跳过。</li>
+<li>达到 <code>max_iters</code> 仍无输出时，智能体会在 <code>structured_output_grace_iters</code>（默认 5）次额外迭代内强制调用 <code>GenerateStructuredOutput</code>。若仍失败，回复以 <code>finished_reason=EXCEED_MAX_ITERS</code> 结束且 <code>structured_output</code> 为 <code>None</code>，使用前请先判空。</li>
+</ul></aside>
+<h2 id="观察消息">观察消息</h2>
+<p>可以把消息注入智能体上下文而不触发回复。在多智能体场景中，让一个智能体看到另一个智能体的输出时非常有用。</p>
+<div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">await agent.observe(other_agent_msg)
+</code></pre></div>
+<h2 id="压缩上下文">压缩上下文</h2>
+<p>通过对较早的消息做摘要，长对话得以保持在模型的上下文窗口之内，既可自动触发，也可按需手动触发。</p>
+<p>当 token 数量超过 <code>context_config.trigger_ratio × model.context_length</code> 时，智能体会自动压缩上下文；若配置了 <code>offloader</code>，被摘要的消息还会被卸载到磁盘。</p>
+<p><code>compress_context</code> 接受两个可选参数：<code>context_config</code> 为本次调用覆盖默认阈值；<code>instructions</code> 传入一个 <code>HintBlock</code>，注入压缩上下文来引导摘要行为（例如指定必须保留的信息）：</p>
+<div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">from agentscope.agent import ContextConfig
+from agentscope.message import HintBlock
+
+# 使用智能体的默认配置
+await agent.compress_context()
+
+# 或为本次调用传入自定义配置
+await agent.compress_context(
+    ContextConfig(trigger_ratio=0.6, reserve_ratio=0.2)
+)
+
+# 或注入指令来引导摘要行为
+await agent.compress_context(
+    instructions=HintBlock(
+        hint=&quot;保留至今提到的所有文件路径与 API 签名。&quot;,
+    ),
+)
+</code></pre></div>
+<p>超过 <code>tool_result_limit</code> token 的工具结果会被自动截断；若配置了 <code>offloader</code>，截断的部分会被卸载，智能体会收到一个可按需读取的路径引用。完整的压缩流程与卸载机制参见<a href="/agentscope-course/building-blocks/context/overview/">上下文管理</a>。</p>
+<aside class="notice note"><strong>说明</strong><p>如果系统提示词本身就超过了压缩阈值，<code>compress_context</code> 会抛出 <code>RuntimeError</code>。请保持系统提示词简洁，或增大模型的上下文长度。</p></aside>
+<h2 id="持久化状态">持久化状态</h2>
+<p>完整的智能体状态可以序列化为 JSON，因此一次回复可以在一个进程中暂停、在另一个进程中恢复。这是构建多会话服务的基础。</p>
+<p><code>AgentState</code> 保存了从断点精确恢复所需的全部信息：对话上下文、压缩摘要、权限规则、工具状态和当前回复位置。<code>RedisStorage</code> 是内置的存储后端，以 <code>(user_id, agent_id, session_id)</code> 为键层级组织状态：</p>
+<table><thead><tr><th>方法</th><th>描述</th></tr></thead><tbody><tr><td><code>get_session(user_id, agent_id, session_id)</code></td><td>加载 <code>SessionRecord</code>，其 <code>.state</code> 字段即为保存的 <code>AgentState</code></td></tr><tr><td><code>update_session_state(user_id, agent_id, session_id, state)</code></td><td>在回复结束后将更新后的 <code>AgentState</code> 持久化回 Redis</td></tr></tbody></table>
+<div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">import asyncio
+from agentscope.agent import Agent
+from agentscope.state import AgentState
+from agentscope.model import DashScopeChatModel
+from agentscope.credential import DashScopeCredential
+from agentscope.message import UserMsg
+from agentscope.app.storage import RedisStorage
+
+USER_ID = &quot;user_123&quot;
+AGENT_ID = &quot;agent_456&quot;
+SESSION_ID = &quot;session_789&quot;
+
+async def main():
+    async with RedisStorage(host=&quot;localhost&quot;, port=6379) as storage:
+        # 从存储中加载状态，若不存在则使用全新状态
+        record = await storage.get_session(
+            user_id=USER_ID,
+            agent_id=AGENT_ID,
+            session_id=SESSION_ID,
+        )
+        state = record.state if record else AgentState()
+
+        # 使用恢复的状态创建智能体
+        agent = Agent(
+            name=&quot;my_agent&quot;,
+            system_prompt=&quot;你是一个有帮助的助手。&quot;,
+            model=DashScopeChatModel(
+                credential=DashScopeCredential(api_key=&quot;YOUR_API_KEY&quot;),
+                model=&quot;qwen-max&quot;,
+            ),
+            state=state,
+        )
+
+        # 执行一轮回复
+        result = await agent.reply(
+            UserMsg(name=&quot;user&quot;, content=&quot;继续之前的任务。&quot;),
+        )
+        print(result.get_text_content())
+
+        # 将更新后的状态持久化回 Redis
+        await storage.update_session_state(
+            user_id=USER_ID,
+            agent_id=AGENT_ID,
+            session_id=SESSION_ID,
+            state=agent.state,
+        )
+
+asyncio.run(main())
+</code></pre></div>
+<aside class="notice note"><strong>说明</strong><p>若 session 尚不存在，<code>update_session_state</code> 会抛出 <code>KeyError</code>。首次创建时请使用 <code>upsert_session</code> 建立 session 记录，后续轮次再切换为 <code>update_session_state</code>。</p></aside></article><footer><div class="paging"><a href="/agentscope-course/building-blocks/agent/configure-agent/">上一节 · 配置智能体</a><a href="/agentscope-course/building-blocks/agent/interrupt-agent/">下一节 · 中断智能体</a></div><div class="credits"><a href="https://docs.agentscope.io/zh/versions/2.0.12/building-blocks/agent/run-agent" target="_blank" rel="noopener">在线原页</a> · <a href="/agentscope-course/mdx/building-blocks/agent/run-agent.mdx">原始 MDX</a> · <a href="https://github.com/agentscope-ai/docs/blob/e0ee835d1aca5d2b840d29bdd2f70770bbef69e8/zh/versions/2.0.12/building-blocks/agent/run-agent.mdx" target="_blank" rel="noopener">固定版本来源</a> · <a href="/agentscope-course/LICENSE.txt">MIT 许可</a></div></footer></main></div></body></html>

@@ -1,0 +1,163 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>运行工作区 · AgentScope</title><link rel="stylesheet" href="/agentscope-course/reader.css"><script defer src="/agentscope-course/reader.js"></script></head><body><header class="mast"><a href="/agentscope-course/">AgentScope <small>中文文档</small></a><span>v2.0.12</span><button id="catalog" aria-controls="outline" aria-expanded="false">目录</button></header><div class="layout"><nav id="outline" aria-label="AgentScope 文档目录"><div class="group">快速开始</div><a href="/agentscope-course/" >AgentScope 2.0 是什么？</a><a href="/agentscope-course/quickstart/" >快速开始</a><a href="/agentscope-course/release-notes/" >更新日志</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/message-and-event/" >消息与事件</a><div class="group">核心模块 / 智能体</div><a href="/agentscope-course/building-blocks/agent/overview/" >智能体 · 概述</a><a href="/agentscope-course/building-blocks/agent/configure-agent/" >配置智能体</a><a href="/agentscope-course/building-blocks/agent/run-agent/" >运行智能体</a><a href="/agentscope-course/building-blocks/agent/interrupt-agent/" >中断智能体</a><a href="/agentscope-course/building-blocks/agent/human-in-the-loop/" >人机交互</a><div class="group">核心模块 / 模型</div><a href="/agentscope-course/building-blocks/model/overview/" >模型 · 概述</a><a href="/agentscope-course/building-blocks/model/llm/" >大语言模型</a><a href="/agentscope-course/building-blocks/model/tts/" >语音合成</a><a href="/agentscope-course/building-blocks/model/asr/" >语音识别</a><a href="/agentscope-course/building-blocks/model/embedding/" >嵌入模型</a><div class="group">核心模块 / 上下文管理</div><a href="/agentscope-course/building-blocks/context/overview/" >上下文管理 · 概述</a><a href="/agentscope-course/building-blocks/context/environment-awareness/" >感知环境</a><a href="/agentscope-course/building-blocks/context/compress-context/" >压缩上下文</a><a href="/agentscope-course/building-blocks/context/offload-context/" >卸载上下文</a><div class="group">核心模块 / 工具</div><a href="/agentscope-course/building-blocks/tool/overview/" >工具 · 概述</a><a href="/agentscope-course/building-blocks/tool/python-tool/" >Python 函数工具</a><a href="/agentscope-course/building-blocks/tool/mcp/" >MCP</a><a href="/agentscope-course/building-blocks/tool/skill/" >Skill</a><a href="/agentscope-course/building-blocks/tool/manage-tools/" >元工具</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/plan/" >计划模式</a><div class="group">核心模块 / 流水线</div><a href="/agentscope-course/building-blocks/pipeline/overview/" >流水线 · 概述</a><a href="/agentscope-course/building-blocks/pipeline/goal/" >目标流水线</a><a href="/agentscope-course/building-blocks/pipeline/team/" >团队流水线</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/sop/" >标准作业流程</a><div class="group">核心模块 / 权限系统</div><a href="/agentscope-course/building-blocks/permission-system/overview/" >权限系统 · 概述</a><a href="/agentscope-course/building-blocks/permission-system/permission-mode/" >权限模式</a><a href="/agentscope-course/building-blocks/permission-system/permission-rule/" >权限规则</a><a href="/agentscope-course/building-blocks/permission-system/tool-check/" >工具内置检查</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/middleware/" >中间件</a><a href="/agentscope-course/building-blocks/rag/" >RAG</a><a href="/agentscope-course/building-blocks/long-term-memory/" >长期记忆</a><div class="group">核心模块 / 工作区</div><a href="/agentscope-course/building-blocks/workspace/overview/" >工作区 · 概述</a><a href="/agentscope-course/building-blocks/workspace/run-workspace/" aria-current="page">运行工作区</a><a href="/agentscope-course/building-blocks/workspace/manage-resources/" >管理资源</a><a href="/agentscope-course/building-blocks/workspace/mcp-gateway/" >MCP 网关</a><div class="group">核心模块 / 实时语音智能体</div><a href="/agentscope-course/building-blocks/realtime/overview/" >实时语音智能体 · 概述</a><a href="/agentscope-course/building-blocks/realtime/speech-to-speech/" >语音到语音</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/console/" >终端 UI</a><a href="/agentscope-course/building-blocks/a2a/" >A2A 协议</a><div class="group">智能体即服务</div><a href="/agentscope-course/deploy/agent-service/" >架构</a><a href="/agentscope-course/deploy/agent-team/" >智能体团队</a><a href="/agentscope-course/deploy/sop/" >SOP 服务</a><a href="/agentscope-course/deploy/sharing/" >资源共享</a><a href="/agentscope-course/deploy/rag/" >RAG 服务</a><a href="/agentscope-course/deploy/workspace-manager/" >工作区管理</a><div class="group">智能体即服务 / MCP 与技能中心</div><a href="/agentscope-course/deploy/hub/overview/" >MCP 与技能中心 · 概览</a><a href="/agentscope-course/deploy/hub/mcp-hub/" >MCP 中心</a><a href="/agentscope-course/deploy/hub/skill-hub/" >技能中心</a><div class="group">智能体即服务 / 消息渠道</div><a href="/agentscope-course/deploy/channel/overview/" >消息渠道 · 概览</a><a href="/agentscope-course/deploy/channel/routing/" >会话路由</a><a href="/agentscope-course/deploy/channel/feishu/" >飞书</a><a href="/agentscope-course/deploy/channel/dingtalk/" >钉钉</a><a href="/agentscope-course/deploy/channel/discord/" >Discord</a><a href="/agentscope-course/deploy/channel/custom/" >自定义渠道</a><div class="group">其他</div><a href="/agentscope-course/others/faq/" >常见问题</a><a href="/agentscope-course/others/change-log/" >版本迁移</a><div class="group">智能体即服务 / API</div><a href="/agentscope-course/api/">API 参考</a></nav><main><div class="context">核心模块 / 工作区</div><article class="prose-custom" id="content"><h1>运行工作区</h1><p class="dek">在任意后端上创建工作区，并接入智能体</p><p>运行一个工作区分两步：在与目标环境匹配的后端上创建工作区，再把它的资源交给智能体。</p>
+<h2 id="创建工作区">创建工作区</h2>
+<p>每种后端有各自的持久化模型与目录布局，选择与目标环境匹配的标签页：</p>
+<div class="tab-set" data-tab-set=""><div class="tab-list" role="group" aria-label="文档标签"><button type="button" data-choice="0" aria-pressed="true">本地</button><button type="button" data-choice="1" aria-pressed="false">Bubblewrap</button><button type="button" data-choice="2" aria-pressed="false">Docker</button><button type="button" data-choice="3" aria-pressed="false">E2B</button><button type="button" data-choice="4" aria-pressed="false">Daytona</button><button type="button" data-choice="5" aria-pressed="false">Kubernetes</button><button type="button" data-choice="6" aria-pressed="false">OpenSandbox</button></div><div data-panel="0"><div class="mdx-group"><p><code>LocalWorkspace</code> 把状态直接持久化在主机文件系统的 <code>workdir</code> 之下，重启后重新打开同一目录即可。目录布局如下：</p><div class="code-example"><div class="code-bar"><span>代码</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code data-caption="代码" data-lang="text">{workdir}/
+├── .mcp           # 按智能体/会话保存的 MCP 声明
+├── data/          # 卸载的多模态内容（按 SHA-256 去重）
+├── skills/        # .seed 模板及按智能体隔离的技能目录
+└── sessions/      # 各会话的 context.jsonl 与工具结果文件
+</code></pre></div><div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">from agentscope.workspace import LocalWorkspace
+
+workspace = LocalWorkspace(
+    workdir=&quot;/data/my-workspace&quot;,
+    default_mcps=[],
+    skill_paths=[&quot;./skills/web-search&quot;],
+)
+await workspace.initialize()
+</code></pre></div><p><code>await workspace.list_tools()</code> 返回的 <code>Glob</code> 和 <code>Grep</code> 工具以 <code>workdir</code> 为默认搜索目录。省略 <code>path</code> 或传入 <code>path=&quot;.&quot;</code> 时搜索工作区，传入 <code>path=&quot;src&quot;</code> 时搜索工作区内的 <code>src</code> 子目录；绝对路径则直接指定搜索位置。即使 Python 进程从其他目录启动，也会使用上述搜索目录。</p></div></div><div data-panel="1" hidden=""><div class="mdx-group"><p><code>BubblewrapWorkspace</code> 通过 <a href="https://github.com/containers/bubblewrap">bubblewrap</a>（<code>bwrap</code>）执行每一条命令，无需守护进程或云端账号，只要 Linux 主机上装有 <code>bwrap</code> 即可。<code>host_workdir</code> 以读写方式挂载到沙箱内的 <code>/workspace</code>，用于保存状态；不传该参数则使用临时目录，关闭时一并删除。</p><div class="code-example"><div class="code-bar"><span>代码</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code data-caption="代码" data-lang="text">{host_workdir}/    # 主机目录，挂载到沙箱内的 /workspace
+├── .agentscope    # 网关虚拟环境与运行时文件
+├── .mcp           # 按智能体/会话保存的 MCP 声明
+├── data/          # 卸载的多模态数据
+├── skills/        # .seed 模板及按智能体隔离的技能目录
+└── sessions/      # 每个会话的 context.jsonl 与工具结果文件
+</code></pre></div><div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">from agentscope.workspace import BubblewrapWorkspace
+
+workspace = BubblewrapWorkspace(
+    host_workdir=&quot;/data/bwrap-workspaces/agent-1&quot;,  # 挂载到 /workspace
+    host_cache_dir=None,        # None 表示使用工作区私有的包缓存目录
+    gateway_port=None,          # None 表示自动选择可用的回环端口
+    extra_pip=[&quot;numpy&quot;, &quot;pandas&quot;],
+    default_mcps=[],
+    skill_paths=[&quot;./skills/web-search&quot;],
+)
+await workspace.initialize()
+</code></pre></div><aside class="notice warning"><strong>注意</strong><p>该工作区<strong>不隔离网络</strong>。MCP 网关需要在多次 <code>bwrap</code> 执行之间通过主机回环地址访问，因此 <code>share_net</code> 必须保持为 <code>True</code>，沙箱内的代码与主机共享网络命名空间：主机能访问的服务它都能访问，包括其他回环服务与云环境的元数据地址。除网络命名空间外，bubblewrap 仍然隔离其余命名空间与挂载的文件系统。如果业务同时需要网络隔离，请改用 Docker、K8s 或云沙箱。</p></aside><p>显式传入的 <code>host_cache_dir</code> 不能与 <code>host_workdir</code> 重叠；多个工作区共用同一缓存目录会以隔离性换取更快的初始化速度，仅建议在互相信任的工作区之间使用。</p></div></div><div data-panel="2" hidden=""><div class="mdx-group"><p><code>DockerWorkspace</code> 把主机 <code>workdir</code> 挂载到容器内的 <code>/workspace</code>，因此下面的目录位于主机上，容器重启后依然存在。不传 <code>workdir</code> 则得到一个纯临时容器，可写层随容器一起消失。</p><div class="code-example"><div class="code-bar"><span>代码</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code data-caption="代码" data-lang="text">{workdir}/         # 主机目录，挂载到容器内 /workspace
+├── .mcp           # 按智能体/会话保存的 MCP 声明
+├── data/          # 卸载的多模态内容
+├── skills/        # .seed 模板及按智能体隔离的技能目录
+└── sessions/      # 各会话的 context.jsonl 与工具结果文件
+</code></pre></div><div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">from agentscope.workspace import DockerWorkspace
+
+workspace = DockerWorkspace(
+    base_image=&quot;python:3.11-slim&quot;,
+    workdir=&quot;/data/docker-workspaces/agent-1&quot;,  # 挂载到 /workspace
+    node_version=&quot;20&quot;,
+    extra_pip=[&quot;numpy&quot;, &quot;pandas&quot;],
+    default_mcps=[],
+    skill_paths=[&quot;./skills/web-search&quot;],
+)
+await workspace.initialize()
+</code></pre></div></div></div><div data-panel="3" hidden=""><div class="mdx-group"><p><code>E2BWorkspace</code> 以沙箱文件系统本身作为持久化层，没有主机 <code>workdir</code>。每个沙箱的 E2B 元数据中记录了 <code>workspace_id</code>；重启后工作区通过 <code>AsyncSandbox.list(...)</code> 查找并用 <code>connect(sandbox_id=...)</code> 重连。暂停会保留磁盘状态，恢复后原样还原。</p><div class="code-example"><div class="code-bar"><span>代码</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code data-caption="代码" data-lang="text">$workdir/          # 沙箱内部
+├── .mcp           # 按智能体/会话保存的 MCP 声明
+├── data/          # 卸载的多模态内容
+├── skills/        # .seed 模板及按智能体隔离的技能目录
+└── sessions/      # 各会话的 context.jsonl 与工具结果文件
+</code></pre></div><div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">from agentscope.workspace import E2BWorkspace
+
+workspace = E2BWorkspace(
+    template=&quot;base&quot;,
+    api_key=&quot;your-e2b-api-key&quot;,   # 或设置 E2B_API_KEY 环境变量
+    timeout_seconds=300,
+    default_mcps=[],
+    skill_paths=[&quot;./skills/web-search&quot;],
+)
+await workspace.initialize()
+</code></pre></div></div></div><div data-panel="4" hidden=""><div class="mdx-group"><p><code>DaytonaWorkspace</code> 面向 <a href="https://www.daytona.io/">Daytona</a> 部署，以沙箱文件系统作为持久化层，没有主机 <code>workdir</code>。每个沙箱的 Daytona 标签中记录了 <code>workspace_id</code>；重启后工作区按该标签重新挂接，沿用沙箱的磁盘状态。</p><div class="code-example"><div class="code-bar"><span>代码</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code data-caption="代码" data-lang="text">$workdir/          # 沙箱内部
+├── .mcp           # 按智能体/会话保存的 MCP 声明
+├── data/          # 卸载的多模态内容
+├── skills/        # .seed 模板及按智能体隔离的技能目录
+└── sessions/      # 各会话的 context.jsonl 与工具结果文件
+</code></pre></div><div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">from agentscope.workspace import DaytonaWorkspace
+
+workspace = DaytonaWorkspace(
+    api_key=&quot;your-daytona-api-key&quot;,  # &quot;&quot; 时读取 SDK 的环境配置
+    api_url=&quot;&quot;,                      # 可选，用于自建部署
+    timeout_seconds=300,
+    extra_pip=[&quot;numpy&quot;, &quot;pandas&quot;],
+    default_mcps=[],
+    skill_paths=[&quot;./skills/web-search&quot;],
+)
+await workspace.initialize()
+</code></pre></div></div></div><div data-panel="5" hidden=""><div class="mdx-group"><p><code>K8sWorkspace</code> 在 Kubernetes 集群上为每个工作区运行一个 Pod，并挂载一个 PVC 作为持久化层，下面的文件系统在 Pod 重启后依然存在。重启后工作区按工作区标识派生的名称重新挂接 Pod 与 PVC。设置 <code>delete_pvc_on_close=True</code> 可在关闭工作区时一并删除 PVC。</p><div class="code-example"><div class="code-bar"><span>代码</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code data-caption="代码" data-lang="text">/workspace/        # Pod 内部，由 PVC 支撑
+├── .mcp           # 按智能体/会话保存的 MCP 声明
+├── data/          # 卸载的多模态内容
+├── skills/        # .seed 模板及按智能体隔离的技能目录
+└── sessions/      # 各会话的 context.jsonl 与工具结果文件
+</code></pre></div><div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">from agentscope.workspace import K8sWorkspace
+
+workspace = K8sWorkspace(
+    namespace=&quot;agentscope&quot;,       # Pod 与 PVC 所在的命名空间
+    kubeconfig=None,              # None 时使用集群内配置
+    image=&quot;python:3.11-slim&quot;,     # 容器镜像
+    storage_size=&quot;1Gi&quot;,           # 支撑文件系统的 PVC 大小
+    default_mcps=[],
+    skill_paths=[&quot;./skills/web-search&quot;],
+)
+await workspace.initialize()
+</code></pre></div></div></div><div data-panel="6" hidden=""><div class="mdx-group"><p><code>OpenSandboxWorkspace</code> 面向 <a href="https://github.com/agentscope-ai/opensandbox">OpenSandbox</a> 部署，以沙箱文件系统作为持久化层，没有主机 <code>workdir</code>。每个沙箱在 <code>agentscope.workspace.id</code> 元数据键下记录了 <code>workspace_id</code>；重启后工作区按该键过滤 <code>list_sandbox_infos(...)</code>，恢复匹配的沙箱并原样还原磁盘状态。</p><div class="code-example"><div class="code-bar"><span>代码</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code data-caption="代码" data-lang="text">/workspace/        # 沙箱内部（SANDBOX_WORKDIR）
+├── .mcp           # 按智能体/会话保存的 MCP 声明
+├── data/          # 卸载的多模态内容
+├── skills/        # .seed 模板及按智能体隔离的技能目录
+└── sessions/      # 各会话的 context.jsonl 与工具结果文件
+</code></pre></div><div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">from agentscope.workspace import OpenSandboxWorkspace
+
+workspace = OpenSandboxWorkspace(
+    image=&quot;python:3.11-slim&quot;,
+    api_key=&quot;your-opensandbox-api-key&quot;,  # 或使用 SDK 的环境变量回退
+    domain=&quot;your-opensandbox-domain&quot;,    # 可选，用于自建部署
+    protocol=&quot;http&quot;,
+    timeout_seconds=300,
+    extra_pip=[&quot;numpy&quot;, &quot;pandas&quot;],
+    default_mcps=[],
+    skill_paths=[&quot;./skills/web-search&quot;],
+)
+await workspace.initialize()
+</code></pre></div><p>网关虚拟环境在首次 <code>initialize()</code> 时在沙箱内自举，<code>extra_pip</code> 的包会与网关基础依赖一并装入。由于精简基础镜像冷启动时要执行数分钟的 <code>apt-get</code> + <code>uv</code> + <code>pip</code>，自举命令使用更长的单命令超时；除非确认镜像已预装环境，否则请保持 <code>request_timeout_seconds</code> 的默认值（与自举预算一致）。</p></div></div></div>
+<aside class="notice note"><strong>说明</strong><p><code>default_mcps</code> 与 <code>skill_paths</code> 是种子输入，但不会让资源在共享工作区内混用。每个智能体/会话在首次访问 MCP 时获得独立客户端实例；每个智能体在首次访问技能时，从 <code>skills/.seed</code> 复制出自己的技能分区。后续添加或删除只影响对应的智能体/会话。</p></aside>
+<h2 id="集成智能体">集成智能体</h2>
+<p>工作区从两条路径接入 <code>Agent</code>：作为工具、MCP 与技能的来源，以及作为上下文压缩的卸载器：</p>
+<div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">from agentscope.agent import Agent
+from agentscope.tool import Toolkit
+from agentscope.workspace import LocalWorkspace
+
+workspace = LocalWorkspace(workdir=&quot;./my-workspace&quot;)
+await workspace.initialize()
+
+agent_id = &quot;coder&quot;
+session_id = &quot;session-1&quot;
+
+agent = Agent(
+    name=&quot;coder&quot;,
+    system_prompt=&quot;你是一个编程助手。&quot;,
+    model=model,
+    toolkit=Toolkit(
+        tools=await workspace.list_tools(),
+        mcps=await workspace.list_mcps(
+            agent_id=agent_id,
+            session_id=session_id,
+        ),
+        skills_or_loaders=await workspace.list_skills(agent_id=agent_id),
+    ),
+    offloader=workspace,
+)
+</code></pre></div>
+<table><thead><tr><th>路径</th><th>接入方式</th><th>智能体获得的能力</th></tr></thead><tbody><tr><td>资源</td><td><code>Toolkit(tools=..., mcps=..., skills_or_loaders=...)</code></td><td>工作区中可用的内置工具、MCP 工具与技能</td></tr><tr><td>卸载</td><td><code>Agent(offloader=workspace)</code></td><td>上下文压缩触发或工具结果超限时，智能体调用 <code>workspace.offload_context()</code> / <code>offload_tool_result()</code>，并以返回的引用路径替代原始内容</td></tr></tbody></table>
+<p><code>list_tools()</code> 返回的工具已绑定到工作区的执行后端，在沙箱类工作区上会在容器或沙箱内部运行。若要把自己构造的工具绑定到同一环境，通过 <code>workspace.get_backend()</code> 获取后端并传给工具构造函数，参见<a href="/agentscope-course/building-blocks/tool/python-tool/#%E5%88%87%E6%8D%A2%E5%B7%A5%E5%85%B7%E5%90%8E%E7%AB%AF">切换工具后端</a>。</p>
+<aside class="notice tip"><strong>提示</strong><p>工作区以扁平列表的形式暴露资源，当工具过多、无法全部保持激活时，可以把它们划分为若干 <code>ToolGroup</code>。将分组传入 <code>Toolkit(tool_groups=[...])</code> 后，智能体通过内置的<a href="/agentscope-course/building-blocks/tool/manage-tools/">元工具</a>按需激活；只有保留的 <code>basic</code> 组始终在线。</p><div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">from agentscope.tool import Toolkit, ToolGroup
+
+mcps = await workspace.list_mcps(
+    agent_id=agent_id,
+    session_id=session_id,
+)
+skills = await workspace.list_skills(agent_id=agent_id)
+
+toolkit = Toolkit(
+    tools=await workspace.list_tools(),         # 始终激活（basic 组）
+    tool_groups=[
+        ToolGroup(name=&quot;search&quot;, description=&quot;Web 搜索与检索。&quot;,
+                  mcps=[m for m in mcps if m.name.startswith(&quot;search&quot;)]),
+        ToolGroup(name=&quot;coding&quot;, description=&quot;代码编辑技能。&quot;,
+                  skills_or_loaders=skills),
+    ],
+)
+</code></pre></div></aside></article><footer><div class="paging"><a href="/agentscope-course/building-blocks/workspace/overview/">上一节 · 工作区 · 概述</a><a href="/agentscope-course/building-blocks/workspace/manage-resources/">下一节 · 管理资源</a></div><div class="credits"><a href="https://docs.agentscope.io/zh/versions/2.0.12/building-blocks/workspace/run-workspace" target="_blank" rel="noopener">在线原页</a> · <a href="/agentscope-course/mdx/building-blocks/workspace/run-workspace.mdx">原始 MDX</a> · <a href="https://github.com/agentscope-ai/docs/blob/e0ee835d1aca5d2b840d29bdd2f70770bbef69e8/zh/versions/2.0.12/building-blocks/workspace/run-workspace.mdx" target="_blank" rel="noopener">固定版本来源</a> · <a href="/agentscope-course/LICENSE.txt">MIT 许可</a></div></footer></main></div></body></html>

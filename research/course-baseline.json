@@ -1,0 +1,17 @@
+{
+  "checkedOn": "2026-11-21",
+  "website": {
+    "url": "https://learn.shareai.run/zh/",
+    "sample": "https://learn.shareai.run/zh/s03/",
+    "observed": "首页列出 20 个单元。权限示例包括课程侧栏、四个阅读入口，以及执行前的审批决策。部署对应的 Git 提交未知。"
+  },
+  "communityTutorial": {
+    "repo": "https://github.com/shareAI-lab/learn-claude-code",
+    "commit": "448c75bb596917ad196cc1fb7558f459c5c50fdd",
+    "readme": "https://github.com/shareAI-lab/learn-claude-code/blob/448c75bb596917ad196cc1fb7558f459c5c50fdd/README.md",
+    "frontend": "https://github.com/shareAI-lab/learn-claude-code/blob/448c75bb596917ad196cc1fb7558f459c5c50fdd/web/package.json",
+    "license": "MIT",
+    "observed": "固定版本 README 有 17 章主线与 12 章旧轨。web/package.json 的 Next.js 16.1.6、React 19.2.3 前端在开发和构建前都要提取仓库章节内容。",
+    "use": "学习编排参考。本文、UI 和购物车教学实验为本地编写。"
+  }
+}

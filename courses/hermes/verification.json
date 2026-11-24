@@ -1,0 +1,124 @@
+{
+  "checkedOn": "2026-11-22",
+  "tutorialCommit": "63264f4ddbb8f27507e0819dd2b0c9ea09e49cc7",
+  "agentReference": "9302ba9e212c63ba24cdf1f47f26b47bcd3b042e",
+  "website": "https://g1429566.github.io/hermes-tutorial/",
+  "documentsMatched": {
+    "zh": 34,
+    "en": 34
+  },
+  "assetCount": 15,
+  "assets": [
+    {
+      "path": "_next/static/chunks/0-ppevdourj8d.js",
+      "bytes": 57909,
+      "sha256": "221ba8bd29ed61ed8c8a1e4bd118b8a5784f22d345a7924f64de7f78cb134514",
+      "upstreamSha256": "221ba8bd29ed61ed8c8a1e4bd118b8a5784f22d345a7924f64de7f78cb134514"
+    },
+    {
+      "path": "_next/static/chunks/0cz1d0mv5g_q7.js",
+      "bytes": 112594,
+      "sha256": "0973c1d64c88adc8e3c950410cb58b288f72118d5965b78049438deb8f2f9683",
+      "upstreamSha256": "0973c1d64c88adc8e3c950410cb58b288f72118d5965b78049438deb8f2f9683"
+    },
+    {
+      "path": "_next/static/chunks/16hd8m56i8_mk.js",
+      "bytes": 726367,
+      "sha256": "e4889440035a2fbd544630ed8bf6f43ff6674bb4a8f64d8757ceb7d141e024f4",
+      "upstreamSha256": "e4889440035a2fbd544630ed8bf6f43ff6674bb4a8f64d8757ceb7d141e024f4"
+    },
+    {
+      "path": "_next/static/chunks/1qy3cewwz8sz4.js",
+      "bytes": 17474,
+      "sha256": "5f3b1fb03c5efe3254f4d3070ecada94aa114ad4ab3b474b1fcacb727fbfbdc4",
+      "upstreamSha256": "5f3b1fb03c5efe3254f4d3070ecada94aa114ad4ab3b474b1fcacb727fbfbdc4"
+    },
+    {
+      "path": "_next/static/chunks/24w8b2ka1kxh2.js",
+      "bytes": 200495,
+      "sha256": "0ab3d1417ab8391ef33eaf3b77c125b15e753ff623e59fdf0ac8b51a143aca5b",
+      "upstreamSha256": "0ab3d1417ab8391ef33eaf3b77c125b15e753ff623e59fdf0ac8b51a143aca5b"
+    },
+    {
+      "path": "_next/static/chunks/2ag3_u64_w6zv.js",
+      "bytes": 227538,
+      "sha256": "6734a9bf6cb5b8b3f56e980799401ddfa70dd218774d6acb463f51eb411c228b",
+      "upstreamSha256": "6734a9bf6cb5b8b3f56e980799401ddfa70dd218774d6acb463f51eb411c228b"
+    },
+    {
+      "path": "_next/static/chunks/3dnflkde1bts0.css",
+      "bytes": 38026,
+      "sha256": "9719b460a02919c8a4a988ed6cc2701b52b89894709ffb23622174013afa19c8",
+      "upstreamSha256": "9719b460a02919c8a4a988ed6cc2701b52b89894709ffb23622174013afa19c8"
+    },
+    {
+      "path": "_next/static/chunks/turbopack-1in2lbz3uy1_y.js",
+      "bytes": 10563,
+      "sha256": "c9a02f5a8517fae211c539ec5e2dce1ad9887187eaab512d023f5b7fbe0cb8f4",
+      "upstreamSha256": "c9a02f5a8517fae211c539ec5e2dce1ad9887187eaab512d023f5b7fbe0cb8f4"
+    },
+    {
+      "path": "favicon.svg",
+      "bytes": 197,
+      "sha256": "2eebe7a7b0b8306014c5bdf24c8596a482fe89aa83635d83acdb9d08023b8dec",
+      "upstreamSha256": "2eebe7a7b0b8306014c5bdf24c8596a482fe89aa83635d83acdb9d08023b8dec"
+    },
+    {
+      "path": "index.html",
+      "bytes": 179479,
+      "sha256": "9003c51b10be908fbfdd33d4c4cafdcfd2bd056b2895de250bf6cfcdd4f5c332",
+      "upstreamSha256": "b2a3077197e62a5e5f5d8e0f29eed0acad6d880767188915227fd26334bad9b9"
+    },
+    {
+      "path": "pyodide/pyodide-lock.json",
+      "bytes": 113804,
+      "sha256": "c963d22858f6bcb8f41586a2142f03905ab370c88ea22a86a2736e95fac2a8f3",
+      "upstreamSha256": "c963d22858f6bcb8f41586a2142f03905ab370c88ea22a86a2736e95fac2a8f3"
+    },
+    {
+      "path": "pyodide/pyodide.asm.mjs",
+      "bytes": 1250259,
+      "sha256": "c7eccdfeb7a8419d61f910f0685b45cd5610b7ff5bbe844c3c1050ee6623b641",
+      "upstreamSha256": "c7eccdfeb7a8419d61f910f0685b45cd5610b7ff5bbe844c3c1050ee6623b641"
+    },
+    {
+      "path": "pyodide/pyodide.asm.wasm",
+      "bytes": 9609998,
+      "sha256": "f7a8a169e513791e18fa0790fb69d6f2656b779e9012ba57e03e973f0df0b39f",
+      "upstreamSha256": "f7a8a169e513791e18fa0790fb69d6f2656b779e9012ba57e03e973f0df0b39f"
+    },
+    {
+      "path": "pyodide/pyodide.js",
+      "bytes": 18861,
+      "sha256": "95fc4de60f515e3f5c4a9acd86849068f8e5cc0818652c0963e43de08b9b2f30",
+      "upstreamSha256": "95fc4de60f515e3f5c4a9acd86849068f8e5cc0818652c0963e43de08b9b2f30"
+    },
+    {
+      "path": "pyodide/python_stdlib.zip",
+      "bytes": 2552456,
+      "sha256": "101a9c94ca6304c1478c89b7b595136b9a51b4289bdc5b467d86db553efee9b3",
+      "upstreamSha256": "101a9c94ca6304c1478c89b7b595136b9a51b4289bdc5b467d86db553efee9b3"
+    }
+  ],
+  "offlineBrowser": {
+    "chapters": 34,
+    "pointMatches": 47,
+    "controlsRendered": 34,
+    "failedResourceLoads": 0,
+    "externalRequestsBlockedDuringChecks": 0,
+    "memoryDecisionFlow": [
+      "staged",
+      "approved-file-only",
+      "new-session-snapshot-loaded"
+    ],
+    "answerDisclosure": true,
+    "markCompleteAndNext": true,
+    "hashAndLanguageRestoredOnReload": true,
+    "pyodideHandlerOutput": {
+      "success": true,
+      "data": {
+        "echo": "示例输入"
+      }
+    }
+  }
+}

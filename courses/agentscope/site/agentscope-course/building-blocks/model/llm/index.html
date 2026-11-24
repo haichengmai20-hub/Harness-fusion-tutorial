@@ -1,0 +1,279 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>大语言模型 · AgentScope</title><link rel="stylesheet" href="/agentscope-course/reader.css"><script defer src="/agentscope-course/reader.js"></script></head><body><header class="mast"><a href="/agentscope-course/">AgentScope <small>中文文档</small></a><span>v2.0.12</span><button id="catalog" aria-controls="outline" aria-expanded="false">目录</button></header><div class="layout"><nav id="outline" aria-label="AgentScope 文档目录"><div class="group">快速开始</div><a href="/agentscope-course/" >AgentScope 2.0 是什么？</a><a href="/agentscope-course/quickstart/" >快速开始</a><a href="/agentscope-course/release-notes/" >更新日志</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/message-and-event/" >消息与事件</a><div class="group">核心模块 / 智能体</div><a href="/agentscope-course/building-blocks/agent/overview/" >智能体 · 概述</a><a href="/agentscope-course/building-blocks/agent/configure-agent/" >配置智能体</a><a href="/agentscope-course/building-blocks/agent/run-agent/" >运行智能体</a><a href="/agentscope-course/building-blocks/agent/interrupt-agent/" >中断智能体</a><a href="/agentscope-course/building-blocks/agent/human-in-the-loop/" >人机交互</a><div class="group">核心模块 / 模型</div><a href="/agentscope-course/building-blocks/model/overview/" >模型 · 概述</a><a href="/agentscope-course/building-blocks/model/llm/" aria-current="page">大语言模型</a><a href="/agentscope-course/building-blocks/model/tts/" >语音合成</a><a href="/agentscope-course/building-blocks/model/asr/" >语音识别</a><a href="/agentscope-course/building-blocks/model/embedding/" >嵌入模型</a><div class="group">核心模块 / 上下文管理</div><a href="/agentscope-course/building-blocks/context/overview/" >上下文管理 · 概述</a><a href="/agentscope-course/building-blocks/context/environment-awareness/" >感知环境</a><a href="/agentscope-course/building-blocks/context/compress-context/" >压缩上下文</a><a href="/agentscope-course/building-blocks/context/offload-context/" >卸载上下文</a><div class="group">核心模块 / 工具</div><a href="/agentscope-course/building-blocks/tool/overview/" >工具 · 概述</a><a href="/agentscope-course/building-blocks/tool/python-tool/" >Python 函数工具</a><a href="/agentscope-course/building-blocks/tool/mcp/" >MCP</a><a href="/agentscope-course/building-blocks/tool/skill/" >Skill</a><a href="/agentscope-course/building-blocks/tool/manage-tools/" >元工具</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/plan/" >计划模式</a><div class="group">核心模块 / 流水线</div><a href="/agentscope-course/building-blocks/pipeline/overview/" >流水线 · 概述</a><a href="/agentscope-course/building-blocks/pipeline/goal/" >目标流水线</a><a href="/agentscope-course/building-blocks/pipeline/team/" >团队流水线</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/sop/" >标准作业流程</a><div class="group">核心模块 / 权限系统</div><a href="/agentscope-course/building-blocks/permission-system/overview/" >权限系统 · 概述</a><a href="/agentscope-course/building-blocks/permission-system/permission-mode/" >权限模式</a><a href="/agentscope-course/building-blocks/permission-system/permission-rule/" >权限规则</a><a href="/agentscope-course/building-blocks/permission-system/tool-check/" >工具内置检查</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/middleware/" >中间件</a><a href="/agentscope-course/building-blocks/rag/" >RAG</a><a href="/agentscope-course/building-blocks/long-term-memory/" >长期记忆</a><div class="group">核心模块 / 工作区</div><a href="/agentscope-course/building-blocks/workspace/overview/" >工作区 · 概述</a><a href="/agentscope-course/building-blocks/workspace/run-workspace/" >运行工作区</a><a href="/agentscope-course/building-blocks/workspace/manage-resources/" >管理资源</a><a href="/agentscope-course/building-blocks/workspace/mcp-gateway/" >MCP 网关</a><div class="group">核心模块 / 实时语音智能体</div><a href="/agentscope-course/building-blocks/realtime/overview/" >实时语音智能体 · 概述</a><a href="/agentscope-course/building-blocks/realtime/speech-to-speech/" >语音到语音</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/console/" >终端 UI</a><a href="/agentscope-course/building-blocks/a2a/" >A2A 协议</a><div class="group">智能体即服务</div><a href="/agentscope-course/deploy/agent-service/" >架构</a><a href="/agentscope-course/deploy/agent-team/" >智能体团队</a><a href="/agentscope-course/deploy/sop/" >SOP 服务</a><a href="/agentscope-course/deploy/sharing/" >资源共享</a><a href="/agentscope-course/deploy/rag/" >RAG 服务</a><a href="/agentscope-course/deploy/workspace-manager/" >工作区管理</a><div class="group">智能体即服务 / MCP 与技能中心</div><a href="/agentscope-course/deploy/hub/overview/" >MCP 与技能中心 · 概览</a><a href="/agentscope-course/deploy/hub/mcp-hub/" >MCP 中心</a><a href="/agentscope-course/deploy/hub/skill-hub/" >技能中心</a><div class="group">智能体即服务 / 消息渠道</div><a href="/agentscope-course/deploy/channel/overview/" >消息渠道 · 概览</a><a href="/agentscope-course/deploy/channel/routing/" >会话路由</a><a href="/agentscope-course/deploy/channel/feishu/" >飞书</a><a href="/agentscope-course/deploy/channel/dingtalk/" >钉钉</a><a href="/agentscope-course/deploy/channel/discord/" >Discord</a><a href="/agentscope-course/deploy/channel/custom/" >自定义渠道</a><div class="group">其他</div><a href="/agentscope-course/others/faq/" >常见问题</a><a href="/agentscope-course/others/change-log/" >版本迁移</a><div class="group">智能体即服务 / API</div><a href="/agentscope-course/api/">API 参考</a></nav><main><div class="context">核心模块 / 模型</div><article class="prose-custom" id="content"><h1>大语言模型</h1><p class="dek">创建并调用对话模型，也可以接入你自己的模型 API</p><p>大语言模型（在 AgentScope 的类命名中称为 <strong>Chat Model</strong>）驱动智能体的对话与工具调用，输入输出可以是文本之外的多模态内容。AgentScope 当前提供以下模型类：</p>
+<table><thead><tr><th>模型 API</th><th>模型类</th></tr></thead><tbody><tr><td>OpenAI</td><td><code>OpenAIChatModel</code></td></tr><tr><td>OpenAI (Responses API)</td><td><code>OpenAIResponseModel</code></td></tr><tr><td>Anthropic</td><td><code>AnthropicChatModel</code></td></tr><tr><td>DashScope</td><td><code>DashScopeChatModel</code></td></tr><tr><td>DeepSeek</td><td><code>DeepSeekChatModel</code></td></tr><tr><td>Gemini</td><td><code>GeminiChatModel</code></td></tr><tr><td>Moonshot</td><td><code>MoonshotChatModel</code></td></tr><tr><td>Volcengine</td><td><code>VolcengineChatModel</code></td></tr><tr><td>xAI</td><td><code>XAIChatModel</code></td></tr><tr><td>Ollama</td><td><code>OllamaChatModel</code></td></tr><tr><td>MiniMax</td><td><code>MiniMaxChatModel</code></td></tr></tbody></table>
+<aside class="notice note"><strong>说明</strong><p><code>MiniMaxChatModel</code> 通过 Anthropic 兼容模式访问 MiniMax 模型 API，内置 <code>MiniMax-M3</code>、<code>MiniMax-M2.7</code> 与 <code>MiniMax-M2.7-highspeed</code> 的模型卡片。它只支持自适应推理：设置 <code>thinking_enable=True</code> 即可开启，无需指定推理预算。<code>MiniMaxCredential</code> 默认连接国际站 <code>https://api.minimax.io/anthropic</code>，中国大陆的开发者需要把 <code>base_url</code> 设为 <code>https://api.minimax.cn/anthropic</code>。</p></aside>
+<h2 id="思考控制">思考控制</h2>
+<p>对于提供 <code>thinking_enable</code> 的模型，使用 <code>None</code> 保留 API 默认行为，
+使用 <code>True</code> 请求开启思考，使用 <code>False</code> 在支持时关闭思考。
+模型 API 专用的思考设置也遵循显式配置的原则。
+可用参数以所选模型的参数 schema 为准。</p>
+<h2 id="内容块错误">内容块错误</h2>
+<p>在聊天模型上设置 <code>raise_on_refusal=True</code> 或
+<code>raise_on_content_filter=True</code>，可将明确的 API 拒绝或过滤信号统一为
+<code>agentscope.exception.ContentBlockedError</code>。两项默认均为 <code>False</code>，
+仅控制异常处理，不改变 API 的过滤策略。消费已返回的流时发生的错误会直接
+向上传递，不会触发智能体自动重试或切换备用模型。</p>
+<h2 id="创建模型">创建模型</h2>
+<p>每个模型接收一个凭证、一个模型名，以及可选的 API 专属 <code>Parameters</code> 对象。下面三个 tab 分别展示流式、工具调用与推理三种典型初始化场景：</p>
+<div class="tab-set" data-tab-set=""><div class="tab-list" role="group" aria-label="代码示例"><button type="button" data-choice="0" aria-pressed="true">流式输出</button><button type="button" data-choice="1" aria-pressed="false">工具调用</button><button type="button" data-choice="2" aria-pressed="false">推理模式</button></div><div data-panel="0"><div class="code-example"><div class="code-bar"><span>流式输出</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="流式输出" data-lang="python">import os
+from agentscope.model import DashScopeChatModel
+from agentscope.credential import DashScopeCredential
+
+model = DashScopeChatModel(
+    credential=DashScopeCredential(api_key=os.environ[&quot;DASHSCOPE_API_KEY&quot;]),
+    model=&quot;qwen-plus&quot;,
+    stream=True,
+)
+</code></pre></div></div><div data-panel="1" hidden=""><div class="code-example"><div class="code-bar"><span>工具调用</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="工具调用" data-lang="python">import os
+from agentscope.model import DashScopeChatModel
+from agentscope.credential import DashScopeCredential
+
+model = DashScopeChatModel(
+    credential=DashScopeCredential(api_key=os.environ[&quot;DASHSCOPE_API_KEY&quot;]),
+    model=&quot;qwen-plus&quot;,
+    stream=False,
+    parameters=DashScopeChatModel.Parameters(
+        parallel_tool_calls=False,
+    ),
+)
+</code></pre></div></div><div data-panel="2" hidden=""><div class="code-example"><div class="code-bar"><span>推理模式</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="推理模式" data-lang="python">import os
+from agentscope.model import DashScopeChatModel
+from agentscope.credential import DashScopeCredential
+
+model = DashScopeChatModel(
+    credential=DashScopeCredential(api_key=os.environ[&quot;DASHSCOPE_API_KEY&quot;]),
+    model=&quot;qwen3-235b-a22b-thinking-2507&quot;,
+    parameters=DashScopeChatModel.Parameters(
+        thinking_enable=True,
+        thinking_budget=2048,
+    ),
+)
+</code></pre></div></div></div>
+<p>所有模型共享的构造参数：</p>
+<table><thead><tr><th>参数</th><th>类型</th><th>说明</th></tr></thead><tbody><tr><td><code>credential</code></td><td><code>CredentialBase</code></td><td>API 专属凭证</td></tr><tr><td><code>model</code></td><td><code>str</code></td><td>模型标识符（例如 <code>&quot;qwen-plus&quot;</code>）</td></tr><tr><td><code>parameters</code></td><td><code>Parameters | None</code></td><td>API 专属参数，例如 <code>temperature</code>、<code>thinking_enable</code>、<code>parallel_tool_calls</code></td></tr><tr><td><code>stream</code></td><td><code>bool</code></td><td>是否流式输出</td></tr><tr><td><code>max_retries</code></td><td><code>int</code></td><td>API 失败时的最大重试次数</td></tr><tr><td><code>context_size</code></td><td><code>int</code></td><td>上下文窗口大小，用于上下文压缩</td></tr><tr><td><code>formatter</code></td><td><code>FormatterBase | None</code></td><td>覆盖默认的消息格式化器（参见<a href="#%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%99%A8">格式化器</a>）</td></tr></tbody></table>
+<h2 id="调用模型">调用模型</h2>
+<p>通过传入一组 <code>Msg</code> 对象（以及可选的 <code>tools</code> 和 <code>tool_choice</code>）调用模型：</p>
+<div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">async def __call__(
+    self,
+    messages: list[Msg],
+    tools: list[dict] | None = None,
+    tool_choice: ToolChoice | None = None,
+    **kwargs: Any,
+) -&gt; ChatResponse | AsyncGenerator[ChatResponse, None]:
+</code></pre></div>
+<p>返回类型取决于模型的 <code>stream</code> 设置：</p>
+<ul>
+<li><strong><code>stream=False</code></strong>：返回单个 <code>ChatResponse</code>，承载完整输出。</li>
+<li><strong><code>stream=True</code></strong>：返回 <code>AsyncGenerator[ChatResponse, None]</code>。中间 chunk（<code>is_last=False</code>）只携带<strong>增量</strong>内容；最后一个 chunk（<code>is_last=True</code>）承载<strong>完整的累积内容</strong>。</li>
+</ul>
+<p>下面两个 tab 分别展示两种模式：</p>
+<div class="tab-set" data-tab-set=""><div class="tab-list" role="group" aria-label="代码示例"><button type="button" data-choice="0" aria-pressed="true">流式</button><button type="button" data-choice="1" aria-pressed="false">非流式</button></div><div data-panel="0"><div class="code-example"><div class="code-bar"><span>流式</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="流式" data-lang="python">import asyncio
+import os
+from agentscope.model import DashScopeChatModel
+from agentscope.credential import DashScopeCredential
+from agentscope.message import UserMsg
+
+async def main():
+    model = DashScopeChatModel(
+        credential=DashScopeCredential(api_key=os.environ[&quot;DASHSCOPE_API_KEY&quot;]),
+        model=&quot;qwen-plus&quot;,
+        stream=True,
+    )
+    msgs = [UserMsg(name=&quot;user&quot;, content=&quot;Count from 1 to 5.&quot;)]
+
+    # stream=True：迭代 ChatResponse chunk 组成的 async generator
+    async for chunk in await model(msgs):
+        if chunk.is_last:
+            print(&quot;Final:&quot;, chunk.content)   # 完整累积内容
+        else:
+            print(&quot;Delta:&quot;, chunk.content)   # 仅增量
+
+asyncio.run(main())
+</code></pre></div></div><div data-panel="1" hidden=""><div class="code-example"><div class="code-bar"><span>非流式</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="非流式" data-lang="python">import asyncio
+import os
+from agentscope.model import DashScopeChatModel
+from agentscope.credential import DashScopeCredential
+from agentscope.message import UserMsg
+
+async def main():
+    model = DashScopeChatModel(
+        credential=DashScopeCredential(api_key=os.environ[&quot;DASHSCOPE_API_KEY&quot;]),
+        model=&quot;qwen-plus&quot;,
+        stream=False,
+    )
+    msgs = [UserMsg(name=&quot;user&quot;, content=&quot;Count from 1 to 5.&quot;)]
+
+    # stream=False：await 单个承载完整输出的 ChatResponse
+    response = await model(msgs)
+    print(response.content)   # [TextBlock(text=&#x27;1, 2, 3, 4, 5&#x27;)]
+
+asyncio.run(main())
+</code></pre></div></div></div>
+<p>一段典型的流式输出示例，展示「增量 → 累积」的模式：</p>
+<div class="code-example"><div class="code-bar"><span>代码</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code data-caption="代码" data-lang="text">Delta: [TextBlock(text=&#x27;1&#x27;)]
+Delta: [TextBlock(text=&#x27;, 2,&#x27;)]
+Delta: [TextBlock(text=&#x27; 3, &#x27;)]
+Delta: [TextBlock(text=&#x27;4, 5&#x27;)]
+Final: [TextBlock(text=&#x27;1, 2, 3, 4, 5&#x27;)]
+</code></pre></div>
+<p>每个 <code>ChatResponse</code> 包含若干内容块（<code>TextBlock</code>、<code>ThinkingBlock</code>、<code>ToolCallBlock</code>、<code>DataBlock</code>）、一个 <code>is_last</code> 标志、一个 <code>finished_reason</code>（<code>FinishedReason.COMPLETED</code> 或 <code>FinishedReason.INTERRUPTED</code>），以及记录 token 数与耗时的 <code>ChatUsage</code>。</p>
+<h2 id="中断模型调用">中断模型调用</h2>
+<p>模型层的中断指的是<strong>异步取消</strong>：模型调用运行在 asyncio 任务中，取消该任务（触发 <code>asyncio.CancelledError</code>）即可停止进行中的 API 请求，典型场景是用户在智能体推理过程中发起打断。</p>
+<p>被取消时，<code>ChatModelBase.__call__</code> 不会丢弃已生成的部分输出，而是捕获取消并返回一个最终 <code>ChatResponse</code>，其中包含已累积的内容，并将 <code>finished_reason</code> 标记为 <code>FinishedReason.INTERRUPTED</code>；正常结束时为 <code>FinishedReason.COMPLETED</code>，因此下游代码始终可以区分完整回答与被截断的回答：</p>
+<div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">import asyncio
+from agentscope.model import FinishedReason
+
+async def call_model():
+    async for chunk in await model(msgs):
+        if chunk.is_last and chunk.finished_reason == FinishedReason.INTERRUPTED:
+            # 取消前已累积的部分内容
+            print(&quot;Interrupted:&quot;, chunk.content)
+
+task = asyncio.create_task(call_model())
+# 取消任务即可中断进行中的模型调用
+task.cancel()
+</code></pre></div>
+<p>这是智能体中断机制在模型层的那一半：<code>Agent</code> 类基于同样的机制停止运行中的推理-行动循环，并保持上下文一致。智能体层面的行为参见<a href="/agentscope-course/building-blocks/agent/interrupt-agent/">中断智能体</a>。</p>
+<h2 id="生成结构化输出">生成结构化输出</h2>
+<p>当需要返回符合 Pydantic 模型或 JSON schema 的结构化结果时，调用 <code>generate_structured_output</code> 而非 <code>__call__</code>。它返回一个 <code>StructuredResponse</code>，其 <code>content</code> 是经过 schema 校验的 dict：</p>
+<div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">import asyncio
+import os
+from pydantic import BaseModel
+from agentscope.model import DashScopeChatModel
+from agentscope.credential import DashScopeCredential
+from agentscope.message import UserMsg
+
+class WeatherInfo(BaseModel):
+    city: str
+    temperature: float
+    unit: str
+
+async def main():
+    model = DashScopeChatModel(
+        credential=DashScopeCredential(api_key=os.environ[&quot;DASHSCOPE_API_KEY&quot;]),
+        model=&quot;qwen-plus&quot;,
+        stream=False,
+    )
+    response = await model.generate_structured_output(
+        messages=[UserMsg(name=&quot;user&quot;, content=&quot;上海今天天气怎么样？&quot;)],
+        structured_model=WeatherInfo,
+    )
+    print(response.content)  # 符合 WeatherInfo 的 dict
+
+asyncio.run(main())
+</code></pre></div>
+<aside class="notice info"><strong>信息</strong><p><code>generate_structured_output</code> 会基于 schema 合成一个强制工具调用，再对模型输出做校验与修复。</p></aside>
+<h2 id="格式化器">格式化器</h2>
+<p>格式化器（Formatter）负责把 AgentScope 的 <code>Msg</code> 对象转换为各模型 API 期望的 <code>list[dict]</code> 载荷。它通过模型构造函数中可选的 <code>formatter</code> 参数配置。AgentScope 为每种 API 都内置了两种格式化器：</p>
+<table><thead><tr><th>类型</th><th>适用场景</th></tr></thead><tbody><tr><td><strong>ChatFormatter</strong>（默认）</td><td>标准的单智能体对话。每条 <code>Msg</code> 1:1 映射为一条 API 消息，保留原生角色（<code>user</code>、<code>assistant</code>、<code>system</code>）。</td></tr><tr><td><strong>MultiAgentFormatter</strong></td><td>多智能体场景，例如辩论、主持等。连续的智能体消息会被聚合，并用 <code>&lt;history&gt;</code> 标签包裹，标注发送者名字；工具调用 / 结果序列保持原生 API 格式。</td></tr></tbody></table>
+<p>切换到多智能体模式只需传入 MultiAgent 变体，无需修改智能体代码：</p>
+<div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">import os
+from agentscope.model import OpenAIChatModel
+from agentscope.credential import OpenAICredential
+from agentscope.formatter import OpenAIMultiAgentFormatter
+
+model = OpenAIChatModel(
+    credential=OpenAICredential(api_key=os.environ[&quot;OPENAI_API_KEY&quot;]),
+    model=&quot;gpt-4.1&quot;,
+    formatter=OpenAIMultiAgentFormatter(),
+)
+</code></pre></div>
+<p>如果模型 API 的载荷格式不属于 OpenAI 或 Anthropic 风格，开发者可以继承 <code>FormatterBase</code> 实现自定义格式化器，并通过同一个 <code>formatter</code> 参数传入。</p>
+<h3 id="多模态工具结果">多模态工具结果</h3>
+<p>工具可以返回图片、音频等 <code>DataBlock</code>，各模型 API 承载这类内容的能力不同，格式化器据此决定它们如何进入请求：</p>
+<table><thead><tr><th>格式化器</th><th>多模态工具结果的承载方式</th></tr></thead><tbody><tr><td><code>OpenAIResponseFormatter</code></td><td>直接写进 <code>function_call_output.output</code> 的内容数组，文本、图片与文件按工具返回的原顺序排列，媒体与 <code>call_id</code> 的原生关联得以保留。纯文本结果仍是字符串输出。</td></tr><tr><td>其余格式化器</td><td>工具结果里只留下引用该数据块的文字，数据块本身提升为紧随其后的一条用户消息。引用用的标识符取自 <code>DataBlock</code> 自带的稳定 <code>id</code>，因此同一段历史被反复格式化时输出保持一致，模型服务方的前缀缓存不会失效。</td></tr></tbody></table>
+<p>两类格式化器遇到目标模型不支持的媒体类型时都会退回文字：base64 数据先落盘，工具结果中留下文件路径，URL 数据则直接给出 URL。</p>
+<h2 id="自定义模型-api">自定义模型 API</h2>
+<p>开发者可以通过实现一个凭证与一个模型类，并注册该凭证，把自定义模型 API 接入 AgentScope。</p>
+<h3 id="步骤-1定义凭证">步骤 1：定义凭证</h3>
+<p>继承 <code>CredentialBase</code>，使用唯一的 <code>type</code> 判别字段，并实现 <code>get_chat_model_class()</code>：</p>
+<div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">from typing import Literal, Type, TYPE_CHECKING
+from pydantic import ConfigDict, Field, SecretStr
+from agentscope.credential import CredentialBase
+
+if TYPE_CHECKING:
+    from agentscope.model import ChatModelBase
+
+class MyProviderCredential(CredentialBase):
+    model_config = ConfigDict(title=&quot;My Provider API&quot;)
+    type: Literal[&quot;my_provider_credential&quot;] = &quot;my_provider_credential&quot;
+
+    api_key: SecretStr = Field(description=&quot;API key for My Provider.&quot;)
+    base_url: str = Field(default=&quot;https://api.myprovider.com/v1&quot;)
+
+    @classmethod
+    def get_chat_model_class(cls) -&gt; Type[&quot;ChatModelBase&quot;]:
+        from .my_model import MyProviderChatModel
+        return MyProviderChatModel
+</code></pre></div>
+<h3 id="步骤-2实现模型类">步骤 2：实现模型类</h3>
+<p>继承 <code>ChatModelBase</code>，定义内部 <code>Parameters</code> 类，并实现 <code>_call_api</code>。基类负责重试、流式累积与中断处理，因此 <code>_call_api</code> 只需要把 API 返回结果转换为 AgentScope 的 <code>ChatResponse</code> chunk：</p>
+<div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">from typing import Literal, Any, AsyncGenerator
+from pydantic import BaseModel, Field
+from agentscope.model import ChatModelBase, ChatResponse
+from agentscope.message import Msg
+from agentscope.tool import ToolChoice
+from agentscope.formatter import FormatterBase, OpenAIChatFormatter
+
+class MyProviderChatModel(ChatModelBase):
+    class Parameters(BaseModel):
+        max_tokens: int | None = Field(default=None, gt=0)
+        temperature: float | None = Field(default=None, ge=0, le=2)
+
+    type: Literal[&quot;my_provider_chat&quot;] = &quot;my_provider_chat&quot;
+
+    def __init__(
+        self,
+        credential: &quot;MyProviderCredential&quot;,
+        model: str,
+        parameters: Parameters | None = None,
+        stream: bool = True,
+        max_retries: int = 3,
+        context_size: int = 128000,
+        formatter: FormatterBase | None = None,
+    ) -&gt; None:
+        super().__init__(
+            credential=credential,
+            model=model,
+            parameters=parameters or self.Parameters(),
+            stream=stream,
+            max_retries=max_retries,
+            context_size=context_size,
+        )
+        # 如果 API 兼容 OpenAI 格式，复用 OpenAIChatFormatter；
+        # 否则自行实现 FormatterBase 子类。
+        self.formatter = formatter or OpenAIChatFormatter()
+
+    async def _call_api(
+        self,
+        model_name: str,
+        messages: list[Msg],
+        tools: list[dict] | None = None,
+        tool_choice: ToolChoice | None = None,
+        **kwargs: Any,
+    ) -&gt; ChatResponse | AsyncGenerator[ChatResponse, None]:
+        formatted_messages = await self.formatter.format(messages)
+        # 用 self.credential.api_key 等调用你的模型 API。
+        # stream=False 时返回一个 ChatResponse；stream=True 时返回
+        # 一个只产出增量 ChatResponse chunk 的 async generator。
+        # 不要在这里累积流式 chunk；ChatModelBase.__call__ 会追加
+        # 最终累积响应，并在中断时标记 finished_reason。
+        ...
+</code></pre></div>
+<aside class="notice info"><strong>信息</strong><p>对流式的自定义模型而言，直接以 <code>ChatResponse(content=..., is_last=False)</code> 产出增量返回即可。如果 <code>_call_api</code> 结束时没有产出 <code>is_last=True</code> 的最终 chunk，<code>ChatModelBase.__call__</code> 会通过 <code>ChatResponse.append_chat_response()</code> 自动累积这些增量并返回最终响应；如果流式过程被取消，则会返回带有部分累积内容且 <code>finished_reason=FinishedReason.INTERRUPTED</code> 的响应。</p></aside>
+<h3 id="步骤-3添加模型卡片可选">步骤 3：添加模型卡片（可选）</h3>
+<p>把 YAML 文件放在模型实现旁边的 <code>_models/</code> 目录里。每个文件描述一个模型：它的能力（<code>input_types</code>、<code>output_types</code>）、上限（<code>context_size</code>、<code>output_size</code>），以及该模型专属的 <code>parameter_overrides</code>（完整卡片格式参见<a href="/agentscope-course/building-blocks/model/overview/#%E5%89%8D%E7%AB%AF%E9%9B%86%E6%88%90">前端集成</a>）：</p>
+<div class="code-example"><div class="code-bar"><span>yaml</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-yaml" data-caption="yaml" data-lang="yaml">name: my-model-v1
+label: My Model V1
+status: active
+input_types:
+  - text/plain
+output_types:
+  - text/plain
+context_size: 128000
+output_size: 4096
+parameter_overrides:
+  max_tokens: {&quot;maximum&quot;: 4096}
+</code></pre></div>
+<p><code>MyProviderChatModel.list_models()</code> 会加载该目录下的所有 YAML。如果想从其他位置（例如应用自己维护的模型注册表）拉取模型卡片，传入 <code>custom_yaml_dir</code>：</p>
+<div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">cards = MyProviderChatModel.list_models(custom_yaml_dir=&quot;/path/to/cards&quot;)
+</code></pre></div></article><footer><div class="paging"><a href="/agentscope-course/building-blocks/model/overview/">上一节 · 模型 · 概述</a><a href="/agentscope-course/building-blocks/model/tts/">下一节 · 语音合成</a></div><div class="credits"><a href="https://docs.agentscope.io/zh/versions/2.0.12/building-blocks/model/llm" target="_blank" rel="noopener">在线原页</a> · <a href="/agentscope-course/mdx/building-blocks/model/llm.mdx">原始 MDX</a> · <a href="https://github.com/agentscope-ai/docs/blob/e0ee835d1aca5d2b840d29bdd2f70770bbef69e8/zh/versions/2.0.12/building-blocks/model/llm.mdx" target="_blank" rel="noopener">固定版本来源</a> · <a href="/agentscope-course/LICENSE.txt">MIT 许可</a></div></footer></main></div></body></html>

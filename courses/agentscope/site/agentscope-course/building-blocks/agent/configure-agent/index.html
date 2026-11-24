@@ -1,0 +1,149 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>配置智能体 · AgentScope</title><link rel="stylesheet" href="/agentscope-course/reader.css"><script defer src="/agentscope-course/reader.js"></script></head><body><header class="mast"><a href="/agentscope-course/">AgentScope <small>中文文档</small></a><span>v2.0.12</span><button id="catalog" aria-controls="outline" aria-expanded="false">目录</button></header><div class="layout"><nav id="outline" aria-label="AgentScope 文档目录"><div class="group">快速开始</div><a href="/agentscope-course/" >AgentScope 2.0 是什么？</a><a href="/agentscope-course/quickstart/" >快速开始</a><a href="/agentscope-course/release-notes/" >更新日志</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/message-and-event/" >消息与事件</a><div class="group">核心模块 / 智能体</div><a href="/agentscope-course/building-blocks/agent/overview/" >智能体 · 概述</a><a href="/agentscope-course/building-blocks/agent/configure-agent/" aria-current="page">配置智能体</a><a href="/agentscope-course/building-blocks/agent/run-agent/" >运行智能体</a><a href="/agentscope-course/building-blocks/agent/interrupt-agent/" >中断智能体</a><a href="/agentscope-course/building-blocks/agent/human-in-the-loop/" >人机交互</a><div class="group">核心模块 / 模型</div><a href="/agentscope-course/building-blocks/model/overview/" >模型 · 概述</a><a href="/agentscope-course/building-blocks/model/llm/" >大语言模型</a><a href="/agentscope-course/building-blocks/model/tts/" >语音合成</a><a href="/agentscope-course/building-blocks/model/asr/" >语音识别</a><a href="/agentscope-course/building-blocks/model/embedding/" >嵌入模型</a><div class="group">核心模块 / 上下文管理</div><a href="/agentscope-course/building-blocks/context/overview/" >上下文管理 · 概述</a><a href="/agentscope-course/building-blocks/context/environment-awareness/" >感知环境</a><a href="/agentscope-course/building-blocks/context/compress-context/" >压缩上下文</a><a href="/agentscope-course/building-blocks/context/offload-context/" >卸载上下文</a><div class="group">核心模块 / 工具</div><a href="/agentscope-course/building-blocks/tool/overview/" >工具 · 概述</a><a href="/agentscope-course/building-blocks/tool/python-tool/" >Python 函数工具</a><a href="/agentscope-course/building-blocks/tool/mcp/" >MCP</a><a href="/agentscope-course/building-blocks/tool/skill/" >Skill</a><a href="/agentscope-course/building-blocks/tool/manage-tools/" >元工具</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/plan/" >计划模式</a><div class="group">核心模块 / 流水线</div><a href="/agentscope-course/building-blocks/pipeline/overview/" >流水线 · 概述</a><a href="/agentscope-course/building-blocks/pipeline/goal/" >目标流水线</a><a href="/agentscope-course/building-blocks/pipeline/team/" >团队流水线</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/sop/" >标准作业流程</a><div class="group">核心模块 / 权限系统</div><a href="/agentscope-course/building-blocks/permission-system/overview/" >权限系统 · 概述</a><a href="/agentscope-course/building-blocks/permission-system/permission-mode/" >权限模式</a><a href="/agentscope-course/building-blocks/permission-system/permission-rule/" >权限规则</a><a href="/agentscope-course/building-blocks/permission-system/tool-check/" >工具内置检查</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/middleware/" >中间件</a><a href="/agentscope-course/building-blocks/rag/" >RAG</a><a href="/agentscope-course/building-blocks/long-term-memory/" >长期记忆</a><div class="group">核心模块 / 工作区</div><a href="/agentscope-course/building-blocks/workspace/overview/" >工作区 · 概述</a><a href="/agentscope-course/building-blocks/workspace/run-workspace/" >运行工作区</a><a href="/agentscope-course/building-blocks/workspace/manage-resources/" >管理资源</a><a href="/agentscope-course/building-blocks/workspace/mcp-gateway/" >MCP 网关</a><div class="group">核心模块 / 实时语音智能体</div><a href="/agentscope-course/building-blocks/realtime/overview/" >实时语音智能体 · 概述</a><a href="/agentscope-course/building-blocks/realtime/speech-to-speech/" >语音到语音</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/console/" >终端 UI</a><a href="/agentscope-course/building-blocks/a2a/" >A2A 协议</a><div class="group">智能体即服务</div><a href="/agentscope-course/deploy/agent-service/" >架构</a><a href="/agentscope-course/deploy/agent-team/" >智能体团队</a><a href="/agentscope-course/deploy/sop/" >SOP 服务</a><a href="/agentscope-course/deploy/sharing/" >资源共享</a><a href="/agentscope-course/deploy/rag/" >RAG 服务</a><a href="/agentscope-course/deploy/workspace-manager/" >工作区管理</a><div class="group">智能体即服务 / MCP 与技能中心</div><a href="/agentscope-course/deploy/hub/overview/" >MCP 与技能中心 · 概览</a><a href="/agentscope-course/deploy/hub/mcp-hub/" >MCP 中心</a><a href="/agentscope-course/deploy/hub/skill-hub/" >技能中心</a><div class="group">智能体即服务 / 消息渠道</div><a href="/agentscope-course/deploy/channel/overview/" >消息渠道 · 概览</a><a href="/agentscope-course/deploy/channel/routing/" >会话路由</a><a href="/agentscope-course/deploy/channel/feishu/" >飞书</a><a href="/agentscope-course/deploy/channel/dingtalk/" >钉钉</a><a href="/agentscope-course/deploy/channel/discord/" >Discord</a><a href="/agentscope-course/deploy/channel/custom/" >自定义渠道</a><div class="group">其他</div><a href="/agentscope-course/others/faq/" >常见问题</a><a href="/agentscope-course/others/change-log/" >版本迁移</a><div class="group">智能体即服务 / API</div><a href="/agentscope-course/api/">API 参考</a></nav><main><div class="context">核心模块 / 智能体</div><article class="prose-custom" id="content"><h1>配置智能体</h1><p class="dek">用模型、工具与配置对象组装一个智能体</p><p>智能体在初始化时完成全部装配：把模型、工具包和配置对象传入 <code>Agent(...)</code>，即可开始回复。以下示例涵盖最常见的几种配置场景。</p>
+<div class="tab-set" data-tab-set=""><div class="tab-list" role="group" aria-label="代码示例"><button type="button" data-choice="0" aria-pressed="true">最简配置</button><button type="button" data-choice="1" aria-pressed="false">配置工具/MCP/技能</button><button type="button" data-choice="2" aria-pressed="false">自定义上下文配置</button><button type="button" data-choice="3" aria-pressed="false">自定义 ReAct 配置</button></div><div data-panel="0"><div class="code-example"><div class="code-bar"><span>最简配置</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="最简配置" data-lang="python">from agentscope.agent import Agent
+from agentscope.model import DashScopeChatModel
+from agentscope.credential import DashScopeCredential
+
+agent = Agent(
+    name=&quot;my_agent&quot;,
+    system_prompt=&quot;你是一个有帮助的助手。&quot;,
+    model=DashScopeChatModel(
+        credential=DashScopeCredential(api_key=&quot;YOUR_API_KEY&quot;),
+        model=&quot;qwen-max&quot;,
+    ),
+)
+</code></pre></div></div><div data-panel="1" hidden=""><div class="code-example"><div class="code-bar"><span>配置工具/MCP/技能</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="配置工具/MCP/技能" data-lang="python">import os
+from agentscope.agent import Agent
+from agentscope.tool import Toolkit, Bash, Edit, Grep, Read, Write
+from agentscope.mcp import MCPClient, HttpMCPConfig
+from agentscope.model import DashScopeChatModel
+from agentscope.credential import DashScopeCredential
+
+agent = Agent(
+    name=&quot;my_agent&quot;,
+    system_prompt=&quot;你是一个有帮助的助手。&quot;,
+    model=DashScopeChatModel(
+        credential=DashScopeCredential(api_key=&quot;YOUR_API_KEY&quot;),
+        model=&quot;qwen-max&quot;,
+    ),
+    toolkit=Toolkit(
+        tools=[Bash(), Edit(), Grep(), Read(), Write()],
+        mcps=[
+            MCPClient(
+                name=&quot;amap&quot;,
+                is_stateful=False,
+                mcp_config=HttpMCPConfig(
+                    url=f&quot;https://mcp.amap.com/mcp?key={os.environ[&#x27;AMAP_API_KEY&#x27;]}&quot;,
+                ),
+            ),
+        ],
+        skills_or_loaders=[&quot;./skills&quot;],
+    ),
+)
+</code></pre></div></div><div data-panel="2" hidden=""><div class="code-example"><div class="code-bar"><span>自定义上下文配置</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="自定义上下文配置" data-lang="python">from agentscope.agent import Agent
+from agentscope.agent import ContextConfig
+from agentscope.model import DashScopeChatModel
+from agentscope.credential import DashScopeCredential
+
+agent = Agent(
+    name=&quot;my_agent&quot;,
+    system_prompt=&quot;你是一个有帮助的助手。&quot;,
+    model=DashScopeChatModel(
+        credential=DashScopeCredential(api_key=&quot;YOUR_API_KEY&quot;),
+        model=&quot;qwen-max&quot;,
+    ),
+    context_config=ContextConfig(
+        trigger_ratio=0.7,       # 使用 70% 上下文时触发压缩
+        reserve_ratio=0.2,       # 压缩后保留最近 20% 的内容
+        tool_result_limit=1000,  # 工具结果超过 1000 token 时截断
+        max_image_num=5,         # 只保留最近 5 张图片
+    ),
+)
+</code></pre></div></div><div data-panel="3" hidden=""><div class="code-example"><div class="code-bar"><span>自定义 ReAct 配置</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="自定义 ReAct 配置" data-lang="python">from agentscope.agent import Agent
+from agentscope.agent import ReActConfig
+from agentscope.model import DashScopeChatModel
+from agentscope.credential import DashScopeCredential
+
+agent = Agent(
+    name=&quot;my_agent&quot;,
+    system_prompt=&quot;你是一个有帮助的助手。&quot;,
+    model=DashScopeChatModel(
+        credential=DashScopeCredential(api_key=&quot;YOUR_API_KEY&quot;),
+        model=&quot;qwen-max&quot;,
+    ),
+    react_config=ReActConfig(
+        max_iters=30,                     # 最多 30 轮推理-行动迭代
+        structured_output_grace_iters=3,  # 为完成结构化输出追加的迭代次数
+        stop_on_reject=True,              # 工具调用被拒绝时停止回复
+    ),
+)
+</code></pre></div></div></div>
+<h2 id="参数说明">参数说明</h2>
+<p>所有配置都通过 <code>Agent(...)</code> 构造函数传入。下表列出全部参数，可调节项被归入各配置对象：</p>
+<table><thead><tr><th>参数</th><th>类型</th><th>默认值</th><th>描述</th></tr></thead><tbody><tr><td><code>name</code></td><td><code>str</code></td><td>必填</td><td>智能体标识符，用于消息和日志</td></tr><tr><td><code>system_prompt</code></td><td><code>str</code></td><td>必填</td><td>智能体的基础系统提示词</td></tr><tr><td><code>model</code></td><td><code>ChatModelBase</code></td><td>必填</td><td>用于推理的大语言模型</td></tr><tr><td><code>toolkit</code></td><td><code>Toolkit | None</code></td><td><code>None</code></td><td>管理工具、MCP 客户端、技能和工具组</td></tr><tr><td><code>state</code></td><td><code>AgentState | None</code></td><td>自动创建</td><td>保存上下文、权限上下文和会话状态</td></tr><tr><td><code>offloader</code></td><td><code>Offloader | None</code></td><td><code>None</code></td><td>卸载压缩后的上下文与工具结果，需实现 <code>Offloader</code> 协议</td></tr><tr><td><code>middlewares</code></td><td><code>list[MiddlewareBase] | None</code></td><td><code>None</code></td><td>应用于回复、推理、行动、模型调用和系统提示词等钩子</td></tr><tr><td><code>model_config</code></td><td><code>ModelConfig</code></td><td>默认值</td><td>重试次数和备用模型</td></tr><tr><td><code>context_config</code></td><td><code>ContextConfig</code></td><td>默认值</td><td>上下文压缩阈值、图片数量和工具结果长度限制</td></tr><tr><td><code>injection_config</code></td><td><code>InjectionConfig</code></td><td>默认值</td><td>运行时状态注入：时间、任务与上下文用量（参见<a href="/agentscope-course/building-blocks/context/environment-awareness/">感知环境</a>）</td></tr><tr><td><code>react_config</code></td><td><code>ReActConfig</code></td><td>默认值</td><td>最大迭代次数、结构化输出宽限迭代次数和拒绝处理方式</td></tr></tbody></table>
+<h2 id="切换模型">切换模型</h2>
+<p>切换模型 API 只需改动 <code>model</code> 参数：所有模型类都遵循相同的 <code>Model(credential=..., model=...)</code> 模式，智能体的其余部分保持不变。</p>
+<div class="tab-set" data-tab-set=""><div class="tab-list" role="group" aria-label="代码示例"><button type="button" data-choice="0" aria-pressed="true">DashScope</button><button type="button" data-choice="1" aria-pressed="false">OpenAI</button><button type="button" data-choice="2" aria-pressed="false">Anthropic</button><button type="button" data-choice="3" aria-pressed="false">Gemini</button><button type="button" data-choice="4" aria-pressed="false">Ollama</button></div><div data-panel="0"><div class="code-example"><div class="code-bar"><span>DashScope</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="DashScope" data-lang="python">from agentscope.model import DashScopeChatModel
+from agentscope.credential import DashScopeCredential
+
+model = DashScopeChatModel(
+    credential=DashScopeCredential(api_key=&quot;YOUR_API_KEY&quot;),
+    model=&quot;qwen-max&quot;,
+)
+</code></pre></div></div><div data-panel="1" hidden=""><div class="code-example"><div class="code-bar"><span>OpenAI</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="OpenAI" data-lang="python">from agentscope.model import OpenAIChatModel
+from agentscope.credential import OpenAICredential
+
+model = OpenAIChatModel(
+    credential=OpenAICredential(api_key=&quot;YOUR_API_KEY&quot;),
+    model=&quot;gpt-4o&quot;,
+)
+</code></pre></div></div><div data-panel="2" hidden=""><div class="code-example"><div class="code-bar"><span>Anthropic</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="Anthropic" data-lang="python">from agentscope.model import AnthropicChatModel
+from agentscope.credential import AnthropicCredential
+
+model = AnthropicChatModel(
+    credential=AnthropicCredential(api_key=&quot;YOUR_API_KEY&quot;),
+    model=&quot;claude-sonnet-4-5&quot;,
+)
+</code></pre></div></div><div data-panel="3" hidden=""><div class="code-example"><div class="code-bar"><span>Gemini</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="Gemini" data-lang="python">from agentscope.model import GeminiChatModel
+from agentscope.credential import GeminiCredential
+
+model = GeminiChatModel(
+    credential=GeminiCredential(api_key=&quot;YOUR_API_KEY&quot;),
+    model=&quot;gemini-2.5-pro&quot;,
+)
+</code></pre></div></div><div data-panel="4" hidden=""><div class="code-example"><div class="code-bar"><span>Ollama</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="Ollama" data-lang="python">from agentscope.model import OllamaChatModel
+from agentscope.credential import OllamaCredential
+
+model = OllamaChatModel(
+    credential=OllamaCredential(host=&quot;http://localhost:11434&quot;),
+    model=&quot;qwen3:8b&quot;,
+)
+</code></pre></div></div></div>
+<h2 id="支持多实体对话">支持多实体对话</h2>
+<p>智能体并不局限于一人一智能体的对话。在智能体团队、群聊或带 NPC 的游戏中，来自<strong>多个具名实体</strong>的消息共享同一份上下文，智能体必须知道每句话出自谁口。</p>
+<p>在 AgentScope 中，每个发言者由其 <code>Msg</code> 的 <code>name</code> 字段标识。多实体对话就是一组带有不同名字的消息列表，直接喂给智能体即可：</p>
+<div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">from agentscope.message import UserMsg
+
+msgs = [
+    UserMsg(name=&quot;Alice&quot;, content=&quot;我投海边一票。&quot;),
+    UserMsg(name=&quot;Bob&quot;, content=&quot;我更想去爬山。&quot;),
+    UserMsg(name=&quot;user&quot;, content=&quot;小周，总结一下大家的偏好。&quot;),
+]
+result = await agent.reply(msgs)
+</code></pre></div>
+<p>这些身份信息能否保留，取决于<strong>格式化器</strong>（Formatter），它负责在每次模型调用前把 <code>Msg</code> 对象转换为对应模型 API 的格式。默认的对话格式化器将消息映射到 API 原生的 <code>user</code>/<code>assistant</code> 角色上，适合一人一智能体的对话，但会丢掉名字，使发言者无法区分。</p>
+<p>针对多实体对话，AgentScope 为每种 API 都提供了对应的 <code>MultiAgentFormatter</code>。它把历史消息合并为一份带名字的对话记录（<code>Alice: ...</code>、<code>Bob: ...</code>），放进一条用户消息中，让大语言模型看到每个发言者的身份。切换方式是将其传入模型：</p>
+<div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">from agentscope.model import DashScopeChatModel
+from agentscope.credential import DashScopeCredential
+from agentscope.formatter import DashScopeMultiAgentFormatter
+
+model = DashScopeChatModel(
+    credential=DashScopeCredential(api_key=&quot;YOUR_API_KEY&quot;),
+    model=&quot;qwen-max&quot;,
+    formatter=DashScopeMultiAgentFormatter(),
+)
+</code></pre></div>
+<aside class="notice tip"><strong>提示</strong><p>在多实体对话中，请在系统提示词里写明智能体自己的名字，让大语言模型知道自己扮演的是哪个角色。</p></aside>
+<p>AgentScope 为每种 API 都提供了配对的两种格式化器：</p>
+<table><thead><tr><th>模型 API</th><th>对话格式化器（默认）</th><th>多智能体格式化器</th></tr></thead><tbody><tr><td>DashScope</td><td><code>DashScopeChatFormatter</code></td><td><code>DashScopeMultiAgentFormatter</code></td></tr><tr><td>OpenAI</td><td><code>OpenAIChatFormatter</code></td><td><code>OpenAIMultiAgentFormatter</code></td></tr><tr><td>Anthropic</td><td><code>AnthropicChatFormatter</code></td><td><code>AnthropicMultiAgentFormatter</code></td></tr><tr><td>Gemini</td><td><code>GeminiChatFormatter</code></td><td><code>GeminiMultiAgentFormatter</code></td></tr><tr><td>Ollama</td><td><code>OllamaChatFormatter</code></td><td><code>OllamaMultiAgentFormatter</code></td></tr><tr><td>DeepSeek</td><td><code>DeepSeekChatFormatter</code></td><td><code>DeepSeekMultiAgentFormatter</code></td></tr><tr><td>Moonshot</td><td><code>MoonshotChatFormatter</code></td><td><code>MoonshotMultiAgentFormatter</code></td></tr><tr><td>XAI</td><td><code>XAIChatFormatter</code></td><td><code>XAIMultiAgentFormatter</code></td></tr></tbody></table>
+<h2 id="延伸阅读">延伸阅读</h2>
+<div class="cards"><div class="card"><strong><a href="/agentscope-course/building-blocks/tool/overview/">工具</a></strong><p>如何构建工具，接入 MCP 服务器与技能。</p></div><div class="card"><strong><a href="/agentscope-course/building-blocks/middleware/">中间件</a></strong><p>如何在回复、推理、行动和模型调用等钩子处插入自定义逻辑。</p></div><div class="card"><strong><a href="/agentscope-course/building-blocks/workspace/overview/">工作区</a></strong><p>如何在不同沙箱中运行。</p></div><div class="card"><strong><a href="/agentscope-course/building-blocks/permission-system/overview/">权限系统</a></strong><p>如何控制工具调用的允许、询问与拒绝。</p></div></div></article><footer><div class="paging"><a href="/agentscope-course/building-blocks/agent/overview/">上一节 · 智能体 · 概述</a><a href="/agentscope-course/building-blocks/agent/run-agent/">下一节 · 运行智能体</a></div><div class="credits"><a href="https://docs.agentscope.io/zh/versions/2.0.12/building-blocks/agent/configure-agent" target="_blank" rel="noopener">在线原页</a> · <a href="/agentscope-course/mdx/building-blocks/agent/configure-agent.mdx">原始 MDX</a> · <a href="https://github.com/agentscope-ai/docs/blob/e0ee835d1aca5d2b840d29bdd2f70770bbef69e8/zh/versions/2.0.12/building-blocks/agent/configure-agent.mdx" target="_blank" rel="noopener">固定版本来源</a> · <a href="/agentscope-course/LICENSE.txt">MIT 许可</a></div></footer></main></div></body></html>

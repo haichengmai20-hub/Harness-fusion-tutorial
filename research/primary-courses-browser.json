@@ -1,0 +1,26 @@
+{
+  "verifiedAt": "2026-11-21T17:16:15.787Z",
+  "browser": "Chrome/157.0.8103.79",
+  "courses": {
+    "hermes": {
+      "lessons": 34,
+      "located": 47,
+      "otherCourses": 3,
+      "refresh": true
+    },
+    "dsh": {
+      "lessons": 6,
+      "located": 21,
+      "otherCourses": 3,
+      "refresh": true
+    },
+    "agentscope": {
+      "lessons": 60,
+      "located": 74,
+      "otherCourses": 3,
+      "refresh": true
+    }
+  },
+  "errors": [],
+  "blocked": []
+}

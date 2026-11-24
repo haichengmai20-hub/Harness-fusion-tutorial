@@ -1,0 +1,544 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>架构 · AgentScope</title><link rel="stylesheet" href="/agentscope-course/reader.css"><script defer src="/agentscope-course/reader.js"></script></head><body><header class="mast"><a href="/agentscope-course/">AgentScope <small>中文文档</small></a><span>v2.0.12</span><button id="catalog" aria-controls="outline" aria-expanded="false">目录</button></header><div class="layout"><nav id="outline" aria-label="AgentScope 文档目录"><div class="group">快速开始</div><a href="/agentscope-course/" >AgentScope 2.0 是什么？</a><a href="/agentscope-course/quickstart/" >快速开始</a><a href="/agentscope-course/release-notes/" >更新日志</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/message-and-event/" >消息与事件</a><div class="group">核心模块 / 智能体</div><a href="/agentscope-course/building-blocks/agent/overview/" >智能体 · 概述</a><a href="/agentscope-course/building-blocks/agent/configure-agent/" >配置智能体</a><a href="/agentscope-course/building-blocks/agent/run-agent/" >运行智能体</a><a href="/agentscope-course/building-blocks/agent/interrupt-agent/" >中断智能体</a><a href="/agentscope-course/building-blocks/agent/human-in-the-loop/" >人机交互</a><div class="group">核心模块 / 模型</div><a href="/agentscope-course/building-blocks/model/overview/" >模型 · 概述</a><a href="/agentscope-course/building-blocks/model/llm/" >大语言模型</a><a href="/agentscope-course/building-blocks/model/tts/" >语音合成</a><a href="/agentscope-course/building-blocks/model/asr/" >语音识别</a><a href="/agentscope-course/building-blocks/model/embedding/" >嵌入模型</a><div class="group">核心模块 / 上下文管理</div><a href="/agentscope-course/building-blocks/context/overview/" >上下文管理 · 概述</a><a href="/agentscope-course/building-blocks/context/environment-awareness/" >感知环境</a><a href="/agentscope-course/building-blocks/context/compress-context/" >压缩上下文</a><a href="/agentscope-course/building-blocks/context/offload-context/" >卸载上下文</a><div class="group">核心模块 / 工具</div><a href="/agentscope-course/building-blocks/tool/overview/" >工具 · 概述</a><a href="/agentscope-course/building-blocks/tool/python-tool/" >Python 函数工具</a><a href="/agentscope-course/building-blocks/tool/mcp/" >MCP</a><a href="/agentscope-course/building-blocks/tool/skill/" >Skill</a><a href="/agentscope-course/building-blocks/tool/manage-tools/" >元工具</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/plan/" >计划模式</a><div class="group">核心模块 / 流水线</div><a href="/agentscope-course/building-blocks/pipeline/overview/" >流水线 · 概述</a><a href="/agentscope-course/building-blocks/pipeline/goal/" >目标流水线</a><a href="/agentscope-course/building-blocks/pipeline/team/" >团队流水线</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/sop/" >标准作业流程</a><div class="group">核心模块 / 权限系统</div><a href="/agentscope-course/building-blocks/permission-system/overview/" >权限系统 · 概述</a><a href="/agentscope-course/building-blocks/permission-system/permission-mode/" >权限模式</a><a href="/agentscope-course/building-blocks/permission-system/permission-rule/" >权限规则</a><a href="/agentscope-course/building-blocks/permission-system/tool-check/" >工具内置检查</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/middleware/" >中间件</a><a href="/agentscope-course/building-blocks/rag/" >RAG</a><a href="/agentscope-course/building-blocks/long-term-memory/" >长期记忆</a><div class="group">核心模块 / 工作区</div><a href="/agentscope-course/building-blocks/workspace/overview/" >工作区 · 概述</a><a href="/agentscope-course/building-blocks/workspace/run-workspace/" >运行工作区</a><a href="/agentscope-course/building-blocks/workspace/manage-resources/" >管理资源</a><a href="/agentscope-course/building-blocks/workspace/mcp-gateway/" >MCP 网关</a><div class="group">核心模块 / 实时语音智能体</div><a href="/agentscope-course/building-blocks/realtime/overview/" >实时语音智能体 · 概述</a><a href="/agentscope-course/building-blocks/realtime/speech-to-speech/" >语音到语音</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/console/" >终端 UI</a><a href="/agentscope-course/building-blocks/a2a/" >A2A 协议</a><div class="group">智能体即服务</div><a href="/agentscope-course/deploy/agent-service/" aria-current="page">架构</a><a href="/agentscope-course/deploy/agent-team/" >智能体团队</a><a href="/agentscope-course/deploy/sop/" >SOP 服务</a><a href="/agentscope-course/deploy/sharing/" >资源共享</a><a href="/agentscope-course/deploy/rag/" >RAG 服务</a><a href="/agentscope-course/deploy/workspace-manager/" >工作区管理</a><div class="group">智能体即服务 / MCP 与技能中心</div><a href="/agentscope-course/deploy/hub/overview/" >MCP 与技能中心 · 概览</a><a href="/agentscope-course/deploy/hub/mcp-hub/" >MCP 中心</a><a href="/agentscope-course/deploy/hub/skill-hub/" >技能中心</a><div class="group">智能体即服务 / 消息渠道</div><a href="/agentscope-course/deploy/channel/overview/" >消息渠道 · 概览</a><a href="/agentscope-course/deploy/channel/routing/" >会话路由</a><a href="/agentscope-course/deploy/channel/feishu/" >飞书</a><a href="/agentscope-course/deploy/channel/dingtalk/" >钉钉</a><a href="/agentscope-course/deploy/channel/discord/" >Discord</a><a href="/agentscope-course/deploy/channel/custom/" >自定义渠道</a><div class="group">其他</div><a href="/agentscope-course/others/faq/" >常见问题</a><a href="/agentscope-course/others/change-log/" >版本迁移</a><div class="group">智能体即服务 / API</div><a href="/agentscope-course/api/">API 参考</a></nav><main><div class="context">智能体即服务</div><article class="prose-custom" id="content"><h1>架构</h1><p class="dek">把智能体部署为多租户、多会话的 HTTP 服务</p><link rel="preload" as="image" href="/agentscope-course/diagrams/diagram-acc8ee7a806bc5.svg"/><link rel="preload" as="image" href="/agentscope-course/diagrams/diagram-8e2c5ce9fb46f7.svg"/><p>智能体服务（Agent Service）是基于 FastAPI 把 AgentScope 的智能体转化为<strong>多租户（Multi-tenant）、多会话（Multi-session）的 HTTP 服务</strong>。它接管智能体<em>外围</em>的全部职责 —— 请求路由、按用户的资源生命周期、会话（Session）状态、持久化、调度（Schedule），以及工具调用的卸载，让基于 <a href="/agentscope-course/building-blocks/agent/overview/"><code>Agent</code></a> 编写的代码无需重写即可承接生产流量。</p>
+<p>它的特点：</p>
+<ul>
+<li><strong>生产级智能体框架</strong> —— 智能体运行、后台任务、调度，以及工具 / MCP / skill / 工作区（Workspace）生命周期端到端纳管，会话事件流可扇出给多个订阅者，重连时还能从缓冲区中重放历史。</li>
+<li><strong>Schema 驱动的前端</strong> —— 凭证（Credential）公开 JSON schema，模型暴露声明式卡片（输入 / 输出类型、上下文长度、参数 schema），前端无需绑死特定 provider 的代码即可渲染表单与能力标签。</li>
+<li><strong>天然多租户</strong> —— 凭证、智能体、会话、调度、消息都归属于请求的 <code>user_id</code>，所有权在路由层强制；一份部署即可服务多用户，无需为每个租户单独编写代码路径。</li>
+<li><strong>模块化、可扩展</strong> —— 鉴权（Authentication）、聊天协议、工作区隔离策略、存储后端，以及模型 provider 与凭证类型集合，全部在边界处开放，可在不动框架代码的前提下替换。</li>
+</ul>
+<h3 id="能力概览">能力概览</h3>
+<table><thead><tr><th>能力</th><th>说明</th></tr></thead><tbody><tr><td>智能体团队（Agent Team）</td><td>Leader 智能体派生 worker 智能体，并通过内置 team 工具协调它们；详见 <a href="/agentscope-course/deploy/agent-team/">Agent Team</a> 章节。</td></tr><tr><td>工作区管理</td><td>文件系统可按 <code>per_agent</code>（默认）、<code>per_session</code> 或 <code>per_user</code> 分配；共享工作区中的 MCP 仍按智能体+会话隔离，skill 按智能体隔离。</td></tr><tr><td>知识库（RAG）</td><td>可选的内置知识库服务，支持文档摄取、切片、embedding 与自然语言检索 —— 向 <code>create_app</code> 传入 <code>knowledge_base_manager</code> 即可启用。</td></tr><tr><td>后台任务卸载（Background Task Offloading）</td><td>长耗时工具调用切到后台执行，完成时通过会话事件流回送结果。</td></tr><tr><td>Cron 调度</td><td>按时间触发智能体执行，支持有状态或无状态会话；调度持久化保存，跨重启生效。</td></tr><tr><td>会话回放（Session Replay）</td><td>后接入的客户端订阅按会话 SSE 流时，会先收到缓冲历史再接收实时事件，多 tab 或重连前端因此保持同步。</td></tr><tr><td>中断</td><td>通过 <code>POST /sessions/{id}/interrupt</code> 可以从外部取消正在运行或处于 HITL 暂停的 chat run；智能体会干净展开并保持可接受下一次输入的状态。</td></tr><tr><td>实时语音 <small class="badge">实验性</small></td><td>浏览器在已有会话上协商 WebRTC 语音连接；文本与语音模式共享同一份持久化历史、工作区与工具。</td></tr><tr><td>协议适配（Protocol Adaptation）</td><td>通过中间件（Middleware）在 AgentScope 原生事件流之上转换为外部协议（AG-UI、A2A 等）。</td></tr><tr><td>分布式部署 <small class="badge">WIP</small></td><td>全部共享状态保存在 Redis（存储 + 消息总线（Message Bus））中，多个 worker 进程 —— 或多台节点 —— 可以服务同一个逻辑服务。</td></tr></tbody></table>
+<aside class="notice note"><strong>说明</strong><p>本服务<strong>不</strong>自带用户鉴权系统。它提供 <code>X-User-ID</code> header 占位依赖，由开发者替换为自己的鉴权中间件（JWT、OAuth、session token 等）。</p></aside>
+<h2 id="快速上手">快速上手</h2>
+<p>体验智能体服务最快的方法是同时运行随仓库附带的示例后端与示例前端 —— 两者都在 AgentScope 仓库内。</p>
+<h3 id="试用示例">试用示例</h3>
+<p><a href="https://github.com/agentscope-ai/agentscope/tree/main/examples/agent_service"><code>examples/agent_service</code></a> 目录启动一个开箱即用的服务，<a href="https://github.com/agentscope-ai/agentscope/tree/main/examples/web_ui"><code>examples/web_ui</code></a> 是与之配套的 React 前端。两者一起运行，几分钟就能体验上述全部能力。</p>
+<figure><img src="/agentscope-course/images/bg_tool.gif" alt="后台工具卸载与唤醒演示" loading="lazy"/><figcaption>后台任务卸载 —— 长耗时工具被转入后台，结果到达后唤醒智能体，对话从中断处自然续上。</figcaption></figure>
+<figure><img src="/agentscope-course/images/permission_bypass.gif" alt="权限系统 bypass 模式演示" loading="lazy"/><figcaption>bypass 模式下的权限系统 —— 智能体端到端运行，不为工具调用暂停确认。</figcaption></figure>
+<figure><img src="/agentscope-course/images/task.gif" alt="任务规划演示" loading="lazy"/><figcaption>任务规划 —— 智能体把复杂工作拆成可追踪的计划，并随执行不断更新。</figcaption></figure>
+<figure><img src="/agentscope-course/images/team.gif" alt="智能体团队协作演示" loading="lazy"/><figcaption>智能体团队 —— Leader 智能体派生 worker，并通过内置 team 工具协调它们。</figcaption></figure>
+<div class="steps"><section class="step"><h3>克隆仓库</h3><div class="code-example"><div class="code-bar"><span>bash</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-bash" data-caption="bash" data-lang="bash">git clone https://github.com/agentscope-ai/agentscope.git
+cd agentscope
+</code></pre></div></section><section class="step"><h3>启动示例后端</h3><p>确保本地 Redis 可访问（示例期望 <code>localhost:6379</code>），然后启动服务：</p><div class="code-example"><div class="code-bar"><span>bash</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-bash" data-caption="bash" data-lang="bash">cd examples/agent_service
+python main.py
+</code></pre></div><p>服务在 <code>http://localhost:8000</code> 启动。</p></section><section class="step"><h3>启动示例前端</h3><p>在另一个终端中安装并运行 web UI：</p><div class="code-example"><div class="code-bar"><span>bash</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-bash" data-caption="bash" data-lang="bash">cd examples/web_ui
+pnpm install
+pnpm dev
+</code></pre></div><p>打开 dev server 输出的 URL（通常是 <code>http://localhost:5173</code>），前端会连接到第 2 步启动的后端。</p></section></div>
+<p>两者运行起来后，同一个 UI 即可演练服务自带的全部能力：</p>
+<ul>
+<li><strong>权限控制</strong> —— 触及系统的工具会暂停等待确认；explore 模式将智能体限定在只读操作。</li>
+<li><strong>后台任务卸载</strong> —— 长耗时工具调用转入后台，完成后结果流式返回，不阻塞对话。</li>
+<li><strong>任务规划</strong> —— 智能体把复杂工作拆成可追踪的计划并随执行更新。</li>
+<li><strong>智能体团队</strong> —— Leader 智能体派生 worker，并通过 team 工具协调他们。</li>
+<li><strong>计划任务</strong> —— Cron 驱动的智能体自行触发并把结果回报到同一会话流中。</li>
+<li><strong>实时语音</strong> —— 在保留历史和工具的前提下，把已有会话切换到浏览器语音模式。</li>
+</ul>
+<h3 id="嵌入到自己的代码">嵌入到自己的代码</h3>
+<p>如果想把服务嵌入到自己的部署中而非运行示例，可使用 <code>create_app</code> 自行构造 FastAPI app。运行起一个服务至少需要存储后端、消息总线与工作区管理器（Workspace Manager）。下面的示例在 8000 端口启动一个由 Redis 支撑的服务 —— 选择匹配智能体工具执行位置的工作区后端即可。</p>
+<div class="tab-set" data-tab-set=""><div class="tab-list" role="group" aria-label="代码示例"><button type="button" data-choice="0" aria-pressed="true">本地文件系统</button><button type="button" data-choice="1" aria-pressed="false">Docker 沙箱</button><button type="button" data-choice="2" aria-pressed="false">E2B</button></div><div data-panel="0"><div class="code-example"><div class="code-bar"><span>本地文件系统</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="本地文件系统" data-lang="python">import uvicorn
+from agentscope.app import create_app
+from agentscope.app.storage import RedisStorage
+from agentscope.app.message_bus import RedisMessageBus
+from agentscope.app.workspace_manager import LocalWorkspaceManager
+
+# Agent、session、credential、message、schedule 的持久化层。
+# 连接池在应用启动时打开、关闭时关闭。
+storage = RedisStorage(host=&quot;localhost&quot;, port=6379)
+
+# Redis 支撑的消息总线：session 锁、回放日志、收件箱队列与
+# 唤醒信号，将 chat 触发与事件投递解耦，
+# 让多个 worker 进程能共享同一个逻辑 service。
+message_bus = RedisMessageBus(host=&quot;localhost&quot;, port=6379)
+
+# Workspace 生命周期 —— 工作目录、MCP client、skill。
+# 内置 manager 按 agent 隔离：同一 agent 的所有 session 共享一个 workspace。
+# 空闲 workspace 经过 `ttl` 秒后被淘汰。
+workspace_manager = LocalWorkspaceManager(
+    basedir=&quot;/data/workspaces&quot;,
+    ttl=3600.0,
+)
+
+app = create_app(
+    storage=storage,
+    message_bus=message_bus,
+    workspace_manager=workspace_manager,
+)
+
+uvicorn.run(app, host=&quot;0.0.0.0&quot;, port=8000)
+</code></pre></div></div><div data-panel="1" hidden=""><div class="code-example"><div class="code-bar"><span>Docker 沙箱</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="Docker 沙箱" data-lang="python">import uvicorn
+from agentscope.app import create_app
+from agentscope.app.storage import RedisStorage
+from agentscope.app.message_bus import RedisMessageBus
+from agentscope.app.workspace_manager import DockerWorkspaceManager
+
+storage = RedisStorage(host=&quot;localhost&quot;, port=6379)
+message_bus = RedisMessageBus(host=&quot;localhost&quot;, port=6379)
+
+# 每个 workspace 跑在独立的本地 Docker 容器中实现隔离。
+# 按用户 / agent 划分的宿主工作目录位于 `basedir` 下，挂载进各容器。
+workspace_manager = DockerWorkspaceManager(basedir=&quot;/data/docker-workspaces&quot;)
+
+app = create_app(
+    storage=storage,
+    message_bus=message_bus,
+    workspace_manager=workspace_manager,
+)
+uvicorn.run(app, host=&quot;0.0.0.0&quot;, port=8000)
+</code></pre></div></div><div data-panel="2" hidden=""><div class="code-example"><div class="code-bar"><span>E2B</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="E2B" data-lang="python">import uvicorn
+from agentscope.app import create_app
+from agentscope.app.storage import RedisStorage
+from agentscope.app.message_bus import RedisMessageBus
+from agentscope.app.workspace_manager import E2BWorkspaceManager
+
+storage = RedisStorage(host=&quot;localhost&quot;, port=6379)
+message_bus = RedisMessageBus(host=&quot;localhost&quot;, port=6379)
+
+# 每个 workspace 跑在远端 E2B 云沙箱中。
+# 通过 `api_key` 显式传入，或设置环境变量 `E2B_API_KEY`。
+workspace_manager = E2BWorkspaceManager()
+
+app = create_app(
+    storage=storage,
+    message_bus=message_bus,
+    workspace_manager=workspace_manager,
+)
+uvicorn.run(app, host=&quot;0.0.0.0&quot;, port=8000)
+</code></pre></div></div></div>
+<h3 id="create_app-参数">create_app 参数</h3>
+<section class="parameter"><strong><code>storage</code> <small>StorageBase</small><small> · 必填</small></strong><p>持久化智能体、会话、凭证、消息、调度、团队与知识库记录的存储后端。其生命周期（<code>__aenter__</code> / <code>__aexit__</code>）由应用 lifespan 管理。</p></section>
+<section class="parameter"><strong><code>message_bus</code> <small>MessageBus</small><small> · 必填</small></strong><p>Redis 支撑的运行时原语 —— 会话锁、回放日志、收件箱队列、唤醒信号 —— 把 chat 触发与事件投递解耦。必填，因为所有把事件投递到前端的代码路径（<code>POST /chat</code>、调度触发、团队消息、后台工具完成）都经由它，且它是支撑多进程部署的关键。</p></section>
+<section class="parameter"><strong><code>workspace_manager</code> <small>WorkspaceManagerBase</small><small> · 必填</small></strong><p>以 TTL 缓存方式管理工作区（文件存储、MCP server、skill）。内置 <code>LocalWorkspaceManager</code> 按智能体隔离；其他策略见<a href="#%E5%B7%A5%E4%BD%9C%E5%8C%BA%E5%AE%9E%E7%8E%B0%E4%B8%8E%E9%9A%94%E7%A6%BB">工作区实现与隔离</a>。</p></section>
+<section class="parameter" data-default="None"><strong><code>knowledge_base_manager</code> <small>KnowledgeBaseManagerBase | None</small><small> · 默认值 <code>None</code></small></strong><p>持有知识库生命周期的管理器，向 HTTP 端点与智能体代码提供 <code>KnowledgeBase</code> 运行时句柄。该管理器自带向量存储实例，<code>__aenter__</code> / <code>__aexit__</code> 会同时进入并释放向量存储。传入 <code>None</code> 会禁用所有 <code>/knowledge_bases</code> 端点。</p></section>
+<section class="parameter" data-default="None"><strong><code>knowledge_parsers</code> <small>list[ParserBase] | dict[str, ParserBase] | None</small><small> · 默认值 <code>None</code></small></strong><p>为知识库文档上传注册的 parser。传入<strong>列表</strong>时，服务按每个 parser 的 <code>supported_media_types</code> 路由（同类型下后注册者会覆盖前者并伴随警告）；传入<strong>字典</strong> <code>media_type → parser</code> 时按显式映射路由。设置了 <code>knowledge_base_manager</code> 时默认为 <code>[TextParser()]</code>。</p></section>
+<section class="parameter" data-default="None"><strong><code>knowledge_chunkers</code> <small>list[type[ChunkerBase]] | None</small><small> · 默认值 <code>None</code></small></strong><p>用户创建知识库时可选的切块器类。切块器类型与参数保存在知识库记录中，索引 worker 会按 Schema 重建实例。设置了 <code>knowledge_base_manager</code> 时默认为 <code>[ApproxTokenChunker]</code>。</p></section>
+<section class="parameter" data-default="None"><strong><code>blob_store</code> <small>BlobStoreBase | None</small><small> · 默认值 <code>None</code></small></strong><p>在上传端点与索引 worker 之间保存上传文档字节的后端。设置了 <code>knowledge_base_manager</code> 时必需；默认为 <code>LocalBlobStore(root_dir=&quot;./blobs&quot;)</code>。其生命周期由应用 lifespan 管理。</p></section>
+<section class="parameter" data-default="True"><strong><code>enable_index_worker</code> <small>bool</small><small> · 默认值 <code>True</code></small></strong><p>为 <code>True</code>（嵌入式部署）时，API 进程会在其 lifespan 中启动一个 <code>IndexWorker</code> 与 <code>IndexSweeper</code>，并通过进程内队列派发索引任务。为 <code>False</code>（专用部署）时，API 进程不做索引 —— 需要由独立 worker 进程从消息总线消费任务。<code>knowledge_base_manager</code> 为 <code>None</code> 时该参数无效。</p></section>
+<section class="parameter" data-default="None"><strong><code>mcp_hubs</code> <small>list[MCPHubBase] | None</small><small> · 默认值 <code>None</code></small></strong><p>提供可安装 MCP 的中心。传入后，MCP 市场的路由、页面与安装流程随之启用；为 <code>None</code> 时该功能关闭。参见 <a href="/agentscope-course/deploy/hub/mcp-hub/">MCP 中心</a>。</p></section>
+<section class="parameter" data-default="None"><strong><code>skill_hubs</code> <small>list[SkillHubBase] | None</small><small> · 默认值 <code>None</code></small></strong><p>提供可安装技能的中心。传入后，技能市场的路由、页面与安装流程随之启用；为 <code>None</code> 时该功能关闭。参见<a href="/agentscope-course/deploy/hub/skill-hub/">技能中心</a>。</p></section>
+<section class="parameter" data-default="True"><strong><code>enable_channel_worker</code> <small>bool</small><small> · 默认值 <code>True</code></small></strong><p>本进程是否持有渠道的长连接。为 <code>True</code>（嵌入式部署）适合桌面版或单个 API 进程；部署独立的渠道 worker 时，其余进程都要设为 <code>False</code>：平台只会把一个机器人的事件交给一条连接，每个副本都去建连要么白白浪费连接，要么让消息被重复投递。无论取值如何，渠道 API、客户端工厂与出站投递都照常可用，移动的只是长连接本身。</p></section>
+<section class="parameter" data-default="True"><strong><code>enable_scheduler</code> <small>bool</small><small> · 默认值 <code>True</code></small></strong><p>本进程是否持有计划任务的定时器。APScheduler 的 jobstore 在内存中，每个持有定时器的进程都会响应 cron，一个 schedule 因此会在每个副本各跑一遍，所以只保留一个进程为 <code>True</code>。无论取值如何，schedule 的 HTTP 端点与智能体的调度工具都照常可用：这些进程持久化记录后，通过消息总线通知持有者。</p></section>
+<section class="parameter" data-default="None"><strong><code>extra_credentials</code> <small>list[Type[CredentialBase]] | None</small><small> · 默认值 <code>None</code></small></strong><p>额外注册的凭证类型。每个类在应用启动前被注入 <code>CredentialFactory</code>。</p></section>
+<section class="parameter" data-default="None"><strong><code>extra_middlewares</code> <small>list[Middleware] | None</small><small> · 默认值 <code>None</code></small></strong><p>额外的 ASGI 中间件（例如协议适配器、CORS、鉴权）。</p></section>
+<section class="parameter" data-default="None"><strong><code>extra_agent_middlewares</code> <small>AgentMiddlewareFactory | None</small><small> · 默认值 <code>None</code></small></strong><p>异步工厂 <code>(user_id, agent_id, session_id, workspace) -&gt; Awaitable[list[MiddlewareBase]]</code>，在每次组装智能体（即每轮 chat 或每次 schedule 触发）时被调用一次。返回的中间件会在智能体运行前追加到框架自带的中间件（例如 <code>ToolOffloadMiddleware</code>）之后，可用于产出按用户 / 会话区分的中间件，比如审计日志、租户隔离或自定义鉴权逻辑。<code>workspace</code> 是该会话解析出的 <code>WorkspaceBase</code>，提供 <code>workdir</code> 与 <code>get_backend()</code>，供 <code>AgenticMemoryMiddleware</code> 这类依赖文件系统的中间件使用；只接受前三个参数的旧式工厂继续可用，服务会探测签名，只向接受第四个参数的工厂传入 <code>workspace</code>。</p></section>
+<section class="parameter" data-default="None"><strong><code>extra_agent_tools</code> <small>AgentToolFactory | None</small><small> · 默认值 <code>None</code></small></strong><p>异步工厂 <code>(user_id, agent_id, session_id) -&gt; Awaitable[list[ToolBase]]</code>，在每次组装智能体时被调用一次。返回的工具会与工作区派生的工具一起合并到 toolkit 的 <code>&quot;basic&quot;</code> 分组里，便于按调用者动态决定可用工具（例如按租户接入、按用户使用各自凭证的工具）。</p></section>
+<section class="parameter" data-default="10.0"><strong><code>tool_offload_timeout_secs</code> <small>float | None</small><small> · 默认值 <code>10.0</code></small></strong><p>工具调用转为后台执行前等待的秒数。设置为 <code>None</code> 可关闭自动卸载。</p></section>
+<section class="parameter" data-default="None"><strong><code>custom_subagent_templates</code> <small>list[SubAgentTemplate] | None</small><small> · 默认值 <code>None</code></small></strong><p>团队中子智能体创建的可复用蓝图。每个模板定义了一个子智能体<em>类型</em>（例如 <code>&quot;researcher&quot;</code>、<code>&quot;coder&quot;</code>），预设了系统提示词、权限上下文与任务上下文。注册后，<code>AgentCreate</code> 工具会暴露 <code>subagent_type</code> 参数，使 leader 智能体可以路由到相应的模板。详见<a href="/agentscope-course/deploy/agent-team/#%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%90%E6%99%BA%E8%83%BD%E4%BD%93%E7%B1%BB%E5%9E%8B">自定义子智能体类型</a>。</p></section>
+<section class="parameter" data-default="None"><strong><code>custom_agent_cls</code> <small>Type[Agent] | None</small><small> · 默认值 <code>None</code></small></strong><p>自定义的 <code>Agent</code> 子类，用于替代内置 <code>Agent</code> 在每轮 chat 中被实例化。适合在保留其他服务组件不变的前提下换用具有不同推理行为的智能体实现。</p></section>
+<section class="parameter" data-default="None"><strong><code>resource_access_policy</code> <small>ResourceAccessPolicyBase | None</small><small> · 默认值 <code>None</code></small></strong><p>决定一个访问者能否使用其他用户的凭证、智能体与知识库。为 <code>None</code> 时安装 <code>DenyAllResourceAccessPolicy</code>，即维持按用户严格隔离的行为。参见<a href="/agentscope-course/deploy/sharing/">资源共享</a>。</p></section>
+<section class="parameter" data-default="None"><strong><code>channels</code> <small>list[Type[ChannelBase]] | None</small><small> · 默认值 <code>None</code></small></strong><p>本服务允许接入的渠道适配器类，例如 <code>[FeishuChannel, DingTalkChannel, DiscordChannel]</code>。每个类自带 <code>channel_type</code>、凭证与配置声明，服务据此注册，无需额外的类型表；要接入新平台，传入自己的 <code>ChannelBase</code> 子类即可。为 <code>None</code> 时不注册任何渠道类型，渠道功能保持关闭。参见<a href="/agentscope-course/deploy/channel/overview/">渠道</a>。</p></section>
+<section class="parameter" data-default="None"><strong><code>download_secret</code> <small>str | None</small><small> · 默认值 <code>None</code></small></strong><p>为浏览器直接下载工作区文件所用的短期令牌签名。默认每个进程各自生成一个，单实例部署没有问题，但<strong>在负载均衡之后必须显式设置</strong>：否则一个副本签发的令牌会被下一个副本拒绝，下载随机失败。</p></section>
+<section class="parameter" data-default="None"><strong><code>realtime_ice_servers</code> <small>list[dict[str, Any]] | None</small><small> · 默认值 <code>None</code></small></strong><p>暴露给浏览器 WebRTC 客户端的 STUN 与 TURN 服务器。省略时，服务从 <code>AGENTSCOPE_REALTIME_ICE_SERVERS</code> 读取 JSON 数组；两者都未设置时使用空列表，只依赖主机候选地址。每一项采用浏览器 <code>RTCIceServer</code> 的结构，包含 <code>urls</code>，以及可选的 <code>username</code> 和 <code>credential</code>。</p></section>
+<section class="parameter" data-default="AgentScope"><strong><code>title</code> <small>str</small><small> · 默认值 <code>AgentScope</code></small></strong><p>OpenAPI 文档界面中显示的标题。</p></section>
+<section class="parameter" data-default="package version"><strong><code>version</code> <small>str</small><small> · 默认值 <code>package version</code></small></strong><p>OpenAPI 文档界面中显示的 API 版本号。默认使用安装的 AgentScope 包版本。</p></section>
+<aside class="notice warning"><strong>注意</strong><p>默认的 <code>X-User-ID</code> header 不提供任何鉴权。生产部署前请替换为真实的鉴权方案 —— 见<a href="#%E7%94%A8%E6%88%B7%E9%89%B4%E6%9D%83">用户鉴权</a>。</p></aside>
+<h3 id="典型操作流程">典型操作流程</h3>
+<p>服务启动后，按资源模型中定义的资源驱动它即可。下面是一次聊天会话通常走过的路径 —— 每一步是一两次 REST 调用。</p>
+<div class="steps"><section class="step"><h3>创建智能体</h3><p>注册智能体身份 —— 展示名、system prompt 与运行时配置。同一智能体可以在不同模型下驱动多个会话。</p><div class="code-example"><div class="code-bar"><span>http</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-http" data-caption="http" data-lang="http">POST /agent
+</code></pre></div></section><section class="step"><h3>创建并配置凭证</h3><p>通过 <code>GET /credential/schemas</code> 发现各 provider 的表单字段，再保存 API key。一份凭证可以在多个会话与智能体中复用。</p><div class="code-example"><div class="code-bar"><span>http</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-http" data-caption="http" data-lang="http">GET  /credential/schemas
+POST /credential
+</code></pre></div></section><section class="step"><h3>创建会话并选择模型</h3><p>创建一个绑定到该智能体的会话，并附上模型配置 —— provider、模型名称、参数，以及调用所用的凭证。从此之后由会话拥有运行时状态。</p><div class="code-example"><div class="code-bar"><span>http</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-http" data-caption="http" data-lang="http">POST /sessions
+</code></pre></div></section><section class="step"><h3>配置 MCP 与 skill（可选）</h3><p>若智能体需要超出内置范围的工具，可为当前会话配置独立 MCP，并为当前智能体安装 skill。开箱即用的情况下，每个智能体已经能访问工作区的内置工具（文件系统、shell、搜索……）、任务规划工具、调度与后台任务控制工具，以及 —— 当会话是团队 leader 或成员时 —— <a href="/agentscope-course/deploy/agent-team/">Agent Team</a> 中描述的团队协调工具。通过 <code>create_app</code> 的 <code>extra_agent_tools</code> 传入的工具也会一并合入。</p><div class="code-example"><div class="code-bar"><span>http</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-http" data-caption="http" data-lang="http">POST /workspace/mcp
+POST /workspace/skill
+</code></pre></div></section><section class="step"><h3>开始聊天</h3><p>向 <code>/chat</code> POST 一条用户 <code>Msg</code> 触发一次 chat 运行。该端点立刻返回 <code>{&quot;status&quot;: &quot;started&quot;, &quot;session_id&quot;: &quot;...&quot;}</code> —— 事件通过按会话 SSE 流 <code>GET /sessions/{id}/stream</code> 异步投递；任意数量的客户端可订阅该流，后接入者可重放缓冲历史再接收实时事件。</p><div class="code-example"><div class="code-bar"><span>http</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-http" data-caption="http" data-lang="http">POST /chat
+GET  /sessions/{session_id}/stream
+</code></pre></div></section></div>
+<p>触发一次运行：</p>
+<div class="code-example"><div class="code-bar"><span>bash</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-bash" data-caption="bash" data-lang="bash">curl -X POST http://localhost:8000/chat \
+  -H &quot;X-User-ID: alice&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d &#x27;{
+    &quot;agent_id&quot;: &quot;agent-xxx&quot;,
+    &quot;session_id&quot;: &quot;session-xxx&quot;,
+    &quot;input&quot;: {
+      &quot;name&quot;: &quot;alice&quot;,
+      &quot;role&quot;: &quot;user&quot;,
+      &quot;content&quot;: [{&quot;type&quot;: &quot;text&quot;, &quot;text&quot;: &quot;Hello&quot;}]
+    }
+  }&#x27;
+</code></pre></div>
+<p>并行订阅该会话的事件流（也可以在触发前订阅 —— 该流跨多次运行保持打开，并广播会话产出的所有事件，包括调度触发与后台工具完成）：</p>
+<div class="code-example"><div class="code-bar"><span>bash</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-bash" data-caption="bash" data-lang="bash">curl -N -H &quot;X-User-ID: alice&quot; \
+  &quot;http://localhost:8000/sessions/session-xxx/stream?agent_id=agent-xxx&quot;
+</code></pre></div>
+<p>对于<strong>计划任务</strong>，完成步骤 1 与 2 后创建一个指向智能体的 schedule —— scheduler 会按你给定的 cron 表达式创建会话（有状态或无状态）并触发执行。无需调用 <code>/chat</code>；cron 触发时智能体自动运行。</p>
+<div class="code-example"><div class="code-bar"><span>http</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-http" data-caption="http" data-lang="http">POST /schedule
+</code></pre></div>
+<p>要<strong>中断</strong>正在运行或处于 HITL 暂停的 chat run，可随时向会话的中断端点发起请求。智能体会干净展开并保持可接受下一次 <code>/chat</code> 调用的状态。</p>
+<div class="code-example"><div class="code-bar"><span>bash</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-bash" data-caption="bash" data-lang="bash">curl -X POST -H &quot;X-User-ID: alice&quot; \
+  &quot;http://localhost:8000/sessions/session-xxx/interrupt?agent_id=agent-xxx&quot;
+</code></pre></div>
+<h3 id="实时语音流程">实时语音流程</h3>
+<p>实时语音复用已有的持久化会话，不会另建一条只用于语音的对话。先设置会话的 <code>realtime_model_config</code>，再按以下步骤协商浏览器连接：</p>
+<div class="steps"><section class="step"><h3>发现模型与网络配置</h3><p>查询某种凭证支持的实时模型卡片，再取得部署提供的 STUN 与 TURN 设置：</p><div class="code-example"><div class="code-bar"><span>http</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-http" data-caption="http" data-lang="http">GET /realtime/models?provider=dashscope_credential
+GET /realtime/config
+</code></pre></div></section><section class="step"><h3>创建浏览器 Offer</h3><p>使用返回的 ICE 服务器创建 <code>RTCPeerConnection</code>，加入麦克风音轨，并创建名为 <code>control</code> 的数据通道。转写、工具调用、确认、文字输入与打断控制通过数据通道传输，音频通过 WebRTC 媒体轨道传输。</p></section><section class="step"><h3>交换 Offer</h3><p>将浏览器的 SDP Offer 与会话所属的智能体一起发送，再把返回的 SDP Answer 设为连接的远端描述：</p><div class="code-example"><div class="code-bar"><span>http</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-http" data-caption="http" data-lang="http">POST /realtime/sessions/{session_id}/offer
+
+{
+  &quot;agent_id&quot;: &quot;agent-xxx&quot;,
+  &quot;sdp&quot;: &quot;&lt;浏览器 SDP Offer&gt;&quot;,
+  &quot;type&quot;: &quot;offer&quot;
+}
+</code></pre></div></section></div>
+<p>项目自带的 Web UI 已在 <code>BrowserWebRTCTransport</code> 中实现这套流程。服务端会使用会话已有的状态、工作区、权限与工具组装 <code>RealtimeAgent</code>，并把新的语音回合写回同一份会话历史。</p>
+<aside class="notice warning"><strong>注意</strong><p>文字运行与实时语音连接不能同时占用同一会话；会话正在运行时，Offer 端点返回 HTTP 409。新的 Offer 会替换此前的实时连接。浏览器语音还必须使用模型 API 的回合检测，因此 <code>turn_detection=&quot;none&quot;</code> 会被拒绝。</p></aside>
+<h2 id="资源模型">资源模型</h2>
+<p>智能体服务中的每次操作都归属于从请求中解析出的 <code>user_id</code>。在该边界之下，服务管理七类资源 —— 六类持久化资源（图左侧）加把它们运行时行为串起来的消息总线（图右侧）。若要让凭证、智能体或知识库跨越用户之间的这条边界，见<a href="/agentscope-course/deploy/sharing/">资源共享</a>。</p>
+<figure class="diagram"><img src="/agentscope-course/diagrams/diagram-acc8ee7a806bc5.svg" alt="本节流程图"/><details><summary>查看流程图原文</summary><pre><code class="language-mermaid" data-caption="mermaid" data-lang="mermaid">flowchart TB
+    User([User])
+
+    User --&gt; Cred[Credential]
+    User --&gt; Agent[Agent]
+    User --&gt; Sched[Schedule]
+
+    Agent -- &quot;1 : N&quot; --&gt; Session[Session]
+    Session -- &quot;references&quot; --&gt; Cred
+    Session -- &quot;bound to&quot; --&gt; WS[Workspace]
+    Session -- &quot;owns&quot; --&gt; Msg[Messages]
+
+    Sched -- &quot;targets&quot; --&gt; Agent
+    Sched -- &quot;triggers&quot; --&gt; Session
+
+    Bus{{MessageBus}}
+    Sched -. &quot;inbox + wakeup&quot; .-&gt; Bus
+    Bus -. &quot;drives runs&quot; .-&gt; Session
+    Session -. &quot;publishes events&quot; .-&gt; Bus
+</code></pre></details></figure>
+<table><thead><tr><th>资源</th><th>说明</th></tr></thead><tbody><tr><td><strong>User</strong></td><td>从请求中解析出的不透明租户标识。服务自身不建模用户系统；通过 <code>get_current_user_id</code> 接入自己的实现。</td></tr><tr><td><strong>Credential</strong></td><td>某个模型 provider 的连接配置 —— 一个 API key 加上 provider 特有设置。可在多个智能体与会话间复用。</td></tr><tr><td><strong>Agent</strong></td><td>展示名、系统提示与 <code>chat_config</code>（上下文、ReAct 循环与邀请设置）。它是可复用的模板，身份属于智能体，运行时状态属于会话。</td></tr><tr><td><strong>Workspace</strong></td><td>智能体的运行时环境 —— 工作目录、MCP client、skill、卸载的上下文。工作区映射策略决定文件系统的共享粒度；MCP 和 skill 在工作区内还会分别按会话和智能体隔离。</td></tr><tr><td><strong>Session</strong></td><td>用户与智能体之间一次正在进行的会话。承载智能体状态（工作记忆、未完成的 reply、permission context）、持久化消息记录，以及该会话运行所用的 LLM 配置。</td></tr><tr><td><strong>Schedule</strong></td><td>按 cron 表达式触发智能体。每次触发都在一个会话内运行 —— 可以每次新建（无状态），也可以复用以让上下文跨次累积（有状态）。Schedule 可在重启后保留。</td></tr><tr><td><strong>MessageBus</strong></td><td>Redis 支撑的运行时层 —— 会话锁、回放日志、收件箱队列、唤醒信号。是调度触发、团队消息与后台工具完成抵达空闲会话的唯一投递通道；也是支撑多进程运行的基础。</td></tr></tbody></table>
+<aside class="notice tip"><strong>提示</strong><p>要记住的形态：<strong>智能体是可复用的模板，会话是运行时状态的承载单位</strong>，而消息总线则是当外部事件（调度、队友、后台工具）有话要说时把空闲会话唤醒的桥梁。</p></aside>
+<aside class="notice note"><strong>说明</strong><p>从 2.0.10 开始，<code>AgentData</code> 把文本对话设置统一放在 <code>chat_config</code> 下，分别为 <code>chat_config.context_config</code>、<code>chat_config.react_config</code> 与 <code>chat_config.invite_config</code>。创建和更新接口仍兼容旧的扁平字段，但已将其标为弃用；新客户端应渲染并提交 <code>GET /agent/schema/v2</code> 返回的分组结构。</p></aside>
+<h3 id="会话的来源与命名">会话的来源与命名</h3>
+<p>会话记录 <code>SessionRecord</code> 上有两个字段说明它因何存在、名字归谁管。</p>
+<p><code>origin</code> 记录会话的来源，它是一个带 tag 的联合类型，tag 一旦确定，对应的 id 就一定存在：</p>
+<table><thead><tr><th>tag</th><th>类型</th><th>携带字段</th><th>产生时机</th></tr></thead><tbody><tr><td><code>user</code></td><td><code>UserOrigin</code></td><td>—</td><td>用户自己打开会话</td></tr><tr><td><code>schedule</code></td><td><code>ScheduleOrigin</code></td><td><code>schedule_id</code></td><td>计划任务到点触发</td></tr><tr><td><code>channel</code></td><td><code>ChannelOrigin</code></td><td><code>channel_id</code>、<code>chat_id</code></td><td>渠道收到平台的入站消息</td></tr><tr><td><code>team</code></td><td><code>TeamOrigin</code></td><td>—</td><td>团队通过 <code>AgentCreate</code> 或 <code>AgentInvite</code> 为成员创建会话</td></tr></tbody></table>
+<p>判断来源用 <code>isinstance(record.origin, ChannelOrigin)</code> 这样一次判断即可，不必再确认 tag 与 id 是否自洽。团队归属另由 <code>SessionRecord.team_id</code> 表达：来源在会话创建时就已固定，而团队归属是之后被授予、也可以被收回的。</p>
+<aside class="notice note"><strong>说明</strong><p>旧字段 <code>source</code> 与 <code>source_schedule_id</code> / <code>source_channel_id</code> / <code>source_chat_id</code> 作为废弃属性保留，仍可读取；此前写入的记录在加载时会自动折叠为 <code>origin</code>，无需数据迁移。</p></aside>
+<p><code>config.name</code> 是会话的展示名，<code>config.naming.auto</code> 说明它归谁管。创建时未显式命名的会话，<code>auto</code> 为 <code>true</code>：首次回复落盘后，服务把用户的开场消息交给该会话自己的模型生成一个短标题，模型调用失败时退回到该消息的摘录，不重试也不额外报错。名字一旦落定（标题生成成功，或用户通过 <code>PATCH /sessions</code> 改名），<code>auto</code> 被清为 <code>false</code>，因此自动命名对每个会话最多发生一次。</p>
+<aside class="notice note"><strong>说明</strong><p><code>auto</code> 默认为 <code>false</code>：渠道、计划任务与团队流程创建会话时都会带上显式名称，此前写入的记录也没有 <code>naming</code> 字段，两者加载后都保持原名。若开场的那一轮没有文本（纯图片消息，或后台唤醒），本轮跳过命名，留给之后有文本的一轮。</p></aside>
+<h2 id="api-概览">API 概览</h2>
+<p>服务把资源模型中的资源暴露为 REST 端点，外加流式聊天端点。下表按类别分组；完整请求与响应结构由服务的 OpenAPI 规格描述。</p>
+<table><thead><tr><th>类别</th><th>端点</th><th>说明</th></tr></thead><tbody><tr><td>Chat</td><td><code>POST /chat</code></td><td>触发某会话的一次 chat 运行；返回 <code>ChatTriggerResponse</code> JSON。请求体可以是新的 <code>Msg</code>、<code>list[Msg]</code>、<code>UserConfirmResultEvent</code> / <code>ExternalExecutionResultEvent</code>（HITL 续接）或 <code>None</code>（继续当前状态）。事件通过按会话流异步投递。</td></tr><tr><td>Session stream</td><td><code>GET /sessions/{id}/stream</code></td><td>按会话的 <code>AgentEvent</code> SSE 流，支持后接入者的缓冲回放与多订阅者扇出。</td></tr><tr><td>Session control</td><td><code>POST /sessions/{id}/interrupt</code>、<code>GET /sessions/{id}/status</code></td><td>中断正在运行或处于 HITL 暂停的 chat run；探测统一的会话状态（running / parked / idle / gone）。</td></tr><tr><td>Sessions</td><td><code>GET/POST/PATCH/DELETE /sessions</code></td><td>创建与管理聊天会话，包括模型绑定与 permission level。</td></tr><tr><td>Messages</td><td><code>GET /sessions/{id}/messages</code></td><td>分页拉取某会话的消息记录（<code>offset</code>、<code>limit</code>）。</td></tr><tr><td>Agents</td><td><code>GET/POST/PATCH/DELETE /agent</code></td><td>管理智能体记录 —— 展示名、system prompt、运行时配置。</td></tr><tr><td>Agent schema</td><td><code>GET /agent/schema/v2</code></td><td>用于前端渲染智能体表单的完整 <code>AgentData</code> JSON Schema。（<code>GET /agent/schema</code> 保留作向后兼容但已弃用。）</td></tr><tr><td>Credentials</td><td><code>GET/POST/PATCH/DELETE /credential</code></td><td>各 provider 的 API key 与连接配置 CRUD。</td></tr><tr><td>Credential schemas</td><td><code>GET /credential/schemas</code></td><td>发现已注册的全部凭证类型及其 JSON 参数 schema，用于表单渲染。</td></tr><tr><td>Models</td><td><code>GET /model?provider=&lt;name&gt;</code></td><td>列出某 provider 下的候选聊天模型，附带声明式 <code>ModelCard</code>（能力与参数 schema）。</td></tr><tr><td>TTS models</td><td><code>GET /tts-model?provider=&lt;name&gt;</code></td><td>列出某支持 TTS 的 provider 下的候选语音合成模型。</td></tr><tr><td>Realtime models</td><td><code>GET /realtime/models?provider=&lt;name&gt;</code></td><td>列出某种凭证类型开放的实时语音模型卡片。</td></tr><tr><td>Realtime config</td><td><code>GET /realtime/config</code></td><td>返回浏览器可用的 STUN 与 TURN 服务器配置。</td></tr><tr><td>Realtime offer</td><td><code>POST /realtime/sessions/{id}/offer</code></td><td>用浏览器 SDP Offer 换取服务端 Answer，并在已有会话上启动实时语音。</td></tr><tr><td>Schedules</td><td><code>GET/POST/PATCH/DELETE /schedule</code>、<code>GET /schedule/{id}/sessions</code></td><td>管理 cron 触发的智能体执行，有状态或无状态。</td></tr><tr><td>Workspace MCPs</td><td><code>GET/POST /workspace/mcp</code>、<code>DELETE /workspace/mcp/{mcp_name}</code></td><td>管理当前智能体+会话的 MCP client。每条返回项包含实时的工具列表与健康状态。</td></tr><tr><td>Workspace skills</td><td><code>GET/POST /workspace/skill</code>、<code>DELETE /workspace/skill/{skill_name}</code></td><td>管理当前智能体的 skill 分区。</td></tr><tr><td>Knowledge bases</td><td><code>GET/POST/PATCH/DELETE /knowledge_bases</code></td><td>知识库的 CRUD。仅当向 <code>create_app</code> 传入 <code>knowledge_base_manager</code> 时启用。</td></tr><tr><td>KB documents</td><td><code>GET/POST /knowledge_bases/{id}/documents</code>、<code>GET /knowledge_bases/{id}/documents/status</code>、<code>DELETE /knowledge_bases/{id}/documents/{doc_id}</code></td><td>在知识库中上传、列出、删除文档，并批量查询索引状态。</td></tr><tr><td>KB search</td><td><code>POST /knowledge_bases/{id}/search</code></td><td>对某个知识库执行自然语言检索。</td></tr><tr><td>KB discovery</td><td><code>GET /knowledge_bases/embedding_models</code>、<code>GET /knowledge_bases/supported_content_types</code>、<code>GET /knowledge_bases/middleware/parameters_schema</code></td><td>发现兼容的 embedding 模型、可摄取的文件类型，以及 KB 中间件的可调参数 schema，用于表单渲染。</td></tr></tbody></table>
+<h2 id="消息队列与运行中输入">消息队列与运行中输入</h2>
+<p>普通消息通过 <code>POST /chat</code> 提交后，返回 <code>status=&quot;queued&quot;</code> 和
+<code>queue_item_id</code>，由服务按先进先出顺序执行。继续回复和控制输入返回
+<code>status=&quot;started&quot;</code>。回复事件通过 <code>GET /sessions/{id}/stream</code> 接收。</p>
+<p>以下接口用于管理尚未开始执行的消息：</p>
+<table><thead><tr><th>操作</th><th>接口</th><th>请求</th></tr></thead><tbody><tr><td>查看待处理输入</td><td><code>GET /chat/queue</code></td><td>查询参数 <code>agent_id</code>、<code>session_id</code></td></tr><tr><td>替换输入</td><td><code>PATCH /chat/queue/{item_id}</code></td><td><code>agent_id</code>、<code>session_id</code> 和新的 <code>input</code></td></tr><tr><td>删除输入</td><td><code>DELETE /chat/queue/{item_id}</code></td><td>查询参数 <code>agent_id</code>、<code>session_id</code></td></tr><tr><td>调整队列顺序</td><td><code>PATCH /chat/queue/order</code></td><td><code>agent_id</code>、<code>session_id</code> 和包含全部待处理项的 <code>item_ids</code> 排列</td></tr><tr><td>引导当前回复</td><td><code>POST /chat/queue/{item_id}/steer</code></td><td><code>agent_id</code>、<code>session_id</code> 和当前 <code>reply_id</code></td></tr></tbody></table>
+<p>运行中输入会在推理边界注入，不中断正在执行的工具或模型调用。
+队列项包含 <code>queued</code>、<code>steering</code> 或 <code>failed</code> 状态及可选错误信息。
+重试前应查看失败原因，失败的补充输入不会自动作为普通消息执行。
+进程内 SDK 队列见<a href="/agentscope-course/building-blocks/agent/run-agent/#%E5%9C%A8%E5%9B%9E%E5%A4%8D%E8%BF%87%E7%A8%8B%E4%B8%AD%E8%A1%A5%E5%85%85%E8%BE%93%E5%85%A5">运行智能体</a>。</p>
+<h2 id="客户端工具">客户端工具</h2>
+<p>客户端通过 <code>POST /chat</code> 为一次运行声明可执行的工具：</p>
+<ul>
+<li><code>client_builtin_tools: [&quot;AskUser&quot;]</code> 启用原生提问界面。</li>
+<li><code>client_external_tools</code> 最多接收 16 个定义，每项包含 <code>name</code>、
+<code>description</code>、<code>input_schema</code> 和可选的 <code>read_only</code>。
+工具名称必须以 <code>client__</code> 开头，且不能重复。</li>
+</ul>
+<p>例如，声明读取客户端当前选中文本的只读工具：</p>
+<div class="code-example"><div class="code-bar"><span>json</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-json" data-caption="json" data-lang="json">{
+  &quot;name&quot;: &quot;client__read_selection&quot;,
+  &quot;description&quot;: &quot;Read the text currently selected by the user.&quot;,
+  &quot;input_schema&quot;: {&quot;type&quot;: &quot;object&quot;, &quot;properties&quot;: {}},
+  &quot;read_only&quot;: true
+}
+</code></pre></div>
+<p>按照<a href="/agentscope-course/building-blocks/agent/human-in-the-loop/">外部执行流程</a>
+执行客户端工具，再通过 <code>POST /chat</code> 提交 <code>ExternalExecutionResultEvent</code>
+恢复回复。原生 <code>AskUser</code> 结果使用 <code>AskUserMetadata</code> schema；
+即使恢复请求禁用了该工具，仍会校验已有调用的结果。</p>
+<h2 id="音色档案">音色档案</h2>
+<p>通过 <code>GET /voice-profile/available-engines</code> 发现支持的克隆引擎及参数。
+在 <code>/voice-profile/</code> 创建或列出档案，在
+<code>/voice-profile/{profile_id}</code> 读取、更新或删除档案。
+<code>POST /voice-profile/clone</code> 创建音色，
+<code>POST /voice-profile/openai-consent</code> 上传 OpenAI 要求的授权录音。
+网页界面可为兼容的语音合成模型选择已保存的音色。
+独立 Python 客户端见<a href="/agentscope-course/building-blocks/model/tts/#%E5%85%8B%E9%9A%86%E5%B9%B6%E5%A4%8D%E7%94%A8%E9%9F%B3%E8%89%B2">语音合成</a>。</p>
+<p>语音输入使用 <code>GET /asr-model/</code>、<code>POST /asr/transcriptions</code>，
+实时输入使用<a href="/agentscope-course/building-blocks/model/asr/#%E6%B5%8F%E8%A7%88%E5%99%A8%E8%AF%AD%E9%9F%B3%E8%BE%93%E5%85%A5">语音识别令牌与 WebSocket 流程</a>。</p>
+<h2 id="后台任务状态">后台任务状态</h2>
+<p><code>GET /background-tasks</code> 列出当前用户的任务，
+<code>GET /background-tasks/{task_id}</code> 查询单个任务。
+网页界面展示任务执行状态和耗时。
+通过 <code>create_app(tool_offload_timeout_secs=...)</code> 设置工具运行多久后转为后台执行，
+默认 10 秒；设置为 <code>None</code> 可关闭自动卸载。</p>
+<h2 id="自定义">自定义</h2>
+<p>服务在每个基础设施边界上都开放扩展。下面分节说明哪些是内置的，以及如何插入自己的实现。</p>
+<h3 id="智能体聊天协议">智能体聊天协议</h3>
+<p>按会话流端点（<code>GET /sessions/{id}/stream</code>）通过 SSE 输出 AgentScope 原生的 <a href="/agentscope-course/building-blocks/message-and-event/"><code>AgentEvent</code></a> 流。要让同一智能体服务于不同前端协议，安装协议中间件拦截 SSE 流并改写每帧。</p>
+<p>AgentScope 内置 <code>AGUIProtocolMiddleware</code> 适配 <a href="https://docs.ag-ui.com/">AG-UI</a> 协议。通过 <code>extra_middlewares</code> 装载：</p>
+<div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">from fastapi.middleware import Middleware
+from agentscope.app import create_app
+from agentscope.app.middleware import AGUIProtocolMiddleware
+
+app = create_app(
+    storage=storage,
+    extra_middlewares=[
+        Middleware(AGUIProtocolMiddleware),
+    ],
+)
+</code></pre></div>
+<p>新增协议时，继承 <code>ProtocolMiddlewareBase</code> 并实现 <code>_convert_to_protocol</code>：</p>
+<div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">from agentscope.app.middleware import ProtocolMiddlewareBase
+from agentscope.event import AgentEvent
+
+class MyProtocolMiddleware(ProtocolMiddlewareBase):
+    def _convert_to_protocol(self, event: AgentEvent) -&gt; dict:
+        # 把 AgentEvent 转换为目标协议的帧格式。
+        return {&quot;type&quot;: event.type, &quot;data&quot;: event.model_dump()}
+</code></pre></div>
+<p>中间件自动拦截会话流端点返回的 <code>StreamingResponse</code>，把每条 SSE 帧反序列化回 <code>AgentEvent</code>，调用 <code>_convert_to_protocol()</code> 生成目标格式后重新序列化。</p>
+<h3 id="用户鉴权">用户鉴权</h3>
+<p>内置的 <code>get_current_user_id</code> 依赖从请求 header <code>X-User-ID</code> 中读取调用者身份 —— 这是占位实现，不是真正的鉴权。用自己的依赖覆盖即可对接任何身份系统。</p>
+<p>JWT bearer token：</p>
+<div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">from fastapi import Header, HTTPException, status
+
+async def get_current_user_id(
+    authorization: str = Header(...),
+) -&gt; str:
+    try:
+        payload = decode_jwt(authorization.removeprefix(&quot;Bearer &quot;))
+        return payload[&quot;sub&quot;]
+    except InvalidTokenError:
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail=&quot;Invalid authentication token.&quot;,
+        )
+</code></pre></div>
+<p>OAuth2 password flow：</p>
+<div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">from fastapi import Depends, HTTPException, status
+from fastapi.security import OAuth2PasswordBearer
+
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl=&quot;token&quot;)
+
+async def get_current_user_id(token: str = Depends(oauth2_scheme)) -&gt; str:
+    user = await verify_oauth_token(token)
+    if user is None:
+        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED)
+    return user.id
+</code></pre></div>
+<p>通过 FastAPI 的依赖覆盖机制把自定义实现挂上去：</p>
+<div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">from agentscope.app.deps import get_current_user_id as default_dependency
+
+app.dependency_overrides[default_dependency] = get_current_user_id
+</code></pre></div>
+<aside class="notice warning"><strong>注意</strong><p>默认的 <code>X-User-ID</code> header 不提供鉴权。生产部署前请始终替换为安全机制。</p></aside>
+<h3 id="工作区实现与隔离">工作区实现与隔离</h3>
+<p>可独立配置两条正交维度：</p>
+<ul>
+<li><strong>工作区后端</strong> —— 智能体实际运行所在的运行时环境。内置实现包括 <code>LocalWorkspace</code>、<code>DockerWorkspace</code>、<code>E2BWorkspace</code>。新增后端实现工作区接口即可，可包装容器镜像、沙箱或远端虚拟机。</li>
+<li><strong>隔离策略</strong> —— 工作区如何映射到 user、agent、session。内置 <code>LocalWorkspaceManager</code> 以 <code>agent_id</code> 为键：同一智能体的所有会话共享一个工作区。要切换为按 user 或按 session 隔离，继承 <code>WorkspaceManagerBase</code> 并按自己的键策略覆写 <code>get_workspace</code>。</li>
+</ul>
+<aside class="notice note"><strong>说明</strong><p>该策略决定工作目录和卸载文件的共享范围，不会取消资源内部隔离：MCP 连接仍按 <code>agent_id + session_id</code> 独立，skill 仍按 <code>agent_id</code> 存放在独立分区。</p></aside>
+<div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">from agentscope.app.workspace_manager import WorkspaceManagerBase
+from agentscope.workspace import WorkspaceBase
+
+
+class CustomWorkspaceManager(WorkspaceManagerBase):
+    async def get_workspace(
+        self,
+        user_id: str,
+        agent_id: str,
+        session_id: str,
+        workspace_id: str,
+    ) -&gt; WorkspaceBase:
+        # 用自己的隔离策略取出已初始化的工作区。
+        ...
+
+    async def close(self, workspace_id: str) -&gt; None:
+        # 关闭并淘汰单个工作区。
+        ...
+
+    async def close_all(self) -&gt; None:
+        # 关闭全部缓存中的工作区；应用关闭时调用。
+        ...
+</code></pre></div>
+<h3 id="api-凭证">API 凭证</h3>
+<p>新增凭证类型由两类组成：一个 <code>CredentialBase</code> 子类负责描述连接配置（并发布 JSON schema 用于表单渲染），一个 <code>ChatModelBase</code> 子类实现针对该 provider API 的流式聊天协议。凭证类是入口 —— 它告诉服务该实例化哪个 chat model 类。</p>
+<div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">from agentscope.credential import CredentialBase
+from agentscope.model import ChatModelBase
+
+class MyProviderChatModel(ChatModelBase):
+    # 针对 provider API 实现流式聊天接口。
+    ...
+
+class MyProviderCredential(CredentialBase):
+    api_key: str
+    endpoint: str = &quot;https://api.my-provider.com&quot;
+
+    @classmethod
+    def get_chat_model_class(cls):
+        return MyProviderChatModel
+</code></pre></div>
+<p>把凭证类注册到 app 上，客户端立即可用：</p>
+<div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">app = create_app(
+    storage=storage,
+    extra_credentials=[MyProviderCredential],
+)
+</code></pre></div>
+<p>服务自动通过 <code>GET /credential/schemas</code> 暴露该凭证的 JSON schema，<code>GET /model?provider=&lt;name&gt;</code> 调用凭证的 <code>list_models()</code>，汇总 <code>get_chat_model_classes()</code> 返回的所有模型类的卡片。</p>
+<h3 id="provider-模型">Provider 模型</h3>
+<p><code>GET /model?provider=&lt;name&gt;</code> 返回的模型列表由 <code>ModelCard</code> 实例构成 —— 这是声明式元数据记录，告诉前端如何展示每个模型、哪些请求参数合法。每个 chat model 通过 <code>list_models()</code> 暴露自己的目录，默认从 provider 模型目录下的 YAML 文件中读取 <code>ModelCard</code> 项；<code>ModelCard.from_yaml()</code> 解析每份 YAML，并把其中的 overrides 合并进 chat model 参数类提供的基础参数 schema。</p>
+<p>ModelCard 包含以下字段：</p>
+<table><thead><tr><th>字段</th><th>说明</th></tr></thead><tbody><tr><td><code>model_class</code></td><td>对话 API 实现标识，如 <code>openai_chat</code> 或 <code>openai_response</code>。</td></tr><tr><td><code>name</code></td><td>provider 侧的模型标识。</td></tr><tr><td><code>label</code></td><td>UI 中显示的名称。</td></tr><tr><td><code>status</code></td><td><code>active</code>、<code>deprecated</code>、<code>sunset</code> 之一。</td></tr><tr><td><code>deprecated_at</code></td><td>弃用时间戳，如有。</td></tr><tr><td><code>input_types</code></td><td>模型接收的 MIME 类型（例如 <code>text/plain</code>、<code>image/png</code>、<code>video/mp4</code>）。</td></tr><tr><td><code>output_types</code></td><td>模型输出的 MIME 类型（例如 <code>text/plain</code>、<code>application/x-thinking</code>）。</td></tr><tr><td><code>context_size</code></td><td>上下文窗口的最大 token 数。</td></tr><tr><td><code>output_size</code></td><td>最大输出 token 数。</td></tr><tr><td><code>parameter_schema</code></td><td>请求参数的 JSON schema，自动与各模型 overrides 合并。</td></tr><tr><td><code>parameters_overrides</code></td><td>叠加在基础参数 schema 之上的各模型差异。</td></tr></tbody></table>
+<p>下面的 YAML 示例描述一个接受文本、图像、视频，并输出文本与思考链路的多模态模型：</p>
+<div class="code-example"><div class="code-bar"><span>qwen3.6-plus.yaml</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-yaml" data-caption="qwen3.6-plus.yaml" data-lang="yaml">name: qwen3.6-plus
+label: Qwen3.6-Plus
+status: active
+
+input_types:
+  - text/plain
+  - application/x-thinking
+  - image/bmp
+  - image/jpeg
+  - image/png
+  - image/tiff
+  - image/webp
+  - image/heic
+  - video/mp4
+
+output_types:
+  - text/plain
+  - application/x-thinking
+
+context_size: 1000000
+output_size: 65536
+
+parameter_overrides:
+  max_tokens: {&quot;maximum&quot;: 65536}
+</code></pre></div>
+<p>要在已有 provider 下新增模型，把 YAML 文件丢进 provider 模型目录即可 —— loader 会自动拾取，新条目会出现在 <code>GET /model?provider=&lt;name&gt;</code> 中。</p>
+<h3 id="选择对话-api">选择对话 API</h3>
+<p>当凭证支持多种对话 API 时，应将所选模型卡片的 <code>model_class</code> 保存到会话的
+<code>config.chat_model_config</code> 中。例如，OpenAI Responses 使用以下模型配置：</p>
+<div class="code-example"><div class="code-bar"><span>OpenAI Responses 模型配置</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-json" data-caption="OpenAI Responses 模型配置" data-lang="json">{
+  &quot;type&quot;: &quot;openai_credential&quot;,
+  &quot;credential_id&quot;: &quot;&lt;credential_id&gt;&quot;,
+  &quot;model&quot;: &quot;gpt-6.1-sol&quot;,
+  &quot;model_class&quot;: &quot;openai_response&quot;,
+  &quot;parameters&quot;: {}
+}
+</code></pre></div>
+<p>Chat Completions 对应 <code>openai_chat</code>。省略 <code>model_class</code> 或传入空字符串会
+沿用凭证的默认模型类。参数表单也应使用同一模型卡片的参数定义，因为同名模型在
+不同 API 下的可用参数可能不同。</p>
+<h3 id="存储后端">存储后端</h3>
+<p><code>StorageBase</code> 抽象类定义了智能体、会话、凭证、消息、调度、团队与知识库记录的持久化契约。AgentScope 内置两种实现 —— <code>RedisStorage</code>（默认，上面所有示例都在用）与 <code>AsyncSQLAlchemyStorage</code>。</p>
+<div class="tab-set" data-tab-set=""><div class="tab-list" role="group" aria-label="代码示例"><button type="button" data-choice="0" aria-pressed="true">Redis</button><button type="button" data-choice="1" aria-pressed="false">SQL（SQLAlchemy）</button></div><div data-panel="0"><div class="code-example"><div class="code-bar"><span>Redis</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="Redis" data-lang="python">from agentscope.app.storage import RedisStorage
+
+storage = RedisStorage(
+    host=&quot;localhost&quot;,
+    port=6379,
+    db=0,
+    password=&quot;your-password&quot;,
+)
+</code></pre></div></div><div data-panel="1" hidden=""><div class="code-example"><div class="code-bar"><span>SQL（SQLAlchemy）</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="SQL（SQLAlchemy）" data-lang="python">from agentscope.app.storage import AsyncSQLAlchemyStorage
+
+# 任意 SQLAlchemy async URL —— 驱动需单独安装（见下文）。
+storage = AsyncSQLAlchemyStorage(
+    &quot;postgresql+asyncpg://user:password@localhost/agentscope&quot;,
+)
+</code></pre></div></div></div>
+<p><code>AsyncSQLAlchemyStorage</code> 可持久化到 SQLAlchemy async 引擎支持的任意数据库（SQLite、PostgreSQL、MySQL……）。它是<strong>懒加载</strong>的 —— 只要不引用这个类，<code>import agentscope.app.storage</code> 就依然轻量、不会触发 SQLAlchemy 导入；连接池在 <code>__aenter__</code> 打开、在 shutdown 释放。</p>
+<p>它位于可选的 <code>sql</code> extra 之后，该 extra 只引入 SQLAlchemy 与 Alembic，<strong>不含驱动</strong> —— 请自行安装与所用数据库匹配的 async 驱动：</p>
+<div class="code-example"><div class="code-bar"><span>bash</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-bash" data-caption="bash" data-lang="bash">pip install &quot;agentscope[sql]&quot;
+pip install aiosqlite          # SQLite
+# pip install asyncpg          # PostgreSQL
+# pip install asyncmy          # MySQL
+</code></pre></div>
+<p>默认情况下（<code>create_tables=True</code>），后端会在启动时为缺失的表执行 <code>CREATE TABLE IF NOT EXISTS</code> —— 便于测试与单节点开发部署。生产环境请改用随包提供的 Alembic 迁移来管理 schema：</p>
+<section class="parameter" data-default="True"><strong><code>create_tables</code> <small>bool</small><small> · 默认值 <code>True</code></small></strong><p>在 <code>__aenter__</code> 时创建缺失的表。幂等（已存在的表不受影响）。当由 Alembic 管理 schema 时关闭它。</p></section>
+<section class="parameter" data-default="False"><strong><code>auto_migrate</code> <small>bool</small><small> · 默认值 <code>False</code></small></strong><p>在 <code>__aenter__</code> 时对随包提供的迁移脚本执行 <code>alembic upgrade head</code>。适合单节点或开发部署 —— 每次启动都会把 schema 升级到最新。<strong>不建议用于多副本生产</strong> —— 两个副本同时抢跑同一迁移并不安全；此时请保持 <code>False</code>，并把 <code>alembic upgrade head</code> 作为独立的部署步骤执行。</p></section>
+<section class="parameter" data-default="None"><strong><code>engine</code> <small>AsyncEngine | None</small><small> · 默认值 <code>None</code></small></strong><p>外部托管、原样使用的 async 引擎。传入时它<strong>不会</strong>在 shutdown 时被释放 —— 由调用方负责其生命周期。省略时，引擎会在 <code>__aenter__</code> 时依据 URL 构造，并在 shutdown 时释放。</p></section>
+<section class="parameter" data-default="None"><strong><code>engine_kwargs</code> <small>dict | None</small><small> · 默认值 <code>None</code></small></strong><p>当引擎由内部构造时，转发给 <code>create_async_engine</code> 的额外关键字参数（如 <code>pool_size</code>、<code>echo</code>）。</p></section>
+<p>要换用以上两种后端都未覆盖的数据库，实现同一接口即可：</p>
+<div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">from agentscope.app.storage import StorageBase
+
+
+class PostgresStorage(StorageBase):
+    async def __aenter__(self):
+        # 打开连接池。
+        ...
+
+    async def __aexit__(self, exc_type, exc_val, exc_tb):
+        # 关闭连接池。
+        ...
+
+    # 为每类记录实现 CRUD 方法：
+    # agent、session、credential、message、schedule、team、
+    # knowledge base、knowledge document。
+    ...
+
+app = create_app(
+    storage=PostgresStorage(dsn=&quot;postgresql://...&quot;),
+    message_bus=message_bus,
+    workspace_manager=workspace_manager,
+)
+</code></pre></div>
+<p>存储层管理的记录类型：</p>
+<table><thead><tr><th>记录</th><th>说明</th></tr></thead><tbody><tr><td><code>AgentRecord</code></td><td>智能体配置（name、system prompt、context config、react config、invite config）。</td></tr><tr><td><code>SessionRecord</code></td><td>会话状态，包含 <code>AgentState</code>、模型配置与工作区绑定。</td></tr><tr><td><code>CredentialRecord</code></td><td>加密保存的模型 provider API key。</td></tr><tr><td><code>ScheduleRecord</code></td><td>Cron schedule 定义及执行历史。</td></tr><tr><td><code>TeamRecord</code></td><td>团队身份、leader 绑定与 worker 成员列表。</td></tr><tr><td><code>KnowledgeBaseRecord</code></td><td>知识库身份、embedding 模型绑定与中间件参数。仅在启用知识库功能时使用。</td></tr><tr><td><code>KnowledgeDocumentRecord</code></td><td>KB 上传文档的元数据与索引状态。仅在启用知识库功能时使用。</td></tr><tr><td><code>Msg</code></td><td>按会话持久化的消息，支持分页。</td></tr></tbody></table>
+<h2 id="服务内部结构">服务内部结构</h2>
+<p>如果开发者需要在 AgentScope 中扩展或嵌入智能体服务的实际实现，本节描述 FastAPI 应用是如何拼装起来的 —— 启动时跑哪些逻辑、由哪些 manager 持有运行时状态、中间件在请求路径中的位置，以及 router 如何拿到这些资源。</p>
+<figure class="diagram"><img src="/agentscope-course/diagrams/diagram-8e2c5ce9fb46f7.svg" alt="本节流程图"/><details><summary>查看流程图原文</summary><pre><code class="language-mermaid" data-caption="mermaid" data-lang="mermaid">flowchart TB
+    Client([Client / Frontend])
+
+    subgraph FastAPI [&quot;FastAPI Application&quot;]
+        direction TB
+
+        subgraph ASGI [&quot;ASGI Middlewares&quot;]
+            PM[Protocol Middleware]
+            OT[OpenTelemetry]
+        end
+
+        Router[API Routers]
+
+        subgraph Lifespan [&quot;Lifespan-bound Resources&quot;]
+            Bus[MessageBus]
+            BTM[BackgroundTaskManager]
+            SCH[SchedulerManager]
+            WM[WorkspaceManager]
+            WD[WakeupDispatcher]
+            CS[ChatService]
+        end
+
+        subgraph AgentMW [&quot;Agent-level Middlewares&quot;]
+            IM[InboxMiddleware]
+            TOM[ToolOffloadMiddleware]
+            SCM[StateChangeMiddleware]
+        end
+    end
+
+    Storage[(Storage)]
+
+    Client --&gt; ASGI --&gt; Router
+    Router -- &quot;Depends()&quot; --&gt; Lifespan
+    Router --&gt; CS
+    CS --&gt; Storage
+    CS --&gt; AgentMW --&gt; Agent([Agent Instance])
+    SCH -- &quot;inbox_push + enqueue_wakeup&quot; --&gt; Bus
+    TOM -- &quot;inbox_push + enqueue_wakeup&quot; --&gt; Bus
+    Bus --&gt; WD
+    WD --&gt; CS
+</code></pre></details></figure>
+<h3 id="lifespan">Lifespan</h3>
+<p>Lifespan context manager 每个进程仅运行一次。基于 <code>AsyncExitStack</code> 构建，启动时按顺序进入资源 —— storage → message bus → workspace manager → 可选的 blob store 与 knowledge base manager → background task manager → scheduler manager → chat run registry → chat / session / knowledge base 服务 → 可选的 index worker 与 sweeper → wakeup dispatcher —— 关闭时按相反顺序拆除。如果任何启动步骤抛错，已进入的资源仍会被妥善清理。持有定时器的那个进程（<code>enable_scheduler=True</code>）在进入时会把持久化的 cron 任务对齐到自己的任务集中，以保证它们跨重启生效。</p>
+<h3 id="manager">Manager</h3>
+<p>下列资源在 lifespan 期间被绑定到 FastAPI 应用状态上，所有请求共享：</p>
+<table><thead><tr><th>资源</th><th>职责</th></tr></thead><tbody><tr><td><code>MessageBus</code></td><td>Redis 支撑的运行时原语（会话锁 + 回放日志、收件箱队列、唤醒信号）。是调度触发、团队消息与后台工具完成抵达空闲会话的唯一投递通道；也是支撑多进程运行的基础。</td></tr><tr><td><code>WakeupDispatcher</code></td><td>每个进程一个。订阅唤醒信号，对每条入队的唤醒驱动 <code>ChatService.run</code> 处理目标会话。</td></tr><tr><td><code>BackgroundTaskManager</code></td><td>纯 asyncio 任务注册表。<code>ToolOffloadMiddleware</code> 在此派生 watcher 任务；结果通过消息总线（inbox + wakeup）回送，而不是保留在该 manager 中。</td></tr><tr><td><code>ChatRunRegistry</code></td><td>单进程注册表，为 <code>POST /chat</code> 强制“同一会话仅一次运行”规则。重复提交会以 HTTP 409 返回。</td></tr><tr><td><code>SchedulerManager</code></td><td>基于 APScheduler 的 cron 执行。触发时，trigger 会向目标会话的收件箱推一个 <code>HintBlock</code> 并入队一个唤醒 —— 不直接调用 <code>ChatService</code>。只有 <code>enable_scheduler=True</code> 的进程持有定时器；其余进程照常构造该 manager，但不运行任何任务，写入 schedule 后通过消息总线通知持有者，持有者重新读取存储对齐任务集，并每 60 秒无条件对齐一次。</td></tr><tr><td><code>WorkspaceManager</code></td><td>工作区生命周期与 TTL 缓存；隔离粒度（<code>per_agent</code>、<code>per_session</code>、<code>per_user</code>）在管理器上配置。</td></tr><tr><td><code>ChatService</code></td><td>运行或中断会话的唯一入口。加载记录、组装 toolkit、构建中间件、获取消息总线会话锁，并驱动智能体的 reply 流。</td></tr><tr><td><code>SessionService</code></td><td>组合 storage 与 message bus，处理会话级操作：创建 / 更新 / 删除、探测统一的 <code>SessionStatus</code>，以及派发中断。</td></tr><tr><td><code>KnowledgeBaseService</code></td><td>可选。向 <code>create_app</code> 传入 <code>knowledge_base_manager</code> 时启用，负责 <code>/knowledge_bases</code> 下的 CRUD、上传与检索端点。</td></tr><tr><td><code>RealtimeService</code></td><td>把持久化会话组装为 <code>RealtimeAgent</code>，复用文本模式的工作区、工具、权限与历史。</td></tr><tr><td><code>IndexWorker</code> / <code>IndexSweeper</code></td><td>可选。<code>enable_index_worker=True</code> 时在进程内启动；消费上传任务、回收孤立 blob。作为专用 worker 部署时可跳过。</td></tr></tbody></table>
+<h3 id="中间件">中间件</h3>
+<p>两个独立的中间件层在不同作用域上运作。</p>
+<p><strong>ASGI 中间件</strong>包裹每次 HTTP 请求。实际场景中常见两类：<strong>协议中间件</strong>（例如 <code>AGUIProtocolMiddleware</code>），拦截会话流端点的 SSE 响应并把每帧改写为目标协议；<strong>可观测性中间件</strong>（例如 OpenTelemetry tracing）。两者都通过 <code>extra_middlewares</code> 安装。</p>
+<p><strong>智能体层中间件</strong>包裹 <code>ChatService</code> 内对智能体的每次调用，暴露在 <code>agentscope.app.middleware</code> 下；框架始终安装三个：</p>
+<ul>
+<li><code>InboxMiddleware</code> —— hint 注入的唯一所有者。每次推理步骤前会清空会话收件箱，并把队列中的 <code>HintBlock</code> 以 <code>HintBlockEvent</code> 形式 yield 出来，让调度触发、团队消息与卸载工具结果都通过同一路径流入智能体上下文。</li>
+<li><code>ToolOffloadMiddleware</code> —— 工具调用超时后会被转入后台 watcher 任务，并向智能体 yield 一个合成占位结果。当 watcher 完成时，结果连同唤醒被推回会话收件箱，下一次运行时被取走。</li>
+<li><code>StateChangeMiddleware</code> —— 在智能体状态发生变化时（例如 <code>tasks_context</code>、<code>permission_context</code>）发出 <code>CustomEvent</code>，让前端无需读取原始状态快照即可作出反应。</li>
+</ul>
+<p>要添加自己的中间件（审计日志、租户隔离、自定义鉴权……），向 <code>create_app</code> 传入 <code>extra_agent_middlewares</code> 工厂。该工厂在每次组装智能体时被调用一次，其返回的中间件会追加到框架自带的之后。</p>
+<h3 id="依赖">依赖</h3>
+<p>Router 通过 FastAPI 的 <code>Depends()</code> 拿到应用状态。标准注入项（位于 <code>agentscope.app.deps</code>）如下：</p>
+<table><thead><tr><th>依赖</th><th>返回</th></tr></thead><tbody><tr><td><code>get_current_user_id</code></td><td>调用者的 user id —— 可被覆盖以对接任意鉴权系统。</td></tr><tr><td><code>get_storage</code></td><td>绑定在 app 上的 <code>StorageBase</code> 实例。</td></tr><tr><td><code>get_message_bus</code></td><td>绑定在 app 上的 <code>MessageBus</code> 实例。</td></tr><tr><td><code>get_workspace_manager</code></td><td>由 lifespan 绑定的 <code>WorkspaceManager</code>。</td></tr><tr><td><code>get_background_task_manager</code></td><td>由 lifespan 绑定的 <code>BackgroundTaskManager</code>。</td></tr><tr><td><code>get_scheduler_manager</code></td><td>由 lifespan 绑定的 <code>SchedulerManager</code>。</td></tr><tr><td><code>get_chat_run_registry</code></td><td>单进程 <code>ChatRunRegistry</code>，用于强制“同一会话仅一次运行”规则。</td></tr><tr><td><code>get_chat_service</code></td><td>由 lifespan 绑定的 <code>ChatService</code>。</td></tr><tr><td><code>get_session_service</code></td><td><code>SessionService</code>，组合 storage 与 message bus 处理会话生命周期、状态探测与中断。</td></tr><tr><td><code>get_realtime_service</code></td><td>负责组装浏览器语音会话的 <code>RealtimeService</code>。</td></tr><tr><td><code>get_extra_agent_middlewares</code></td><td>传入 <code>create_app</code> 的可选 <code>AgentMiddlewareFactory</code>。</td></tr><tr><td><code>get_extra_agent_tools</code></td><td>传入 <code>create_app</code> 的可选 <code>AgentToolFactory</code>。</td></tr><tr><td><code>get_knowledge_base_manager</code></td><td><code>KnowledgeBaseManagerBase</code>（未启用 KB 功能时返回 503）。</td></tr><tr><td><code>get_knowledge_base_service</code></td><td><code>KnowledgeBaseService</code>（未启用 KB 功能时返回 503）。</td></tr><tr><td><code>get_blob_store</code></td><td>支撑 KB 上传的 <code>BlobStoreBase</code>（未启用 KB 功能时返回 503）。</td></tr><tr><td><code>get_knowledge_parsers</code></td><td>为 KB 上传配置的 parser 注册表（未启用 KB 功能时返回 503）。</td></tr></tbody></table>
+<h2 id="延伸阅读">延伸阅读</h2>
+<div class="cards"><div class="card"><strong><a href="/agentscope-course/building-blocks/agent/overview/">Agent</a></strong><p>核心智能体抽象与 ReAct 循环</p></div><div class="card"><strong><a href="/agentscope-course/building-blocks/message-and-event/">Message &amp; Event</a></strong><p>事件流与消息重建</p></div><div class="card"><strong><a href="/agentscope-course/building-blocks/tool/overview/">Tool</a></strong><p>内置与自定义工具，包括外部执行</p></div><div class="card"><strong><a href="/agentscope-course/building-blocks/context/overview/">Context</a></strong><p>上下文压缩与工作区 offloading</p></div></div></article><footer><div class="paging"><a href="/agentscope-course/building-blocks/a2a/">上一节 · A2A 协议</a><a href="/agentscope-course/deploy/agent-team/">下一节 · 智能体团队</a></div><div class="credits"><a href="https://docs.agentscope.io/zh/versions/2.0.12/deploy/agent-service" target="_blank" rel="noopener">在线原页</a> · <a href="/agentscope-course/mdx/deploy/agent-service.mdx">原始 MDX</a> · <a href="https://github.com/agentscope-ai/docs/blob/e0ee835d1aca5d2b840d29bdd2f70770bbef69e8/zh/versions/2.0.12/deploy/agent-service.mdx" target="_blank" rel="noopener">固定版本来源</a> · <a href="/agentscope-course/LICENSE.txt">MIT 许可</a></div></footer></main></div></body></html>

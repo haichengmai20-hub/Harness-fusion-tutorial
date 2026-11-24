@@ -1,0 +1,137 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>计划模式 · AgentScope</title><link rel="stylesheet" href="/agentscope-course/reader.css"><script defer src="/agentscope-course/reader.js"></script></head><body><header class="mast"><a href="/agentscope-course/">AgentScope <small>中文文档</small></a><span>v2.0.12</span><button id="catalog" aria-controls="outline" aria-expanded="false">目录</button></header><div class="layout"><nav id="outline" aria-label="AgentScope 文档目录"><div class="group">快速开始</div><a href="/agentscope-course/" >AgentScope 2.0 是什么？</a><a href="/agentscope-course/quickstart/" >快速开始</a><a href="/agentscope-course/release-notes/" >更新日志</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/message-and-event/" >消息与事件</a><div class="group">核心模块 / 智能体</div><a href="/agentscope-course/building-blocks/agent/overview/" >智能体 · 概述</a><a href="/agentscope-course/building-blocks/agent/configure-agent/" >配置智能体</a><a href="/agentscope-course/building-blocks/agent/run-agent/" >运行智能体</a><a href="/agentscope-course/building-blocks/agent/interrupt-agent/" >中断智能体</a><a href="/agentscope-course/building-blocks/agent/human-in-the-loop/" >人机交互</a><div class="group">核心模块 / 模型</div><a href="/agentscope-course/building-blocks/model/overview/" >模型 · 概述</a><a href="/agentscope-course/building-blocks/model/llm/" >大语言模型</a><a href="/agentscope-course/building-blocks/model/tts/" >语音合成</a><a href="/agentscope-course/building-blocks/model/asr/" >语音识别</a><a href="/agentscope-course/building-blocks/model/embedding/" >嵌入模型</a><div class="group">核心模块 / 上下文管理</div><a href="/agentscope-course/building-blocks/context/overview/" >上下文管理 · 概述</a><a href="/agentscope-course/building-blocks/context/environment-awareness/" >感知环境</a><a href="/agentscope-course/building-blocks/context/compress-context/" >压缩上下文</a><a href="/agentscope-course/building-blocks/context/offload-context/" >卸载上下文</a><div class="group">核心模块 / 工具</div><a href="/agentscope-course/building-blocks/tool/overview/" >工具 · 概述</a><a href="/agentscope-course/building-blocks/tool/python-tool/" >Python 函数工具</a><a href="/agentscope-course/building-blocks/tool/mcp/" >MCP</a><a href="/agentscope-course/building-blocks/tool/skill/" >Skill</a><a href="/agentscope-course/building-blocks/tool/manage-tools/" >元工具</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/plan/" aria-current="page">计划模式</a><div class="group">核心模块 / 流水线</div><a href="/agentscope-course/building-blocks/pipeline/overview/" >流水线 · 概述</a><a href="/agentscope-course/building-blocks/pipeline/goal/" >目标流水线</a><a href="/agentscope-course/building-blocks/pipeline/team/" >团队流水线</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/sop/" >标准作业流程</a><div class="group">核心模块 / 权限系统</div><a href="/agentscope-course/building-blocks/permission-system/overview/" >权限系统 · 概述</a><a href="/agentscope-course/building-blocks/permission-system/permission-mode/" >权限模式</a><a href="/agentscope-course/building-blocks/permission-system/permission-rule/" >权限规则</a><a href="/agentscope-course/building-blocks/permission-system/tool-check/" >工具内置检查</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/middleware/" >中间件</a><a href="/agentscope-course/building-blocks/rag/" >RAG</a><a href="/agentscope-course/building-blocks/long-term-memory/" >长期记忆</a><div class="group">核心模块 / 工作区</div><a href="/agentscope-course/building-blocks/workspace/overview/" >工作区 · 概述</a><a href="/agentscope-course/building-blocks/workspace/run-workspace/" >运行工作区</a><a href="/agentscope-course/building-blocks/workspace/manage-resources/" >管理资源</a><a href="/agentscope-course/building-blocks/workspace/mcp-gateway/" >MCP 网关</a><div class="group">核心模块 / 实时语音智能体</div><a href="/agentscope-course/building-blocks/realtime/overview/" >实时语音智能体 · 概述</a><a href="/agentscope-course/building-blocks/realtime/speech-to-speech/" >语音到语音</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/console/" >终端 UI</a><a href="/agentscope-course/building-blocks/a2a/" >A2A 协议</a><div class="group">智能体即服务</div><a href="/agentscope-course/deploy/agent-service/" >架构</a><a href="/agentscope-course/deploy/agent-team/" >智能体团队</a><a href="/agentscope-course/deploy/sop/" >SOP 服务</a><a href="/agentscope-course/deploy/sharing/" >资源共享</a><a href="/agentscope-course/deploy/rag/" >RAG 服务</a><a href="/agentscope-course/deploy/workspace-manager/" >工作区管理</a><div class="group">智能体即服务 / MCP 与技能中心</div><a href="/agentscope-course/deploy/hub/overview/" >MCP 与技能中心 · 概览</a><a href="/agentscope-course/deploy/hub/mcp-hub/" >MCP 中心</a><a href="/agentscope-course/deploy/hub/skill-hub/" >技能中心</a><div class="group">智能体即服务 / 消息渠道</div><a href="/agentscope-course/deploy/channel/overview/" >消息渠道 · 概览</a><a href="/agentscope-course/deploy/channel/routing/" >会话路由</a><a href="/agentscope-course/deploy/channel/feishu/" >飞书</a><a href="/agentscope-course/deploy/channel/dingtalk/" >钉钉</a><a href="/agentscope-course/deploy/channel/discord/" >Discord</a><a href="/agentscope-course/deploy/channel/custom/" >自定义渠道</a><div class="group">其他</div><a href="/agentscope-course/others/faq/" >常见问题</a><a href="/agentscope-course/others/change-log/" >版本迁移</a><div class="group">智能体即服务 / API</div><a href="/agentscope-course/api/">API 参考</a></nav><main><div class="context">核心模块</div><article class="prose-custom" id="content"><h1>计划模式</h1><p class="dek">为智能体提供结构化任务清单，用于规划、追踪并协调复杂工作</p><h2 id="概述">概述</h2>
+<p>计划（Planning）是智能体把复杂请求拆分成离散、有序、可追踪步骤的方式。AgentScope 不让模型仅靠自由形式的推理来同时兼顾多步目标，而是提供一小组内置工具，让智能体通过工具调用来维护一份<strong>显式、结构化的任务清单</strong> —— 任务的创建、查询与更新都走工具调用。</p>
+<p>AgentScope 内置了四个计划相关的工具：</p>
+<table><thead><tr><th>Tool</th><th>操作</th><th>只读</th></tr></thead><tbody><tr><td><code>TaskCreate</code></td><td>向任务清单末尾追加新任务</td><td>否</td></tr><tr><td><code>TaskGet</code></td><td>按 ID 获取单个任务的完整信息（描述、状态、依赖）</td><td>是</td></tr><tr><td><code>TaskList</code></td><td>列出所有任务及其状态、owner、阻塞关系</td><td>是</td></tr><tr><td><code>TaskUpdate</code></td><td>更新任务的状态、字段或依赖边，亦可删除任务</td><td>否</td></tr></tbody></table>
+<p>四者都是状态注入式工具（<code>is_state_injected = True</code>）：智能体运行时把当前的 <code>AgentState</code> 注入每次调用，工具直接读写 <code>agent.state.tasks_context</code>。这意味着任务清单<strong>以智能体为作用域</strong>，并随智能体的状态进行持久化。</p>
+<h2 id="使用计划工具">使用计划工具</h2>
+<h3 id="装配工具">装配工具</h3>
+<p>像其他内置工具一样实例化并注册到 <code>Toolkit</code>：</p>
+<div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">from agentscope.agent import Agent
+from agentscope.tool import (
+    Toolkit,
+    TaskCreate,
+    TaskGet,
+    TaskList,
+    TaskUpdate,
+)
+
+toolkit = Toolkit(
+    tools=[
+        TaskCreate(),
+        TaskGet(),
+        TaskList(),
+        TaskUpdate(),
+    ],
+)
+
+agent = Agent(
+    name=&quot;planner&quot;,
+    system_prompt=&quot;You are a planning assistant.&quot;,
+    model=model,
+    toolkit=toolkit,
+)
+</code></pre></div>
+<p>每个工具的 <code>description</code> 已经包含详细提示，说明何时调用、何时跳过以及如何解读输出，因此不需要额外的系统提示工程。<code>check_permissions()</code> 硬编码为 <code>ALLOW</code> —— 计划工具是纯内存状态变更，不会触发用户提示。</p>
+<h3 id="任务生命周期">任务生命周期</h3>
+<p>典型的规划循环如下：</p>
+<div class="steps"><section class="step"><h3>登记工作</h3><p>收到新指令时，智能体对每个离散步骤分别调用一次 <code>TaskCreate</code>，提供一句简短的命令式 <code>subject</code> 和更详尽的 <code>description</code>。新任务按创建顺序追加；<code>id</code> 是稳定且单调递增的数字串（<code>&quot;1&quot;</code>、<code>&quot;2&quot;</code>……）。</p></section><section class="step"><h3>查看队列</h3><p><code>TaskList</code> 返回每个任务一行的紧凑摘要（id、状态、subject、owner、blocked-by），智能体据此挑选下一个可做的任务 —— 通常是 ID 最小且无未解 <code>blocked_by</code> 的 <code>pending</code> 任务。</p></section><section class="step"><h3>认领并开始</h3><p>开始工作前，智能体调用 <code>TaskUpdate</code> 把任务的 <code>status</code> 置为 <code>in_progress</code>（多智能体场景下还可设置 <code>owner</code>）。</p></section><section class="step"><h3>获取完整上下文</h3><p><code>TaskGet</code> 返回特定任务的完整描述、依赖边与元数据 —— 当描述较长时，在执行前调用很有帮助。</p></section><section class="step"><h3>完成或重新规划</h3><p>完成时，<code>TaskUpdate</code> 把状态翻转为 <code>completed</code>。若智能体发现了新工作，则回到 <code>TaskCreate</code>；若某个任务已无需做，则把状态置为 <code>deleted</code>（硬删除，同时会修正所有引用了该任务的其他任务的依赖边）。</p></section></div>
+<p>状态流转刻意保持线性：</p>
+<div class="code-example"><div class="code-bar"><span>代码</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code data-caption="代码" data-lang="text">pending → in_progress → completed
+                          (或)
+                      ↘ deleted（任意状态均可，硬删除）
+</code></pre></div>
+<h3 id="表达依赖">表达依赖</h3>
+<p>任务暴露两条对称的依赖边：</p>
+<ul>
+<li><code>blocks</code> —— 在本任务完成前不能开始的任务 ID 列表。</li>
+<li><code>blocked_by</code> —— 必须在本任务开始前完成的任务 ID 列表。</li>
+</ul>
+<p><code>TaskUpdate</code> 接受 <code>add_blocks</code> 与 <code>add_blocked_by</code> 参数。每次调用都会<strong>自动修改两端</strong>，保持数据一致：</p>
+<div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python"># 创建好任务 &quot;1&quot; 与 &quot;2&quot; 后，让 &quot;2&quot; 依赖 &quot;1&quot;：
+await TaskUpdate()(
+    task_id=&quot;2&quot;,
+    add_blocked_by=[&quot;1&quot;],
+    _agent_state=agent.state,
+)
+# 此时：task &quot;2&quot;.blocked_by == [&quot;1&quot;] 且 task &quot;1&quot;.blocks == [&quot;2&quot;]
+</code></pre></div>
+<p>任务被删除时，其 ID 会从其他所有任务的 <code>blocks</code> 与 <code>blocked_by</code> 中移除，保证依赖图始终有效。任务被 <code>TaskUpdate</code> 标记为 <code>completed</code> 时同理：它的 ID 会从所有后继任务的 <code>blocked_by</code> 中移除，因此 <code>blocked_by</code> 里剩下的永远是仍未完成的前置任务，阻塞已经解除的任务不会再显示为不可执行。</p>
+<aside class="notice note"><strong>说明</strong><p><code>TaskList</code> 会标注每个仍有未解 <code>blocked_by</code> 的任务，<code>TaskGet</code> 则返回完整的依赖边列表。智能体据此优先选择无阻塞的工作，但<strong>执行层面是仅建议性的</strong> —— 运行时不会阻止模型去做一个被阻塞的任务。</p></aside>
+<h2 id="存储">存储</h2>
+<p>所有任务状态都存在智能体上，位于 <code>agent.state.tasks_context</code>。相关类型如下：</p>
+<div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">class Task(BaseModel):
+    id: str                       # 单调递增的数字串，由 TaskCreate 分配
+    subject: str                  # 一句话命令式描述
+    description: str              # 详细的需求 / 上下文
+    state: Literal[&quot;pending&quot;, &quot;in_progress&quot;, &quot;completed&quot;] = &quot;pending&quot;
+    owner: str | None = None
+    blocks: list[str] = []        # 被本任务阻塞的任务 ID
+    blocked_by: list[str] = []    # 阻塞本任务的任务 ID
+    metadata: dict[str, Any] = {}
+    created_at: str               # 创建时设置的 ISO-8601 时间戳
+
+class TaskContext(BaseModel):
+    tasks: list[Task] = []
+</code></pre></div>
+<p><code>AgentState.tasks_context</code> 是 <code>agent.state</code> 模型上的常规字段，这意味着：</p>
+<ul>
+<li><strong>可被序列化保存。</strong> 保存 <code>agent.state</code> 会完整保存任务清单，恢复状态时计划也一并恢复。</li>
+<li><strong>以智能体为单位。</strong> 两个智能体默认不共享任务清单；多智能体协调由开发者自行处理。</li>
+<li><strong>可在智能体循环之外修改。</strong> 任何能拿到 <code>agent.state</code> 的代码 —— 中间件、应用代码、评测器 —— 都可以直接读写任务。</li>
+</ul>
+<h2 id="自定义任务">自定义任务</h2>
+<p>由于任务存在 <code>agent.state.tasks_context</code>，开发者可以绕过 LLM 直接以编程方式管理任务。常见场景：</p>
+<ul>
+<li><strong>预置（Seeding）</strong>：用其他渠道（另一个智能体、工作流引擎、静态分析）生成的现成计划喂给智能体。</li>
+<li><strong>导入（Importing）</strong>：从外部追踪系统（Jira、GitHub issues、内部任务库）导入既有工作项。</li>
+<li><strong>迁移（Migrating）</strong>：把 state 从一个 agent 实例迁移到另一个，或恢复部分已完成的计划。</li>
+<li><strong>评测（Evaluation）</strong>：在智能体推理前由测试 harness 注入 ground-truth 任务。</li>
+</ul>
+<p>下面的示例在智能体第一次 reply 之前预置了两个有依赖关系的任务：</p>
+<div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">from agentscope.agent import Agent
+from agentscope.state import Task
+from agentscope.tool import Toolkit, TaskCreate, TaskGet, TaskList, TaskUpdate
+
+agent = Agent(
+    name=&quot;planner&quot;,
+    system_prompt=&quot;You are a planning assistant.&quot;,
+    model=model,
+    toolkit=Toolkit(
+        tools=[TaskCreate(), TaskGet(), TaskList(), TaskUpdate()],
+    ),
+)
+
+agent.state.tasks_context.tasks.extend(
+    [
+        Task(
+            id=&quot;1&quot;,
+            subject=&quot;Fetch project requirements&quot;,
+            description=&quot;Read README.md and CONTRIBUTING.md in the repo root.&quot;,
+            metadata={&quot;source&quot;: &quot;seed&quot;},
+        ),
+        Task(
+            id=&quot;2&quot;,
+            subject=&quot;Draft an implementation plan&quot;,
+            description=&quot;Produce a step-by-step plan based on the requirements.&quot;,
+            blocked_by=[&quot;1&quot;],
+            metadata={&quot;source&quot;: &quot;seed&quot;},
+        ),
+    ],
+)
+# 保持反向边一致：
+agent.state.tasks_context.tasks[0].blocks.append(&quot;2&quot;)
+</code></pre></div>
+<aside class="notice warning"><strong>注意</strong><p>直接修改 <code>tasks_context</code> 时，你需要自行保证：</p><ul>
+<li><strong>ID 唯一且可解析。</strong> <code>TaskCreate</code> 取下一个 ID 的方式是 <code>max(int(task.id) for task in tasks) + 1</code>。非数字 ID 在计算下一个 ID 时被忽略，但也不会被重新分配 —— 请使用数字串 ID（<code>&quot;1&quot;</code>、<code>&quot;2&quot;</code>……）以让自动分配持续工作。</li>
+<li><strong>依赖边双向一致。</strong> <code>blocks</code> 与 <code>blocked_by</code> 必须同步。<code>TaskUpdate</code> 会自动维护；手动修改不会。</li>
+<li><strong>状态值合法。</strong> <code>Task.state</code> 只接受 <code>pending</code>、<code>in_progress</code>、<code>completed</code>。<code>deleted</code> 是 <code>TaskUpdate</code> 暴露的<em>操作</em>，而非存储的状态 —— 想手动删除任务，直接从列表中移除（并清理它的依赖边）即可。</li>
+</ul></aside>
+<p>也可以随时清空或重置计划：</p>
+<div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">agent.state.tasks_context.tasks.clear()
+</code></pre></div>
+<p>智能体下一轮就会看到一个空计划并从头开始。</p>
+<h2 id="延伸阅读">延伸阅读</h2>
+<ul>
+<li><a href="/agentscope-course/building-blocks/tool/python-tool/">Tool</a> —— toolkit、<code>ToolBase</code> 接口，以及状态注入式工具如何拿到 <code>AgentState</code>。</li>
+<li><a href="/agentscope-course/building-blocks/agent/overview/">Agent</a> —— 智能体生命周期，包括 <code>AgentState</code> 的创建、恢复与持久化。</li>
+</ul></article><footer><div class="paging"><a href="/agentscope-course/building-blocks/tool/manage-tools/">上一节 · 元工具</a><a href="/agentscope-course/building-blocks/pipeline/overview/">下一节 · 流水线 · 概述</a></div><div class="credits"><a href="https://docs.agentscope.io/zh/versions/2.0.12/building-blocks/plan" target="_blank" rel="noopener">在线原页</a> · <a href="/agentscope-course/mdx/building-blocks/plan.mdx">原始 MDX</a> · <a href="https://github.com/agentscope-ai/docs/blob/e0ee835d1aca5d2b840d29bdd2f70770bbef69e8/zh/versions/2.0.12/building-blocks/plan.mdx" target="_blank" rel="noopener">固定版本来源</a> · <a href="/agentscope-course/LICENSE.txt">MIT 许可</a></div></footer></main></div></body></html>

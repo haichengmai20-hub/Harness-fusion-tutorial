@@ -1,0 +1,162 @@
+{
+  "s01": {
+    "question": "写文件的命令返回空输出后，模型会直接结束吗？",
+    "action": "在模拟器从第 0 步单步走到第 4 步，先预测下一步。再走到第 8 步，比较两次 bash 的作用。",
+    "expect": "第 4 步写入只返回空输出。模型随后要求用 cat 读回 hello.py，第 7 步才看到文件内容，第 8 步结束。",
+    "tab": "sim",
+    "needle": "uses only bash",
+    "point": 1
+  },
+  "s02": {
+    "question": "如果模型报出一个没有登记的工具名，分发器会把什么送回模型？",
+    "action": "在源码中找到按 block.name 查处理函数的那一行，假设查不到，顺着下面三行找出输出和关联编号。",
+    "expect": "查不到时生成含工具名的 Unknown 文本，仍构造 tool_result，将原来的 block.id 写入 tool_use_id。",
+    "tab": "source",
+    "needle": "handler = TOOL_HANDLERS.get(block.name)",
+    "point": 1
+  },
+  "s03": {
+    "question": "一个需要确认的工具请求到了权限层，在哪一步才真正得到执行结果？",
+    "action": "从模拟第 3 步开始看请求，依次走到第 4、5、6 步，分别记下规则裁决、用户选择和工具返回。",
+    "expect": "第 4 步硬拒绝检查通过，第二道规则要求询问。第 5 步用户允许，第 6 步才出现 bash 的结果。",
+    "tab": "sim",
+    "needle": "rule checks",
+    "point": 1
+  },
+  "s04": {
+    "question": "读取 package.json 时，前置和后置 Hook 分别能看到什么？",
+    "action": "在模拟第 4 步暂停，预测接下来先出现工具结果还是后置 Hook。继续到第 6 步核对。",
+    "expect": "第 4 步 PreToolUse 允许读取，第 5 步 read_file 才返回含 build 的 scripts 内容，第 6 步触发 PostToolUse。",
+    "tab": "sim",
+    "needle": "output handling",
+    "point": 2
+  },
+  "s05": {
+    "question": "列出重构计划以后，提醒出现在工具读取之前还是之后？",
+    "action": "从模拟第 2 步的待办清单读起，记录第 4 步的普通工具调用，再到第 5 步检查提醒写了什么。",
+    "expect": "第 2 步把检查解析器标为进行中、重构和测试列为待做。读 parser.py 后出现提醒，提示连续三轮未更新时应刷新待办。",
+    "tab": "sim",
+    "needle": "intended work visible",
+    "point": 2
+  },
+  "s06": {
+    "question": "子任务读了 cli.py，父任务随后得到的是文件内容还是调查结论？",
+    "action": "对照模拟第 3 步的子任务输入、第 4 步的 read_file 和第 5 步返回的工具名。",
+    "expect": "子任务以新的消息历史开始。文件读取发生在子循环里；回到父循环的是 task 的摘要，概述参数解析和命令分发。",
+    "tab": "sim",
+    "needle": "returns only a final summary",
+    "point": 2
+  },
+  "s07": {
+    "question": "模型第一次知道 code-review 这个名字，和第一次读到评审规范，是同一步吗？",
+    "action": "在模拟第 1 步看可用技能，再走到第 3、4 步。记下技能名第一次出现的位置和正文的消息类型。",
+    "expect": "第 1 步的目录已经有 code-review。第 3 步才请求 load_skill，第 4 步在工具结果中读到检查缺陷、回归和缺失测试的说明。",
+    "tab": "sim",
+    "needle": "cheap skill catalog",
+    "point": 2
+  },
+  "s08": {
+    "question": "十次读文件留下十条很长的工具结果。第八次的正文会被 L2 换成占位符吗？",
+    "action": "定位 L2 的 KEEP_RECENT_TOOL_RESULTS。假设十条结果依次编号 1～10 且正文都超过 120 个字符，手算循环切片，再检查替换条件。",
+    "expect": "第 8、9、10 条属于保留的最近三条。前七条才进入循环，达到长度条件的旧结果会被替换为占位说明。",
+    "tab": "learn",
+    "needle": "KEEP_RECENT_TOOL_RESULTS = 3",
+    "point": 2
+  },
+  "s09": {
+    "question": "新一轮模型从哪里知道项目常用的测试命令？",
+    "action": "比较模拟第 1 步和第 3 步：先记录加载的索引，再找出实际选中的记忆文件及测试命令。走到下一步验证。",
+    "expect": "索引有三项。第 3 步选中 project_facts.md，读出 npm run test:unit。第 4 步才请求用 bash 执行这个命令。",
+    "tab": "sim",
+    "needle": "selected project facts",
+    "point": 1
+  },
+  "s10": {
+    "question": "两次请求使用内容相同的 context，第二次还会重新拼接系统提示词吗？",
+    "action": "读 get_system_prompt 的 key 计算和紧接着的 if 分支。先画出已有缓存时的返回路线，再看条件不满足时调用哪个函数。",
+    "expect": "代码用有序键序列化 context。键相同且已有提示时返回 _last_prompt；否则调用 assemble_system_prompt 重新组装。这里缓存的是进程内的提示文本。",
+    "tab": "source",
+    "needle": "def get_system_prompt(context: dict)",
+    "point": 2
+  },
+  "s11": {
+    "question": "输出截断与输入超长都涉及 token，模拟中的恢复动作有什么不同？",
+    "action": "在模拟第 2 步记下 max_tokens 的变化，预测第 3 步遇到 prompt_too_long 是否仍会提高这个数，再单步揭晓。",
+    "expect": "第 2 步把输出预算从 8000 调到 64000。第 3 步改变输入消息，先做 reactive_compact，再重试一次。",
+    "tab": "sim",
+    "needle": "prompt overflow",
+    "point": 2
+  },
+  "s12": {
+    "question": "为什么部署任务已在图里，却第一次领取失败？",
+    "action": "到模拟第 3 步读部署任务的 blockedBy。尝试预测第 5 步的领取结果，以及完成 task_tests 后第 7 步会出现什么。",
+    "expect": "部署依赖 task_tests。首次领取返回阻塞项；完成测试任务后，结果列出 Deploy release 已解除阻塞。此时还没有部署执行结果。",
+    "tab": "sim",
+    "needle": "blockedBy dependencies",
+    "point": 2
+  },
+  "s13": {
+    "question": "第一次返回 task_42 时，能否向用户报告扫描找到了多少项？",
+    "action": "在模拟第 5 步先记下任务编号和结果类型，再只走一步，核对编号、完成状态与匹配数。",
+    "expect": "第 5 步只是后台任务启动的占位结果。第 6 步相同编号的 task_notification 标为 done，并报告找到了 12 项。",
+    "tab": "sim",
+    "needle": "main loop responsive",
+    "point": 2
+  },
+  "s14": {
+    "question": "定时任务到点时，哪个动作只负责排队，哪个动作才启动 Agent？",
+    "action": "比较模拟第 5 和第 6 步，分别抄下 cron_7 的生产者和消费者，判断 agent_loop 在哪一步收到 prompt。",
+    "expect": "第 5 步调度器匹配当前分钟，把 cron_7 放进队列。第 6 步队列处理器取出该项，调用 agent_loop(prompt)。",
+    "tab": "sim",
+    "needle": "queues due jobs",
+    "point": 2
+  },
+  "s15": {
+    "question": "队友已经写下测试通过，为什么 Lead 还要读自己的收件箱？",
+    "action": "在模拟第 5、6 步区分两个 JSONL 文件的收件人；继续到第 8 步，找出 Lead 获得回复的工具结果。",
+    "expect": "工作指令先进入 test-runner.jsonl，队友回信进入 lead.jsonl。Lead 调用 check_inbox 后，才在工具结果中读到队友报告的 Tests passed。",
+    "tab": "sim",
+    "needle": "file-backed mailboxes",
+    "point": 2
+  },
+  "s16": {
+    "question": "reviewer 已提交计划时，Lead 是否已经批准？",
+    "action": "从模拟第 3 步记下请求编号，对照第 5 步提交计划、第 6 步匹配响应、第 7 步审批的状态。",
+    "expect": "同一编号为 req_18。匹配到提交后状态是 ready_for_review，下一步才由 review_plan 明确给出 approved=true。",
+    "tab": "sim",
+    "needle": "response matching",
+    "point": 2
+  },
+  "s17": {
+    "question": "worker-a 看到无人的 task_5 时，已经取得执行资格了吗？",
+    "action": "比较模拟第 3、4、5 步：先读 owner，再找认领调用，最后看工作者进入哪种状态。",
+    "expect": "第 3 步 owner 为空，只说明它是候选。第 4 步请求领取，第 5 步工作者进入 WORK 并关联 task_5。",
+    "tab": "sim",
+    "needle": "claim eligible work",
+    "point": 2
+  },
+  "s18": {
+    "question": "待人工复核的工作树还有未提交改动。按默认参数清理，会在哪个分支停下？",
+    "action": "在源码定位 remove_worktree，查 discard_changes 的默认值及检查改动后的早返回，比较它与真正移除目录的调用顺序。",
+    "expect": "discard_changes 默认为 False。有改动时会先返回拒绝清理的信息，保留工作树以便复核；实际移除操作在这个判断之后。",
+    "tab": "source",
+    "needle": "def remove_worktree(name: str",
+    "point": 2
+  },
+  "s19": {
+    "question": "连接 docs 后，模型第一次看到可用名称和第一次得到搜索结果分别在哪里？",
+    "action": "在模拟第 4 步找服务端公布的两个名称，再走到第 5、6 步，按工具名核对调用和结果。",
+    "expect": "第 4 步列出 mcp__docs__search 与 mcp__docs__read。第 5 步才调用搜索，第 6 步的结果给出构建与环境变量提示。",
+    "tab": "sim",
+    "needle": "normalized tool namespace",
+    "point": 2
+  },
+  "s20": {
+    "question": "准备一次发布时，Agent 是先拿到上下文再委派，还是先启动队友？异步结果又何时回来？",
+    "action": "在模拟第 2 步读 assemble_prompt 的来源，然后找到第 5 步的队友调用和第 8 步的异步结果汇总。",
+    "expect": "第 2 步先组装记忆、任务图、技能、工具和策略。第 5 步分派文档工作，第 8 步才把后台完成、队友回信和 MCP 状态合回循环。",
+    "tab": "sim",
+    "needle": "composes context assembly",
+    "point": 1
+  }
+}

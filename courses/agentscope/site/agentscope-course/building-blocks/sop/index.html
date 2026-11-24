@@ -1,0 +1,137 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>标准作业流程 · AgentScope</title><link rel="stylesheet" href="/agentscope-course/reader.css"><script defer src="/agentscope-course/reader.js"></script></head><body><header class="mast"><a href="/agentscope-course/">AgentScope <small>中文文档</small></a><span>v2.0.12</span><button id="catalog" aria-controls="outline" aria-expanded="false">目录</button></header><div class="layout"><nav id="outline" aria-label="AgentScope 文档目录"><div class="group">快速开始</div><a href="/agentscope-course/" >AgentScope 2.0 是什么？</a><a href="/agentscope-course/quickstart/" >快速开始</a><a href="/agentscope-course/release-notes/" >更新日志</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/message-and-event/" >消息与事件</a><div class="group">核心模块 / 智能体</div><a href="/agentscope-course/building-blocks/agent/overview/" >智能体 · 概述</a><a href="/agentscope-course/building-blocks/agent/configure-agent/" >配置智能体</a><a href="/agentscope-course/building-blocks/agent/run-agent/" >运行智能体</a><a href="/agentscope-course/building-blocks/agent/interrupt-agent/" >中断智能体</a><a href="/agentscope-course/building-blocks/agent/human-in-the-loop/" >人机交互</a><div class="group">核心模块 / 模型</div><a href="/agentscope-course/building-blocks/model/overview/" >模型 · 概述</a><a href="/agentscope-course/building-blocks/model/llm/" >大语言模型</a><a href="/agentscope-course/building-blocks/model/tts/" >语音合成</a><a href="/agentscope-course/building-blocks/model/asr/" >语音识别</a><a href="/agentscope-course/building-blocks/model/embedding/" >嵌入模型</a><div class="group">核心模块 / 上下文管理</div><a href="/agentscope-course/building-blocks/context/overview/" >上下文管理 · 概述</a><a href="/agentscope-course/building-blocks/context/environment-awareness/" >感知环境</a><a href="/agentscope-course/building-blocks/context/compress-context/" >压缩上下文</a><a href="/agentscope-course/building-blocks/context/offload-context/" >卸载上下文</a><div class="group">核心模块 / 工具</div><a href="/agentscope-course/building-blocks/tool/overview/" >工具 · 概述</a><a href="/agentscope-course/building-blocks/tool/python-tool/" >Python 函数工具</a><a href="/agentscope-course/building-blocks/tool/mcp/" >MCP</a><a href="/agentscope-course/building-blocks/tool/skill/" >Skill</a><a href="/agentscope-course/building-blocks/tool/manage-tools/" >元工具</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/plan/" >计划模式</a><div class="group">核心模块 / 流水线</div><a href="/agentscope-course/building-blocks/pipeline/overview/" >流水线 · 概述</a><a href="/agentscope-course/building-blocks/pipeline/goal/" >目标流水线</a><a href="/agentscope-course/building-blocks/pipeline/team/" >团队流水线</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/sop/" aria-current="page">标准作业流程</a><div class="group">核心模块 / 权限系统</div><a href="/agentscope-course/building-blocks/permission-system/overview/" >权限系统 · 概述</a><a href="/agentscope-course/building-blocks/permission-system/permission-mode/" >权限模式</a><a href="/agentscope-course/building-blocks/permission-system/permission-rule/" >权限规则</a><a href="/agentscope-course/building-blocks/permission-system/tool-check/" >工具内置检查</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/middleware/" >中间件</a><a href="/agentscope-course/building-blocks/rag/" >RAG</a><a href="/agentscope-course/building-blocks/long-term-memory/" >长期记忆</a><div class="group">核心模块 / 工作区</div><a href="/agentscope-course/building-blocks/workspace/overview/" >工作区 · 概述</a><a href="/agentscope-course/building-blocks/workspace/run-workspace/" >运行工作区</a><a href="/agentscope-course/building-blocks/workspace/manage-resources/" >管理资源</a><a href="/agentscope-course/building-blocks/workspace/mcp-gateway/" >MCP 网关</a><div class="group">核心模块 / 实时语音智能体</div><a href="/agentscope-course/building-blocks/realtime/overview/" >实时语音智能体 · 概述</a><a href="/agentscope-course/building-blocks/realtime/speech-to-speech/" >语音到语音</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/console/" >终端 UI</a><a href="/agentscope-course/building-blocks/a2a/" >A2A 协议</a><div class="group">智能体即服务</div><a href="/agentscope-course/deploy/agent-service/" >架构</a><a href="/agentscope-course/deploy/agent-team/" >智能体团队</a><a href="/agentscope-course/deploy/sop/" >SOP 服务</a><a href="/agentscope-course/deploy/sharing/" >资源共享</a><a href="/agentscope-course/deploy/rag/" >RAG 服务</a><a href="/agentscope-course/deploy/workspace-manager/" >工作区管理</a><div class="group">智能体即服务 / MCP 与技能中心</div><a href="/agentscope-course/deploy/hub/overview/" >MCP 与技能中心 · 概览</a><a href="/agentscope-course/deploy/hub/mcp-hub/" >MCP 中心</a><a href="/agentscope-course/deploy/hub/skill-hub/" >技能中心</a><div class="group">智能体即服务 / 消息渠道</div><a href="/agentscope-course/deploy/channel/overview/" >消息渠道 · 概览</a><a href="/agentscope-course/deploy/channel/routing/" >会话路由</a><a href="/agentscope-course/deploy/channel/feishu/" >飞书</a><a href="/agentscope-course/deploy/channel/dingtalk/" >钉钉</a><a href="/agentscope-course/deploy/channel/discord/" >Discord</a><a href="/agentscope-course/deploy/channel/custom/" >自定义渠道</a><div class="group">其他</div><a href="/agentscope-course/others/faq/" >常见问题</a><a href="/agentscope-course/others/change-log/" >版本迁移</a><div class="group">智能体即服务 / API</div><a href="/agentscope-course/api/">API 参考</a></nav><main><div class="context">核心模块</div><article class="prose-custom" id="content"><h1>标准作业流程</h1><p class="dek">把多步任务拆成逐个验收的里程碑，让智能体按固定顺序推进</p><p>当一项任务必须按固定顺序经过几个里程碑、且每个里程碑都要验收后才能进入下一个时，开发者可以用 <code>agentscope.sop</code> 模块把它写成标准作业流程（Standard Operating Procedure，SOP）。流程只规定有哪些步骤、各步要证明什么，至于每一步怎么完成，交给执行它的智能体自己决定。</p>
+<p>该模块由以下几部分组成：</p>
+<table><thead><tr><th>组成</th><th>作用</th></tr></thead><tbody><tr><td><code>SOP</code></td><td>流程定义：名称、描述与按顺序排列的步骤，不保存任何运行状态，可反复用于多次运行</td></tr><tr><td><code>SOPStep</code></td><td>最常用的步骤形态：一个执行者干活，一个可选的验证者验收</td></tr><tr><td><code>SOPStepBase</code></td><td>步骤基类，用于实现自定义的步骤逻辑</td></tr><tr><td><code>SOPEngine</code></td><td>一次运行的驱动者：按顺序推进步骤、消耗重试次数、把人机交互的答复交给挂起的那一步</td></tr><tr><td><code>SOPRunState</code></td><td>一次运行的全部状态，是纯数据，可以持久化后恢复</td></tr></tbody></table>
+<p>与<a href="/agentscope-course/building-blocks/pipeline/goal/">目标流水线</a>相比，SOP 由多个有序的里程碑组成，每个里程碑有各自的验证者与重试次数，并且运行状态可以落盘，隔多久都能接着跑。</p>
+<aside class="notice note"><strong>说明</strong><p>SOP 模块处于实验阶段，接口可能在后续版本调整。</p></aside>
+<aside class="notice tip"><strong>提示</strong><p>判断一件事该不该写成 SOP，可以先问两个问题：不运行它，能否说清一共几步、每步由谁完成？如果不能，它不是 SOP。某一步完成时真的有人检查吗？如果没有，它不该单独成为一步。</p></aside>
+<h2 id="定义流程">定义流程</h2>
+<p>以下示例定义一个两步流程：先写出大纲并由审稿智能体验收，再按大纲写正文：</p>
+<div class="code-example"><div class="code-bar"><span>sop_quickstart.py</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="sop_quickstart.py" data-lang="python">import asyncio
+import os
+
+from agentscope.agent import Agent
+from agentscope.credential import DashScopeCredential
+from agentscope.message import UserMsg
+from agentscope.model import DashScopeChatModel
+from agentscope.sop import SOP, SOPEngine, SOPStep
+
+
+async def main() -&gt; None:
+    model = DashScopeChatModel(
+        credential=DashScopeCredential(api_key=os.getenv(&quot;DASHSCOPE_API_KEY&quot;)),
+        model=&quot;qwen3.8-max&quot;,
+    )
+
+    # 执行者：负责完成每一步的工作
+    writer = Agent(
+        name=&quot;Writer&quot;,
+        system_prompt=&quot;You&#x27;re a technical writer.&quot;,
+        model=model,
+    )
+    # 验证者：只负责验收，不参与写作
+    reviewer = Agent(
+        name=&quot;Reviewer&quot;,
+        system_prompt=&quot;You&#x27;re a strict reviewer.&quot;,
+        model=model,
+    )
+
+    sop = SOP(
+        name=&quot;write-article&quot;,
+        steps=[
+            SOPStep(
+                subject=&quot;列出大纲&quot;,
+                description=&quot;给出一份至少包含三个章节的文章大纲。&quot;,
+                executor=writer,
+                verifier=reviewer,
+                # 最多被驳回 3 次，之后整个运行失败
+                max_attempts=3,
+            ),
+            SOPStep(
+                subject=&quot;撰写正文&quot;,
+                description=&quot;严格按照上一步的大纲写出完整正文。&quot;,
+                executor=writer,
+                # 不设验证者：执行者交付即视为完成
+            ),
+        ],
+    )
+
+    engine = SOPEngine(sop)
+    # 运行的输入交给第一步
+    async for event in engine.reply_stream(
+        UserMsg(name=&quot;user&quot;, content=&quot;写一篇介绍向量数据库的文章。&quot;),
+    ):
+        print(event)
+
+    print(engine.phase)  # 例如 SOPPhase.COMPLETED
+
+
+asyncio.run(main())
+</code></pre></div>
+<p><code>SOPStep</code> 的构造参数如下：</p>
+<table><thead><tr><th>参数</th><th>类型</th><th>说明</th></tr></thead><tbody><tr><td><code>subject</code></td><td><code>str</code></td><td>步骤的简短名称</td></tr><tr><td><code>description</code></td><td><code>str</code></td><td>这一步必须达成的结果，只写终点，不写路线</td></tr><tr><td><code>executor</code></td><td><code>AgentLike</code></td><td>执行者</td></tr><tr><td><code>verifier</code></td><td><code>AgentLike | None</code>，默认 <code>None</code></td><td>验证者，为 <code>None</code> 时执行者交付即通过，适合只需要发生、无需验收的步骤</td></tr><tr><td><code>max_attempts</code></td><td><code>int</code>，默认 <code>3</code></td><td>最多被驳回几次，超出后整个运行失败</td></tr></tbody></table>
+<p>执行者与验证者只要满足 <code>AgentLike</code> 协议即可，<code>Agent</code> 天然满足。同一个智能体用在多个步骤里时，它的上下文在这些步骤间是连续的；各步使用不同的智能体，上下文就互相独立。</p>
+<aside class="notice warning"><strong>注意</strong><p>验收是验证者的职责，不要单独写成一步。某一步被驳回时，重做的是这一步自己：如果把「检查大纲」写成独立步骤，驳回后重跑的只是检查本身，得出的结论不会变，直到次数用尽。</p></aside>
+<h2 id="推进步骤">推进步骤</h2>
+<p>引擎按顺序逐步推进，已完成的步骤会被跳过。每一步的一次尝试分为执行与验收两半：</p>
+<div class="steps"><section class="step"><h3>执行者工作</h3><p>执行者收到步骤说明与上一步的交接内容，完成后以结构化输出交出 <code>handover</code>，即交给后续步骤的说明。</p></section><section class="step"><h3>验证者验收</h3><p>验证者看到步骤说明、这一步收到的输入以及执行者的交付，以结构化输出给出 <code>passed</code> 与 <code>message</code>。</p></section><section class="step"><h3>通过则进入下一步</h3><p>通过后这一步标记为完成，它的交付成为下一步的输入。</p></section><section class="step"><h3>驳回则重做</h3><p>驳回后交付被清空，<code>message</code> 连同当前是第几次尝试一起交给执行者重做。驳回次数达到 <code>max_attempts</code> 时，这一步与整个运行都标记为失败。</p></section></div>
+<p>步骤之间只传递交付内容，不传递文件或对话。第一步收到运行的输入，之后每一步收到的是上一步的交付，包在 <code>&lt;handover from=&quot;上一步名称&quot;&gt;</code> 标签里。因此执行者写交付时，要假设后续步骤没有看过它的任何工作过程。</p>
+<p>以下情况也会被记为一次驳回，同样消耗 <code>max_attempts</code>：</p>
+<table><thead><tr><th>情况</th><th>记录的原因</th></tr></thead><tbody><tr><td>执行者的回复结束了，但没有给出交付</td><td>没有结构化输出，什么也没交接</td></tr><tr><td>验证者的回复结束了，但没有给出结论</td><td>验证者没有得出结论</td></tr></tbody></table>
+<p>运行过程中，引擎在每次尝试前后各产出一个 <code>CustomEvent</code>，便于开发者展示进度：</p>
+<table><thead><tr><th>事件名</th><th><code>value</code> 内容</th></tr></thead><tbody><tr><td><code>SOP_STEP_STARTED</code></td><td><code>step</code>：步骤名称；<code>attempt</code>：第几次尝试</td></tr><tr><td><code>SOP_STEP_ENDED</code></td><td><code>step</code>：步骤名称；<code>phase</code>：本次尝试结束时的阶段</td></tr></tbody></table>
+<h2 id="查看运行阶段">查看运行阶段</h2>
+<p>步骤与整个运行共用同一组阶段 <code>SOPPhase</code>：</p>
+<table><thead><tr><th>阶段</th><th>含义</th></tr></thead><tbody><tr><td><code>PENDING</code></td><td>尚未开始，或被驳回后等待重做</td></tr><tr><td><code>RUNNING</code></td><td>正在进行</td></tr><tr><td><code>AWAITING</code></td><td>已挂起，等待外部答复后才能继续</td></tr><tr><td><code>COMPLETED</code></td><td>已通过验收</td></tr><tr><td><code>FAILED</code></td><td>驳回次数用尽</td></tr></tbody></table>
+<p>整个运行的阶段由各步骤的阶段推算得出，规则依次为：全部未开始时为 <code>PENDING</code>，任一步失败即为 <code>FAILED</code>，全部完成为 <code>COMPLETED</code>，任一步挂起为 <code>AWAITING</code>，其余情况为 <code>RUNNING</code>。通过 <code>engine.phase</code> 或 <code>engine.state.phase</code> 可以读取。</p>
+<h2 id="挂起与恢复">挂起与恢复</h2>
+<p>执行者或验证者停在工具授权或外部执行上时，这一步进入 <code>AWAITING</code>，<code>reply_stream</code> 随即结束，不占用协程，也不持有任何锁。开发者拿到答复后再调用一次 <code>reply_stream</code> 即可继续：</p>
+<div class="code-example"><div class="code-bar"><span>挂起后恢复</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="挂起后恢复" data-lang="python"># 某个智能体请求工具授权，事件流随即结束
+async for event in engine.reply_stream(UserMsg(name=&quot;user&quot;, content=&quot;...&quot;)):
+    ...
+
+# 把用户的答复交回去，挂起的那一步从断点接着跑
+async for event in engine.reply_stream(user_confirm_result_event):
+    ...
+</code></pre></div>
+<p><code>reply_stream</code> 接受的输入如下：</p>
+<table><thead><tr><th>输入类型</th><th>含义</th></tr></thead><tbody><tr><td><code>Msg</code> / <code>list[Msg]</code></td><td>开始运行，作为第一步的输入</td></tr><tr><td><code>UserConfirmResultEvent</code></td><td>用户对工具授权的答复，交给挂起的那一步</td></tr><tr><td><code>ExternalExecutionResultEvent</code></td><td>外部执行的结果，交给挂起的那一步</td></tr><tr><td><code>UserInterruptEvent</code></td><td>放弃挂起的调用；本次尝试作废但不计入驳回次数，这一步回到 <code>PENDING</code></td></tr><tr><td><code>None</code></td><td>不带新输入，从当前状态继续</td></tr></tbody></table>
+<h3 id="持久化运行状态">持久化运行状态</h3>
+<p><code>SOPRunState</code> 是一个 Pydantic 模型，包含运行的输入、每一步的阶段、交付与历次结论。开发者可以把它存下来，在之后任意时间、甚至另一个进程里重建引擎继续运行：</p>
+<div class="code-example"><div class="code-bar"><span>保存与恢复运行状态</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="保存与恢复运行状态" data-lang="python">from agentscope.sop import SOPEngine, SOPRunState
+
+# 挂起后保存运行状态
+saved = engine.state.model_dump_json()
+
+# 之后：用同一份流程定义和保存的状态重建引擎
+engine = SOPEngine(sop, SOPRunState.model_validate_json(saved))
+async for event in engine.reply_stream(user_confirm_result_event):
+    ...
+</code></pre></div>
+<aside class="notice warning"><strong>注意</strong><p><code>SOPRunState</code> 只包含流程自己的状态。执行者与验证者作为 <code>Agent</code> 各自持有上下文，需要开发者按智能体自己的方式另行保存与恢复，再用它们构造 <code>SOP</code> 交给引擎。流程在保存之后若增删了步骤，步骤数与状态对不上，<code>SOPEngine</code> 会抛出 <code>ValueError</code>。</p></aside>
+<h2 id="自定义步骤">自定义步骤</h2>
+<p>当一个步骤不是「一人执行、一人验收」的形态时，开发者可以继承 <code>SOPStepBase</code> 并实现 <code>reply_stream</code>。引擎从不查看步骤内部，只要求<strong>一次调用就是一次尝试</strong>，并且这次尝试要么挂起，要么在传入的状态上记下结论：</p>
+<div class="code-example"><div class="code-bar"><span>自定义步骤</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="自定义步骤" data-lang="python">from agentscope.sop import SOPPhase, SOPStepBase, SOPStepRunState
+
+
+class RunTests(SOPStepBase):
+    &quot;&quot;&quot;不经过模型，直接用测试结果判定的步骤。&quot;&quot;&quot;
+
+    async def reply_stream(self, inputs, state: SOPStepRunState):
+        state.phase = SOPPhase.RUNNING
+        passed, report = await run_test_suite()  # 开发者自己的逻辑
+        # 记下结论：通过则完成，未通过则回到 PENDING 等待重做
+        self.record(state, passed, message=report, verifier=&quot;pytest&quot;)
+        # reply_stream 必须是异步生成器，这里没有事件需要产出
+        return
+        yield
+</code></pre></div>
+<p><code>SOPStepBase</code> 提供以下接口：</p>
+<table><thead><tr><th>接口</th><th>说明</th></tr></thead><tbody><tr><td><code>__init__(subject, description, max_attempts=3)</code></td><td>步骤名称、目标与最多驳回次数</td></tr><tr><td><code>reply_stream(inputs, state)</code></td><td>抽象方法，完成一次尝试；<code>state</code> 是这一步在运行中的记录</td></tr><tr><td><code>record(state, passed, message=&quot;&quot;, verifier=&quot;&quot;)</code></td><td>记下一次结论；驳回时会清空交付并回到 <code>PENDING</code></td></tr><tr><td><code>state_type</code></td><td>类属性，步骤需要额外保存字段时，继承 <code>SOPStepRunState</code> 并在这里指定，额外字段会随运行状态一起持久化</td></tr></tbody></table>
+<h2 id="在终端中调试">在终端中调试</h2>
+<p><code>SOPEngine</code> 满足<a href="/agentscope-course/building-blocks/pipeline/overview/">流水线</a>的 <code>PipelineProtocol</code>，可以像智能体一样直接交给<a href="/agentscope-course/building-blocks/console/">终端界面</a>运行，工具授权与中断都由界面处理：</p>
+<div class="code-example"><div class="code-bar"><span>在终端中运行 SOP</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="在终端中运行 SOP" data-lang="python">from agentscope.console import launch_console
+
+await launch_console(agent=SOPEngine(sop))
+</code></pre></div>
+<h2 id="延伸阅读">延伸阅读</h2>
+<div class="cards"><div class="card"><strong><a href="/agentscope-course/deploy/sop/">SOP 服务</a></strong><p>在智能体服务中存储流程、发起运行，并由人工在线验收。</p><a href="/agentscope-course/deploy/sop/" data-card-cta="了解更多">了解更多</a></div><div class="card"><strong><a href="/agentscope-course/building-blocks/pipeline/goal/">目标流水线</a></strong><p>只有一个目标时，用执行者与验证者的循环逼近它。</p><a href="/agentscope-course/building-blocks/pipeline/goal/" data-card-cta="了解更多">了解更多</a></div></div></article><footer><div class="paging"><a href="/agentscope-course/building-blocks/pipeline/team/">上一节 · 团队流水线</a><a href="/agentscope-course/building-blocks/permission-system/overview/">下一节 · 权限系统 · 概述</a></div><div class="credits"><a href="https://docs.agentscope.io/zh/versions/2.0.12/building-blocks/sop" target="_blank" rel="noopener">在线原页</a> · <a href="/agentscope-course/mdx/building-blocks/sop.mdx">原始 MDX</a> · <a href="https://github.com/agentscope-ai/docs/blob/e0ee835d1aca5d2b840d29bdd2f70770bbef69e8/zh/versions/2.0.12/building-blocks/sop.mdx" target="_blank" rel="noopener">固定版本来源</a> · <a href="/agentscope-course/LICENSE.txt">MIT 许可</a></div></footer></main></div></body></html>

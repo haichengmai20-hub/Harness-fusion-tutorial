@@ -1,0 +1,96 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>语音识别 · AgentScope</title><link rel="stylesheet" href="/agentscope-course/reader.css"><script defer src="/agentscope-course/reader.js"></script></head><body><header class="mast"><a href="/agentscope-course/">AgentScope <small>中文文档</small></a><span>v2.0.12</span><button id="catalog" aria-controls="outline" aria-expanded="false">目录</button></header><div class="layout"><nav id="outline" aria-label="AgentScope 文档目录"><div class="group">快速开始</div><a href="/agentscope-course/" >AgentScope 2.0 是什么？</a><a href="/agentscope-course/quickstart/" >快速开始</a><a href="/agentscope-course/release-notes/" >更新日志</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/message-and-event/" >消息与事件</a><div class="group">核心模块 / 智能体</div><a href="/agentscope-course/building-blocks/agent/overview/" >智能体 · 概述</a><a href="/agentscope-course/building-blocks/agent/configure-agent/" >配置智能体</a><a href="/agentscope-course/building-blocks/agent/run-agent/" >运行智能体</a><a href="/agentscope-course/building-blocks/agent/interrupt-agent/" >中断智能体</a><a href="/agentscope-course/building-blocks/agent/human-in-the-loop/" >人机交互</a><div class="group">核心模块 / 模型</div><a href="/agentscope-course/building-blocks/model/overview/" >模型 · 概述</a><a href="/agentscope-course/building-blocks/model/llm/" >大语言模型</a><a href="/agentscope-course/building-blocks/model/tts/" >语音合成</a><a href="/agentscope-course/building-blocks/model/asr/" aria-current="page">语音识别</a><a href="/agentscope-course/building-blocks/model/embedding/" >嵌入模型</a><div class="group">核心模块 / 上下文管理</div><a href="/agentscope-course/building-blocks/context/overview/" >上下文管理 · 概述</a><a href="/agentscope-course/building-blocks/context/environment-awareness/" >感知环境</a><a href="/agentscope-course/building-blocks/context/compress-context/" >压缩上下文</a><a href="/agentscope-course/building-blocks/context/offload-context/" >卸载上下文</a><div class="group">核心模块 / 工具</div><a href="/agentscope-course/building-blocks/tool/overview/" >工具 · 概述</a><a href="/agentscope-course/building-blocks/tool/python-tool/" >Python 函数工具</a><a href="/agentscope-course/building-blocks/tool/mcp/" >MCP</a><a href="/agentscope-course/building-blocks/tool/skill/" >Skill</a><a href="/agentscope-course/building-blocks/tool/manage-tools/" >元工具</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/plan/" >计划模式</a><div class="group">核心模块 / 流水线</div><a href="/agentscope-course/building-blocks/pipeline/overview/" >流水线 · 概述</a><a href="/agentscope-course/building-blocks/pipeline/goal/" >目标流水线</a><a href="/agentscope-course/building-blocks/pipeline/team/" >团队流水线</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/sop/" >标准作业流程</a><div class="group">核心模块 / 权限系统</div><a href="/agentscope-course/building-blocks/permission-system/overview/" >权限系统 · 概述</a><a href="/agentscope-course/building-blocks/permission-system/permission-mode/" >权限模式</a><a href="/agentscope-course/building-blocks/permission-system/permission-rule/" >权限规则</a><a href="/agentscope-course/building-blocks/permission-system/tool-check/" >工具内置检查</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/middleware/" >中间件</a><a href="/agentscope-course/building-blocks/rag/" >RAG</a><a href="/agentscope-course/building-blocks/long-term-memory/" >长期记忆</a><div class="group">核心模块 / 工作区</div><a href="/agentscope-course/building-blocks/workspace/overview/" >工作区 · 概述</a><a href="/agentscope-course/building-blocks/workspace/run-workspace/" >运行工作区</a><a href="/agentscope-course/building-blocks/workspace/manage-resources/" >管理资源</a><a href="/agentscope-course/building-blocks/workspace/mcp-gateway/" >MCP 网关</a><div class="group">核心模块 / 实时语音智能体</div><a href="/agentscope-course/building-blocks/realtime/overview/" >实时语音智能体 · 概述</a><a href="/agentscope-course/building-blocks/realtime/speech-to-speech/" >语音到语音</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/console/" >终端 UI</a><a href="/agentscope-course/building-blocks/a2a/" >A2A 协议</a><div class="group">智能体即服务</div><a href="/agentscope-course/deploy/agent-service/" >架构</a><a href="/agentscope-course/deploy/agent-team/" >智能体团队</a><a href="/agentscope-course/deploy/sop/" >SOP 服务</a><a href="/agentscope-course/deploy/sharing/" >资源共享</a><a href="/agentscope-course/deploy/rag/" >RAG 服务</a><a href="/agentscope-course/deploy/workspace-manager/" >工作区管理</a><div class="group">智能体即服务 / MCP 与技能中心</div><a href="/agentscope-course/deploy/hub/overview/" >MCP 与技能中心 · 概览</a><a href="/agentscope-course/deploy/hub/mcp-hub/" >MCP 中心</a><a href="/agentscope-course/deploy/hub/skill-hub/" >技能中心</a><div class="group">智能体即服务 / 消息渠道</div><a href="/agentscope-course/deploy/channel/overview/" >消息渠道 · 概览</a><a href="/agentscope-course/deploy/channel/routing/" >会话路由</a><a href="/agentscope-course/deploy/channel/feishu/" >飞书</a><a href="/agentscope-course/deploy/channel/dingtalk/" >钉钉</a><a href="/agentscope-course/deploy/channel/discord/" >Discord</a><a href="/agentscope-course/deploy/channel/custom/" >自定义渠道</a><div class="group">其他</div><a href="/agentscope-course/others/faq/" >常见问题</a><a href="/agentscope-course/others/change-log/" >版本迁移</a><div class="group">智能体即服务 / API</div><a href="/agentscope-course/api/">API 参考</a></nav><main><div class="context">核心模块 / 模型</div><article class="prose-custom" id="content"><h1>语音识别</h1><p class="dek">使用批量或实时语音识别模型将音频转写为文本</p><p>语音识别模型（ASR）将语音音频转换为文本。AgentScope 为完整音频文件转写和
+实时音频输入提供统一接口。2.0.12 包含以下内置实现：</p>
+<table><thead><tr><th>模型 API</th><th>模型类</th><th>模式</th><th>内置模型</th></tr></thead><tbody><tr><td>OpenAI</td><td><code>OpenAIASRModel</code></td><td>批量</td><td><code>gpt-4o-mini-transcribe</code>、<code>gpt-4o-transcribe</code></td></tr><tr><td>DashScope</td><td><code>DashScopeASRModel</code></td><td>批量</td><td><code>qwen-audio-3.0-asr-flash</code>, <code>qwen-audio-3.1-asr-flash</code></td></tr><tr><td>DashScope</td><td><code>DashScopeRealtimeASRModel</code></td><td>实时</td><td><code>qwen-audio-3.1-asr-flash-streaming</code></td></tr></tbody></table>
+<h2 id="创建语音识别模型">创建语音识别模型</h2>
+<p>使用 <code>OpenAICredential</code> 创建 <code>OpenAIASRModel</code>。默认模型为
+<code>gpt-4o-mini-transcribe</code>：</p>
+<div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">import os
+
+from agentscope.asr import OpenAIASRModel
+from agentscope.credential import OpenAICredential
+
+asr = OpenAIASRModel(
+    credential=OpenAICredential(
+        api_key=os.environ[&quot;OPENAI_API_KEY&quot;],
+    ),
+    model=&quot;gpt-4o-mini-transcribe&quot;,
+    parameters=OpenAIASRModel.Parameters(
+        language=&quot;zh&quot;,
+        prompt=&quot;AgentScope 产品会议&quot;,
+    ),
+)
+</code></pre></div>
+<p>OpenAI 实现支持两个可选参数：</p>
+<table><thead><tr><th>参数</th><th>类型</th><th>说明</th></tr></thead><tbody><tr><td><code>language</code></td><td><code>str | None</code></td><td>音频语言的 ISO-639-1 代码</td></tr><tr><td><code>prompt</code></td><td><code>str | None</code></td><td>用于引导转写词汇和风格的文本</td></tr></tbody></table>
+<h2 id="转写音频">转写音频</h2>
+<p><code>transcribe()</code> 接收完整音频的字节数据。请传入原始文件名，让模型 API 能够
+识别内存中音频的格式：</p>
+<div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">import asyncio
+import os
+from pathlib import Path
+
+from agentscope.asr import OpenAIASRModel
+from agentscope.credential import OpenAICredential
+
+
+async def main() -&gt; None:
+    audio_path = Path(&quot;meeting.wav&quot;)
+    asr = OpenAIASRModel(
+        credential=OpenAICredential(
+            api_key=os.environ[&quot;OPENAI_API_KEY&quot;],
+        ),
+    )
+    response = await asr.transcribe(
+        audio=audio_path.read_bytes(),
+        filename=audio_path.name,
+    )
+    if response.content is not None:
+        print(response.content.text)
+
+
+asyncio.run(main())
+</code></pre></div>
+<p>内置的 OpenAI 模型卡片声明支持 FLAC、MP3/MPEG、MP4、OGG、WAV 和 WebM
+输入。<code>audio</code> 或 <code>filename</code> 为空时会抛出 <code>ValueError</code>。直接传给
+<code>transcribe()</code> 的关键字参数只在本次调用中生效，并覆盖模型 <code>Parameters</code>
+对象中的同名配置。</p>
+<h2 id="读取响应">读取响应</h2>
+<p><code>transcribe()</code> 返回 <code>ASRResponse</code>：</p>
+<table><thead><tr><th>字段</th><th>类型</th><th>说明</th></tr></thead><tbody><tr><td><code>content</code></td><td><code>TextBlock | None</code></td><td>转写文本；实时模型暂时没有新文本时为空</td></tr><tr><td><code>id</code></td><td><code>str</code></td><td>唯一响应标识符</td></tr><tr><td><code>created_at</code></td><td><code>str</code></td><td>响应创建时间</td></tr><tr><td><code>type</code></td><td><code>&quot;asr&quot;</code></td><td>响应类型判别值</td></tr><tr><td><code>metadata</code></td><td><code>dict | None</code></td><td>可选的模型 API 专属元数据</td></tr><tr><td><code>is_last</code></td><td><code>bool</code></td><td>是否为最后一条转写响应</td></tr></tbody></table>
+<p>批量模型返回的最终响应中 <code>is_last=True</code>。实时模型通过 <code>push()</code> 返回的中间
+响应可以使用 <code>is_last=False</code>。</p>
+<h2 id="发现可用模型">发现可用模型</h2>
+<p>ASR 模型卡片描述支持的音频类型、输出类型、实时能力以及模型 API 参数
+schema。可以从凭证类或模型类发现模型：</p>
+<div class="tab-set" data-tab-set=""><div class="tab-list" role="group" aria-label="代码示例"><button type="button" data-choice="0" aria-pressed="true">凭证</button><button type="button" data-choice="1" aria-pressed="false">模型类</button></div><div data-panel="0"><div class="code-example"><div class="code-bar"><span>凭证</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="凭证" data-lang="python">from agentscope.credential import OpenAICredential
+
+cards = OpenAICredential.list_asr_models()
+for card in cards:
+    print(f&quot;{card.name}: {card.input_types}&quot;)
+</code></pre></div></div><div data-panel="1" hidden=""><div class="code-example"><div class="code-bar"><span>模型类</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="模型类" data-lang="python">from agentscope.asr import OpenAIASRModel
+
+cards = OpenAIASRModel.list_models()
+for card in cards:
+    print(f&quot;{card.name}: realtime={card.realtime}&quot;)
+</code></pre></div></div></div>
+<h2 id="实现自定义语音识别模型">实现自定义语音识别模型</h2>
+<p>批量模型需要继承 <code>ASRModelBase</code> 并实现 <code>transcribe()</code>：</p>
+<div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">async def transcribe(
+    self,
+    audio: bytes | None = None,
+    filename: str = &quot;audio.wav&quot;,
+    **kwargs: Any,
+) -&gt; ASRResponse:
+    ...
+</code></pre></div>
+<p>实时模型还需要设置 <code>realtime=True</code>，实现 <code>connect()</code>、<code>push()</code> 和 <code>close()</code>，
+并通过异步上下文管理器使用。调用 <code>push()</code> 发送音频分块，最后调用不带音频的
+<code>transcribe()</code> 结束当前转写。</p>
+<aside class="notice note"><strong>说明</strong><p><code>DashScopeRealtimeASRModel</code> 为 PCM 音频实现上述生命周期，请将采样率配置为
+与输入音频一致。DashScope 批量转写使用 <code>DashScopeASRModel</code> 和
+<code>DashScopeCredential</code>。</p></aside>
+<h2 id="浏览器语音输入">浏览器语音输入</h2>
+<p><a href="/agentscope-course/deploy/agent-service/">智能体服务</a> 提供
+<code>GET /asr-model/</code> 发现模型，通过 <code>POST /asr/transcriptions</code> 上传音频。
+实时输入先调用 <code>POST /asr/realtime/token</code> 获取短时有效的令牌，
+再连接 <code>/asr/realtime</code> WebSocket。WebSocket 消息不包含在 OpenAPI 参考中。</p></article><footer><div class="paging"><a href="/agentscope-course/building-blocks/model/tts/">上一节 · 语音合成</a><a href="/agentscope-course/building-blocks/model/embedding/">下一节 · 嵌入模型</a></div><div class="credits"><a href="https://docs.agentscope.io/zh/versions/2.0.12/building-blocks/model/asr" target="_blank" rel="noopener">在线原页</a> · <a href="/agentscope-course/mdx/building-blocks/model/asr.mdx">原始 MDX</a> · <a href="https://github.com/agentscope-ai/docs/blob/e0ee835d1aca5d2b840d29bdd2f70770bbef69e8/zh/versions/2.0.12/building-blocks/model/asr.mdx" target="_blank" rel="noopener">固定版本来源</a> · <a href="/agentscope-course/LICENSE.txt">MIT 许可</a></div></footer></main></div></body></html>

@@ -1,0 +1,8 @@
+[submodule "sources/claude-code"]
+	path = sources/claude-code
+	url = https://github.com/tanbiralam/claude-code.git
+	update = none
+	ignore = dirty
+[submodule "sources/learn-claude-code"]
+	path = sources/learn-claude-code
+	url = https://github.com/shareAI-lab/learn-claude-code.git

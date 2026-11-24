@@ -1,0 +1,109 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>团队流水线 · AgentScope</title><link rel="stylesheet" href="/agentscope-course/reader.css"><script defer src="/agentscope-course/reader.js"></script></head><body><header class="mast"><a href="/agentscope-course/">AgentScope <small>中文文档</small></a><span>v2.0.12</span><button id="catalog" aria-controls="outline" aria-expanded="false">目录</button></header><div class="layout"><nav id="outline" aria-label="AgentScope 文档目录"><div class="group">快速开始</div><a href="/agentscope-course/" >AgentScope 2.0 是什么？</a><a href="/agentscope-course/quickstart/" >快速开始</a><a href="/agentscope-course/release-notes/" >更新日志</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/message-and-event/" >消息与事件</a><div class="group">核心模块 / 智能体</div><a href="/agentscope-course/building-blocks/agent/overview/" >智能体 · 概述</a><a href="/agentscope-course/building-blocks/agent/configure-agent/" >配置智能体</a><a href="/agentscope-course/building-blocks/agent/run-agent/" >运行智能体</a><a href="/agentscope-course/building-blocks/agent/interrupt-agent/" >中断智能体</a><a href="/agentscope-course/building-blocks/agent/human-in-the-loop/" >人机交互</a><div class="group">核心模块 / 模型</div><a href="/agentscope-course/building-blocks/model/overview/" >模型 · 概述</a><a href="/agentscope-course/building-blocks/model/llm/" >大语言模型</a><a href="/agentscope-course/building-blocks/model/tts/" >语音合成</a><a href="/agentscope-course/building-blocks/model/asr/" >语音识别</a><a href="/agentscope-course/building-blocks/model/embedding/" >嵌入模型</a><div class="group">核心模块 / 上下文管理</div><a href="/agentscope-course/building-blocks/context/overview/" >上下文管理 · 概述</a><a href="/agentscope-course/building-blocks/context/environment-awareness/" >感知环境</a><a href="/agentscope-course/building-blocks/context/compress-context/" >压缩上下文</a><a href="/agentscope-course/building-blocks/context/offload-context/" >卸载上下文</a><div class="group">核心模块 / 工具</div><a href="/agentscope-course/building-blocks/tool/overview/" >工具 · 概述</a><a href="/agentscope-course/building-blocks/tool/python-tool/" >Python 函数工具</a><a href="/agentscope-course/building-blocks/tool/mcp/" >MCP</a><a href="/agentscope-course/building-blocks/tool/skill/" >Skill</a><a href="/agentscope-course/building-blocks/tool/manage-tools/" >元工具</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/plan/" >计划模式</a><div class="group">核心模块 / 流水线</div><a href="/agentscope-course/building-blocks/pipeline/overview/" >流水线 · 概述</a><a href="/agentscope-course/building-blocks/pipeline/goal/" >目标流水线</a><a href="/agentscope-course/building-blocks/pipeline/team/" aria-current="page">团队流水线</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/sop/" >标准作业流程</a><div class="group">核心模块 / 权限系统</div><a href="/agentscope-course/building-blocks/permission-system/overview/" >权限系统 · 概述</a><a href="/agentscope-course/building-blocks/permission-system/permission-mode/" >权限模式</a><a href="/agentscope-course/building-blocks/permission-system/permission-rule/" >权限规则</a><a href="/agentscope-course/building-blocks/permission-system/tool-check/" >工具内置检查</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/middleware/" >中间件</a><a href="/agentscope-course/building-blocks/rag/" >RAG</a><a href="/agentscope-course/building-blocks/long-term-memory/" >长期记忆</a><div class="group">核心模块 / 工作区</div><a href="/agentscope-course/building-blocks/workspace/overview/" >工作区 · 概述</a><a href="/agentscope-course/building-blocks/workspace/run-workspace/" >运行工作区</a><a href="/agentscope-course/building-blocks/workspace/manage-resources/" >管理资源</a><a href="/agentscope-course/building-blocks/workspace/mcp-gateway/" >MCP 网关</a><div class="group">核心模块 / 实时语音智能体</div><a href="/agentscope-course/building-blocks/realtime/overview/" >实时语音智能体 · 概述</a><a href="/agentscope-course/building-blocks/realtime/speech-to-speech/" >语音到语音</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/console/" >终端 UI</a><a href="/agentscope-course/building-blocks/a2a/" >A2A 协议</a><div class="group">智能体即服务</div><a href="/agentscope-course/deploy/agent-service/" >架构</a><a href="/agentscope-course/deploy/agent-team/" >智能体团队</a><a href="/agentscope-course/deploy/sop/" >SOP 服务</a><a href="/agentscope-course/deploy/sharing/" >资源共享</a><a href="/agentscope-course/deploy/rag/" >RAG 服务</a><a href="/agentscope-course/deploy/workspace-manager/" >工作区管理</a><div class="group">智能体即服务 / MCP 与技能中心</div><a href="/agentscope-course/deploy/hub/overview/" >MCP 与技能中心 · 概览</a><a href="/agentscope-course/deploy/hub/mcp-hub/" >MCP 中心</a><a href="/agentscope-course/deploy/hub/skill-hub/" >技能中心</a><div class="group">智能体即服务 / 消息渠道</div><a href="/agentscope-course/deploy/channel/overview/" >消息渠道 · 概览</a><a href="/agentscope-course/deploy/channel/routing/" >会话路由</a><a href="/agentscope-course/deploy/channel/feishu/" >飞书</a><a href="/agentscope-course/deploy/channel/dingtalk/" >钉钉</a><a href="/agentscope-course/deploy/channel/discord/" >Discord</a><a href="/agentscope-course/deploy/channel/custom/" >自定义渠道</a><div class="group">其他</div><a href="/agentscope-course/others/faq/" >常见问题</a><a href="/agentscope-course/others/change-log/" >版本迁移</a><div class="group">智能体即服务 / API</div><a href="/agentscope-course/api/">API 参考</a></nav><main><div class="context">核心模块 / 流水线</div><article class="prose-custom" id="content"><h1>团队流水线</h1><p class="dek">由一个队长统筹多个各有专长的智能体，协作完成单个智能体难以独立完成的任务</p><p><code>TeamPipeline</code> 是由一个队长与若干成员组成的流水线：队长通过工具调用把任务分派给成员，成员在各自的上下文里完成任务，最终回复作为工具结果交回队长。</p>
+<p>其中的分派关系如下所示：</p>
+<div class="code-example"><div class="code-bar"><span>代码</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code data-caption="代码" data-lang="text">              ┌── TeamAssign(member=&quot;Researcher&quot;) ──▶ Researcher ──┐
+              │                                                    │
+输入 ─▶ 队长 ┤                                                    ├──▶ 工具结果 ─▶ 队长 ─▶ 输出
+              │                                                    │
+              └── TeamAssign(member=&quot;Coder&quot;) ───────▶ Coder ───────┘
+</code></pre></div>
+<p>与<a href="/agentscope-course/building-blocks/pipeline/goal/">目标流水线</a>的固定循环不同，团队流水线只固化「谁能被分派、结果回到哪里」，分派给谁、分派几次由队长自己决定。它的特点如下：</p>
+<table><thead><tr><th>特点</th><th>说明</th></tr></thead><tbody><tr><td>只看结果</td><td>队长只收到成员的最终回复，看不到成员中间的推理与工具调用，上下文不会被成员的过程撑满</td></tr><tr><td>并发执行</td><td>同一轮里分派给不同成员的任务并发运行；分派给同一成员的多个任务按调用顺序依次运行</td></tr><tr><td>成员互不通信</td><td>成员之间不直接对话，成员的结果总是回到队长</td></tr><tr><td>逐个处理人机交互</td><td>任一成员停在工具授权上时，授权请求原样流出，答复按 <code>reply_id</code> 送回该成员，队长等它完成后再继续</td></tr></tbody></table>
+<aside class="notice note"><strong>说明</strong><p>流水线模块处于实验阶段，接口可能在后续版本调整。</p></aside>
+<h2 id="运行流水线">运行流水线</h2>
+<p>以下示例组建一个由队长、研究员和程序员组成的团队，队长根据任务决定分派给谁：</p>
+<div class="code-example"><div class="code-bar"><span>team_pipeline.py</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="team_pipeline.py" data-lang="python">import asyncio
+import os
+
+from agentscope.agent import Agent
+from agentscope.console import launch_console
+from agentscope.credential import DashScopeCredential
+from agentscope.model import DashScopeChatModel
+from agentscope.pipeline import TeamMember, TeamPipeline
+from agentscope.tool import Toolkit
+from agentscope.workspace import LocalWorkspace
+
+
+async def main() -&gt; None:
+    async with LocalWorkspace(workdir=&quot;./workspace&quot;) as workspace:
+        model = DashScopeChatModel(
+            credential=DashScopeCredential(
+                api_key=os.getenv(&quot;DASHSCOPE_API_KEY&quot;),
+            ),
+            model=&quot;qwen3.8-max&quot;,
+        )
+
+        # 队长：负责拆解任务、分派与汇总。它必须带有工具箱，
+        # 流水线会往里注册分派工具 TeamAssign
+        leader = Agent(
+            name=&quot;Leader&quot;,
+            system_prompt=&quot;You&#x27;re a team leader named &#x27;Leader&#x27;.&quot;,
+            model=model,
+            toolkit=Toolkit(),
+        )
+
+        # 成员：普通的智能体，名字即队长分派时引用它的方式
+        researcher = Agent(
+            name=&quot;Researcher&quot;,
+            system_prompt=&quot;You&#x27;re a researcher named &#x27;Researcher&#x27;.&quot;,
+            model=model,
+            toolkit=Toolkit(tools=await workspace.list_tools()),
+            offloader=workspace,
+        )
+        coder = Agent(
+            name=&quot;Coder&quot;,
+            system_prompt=&quot;You&#x27;re a programmer named &#x27;Coder&#x27;.&quot;,
+            model=model,
+            toolkit=Toolkit(tools=await workspace.list_tools()),
+            offloader=workspace,
+        )
+
+        pipe = TeamPipeline(
+            leader=leader,
+            members=[
+                # description 会写进分派工具的说明，队长据此决定分派给谁
+                TeamMember(
+                    agent=researcher,
+                    description=&quot;Investigates a question and reports findings.&quot;,
+                ),
+                TeamMember(
+                    agent=coder,
+                    description=&quot;Writes and runs code in the workspace.&quot;,
+                ),
+            ],
+        )
+
+        # 流水线满足 PipelineProtocol，可以直接交给终端 UI
+        await launch_console(agent=pipe)
+
+
+asyncio.run(main())
+</code></pre></div>
+<aside class="notice tip"><strong>提示</strong><p>成员之间需要通过文件协作时，建议让它们共用同一个<a href="/agentscope-course/building-blocks/workspace/overview/">工作区</a>，如上例中研究员与程序员共享的 <code>LocalWorkspace</code>，一方产出的文件另一方可以直接读取。</p></aside>
+<h3 id="构造参数">构造参数</h3>
+<p><code>TeamPipeline</code> 的构造参数如下：</p>
+<table><thead><tr><th>参数</th><th>类型</th><th>说明</th></tr></thead><tbody><tr><td><code>leader</code></td><td><code>Agent</code></td><td>负责分派任务的队长，需要带有工具箱</td></tr><tr><td><code>members</code></td><td><code>list[TeamMember]</code></td><td>队长可以分派任务的成员</td></tr><tr><td><code>reset_members</code></td><td><code>bool</code>，默认 <code>True</code></td><td>队长每次回复结束后，是否清空所有成员的上下文</td></tr></tbody></table>
+<p>每个成员由 <code>TeamMember</code> 描述，字段如下：</p>
+<table><thead><tr><th>字段</th><th>类型</th><th>说明</th></tr></thead><tbody><tr><td><code>agent</code></td><td><code>Agent</code></td><td>成员智能体，它的 <code>name</code> 就是队长分派时引用的名字</td></tr><tr><td><code>description</code></td><td><code>str</code></td><td>成员擅长什么、何时分派给它、会交回什么，写进分派工具的说明供队长阅读</td></tr></tbody></table>
+<aside class="notice warning"><strong>注意</strong><p>成员的名字必须互不相同，且不能与队长同名，否则构造时抛出 <code>ValueError</code>。</p></aside>
+<h2 id="分派任务">分派任务</h2>
+<p>流水线第一次运行时，会向队长的工具箱注册一个外部工具 <code>TeamAssign</code>，它的参数如下：</p>
+<table><thead><tr><th>参数</th><th>说明</th></tr></thead><tbody><tr><td><code>member</code></td><td>成员名字，只能取 <code>members</code> 中的名字之一</td></tr><tr><td><code>prompt</code></td><td>交给成员的完整任务。成员看不到队长的上下文，任务所需的信息都要写进来</td></tr></tbody></table>
+<p>一次分派的完整流程如下：</p>
+<div class="steps"><section class="step"><h3>队长分派</h3><p>队长调用 <code>TeamAssign</code>，指明成员与任务。该工具不经过权限确认，成员自己的工具仍按各自的权限检查。</p></section><section class="step"><h3>成员执行</h3><p>流水线把 <code>prompt</code> 作为用户消息交给对应成员，成员在自己的上下文里运行，事件从流水线的 <code>reply_stream</code> 流出。</p></section><section class="step"><h3>结果交回</h3><p>成员的最终回复（文本与数据块）作为 <code>TeamAssign</code> 的工具结果交回队长；同一轮多个分派的结果按队长的调用顺序排列。</p></section><section class="step"><h3>队长继续</h3><p>队长读到结果后继续推理，可以再次分派，也可以直接给出最终回复。</p></section></div>
+<p>成员回复的结束原因决定了工具结果的状态：</p>
+<table><thead><tr><th>成员回复结束原因</th><th>工具结果状态</th></tr></thead><tbody><tr><td>正常完成，或达到最大迭代次数</td><td><code>SUCCESS</code></td></tr><tr><td>被中断</td><td><code>INTERRUPTED</code></td></tr><tr><td>出错</td><td><code>ERROR</code></td></tr></tbody></table>
+<p><code>reset_members</code> 决定成员以什么样的上下文迎接下一次分派。默认为 <code>True</code>：同一次队长回复内，队长可以就同一件事追问成员；队长回复结束后，所有成员的上下文与摘要被清空，下一次回复中的分派从头开始。设为 <code>False</code> 则成员跨回复保留对话。</p>
+<h2 id="中断与恢复">中断与恢复</h2>
+<p>团队中任一方停在工具授权上时，处理方式与单个智能体一致：<code>reply_stream</code> 在所有参与者都已完成或挂起后结束，开发者把答复重新喂回来即可继续。</p>
+<div class="code-example"><div class="code-bar"><span>中断后恢复</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="中断后恢复" data-lang="python"># 某个成员中途出现 RequireUserConfirmEvent，事件流随即结束
+async for event in pipe.reply_stream(user_msg):
+    ...
+
+# 把用户的答复递回去，流水线按 reply_id 交给挂起的那个成员
+async for event in pipe.reply_stream(user_confirm_result_event):
+    ...
+</code></pre></div>
+<p>成员挂起期间，队长也停在对应的分派上；该成员完成后，它的回复作为工具结果交回，队长随之继续。同一轮中未挂起的成员照常运行完毕，已经完成的结果会先交给队长。</p>
+<p><code>reply_stream</code> 接受的输入如下：</p>
+<table><thead><tr><th>输入类型</th><th>含义</th></tr></thead><tbody><tr><td><code>Msg</code> / <code>list[Msg]</code></td><td>交给队长，开始一次新的回复</td></tr><tr><td><code>UserConfirmResultEvent</code></td><td>用户对工具授权的答复，按 <code>reply_id</code> 交给挂起的一方</td></tr><tr><td><code>ExternalExecutionResultEvent</code></td><td>外部执行的结果，按 <code>reply_id</code> 交给挂起的一方</td></tr><tr><td><code>UserInterruptEvent</code></td><td>中断所有挂起的成员与队长</td></tr></tbody></table>
+<aside class="notice note"><strong>说明</strong><p>流水线的协程被取消时，会像收到 <code>UserInterruptEvent</code> 一样关掉挂起的队长与成员，再按队长的 <code>interruption_raise_cancelled_error</code> 配置决定是否继续抛出取消。</p></aside></article><footer><div class="paging"><a href="/agentscope-course/building-blocks/pipeline/goal/">上一节 · 目标流水线</a><a href="/agentscope-course/building-blocks/sop/">下一节 · 标准作业流程</a></div><div class="credits"><a href="https://docs.agentscope.io/zh/versions/2.0.12/building-blocks/pipeline/team" target="_blank" rel="noopener">在线原页</a> · <a href="/agentscope-course/mdx/building-blocks/pipeline/team.mdx">原始 MDX</a> · <a href="https://github.com/agentscope-ai/docs/blob/e0ee835d1aca5d2b840d29bdd2f70770bbef69e8/zh/versions/2.0.12/building-blocks/pipeline/team.mdx" target="_blank" rel="noopener">固定版本来源</a> · <a href="/agentscope-course/LICENSE.txt">MIT 许可</a></div></footer></main></div></body></html>

@@ -1,0 +1,886 @@
+{
+  "id": "hermes",
+  "name": "Hermes",
+  "title": "Hermes Agent 学习教程",
+  "source": "https://github.com/g1429566/hermes-tutorial",
+  "license": "MIT",
+  "website": "https://g1429566.github.io/hermes-tutorial/",
+  "home": "/hermes-tutorial/#/start",
+  "revision": "63264f4ddbb8f27507e0819dd2b0c9ea09e49cc7",
+  "upstreamAgentRevision": "9302ba9e212c63ba24cdf1f47f26b47bcd3b042e",
+  "lessons": [
+    {
+      "id": "start",
+      "title": "Hermes 怎样完成一个任务",
+      "number": "00",
+      "module": "M0",
+      "path": "/hermes-tutorial/#/start",
+      "online": "https://g1429566.github.io/hermes-tutorial/#/start",
+      "topics": [
+        "s01"
+      ],
+      "points": [
+        {
+          "label": "纸上推演：",
+          "needle": "纸上推演：",
+          "topic": "s01",
+          "crosswalk": 2,
+          "question": "如果账单没有成功读出，65 元还可以作为结论吗？",
+          "detail": "演示先读取三笔金额，再计算并回复。先找返回给模型的那条账单数据，缺它就无法核对总额。"
+        }
+      ],
+      "practiceSelector": ".lesson-prose strong",
+      "practiceNeedle": "纸上推演"
+    },
+    {
+      "id": "install",
+      "title": "安装与第一次对话",
+      "number": "01",
+      "module": "M0",
+      "path": "/hermes-tutorial/#/install",
+      "online": "https://g1429566.github.io/hermes-tutorial/#/install",
+      "topics": [],
+      "points": [
+        {
+          "label": "hermes doctor",
+          "needle": "hermes doctor",
+          "topic": null,
+          "crosswalk": null,
+          "question": "命令能启动、模型能回答、工具能使用，分别需要什么证据？",
+          "detail": "本章依次检查命令环境、模型认证和首轮交互。某个可选工具的可用性需要单独验证。"
+        }
+      ],
+      "practiceSelector": "article.chapter > p.mt-12",
+      "practiceNeedle": "交互练习与源码对照"
+    },
+    {
+      "id": "features",
+      "title": "按任务认识能力",
+      "number": "02",
+      "module": "M0",
+      "path": "/hermes-tutorial/#/features",
+      "online": "https://g1429566.github.io/hermes-tutorial/#/features",
+      "topics": [
+        "s14"
+      ],
+      "points": [
+        {
+          "label": "每天汇总销售 CSV",
+          "needle": "每天汇总销售 CSV",
+          "topic": "s14",
+          "crosswalk": 2,
+          "question": "一次性求和变成每天报告后，新增的是哪一个触发环节？",
+          "detail": "两者都需要数据和计算，每天生成还要设置定时触发。推送到聊天平台另由网关交付。"
+        }
+      ],
+      "practiceSelector": "article.chapter > p.mt-12",
+      "practiceNeedle": "交互练习与源码对照"
+    },
+    {
+      "id": "map",
+      "title": "沿请求认识仓库",
+      "number": "03",
+      "module": "M0",
+      "path": "/hermes-tutorial/#/map",
+      "online": "https://g1429566.github.io/hermes-tutorial/#/map",
+      "topics": [
+        "s02"
+      ],
+      "points": [
+        {
+          "label": "tools/registry.py",
+          "needle": "tools/registry.py",
+          "topic": "s02",
+          "crosswalk": 1,
+          "question": "文件读取出错时，应沿哪一层确认工具名称和执行目标？",
+          "detail": "界面把请求交给核心，model_tools.py 与工具注册表负责发现和分发。先分辨是工具输出错误，还是平台展示错误。"
+        }
+      ],
+      "practiceSelector": "article.chapter > p.mt-12",
+      "practiceNeedle": "交互练习与源码对照"
+    },
+    {
+      "id": "agent-loop",
+      "title": "Agent 主循环",
+      "number": "04",
+      "module": "M1",
+      "path": "/hermes-tutorial/#/agent-loop",
+      "online": "https://g1429566.github.io/hermes-tutorial/#/agent-loop",
+      "topics": [
+        "s01"
+      ],
+      "points": [
+        {
+          "label": "接收一个用户回合",
+          "needle": "接收一个用户回合",
+          "topic": "s01",
+          "crosswalk": 1,
+          "question": "读取账单、计算、作答分别发生在哪次迭代？",
+          "detail": "同一用户回合可多次请求模型。按主循环实验的阶段前进，区分工具请求、执行结果和最终文本。"
+        },
+        {
+          "label": "工具结果需要关联原调用",
+          "needle": "工具结果需要关联原调用",
+          "topic": "s01",
+          "crosswalk": 2,
+          "question": "若 B 文件先读完，如何避免把 B 的结果当成 A？",
+          "detail": "请求与结果各带调用标识；并行改变返回顺序，却不会改变两个结果的归属。"
+        }
+      ],
+      "practiceSelector": "article.chapter > p.mt-12",
+      "practiceNeedle": "交互练习与源码对照"
+    },
+    {
+      "id": "tools",
+      "title": "工具与工具组合",
+      "number": "05",
+      "module": "M1",
+      "path": "/hermes-tutorial/#/tools",
+      "online": "https://g1429566.github.io/hermes-tutorial/#/tools",
+      "topics": [
+        "s02",
+        "s04"
+      ],
+      "points": [
+        {
+          "label": "从 tools/*.py 到模型可见：四道门",
+          "needle": "从 tools/*.py 到模型可见：四道门",
+          "topic": "s02",
+          "crosswalk": 1,
+          "question": "处理函数已经注册，为什么当前模型仍可能看不见工具？",
+          "detail": "从导入注册、发现、toolset 收录检查到平台选择。随后才轮到模型选择工具和本地执行。"
+        },
+        {
+          "label": "一次 tool_call 的旅程",
+          "needle": "一次 tool_call 的旅程",
+          "topic": "s04",
+          "crosswalk": 1,
+          "question": "前置插件介入的是模型选工具之前，还是具体调用执行前？",
+          "detail": "在一笔 tool_call 的执行路线查看 pre_tool_call 所在位置，再与注册和模型可见性区分。"
+        }
+      ],
+      "practiceSelector": "article.chapter > p.mt-12",
+      "practiceNeedle": "交互练习与源码对照"
+    },
+    {
+      "id": "skills-1",
+      "title": "技能怎样指导工具",
+      "number": "06",
+      "module": "M1",
+      "path": "/hermes-tutorial/#/skills-1",
+      "online": "https://g1429566.github.io/hermes-tutorial/#/skills-1",
+      "topics": [
+        "s07"
+      ],
+      "points": [
+        {
+          "label": "从磁盘到斜杠命令：五步",
+          "needle": "从磁盘到斜杠命令：五步",
+          "topic": "s07",
+          "crosswalk": 1,
+          "question": "目录中的技能说明怎样变成可选入口？",
+          "detail": "扫描 SKILL.md，读取元信息，得到可发现的技能目录。正文是另外一层，仅有技能名还不能读出 CSV 缺失值规则。"
+        },
+        {
+          "label": "csv-report",
+          "needle": "csv-report",
+          "topic": "s07",
+          "crosswalk": 2,
+          "question": "汇总销售额时，排除缺失值的具体规则从哪里来？",
+          "detail": "技能正文描述处理步骤与验收口径，模型仍需调用文件或计算工具实际拿到数值。"
+        }
+      ],
+      "practiceSelector": "article.chapter > p.mt-12",
+      "practiceNeedle": "交互练习与源码对照"
+    },
+    {
+      "id": "memory",
+      "title": "记忆与跨会话召回",
+      "number": "07",
+      "module": "M1",
+      "path": "/hermes-tutorial/#/memory",
+      "online": "https://g1429566.github.io/hermes-tutorial/#/memory",
+      "topics": [
+        "s09"
+      ],
+      "points": [
+        {
+          "label": "保存在哪里与读取了什么是两个问题",
+          "needle": "保存在哪里与读取了什么是两个问题",
+          "topic": "s09",
+          "crosswalk": 1,
+          "question": "保存了语言偏好后，新旧会话各会看到什么？",
+          "detail": "原课区分文件内存储的条目与会话开始时读入的快照。用新会话排除旧对话仍包含偏好的解释。"
+        },
+        {
+          "label": "memory 工具怎样编辑条目",
+          "needle": "memory 工具怎样编辑条目",
+          "topic": "s09",
+          "crosswalk": 2,
+          "question": "提出记忆写入和条目已经保存之间有哪些状态？",
+          "detail": "对照 target、operations、审批与写入结果。原生练习能分别触发提案、批准和新建会话。"
+        }
+      ],
+      "practiceSelector": "article.chapter > p.mt-12",
+      "practiceNeedle": "交互练习与源码对照"
+    },
+    {
+      "id": "evolution",
+      "title": "经验怎样改变下次做事",
+      "number": "08",
+      "module": "M1",
+      "path": "/hermes-tutorial/#/evolution",
+      "online": "https://g1429566.github.io/hermes-tutorial/#/evolution",
+      "topics": [
+        "s07"
+      ],
+      "points": [
+        {
+          "label": "前台学习与后台复盘",
+          "needle": "前台学习与后台复盘",
+          "topic": null,
+          "crosswalk": null,
+          "question": "整理 CSV 经验时，哪些内容马上由当前会话处理，哪些交给后台复盘？",
+          "detail": "比较用户纠正、经验提炼、候选写入和后续读取的时机；验证时还要检查新输入是否真的改善。"
+        },
+        {
+          "label": "技能应该怎样写这条经验",
+          "needle": "技能应该怎样写这条经验",
+          "topic": "s07",
+          "crosswalk": 2,
+          "question": "修订后的经验在哪个步骤才可能改变下次处理？",
+          "detail": "修改技能只是保存新流程；后续任务读到相应技能并执行后，才能用独立变式检查效果。"
+        }
+      ],
+      "practiceSelector": "article.chapter > p.mt-12",
+      "practiceNeedle": "交互练习与源码对照"
+    },
+    {
+      "id": "skills-2",
+      "title": "技能策展与保护",
+      "number": "09",
+      "module": "M1",
+      "path": "/hermes-tutorial/#/skills-2",
+      "online": "https://g1429566.github.io/hermes-tutorial/#/skills-2",
+      "topics": [],
+      "points": [
+        {
+          "label": "active → stale → archived（pinned 豁免）",
+          "needle": "active → stale → archived（pinned 豁免）",
+          "topic": null,
+          "crosswalk": null,
+          "question": "长期不用的技能如何进入归档？固定保护会改变哪一步？",
+          "detail": "活动记录与保护状态决定策展处理。对照三个状态，区分可恢复归档和一次任务结束后的经验提炼。"
+        }
+      ],
+      "practiceSelector": "article.chapter > p.mt-12",
+      "practiceNeedle": "交互练习与源码对照"
+    },
+    {
+      "id": "compression",
+      "title": "上下文压缩与文件快照",
+      "number": "10",
+      "module": "M1",
+      "path": "/hermes-tutorial/#/compression",
+      "online": "https://g1429566.github.io/hermes-tutorial/#/compression",
+      "topics": [
+        "s08"
+      ],
+      "points": [
+        {
+          "label": "怎样在容量压力下继续",
+          "needle": "怎样在容量压力下继续",
+          "topic": "s08",
+          "crosswalk": 4,
+          "question": "摘要只写“已经处理销售文件”时，下一轮会丢掉什么？",
+          "detail": "原课要求压缩后仍保留目标、缺失值规则、已处理范围与未决异常。以能否继续原任务核对摘要。"
+        },
+        {
+          "label": "Checkpoint：改文件前的快照",
+          "needle": "Checkpoint：改文件前的快照",
+          "topic": null,
+          "crosswalk": null,
+          "question": "文件回滚能补回被摘要省略的判断吗？",
+          "detail": "checkpoint 作用于受支持的文件变更。会话消息、远端操作与工具工作目录的生命周期须分别判断。"
+        }
+      ],
+      "practiceSelector": "article.chapter > p.mt-12",
+      "practiceNeedle": "交互练习与源码对照"
+    },
+    {
+      "id": "profiles",
+      "title": "Profiles 与状态隔离",
+      "number": "11",
+      "module": "M1",
+      "path": "/hermes-tutorial/#/profiles",
+      "online": "https://g1429566.github.io/hermes-tutorial/#/profiles",
+      "topics": [
+        "s09"
+      ],
+      "points": [
+        {
+          "label": "get_hermes_home()",
+          "needle": "get_hermes_home()",
+          "topic": "s09",
+          "crosswalk": 1,
+          "question": "同一台机器上的工作与个人配置为何能读到不同记忆？",
+          "detail": "状态解析要使用当前 profile 的根目录。先核对根目录，再判断新会话可能加载哪些文件。"
+        }
+      ],
+      "practiceSelector": "article.chapter > p.mt-12",
+      "practiceNeedle": "交互练习与源码对照"
+    },
+    {
+      "id": "delegation",
+      "title": "子 agent 委派",
+      "number": "12",
+      "module": "M2",
+      "path": "/hermes-tutorial/#/delegation",
+      "online": "https://g1429566.github.io/hermes-tutorial/#/delegation",
+      "topics": [
+        "s06"
+      ],
+      "points": [
+        {
+          "label": "父 agent 提交子任务",
+          "needle": "父 agent 提交子任务",
+          "topic": "s06",
+          "crosswalk": 1,
+          "question": "子任务从什么输入开始，父任务需要明确交代哪些材料？",
+          "detail": "委派携带目标和必要上下文，子 agent 执行自身循环。确认实际传入的信息，再判断子任务的可见范围。"
+        },
+        {
+          "label": "按运行时交付完成结果",
+          "needle": "按运行时交付完成结果",
+          "topic": "s06",
+          "crosswalk": 2,
+          "question": "异步子任务的返回与发起委派是不是同一时刻？",
+          "detail": "沿完成交付查看结果怎样回到所属任务；只有启动或接收了委派，尚未取得最终报告。"
+        }
+      ],
+      "practiceSelector": "article.chapter > p.mt-12",
+      "practiceNeedle": "交互练习与源码对照"
+    },
+    {
+      "id": "gateway-1",
+      "title": "消息平台与网关",
+      "number": "13",
+      "module": "M2",
+      "path": "/hermes-tutorial/#/gateway-1",
+      "online": "https://g1429566.github.io/hermes-tutorial/#/gateway-1",
+      "topics": [],
+      "points": [
+        {
+          "label": "平台 adapters",
+          "needle": "平台 adapters",
+          "topic": null,
+          "crosswalk": null,
+          "question": "两个线程发来相同的文字，会进入同一会话吗？",
+          "detail": "平台适配器把原平台事件转换为统一消息，网关按来源字段归属会话，最后再转换回复格式。"
+        }
+      ],
+      "practiceSelector": "article.chapter > p.mt-12",
+      "practiceNeedle": "交互练习与源码对照"
+    },
+    {
+      "id": "gateway-2",
+      "title": "消息排队与会话连续性",
+      "number": "14",
+      "module": "M2",
+      "path": "/hermes-tutorial/#/gateway-2",
+      "online": "https://g1429566.github.io/hermes-tutorial/#/gateway-2",
+      "topics": [
+        "s03",
+        "s13"
+      ],
+      "points": [
+        {
+          "label": "审批",
+          "needle": "审批",
+          "topic": "s03",
+          "crosswalk": 2,
+          "question": "任务正等待审批，将批准消息按普通后续对话排队会怎样？",
+          "detail": "批准需要到达当前等待决策的执行对象。若排在尚未结束的任务之后，两端都会等待。"
+        },
+        {
+          "label": "后台进程完成通知",
+          "needle": "后台进程完成通知",
+          "topic": "s13",
+          "crosswalk": 2,
+          "question": "后台进程结束以后，哪个接点使运行结果再次对会话可见？",
+          "detail": "沿本章的通知路径区分执行完成、归属到会话与恢复处理；同时留意跨进程只能使用已保存的状态。"
+        }
+      ],
+      "practiceSelector": "article.chapter > p.mt-12",
+      "practiceNeedle": "交互练习与源码对照"
+    },
+    {
+      "id": "cron",
+      "title": "定时任务怎样运行",
+      "number": "15",
+      "module": "M2",
+      "path": "/hermes-tutorial/#/cron",
+      "online": "https://g1429566.github.io/hermes-tutorial/#/cron",
+      "topics": [
+        "s14"
+      ],
+      "points": [
+        {
+          "label": "把 cron 表达式拆开看",
+          "needle": "把 cron 表达式拆开看",
+          "topic": "s14",
+          "crosswalk": 1,
+          "question": "工作日上午九点和一次性提醒怎样指定，时区在哪里起作用？",
+          "detail": "在表达式实验里拆分钟、小时与星期字段。调度条件和作业提示分别决定何时触发与运行什么。"
+        },
+        {
+          "label": "调度器的一拍",
+          "needle": "调度器的一拍",
+          "topic": "s14",
+          "crosswalk": 2,
+          "question": "作业已保存，到点以后还要经过哪些环节才真正交付报告？",
+          "detail": "单步对照锁、到期判断、触发与投递；没有调度进程时，仅保存计划不会产生报告。"
+        }
+      ],
+      "practiceSelector": "article.chapter > p.mt-12",
+      "practiceNeedle": "交互练习与源码对照"
+    },
+    {
+      "id": "kanban",
+      "title": "看板怎样协调任务",
+      "number": "16",
+      "module": "M2",
+      "path": "/hermes-tutorial/#/kanban",
+      "online": "https://g1429566.github.io/hermes-tutorial/#/kanban",
+      "topics": [
+        "s12",
+        "s17"
+      ],
+      "points": [
+        {
+          "label": "亲手移几张卡",
+          "needle": "亲手移几张卡",
+          "topic": "s12",
+          "crosswalk": 2,
+          "question": "报告任务 B 依赖字段核对 A，空闲 worker 能否提前做 B？",
+          "detail": "任务板区分卡片存在、依赖满足、已被认领与完成。先确认 A 的状态，再判断 B 是否可以启动。"
+        },
+        {
+          "label": "调度器每轮怎样分配任务",
+          "needle": "调度器每轮怎样分配任务",
+          "topic": "s17",
+          "crosswalk": 2,
+          "question": "一张卡被发现之后，怎样确认是谁取得执行资格？",
+          "detail": "按调度器流程查看候选与认领者，再核对运行信息；仅仅出现在任务板上还不足以证明开始执行。"
+        }
+      ],
+      "practiceSelector": "article.chapter > p.mt-12",
+      "practiceNeedle": "交互练习与源码对照"
+    },
+    {
+      "id": "backends",
+      "title": "命令在哪执行",
+      "number": "17",
+      "module": "M2",
+      "path": "/hermes-tutorial/#/backends",
+      "online": "https://g1429566.github.io/hermes-tutorial/#/backends",
+      "topics": [],
+      "points": [
+        {
+          "label": "六种内置后端 + 插件，同一套接口",
+          "needle": "六种内置后端 + 插件，同一套接口",
+          "topic": null,
+          "crosswalk": null,
+          "question": "界面在笔记本、命令发往 SSH 后端时，应到哪里查文件？",
+          "detail": "文件、进程与凭据的可见性由实际执行后端决定。查看界面所在的本机目录不足以解释远端读取结果。"
+        }
+      ],
+      "practiceSelector": "article.chapter > p.mt-12",
+      "practiceNeedle": "交互练习与源码对照"
+    },
+    {
+      "id": "tui",
+      "title": "终端界面与后端",
+      "number": "18",
+      "module": "M3",
+      "path": "/hermes-tutorial/#/tui",
+      "online": "https://g1429566.github.io/hermes-tutorial/#/tui",
+      "topics": [],
+      "points": [
+        {
+          "label": "两个进程，一份职责清单",
+          "needle": "两个进程，一份职责清单",
+          "topic": null,
+          "crosswalk": null,
+          "question": "看到前端工具活动提示，能否据此确认后端已经执行完毕？",
+          "detail": "Node/Ink 管显示与输入，Python 后端持有会话和执行责任。沿 RPC 对照发送端、接收端和结果。"
+        }
+      ],
+      "practiceSelector": "article.chapter > p.mt-12",
+      "practiceNeedle": "交互练习与源码对照"
+    },
+    {
+      "id": "cli",
+      "title": "命令怎样分发",
+      "number": "19",
+      "module": "M3",
+      "path": "/hermes-tutorial/#/cli",
+      "online": "https://g1429566.github.io/hermes-tutorial/#/cli",
+      "topics": [],
+      "points": [
+        {
+          "label": "CommandDef 的核心字段",
+          "needle": "CommandDef 的核心字段",
+          "topic": null,
+          "crosswalk": null,
+          "question": "同一条斜杠命令为什么在一个入口可用，在另一个入口可能看不到？",
+          "detail": "命令定义带名称、别名和入口适用条件。先核对 CLI 与网关限制，再查实际分发。"
+        }
+      ],
+      "practiceSelector": "article.chapter > p.mt-12",
+      "practiceNeedle": "交互练习与源码对照"
+    },
+    {
+      "id": "build-skill",
+      "title": "写出可复用的技能",
+      "number": "20",
+      "module": "M3",
+      "path": "/hermes-tutorial/#/build-skill",
+      "online": "https://g1429566.github.io/hermes-tutorial/#/build-skill",
+      "topics": [
+        "s07"
+      ],
+      "points": [
+        {
+          "label": "一个技能就是一个目录",
+          "needle": "一个技能就是一个目录",
+          "topic": "s07",
+          "crosswalk": 1,
+          "question": "新建技能以后，哪些字段让模型或用户有机会发现它？",
+          "detail": "目录需包含 SKILL.md 和用于发现的元信息。确认被扫描之后，还应分别验证正文加载与任务结果。"
+        }
+      ],
+      "practiceSelector": "article.chapter > p.mt-12",
+      "practiceNeedle": "交互练习与源码对照"
+    },
+    {
+      "id": "build-tool",
+      "title": "什么时候需要新工具",
+      "number": "21",
+      "module": "M3",
+      "path": "/hermes-tutorial/#/build-tool",
+      "online": "https://g1429566.github.io/hermes-tutorial/#/build-tool",
+      "topics": [
+        "s02"
+      ],
+      "points": [
+        {
+          "label": "不止模拟——在浏览器里真跑一次",
+          "needle": "不止模拟——在浏览器里真跑一次",
+          "topic": "s02",
+          "crosswalk": 1,
+          "question": "handler 可以独立执行，为什么还要检查 schema、注册和工具组？",
+          "detail": "本章用可编辑教学桩展示注册到调用的链路。运行按钮在浏览器内执行 Python，能观测样例输出，不依赖真实 Hermes 实例。"
+        }
+      ],
+      "practiceSelector": "article.chapter > p.mt-12",
+      "practiceNeedle": "交互练习与源码对照"
+    },
+    {
+      "id": "build-provider",
+      "title": "接入模型 Provider",
+      "number": "22",
+      "module": "M3",
+      "path": "/hermes-tutorial/#/build-provider",
+      "online": "https://g1429566.github.io/hermes-tutorial/#/build-provider",
+      "topics": [
+        "s01"
+      ],
+      "points": [
+        {
+          "label": "四个环节，一种形状",
+          "needle": "四个环节，一种形状",
+          "topic": "s01",
+          "crosswalk": 2,
+          "question": "新 provider 能回复普通文字后，还要怎样验证工具调用链？",
+          "detail": "分别检查认证、地址、模型与接口转换。实际发起一次工具调用，再核对调用标识、参数与结果回传。"
+        }
+      ],
+      "practiceSelector": "article.chapter > p.mt-12",
+      "practiceNeedle": "交互练习与源码对照"
+    },
+    {
+      "id": "build-plugin",
+      "title": "通过插件扩展能力",
+      "number": "23",
+      "module": "M3",
+      "path": "/hermes-tutorial/#/build-plugin",
+      "online": "https://g1429566.github.io/hermes-tutorial/#/build-plugin",
+      "topics": [],
+      "points": [
+        {
+          "label": "写插件前必须知道的事",
+          "needle": "写插件前必须知道的事",
+          "topic": null,
+          "crosswalk": null,
+          "question": "给 Hermes 增加项目统计能力，先查已有工具、插件注册还是核心代码？",
+          "detail": "先确定现有能力的缺口，再按插件类别选择公共扩展接口；插件加载或注册并不自动提供文件隔离。"
+        }
+      ],
+      "practiceSelector": "article.chapter > p.mt-12",
+      "practiceNeedle": "交互练习与源码对照"
+    },
+    {
+      "id": "reliability",
+      "title": "按故障选择处理办法",
+      "number": "24",
+      "module": "M4",
+      "path": "/hermes-tutorial/#/reliability",
+      "online": "https://g1429566.github.io/hermes-tutorial/#/reliability",
+      "topics": [
+        "s11"
+      ],
+      "points": [
+        {
+          "label": "限流与凭据问题",
+          "needle": "限流与凭据问题",
+          "topic": "s11",
+          "crosswalk": 3,
+          "question": "收到 429 时，依据什么区分临时限流、凭据问题与预算耗尽？",
+          "detail": "先定位请求层与错误类型，按配置判断等待、换凭据或结束；工具结果丢失则要先核对是否已经产生副作用。"
+        },
+        {
+          "label": "上下文超限",
+          "needle": "上下文超限",
+          "topic": "s11",
+          "crosswalk": 2,
+          "question": "长输入触发限制时，为什么单纯增加重试次数不能修复？",
+          "detail": "上下文容量问题需要调整输入或压缩，而非重复发送同一份超长请求。"
+        }
+      ],
+      "practiceSelector": "article.chapter > p.mt-12",
+      "practiceNeedle": "交互练习与源码对照"
+    },
+    {
+      "id": "routing",
+      "title": "模型路由与辅助任务",
+      "number": "25",
+      "module": "M4",
+      "path": "/hermes-tutorial/#/routing",
+      "online": "https://g1429566.github.io/hermes-tutorial/#/routing",
+      "topics": [
+        "s11"
+      ],
+      "points": [
+        {
+          "label": "主模型挂了，谁来接盘",
+          "needle": "主模型挂了，谁来接盘",
+          "topic": "s11",
+          "crosswalk": 3,
+          "question": "切换凭据、切换备用模型、指定辅助模型分别解决什么？",
+          "detail": "限流后先检查当前 provider 的配置和错误分类；若切到别的模型，还需验证上下文窗口、视觉与工具支持。"
+        }
+      ],
+      "practiceSelector": "article.chapter > p.mt-12",
+      "practiceNeedle": "交互练习与源码对照"
+    },
+    {
+      "id": "multimodal",
+      "title": "图片与语音怎样接入",
+      "number": "26",
+      "module": "M4",
+      "path": "/hermes-tutorial/#/multimodal",
+      "online": "https://g1429566.github.io/hermes-tutorial/#/multimodal",
+      "topics": [],
+      "points": [
+        {
+          "label": "视觉理解",
+          "needle": "视觉理解",
+          "topic": null,
+          "crosswalk": null,
+          "question": "为何看图读出金额之后，还要核对原始表格？",
+          "detail": "原生图像输入与辅助视觉分析可以走不同路线；观察到识别结果，只支持得到了一份解释，准确计算还依赖数据核对。"
+        }
+      ],
+      "practiceSelector": "article.chapter > p.mt-12",
+      "practiceNeedle": "交互练习与源码对照"
+    },
+    {
+      "id": "evaluation",
+      "title": "怎样测量 Agent 是否变好",
+      "number": "27",
+      "module": "M4",
+      "path": "/hermes-tutorial/#/evaluation",
+      "online": "https://g1429566.github.io/hermes-tutorial/#/evaluation",
+      "topics": [
+        "s20"
+      ],
+      "points": [
+        {
+          "label": "batch runner",
+          "needle": "batch runner",
+          "topic": "s20",
+          "crosswalk": 4,
+          "question": "轨迹成功保存且模型已答复，怎样判断 CSV 汇总确实正确？",
+          "detail": "批处理运行样本，评测器独立核对总额、缺失行与非法值处理。模型、配置和技能版本要与测试结果一同记录。"
+        }
+      ],
+      "practiceSelector": "article.chapter > p.mt-12",
+      "practiceNeedle": "交互练习与源码对照"
+    },
+    {
+      "id": "interop",
+      "title": "MCP ACP 与 A2A",
+      "number": "28",
+      "module": "M4",
+      "path": "/hermes-tutorial/#/interop",
+      "online": "https://g1429566.github.io/hermes-tutorial/#/interop",
+      "topics": [
+        "s19"
+      ],
+      "points": [
+        {
+          "label": "一张表看清四个协议",
+          "needle": "一张表看清四个协议",
+          "topic": "s19",
+          "crosswalk": 1,
+          "question": "接一个查询工具、从编辑器驱动 agent、向其他 agent 服务派工，各该查什么接口？",
+          "detail": "按两端的参与者区分 MCP 工具/资源、ACP 编辑器会话与 A2A 服务任务；它们可以使用相似消息外形。"
+        }
+      ],
+      "practiceSelector": "article.chapter > p.mt-12",
+      "practiceNeedle": "交互练习与源码对照"
+    },
+    {
+      "id": "design-agent",
+      "title": "组合一套 Agent 系统",
+      "number": "29",
+      "module": "M5",
+      "path": "/hermes-tutorial/#/design-agent",
+      "online": "https://g1429566.github.io/hermes-tutorial/#/design-agent",
+      "topics": [
+        "s20",
+        "s09"
+      ],
+      "points": [
+        {
+          "label": "循环形态",
+          "needle": "循环形态",
+          "topic": "s20",
+          "crosswalk": 1,
+          "question": "给每日销售汇总搭系统，哪些条件应在模型开始选择工具前确定？",
+          "detail": "把输入、规则、工具、记忆、技能与调度分别安放到路径里，再检查结果与投递目标。"
+        },
+        {
+          "label": "记忆方案",
+          "needle": "记忆方案",
+          "topic": "s09",
+          "crosswalk": 1,
+          "question": "属于长期偏好的默认语言与本次 CSV 流程应该分别放在哪里？",
+          "detail": "按后续读取与更新时机选择持久记忆或技能；需要每日启动的工作交给调度层。"
+        }
+      ],
+      "practiceSelector": "article.chapter > p.mt-12",
+      "practiceNeedle": "交互练习与源码对照"
+    },
+    {
+      "id": "interview-loop",
+      "title": "解释主循环的设计",
+      "number": "30",
+      "module": "M5",
+      "path": "/hermes-tutorial/#/interview-loop",
+      "online": "https://g1429566.github.io/hermes-tutorial/#/interview-loop",
+      "topics": [
+        "s02",
+        "s08"
+      ],
+      "points": [
+        {
+          "label": "为什么顺序推进的主循环仍可处理流式和并行？",
+          "needle": "为什么顺序推进的主循环仍可处理流式和并行？",
+          "topic": "s02",
+          "crosswalk": 2,
+          "question": "读取两个独立文件可以并行，为什么最终回答仍需等待相关结果？",
+          "detail": "分别解释阶段依赖、模型流式传输与同批工具调度，并用调用标识关联结果。"
+        },
+        {
+          "label": "压缩怎样在窗口与信息保留之间取舍？",
+          "needle": "压缩怎样在窗口与信息保留之间取舍？",
+          "topic": "s08",
+          "crosswalk": 4,
+          "question": "某条摘要更短，应如何检验它是否足以继续任务？",
+          "detail": "检查摘要是否保留目标、已完成部分与未解决约束，再说明原始材料的回查途径。"
+        }
+      ],
+      "practiceSelector": "article.chapter > p.mt-12",
+      "practiceNeedle": "交互练习与源码对照"
+    },
+    {
+      "id": "interview-multi",
+      "title": "选择多 Agent 协作方式",
+      "number": "31",
+      "module": "M5",
+      "path": "/hermes-tutorial/#/interview-multi",
+      "online": "https://g1429566.github.io/hermes-tutorial/#/interview-multi",
+      "topics": [
+        "s15"
+      ],
+      "points": [
+        {
+          "label": "Manager 经理人",
+          "needle": "Manager 经理人",
+          "topic": "s15",
+          "crosswalk": 1,
+          "question": "一项开发任务的研究、修改、测试如何分配，谁汇总产物？",
+          "detail": "多个角色间有关联与验收条件时，要明确分派、状态归属和汇总者；独立批处理与串行交接有不同适用条件。"
+        }
+      ],
+      "practiceSelector": "article.chapter > p.mt-12",
+      "practiceNeedle": "交互练习与源码对照"
+    },
+    {
+      "id": "interview-design",
+      "title": "写一份系统设计文档",
+      "number": "32",
+      "module": "M5",
+      "path": "/hermes-tutorial/#/interview-design",
+      "online": "https://g1429566.github.io/hermes-tutorial/#/interview-design",
+      "topics": [],
+      "points": [
+        {
+          "label": "④ 数据与状态",
+          "needle": "④ 数据与状态",
+          "topic": null,
+          "crosswalk": null,
+          "question": "一句“独立上下文”为什么还不足以说明独立访问边界？",
+          "detail": "设计文档需分别交代消息、共享文件、数据库、凭据与执行环境，再写失败场景和可观测产物。"
+        }
+      ],
+      "practiceSelector": "article.chapter > p.mt-12",
+      "practiceNeedle": "交互练习与源码对照"
+    },
+    {
+      "id": "interview-checklist",
+      "title": "用可观察表现自评",
+      "number": "33",
+      "module": "M5",
+      "path": "/hermes-tutorial/#/interview-checklist",
+      "online": "https://g1429566.github.io/hermes-tutorial/#/interview-checklist",
+      "topics": [
+        "s09"
+      ],
+      "points": [
+        {
+          "label": "另一个已启动的 C 是否自动刷新",
+          "needle": "另一个已启动的 C 是否自动刷新",
+          "topic": "s09",
+          "crosswalk": 1,
+          "question": "会话 A 保存偏好、新会话 B 已创建、旧会话 C 仍在运行，哪次请求可看到变动？",
+          "detail": "自评要求讲清文件写入和会话读取时机。能独立推演 C 的快照，比只记住 MEMORY.md 的名字更能说明掌握。"
+        }
+      ],
+      "practiceSelector": "article.chapter > p.mt-12",
+      "practiceNeedle": "交互练习与源码对照"
+    }
+  ]
+}

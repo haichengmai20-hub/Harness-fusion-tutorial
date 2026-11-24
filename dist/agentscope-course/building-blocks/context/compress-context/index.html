@@ -1,0 +1,85 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>压缩上下文 · AgentScope</title><link rel="stylesheet" href="/agentscope-course/reader.css"><script defer src="/agentscope-course/reader.js"></script></head><body><header class="mast"><a href="/agentscope-course/">AgentScope <small>中文文档</small></a><span>v2.0.12</span><button id="catalog" aria-controls="outline" aria-expanded="false">目录</button></header><div class="layout"><nav id="outline" aria-label="AgentScope 文档目录"><div class="group">快速开始</div><a href="/agentscope-course/" >AgentScope 2.0 是什么？</a><a href="/agentscope-course/quickstart/" >快速开始</a><a href="/agentscope-course/release-notes/" >更新日志</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/message-and-event/" >消息与事件</a><div class="group">核心模块 / 智能体</div><a href="/agentscope-course/building-blocks/agent/overview/" >智能体 · 概述</a><a href="/agentscope-course/building-blocks/agent/configure-agent/" >配置智能体</a><a href="/agentscope-course/building-blocks/agent/run-agent/" >运行智能体</a><a href="/agentscope-course/building-blocks/agent/interrupt-agent/" >中断智能体</a><a href="/agentscope-course/building-blocks/agent/human-in-the-loop/" >人机交互</a><div class="group">核心模块 / 模型</div><a href="/agentscope-course/building-blocks/model/overview/" >模型 · 概述</a><a href="/agentscope-course/building-blocks/model/llm/" >大语言模型</a><a href="/agentscope-course/building-blocks/model/tts/" >语音合成</a><a href="/agentscope-course/building-blocks/model/asr/" >语音识别</a><a href="/agentscope-course/building-blocks/model/embedding/" >嵌入模型</a><div class="group">核心模块 / 上下文管理</div><a href="/agentscope-course/building-blocks/context/overview/" >上下文管理 · 概述</a><a href="/agentscope-course/building-blocks/context/environment-awareness/" >感知环境</a><a href="/agentscope-course/building-blocks/context/compress-context/" aria-current="page">压缩上下文</a><a href="/agentscope-course/building-blocks/context/offload-context/" >卸载上下文</a><div class="group">核心模块 / 工具</div><a href="/agentscope-course/building-blocks/tool/overview/" >工具 · 概述</a><a href="/agentscope-course/building-blocks/tool/python-tool/" >Python 函数工具</a><a href="/agentscope-course/building-blocks/tool/mcp/" >MCP</a><a href="/agentscope-course/building-blocks/tool/skill/" >Skill</a><a href="/agentscope-course/building-blocks/tool/manage-tools/" >元工具</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/plan/" >计划模式</a><div class="group">核心模块 / 流水线</div><a href="/agentscope-course/building-blocks/pipeline/overview/" >流水线 · 概述</a><a href="/agentscope-course/building-blocks/pipeline/goal/" >目标流水线</a><a href="/agentscope-course/building-blocks/pipeline/team/" >团队流水线</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/sop/" >标准作业流程</a><div class="group">核心模块 / 权限系统</div><a href="/agentscope-course/building-blocks/permission-system/overview/" >权限系统 · 概述</a><a href="/agentscope-course/building-blocks/permission-system/permission-mode/" >权限模式</a><a href="/agentscope-course/building-blocks/permission-system/permission-rule/" >权限规则</a><a href="/agentscope-course/building-blocks/permission-system/tool-check/" >工具内置检查</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/middleware/" >中间件</a><a href="/agentscope-course/building-blocks/rag/" >RAG</a><a href="/agentscope-course/building-blocks/long-term-memory/" >长期记忆</a><div class="group">核心模块 / 工作区</div><a href="/agentscope-course/building-blocks/workspace/overview/" >工作区 · 概述</a><a href="/agentscope-course/building-blocks/workspace/run-workspace/" >运行工作区</a><a href="/agentscope-course/building-blocks/workspace/manage-resources/" >管理资源</a><a href="/agentscope-course/building-blocks/workspace/mcp-gateway/" >MCP 网关</a><div class="group">核心模块 / 实时语音智能体</div><a href="/agentscope-course/building-blocks/realtime/overview/" >实时语音智能体 · 概述</a><a href="/agentscope-course/building-blocks/realtime/speech-to-speech/" >语音到语音</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/console/" >终端 UI</a><a href="/agentscope-course/building-blocks/a2a/" >A2A 协议</a><div class="group">智能体即服务</div><a href="/agentscope-course/deploy/agent-service/" >架构</a><a href="/agentscope-course/deploy/agent-team/" >智能体团队</a><a href="/agentscope-course/deploy/sop/" >SOP 服务</a><a href="/agentscope-course/deploy/sharing/" >资源共享</a><a href="/agentscope-course/deploy/rag/" >RAG 服务</a><a href="/agentscope-course/deploy/workspace-manager/" >工作区管理</a><div class="group">智能体即服务 / MCP 与技能中心</div><a href="/agentscope-course/deploy/hub/overview/" >MCP 与技能中心 · 概览</a><a href="/agentscope-course/deploy/hub/mcp-hub/" >MCP 中心</a><a href="/agentscope-course/deploy/hub/skill-hub/" >技能中心</a><div class="group">智能体即服务 / 消息渠道</div><a href="/agentscope-course/deploy/channel/overview/" >消息渠道 · 概览</a><a href="/agentscope-course/deploy/channel/routing/" >会话路由</a><a href="/agentscope-course/deploy/channel/feishu/" >飞书</a><a href="/agentscope-course/deploy/channel/dingtalk/" >钉钉</a><a href="/agentscope-course/deploy/channel/discord/" >Discord</a><a href="/agentscope-course/deploy/channel/custom/" >自定义渠道</a><div class="group">其他</div><a href="/agentscope-course/others/faq/" >常见问题</a><a href="/agentscope-course/others/change-log/" >版本迁移</a><div class="group">智能体即服务 / API</div><a href="/agentscope-course/api/">API 参考</a></nav><main><div class="context">核心模块 / 上下文管理</div><article class="prose-custom" id="content"><h1>压缩上下文</h1><p class="dek">将上下文长度维护在预设的长度内</p><p>当上下文窗口被填满时，AgentScope 通过 <code>ContextConfig</code> 控制的两套自动机制保持其形态：<strong>上下文压缩</strong>（汇总较早消息）与<strong>工具结果截断</strong>（截断过大的工具输出）。两者均透明运行，智能体不会因此中断。除此之外，开发者可以随时手动压缩，也可以把压缩的时机交给智能体自己决定。</p>
+<h2 id="配置压缩">配置压缩</h2>
+<p><code>ContextConfig</code> 在创建智能体时传入：</p>
+<div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">from agentscope.agent import Agent, ContextConfig
+
+agent = Agent(
+    name=&quot;my_agent&quot;,
+    system_prompt=&quot;...&quot;,
+    model=model,
+    toolkit=toolkit,
+    context_config=ContextConfig(
+        trigger_ratio=0.8,
+        reserve_ratio=0.1,
+        tool_result_limit=3000,
+        max_image_num=5,
+    ),
+)
+</code></pre></div>
+<p>可用字段：</p>
+<table><thead><tr><th>参数</th><th>类型</th><th>说明</th></tr></thead><tbody><tr><td><code>trigger_ratio</code></td><td><code>float</code></td><td>当 token 用量超过该比例 × 模型上下文长度时触发压缩（上限 <code>0.9</code>）</td></tr><tr><td><code>reserve_ratio</code></td><td><code>float</code></td><td>压缩后作为最近消息保留的上下文 token 比例</td></tr><tr><td><code>tool_result_limit</code></td><td><code>int</code></td><td>单条工具结果的最大 token 数，超出则截断</td></tr><tr><td><code>max_image_num</code></td><td><code>int</code></td><td>上下文中保留的最大图片数，默认为 <code>5</code></td></tr><tr><td><code>context_buffer_ratio</code></td><td><code>float</code></td><td>压缩阈值前的缓冲区，默认 <code>0.2</code>；当触发比例为 0.8、缓冲为 0.2 时，输入 token 数超过模型上下文的 60% 即开始<a href="/agentscope-course/building-blocks/context/environment-awareness/">注入上下文用量</a>，也是智能体自主压缩的生效区间</td></tr><tr><td><code>compression_tool_enabled</code></td><td><code>bool</code></td><td>是否向智能体暴露 <code>CompressContext</code> 工具，让它自行决定压缩时机，默认 <code>False</code></td></tr><tr><td><code>compression_fallback_to_truncation</code></td><td><code>bool</code></td><td>摘要生成失败时是否退化为截断最早的消息，默认 <code>True</code>；设为 <code>False</code> 则直接抛出错误</td></tr><tr><td><code>compression_prompt</code></td><td><code>str</code></td><td>引导模型生成摘要的提示词</td></tr><tr><td><code>summary_template</code></td><td><code>str</code></td><td>把摘要拼回上下文时使用的字符串模板</td></tr><tr><td><code>summary_schema</code></td><td><code>dict</code></td><td>约束模型结构化摘要输出的 JSON Schema</td></tr></tbody></table>
+<aside class="notice note"><strong>说明</strong><p><code>context_buffer_ratio</code> 必须小于 <code>trigger_ratio</code>，以保证上下文用量在硬压缩发生之前注入、智能体也来得及自行压缩。否则智能体构造函数会抛出 <code>ValueError</code>。</p></aside>
+<h2 id="自动压缩">自动压缩</h2>
+<p>压缩在每次推理步骤前自动执行，流程如下：</p>
+<div class="steps"><section class="step"><h3>计算 token 数</h3><p>智能体累计系统提示、摘要、上下文与工具 schema 的全部 token。</p></section><section class="step"><h3>判断阈值</h3><p>若总数超过 <code>trigger_ratio × context_size</code>，触发压缩；否则跳过此步，正常发起模型调用。</p></section><section class="step"><h3>切分消息</h3><p>较早消息标记为待压缩；落在 <code>reserve_ratio × context_size</code> 内的最近消息保留。工具调用 / 结果对在切分时保持成对，不会被拆开。</p></section><section class="step"><h3>生成摘要</h3><p>模型基于较早消息生成一份结构化摘要，包含五个字段：<code>task_overview</code>、<code>current_state</code>、<code>important_discoveries</code>、<code>next_steps</code>、<code>context_to_preserve</code>。</p></section><section class="step"><h3>更新状态</h3><p>摘要替换被压缩的消息，保留下来的最近消息成为新的上下文。智能体随后继续完成本次推理步骤。</p></section></div>
+<aside class="notice note"><strong>说明</strong><p><code>trigger_ratio</code>（最高 <code>0.9</code>）与完整上下文之间的剩余 10% 是给压缩调用本身预留的：模型需要空间生成摘要。</p></aside>
+<p>摘要生成会重试若干次，全部失败后的行为由 <code>compression_fallback_to_truncation</code> 决定：默认丢弃最早的消息并在摘要位置留下一条截断说明，让智能体带着缩短的上下文继续运行；设为 <code>False</code> 则抛出错误，上下文原样保留，代价是可能超出模型上下文长度。</p>
+<h2 id="手动压缩">手动压缩</h2>
+<p>也可以调用智能体的 <code>compress_context()</code> 方法手动触发压缩。不传参数时使用智能体自身的 <code>context_config</code>；可通过传入一份临时的 <code>ContextConfig</code> 进行覆盖，或传入 <code>instructions</code>（一个 <code>HintBlock</code>）来引导摘要行为：</p>
+<div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python"># 使用智能体默认配置进行检查
+await agent.compress_context()
+
+# 或针对单次调用覆盖配置（例如更激进地压缩）
+from agentscope.agent import ContextConfig
+
+await agent.compress_context(
+    context_config=ContextConfig(trigger_ratio=0.5, reserve_ratio=0.1),
+)
+
+# 或注入指令来引导摘要行为
+from agentscope.message import HintBlock
+
+await agent.compress_context(
+    instructions=HintBlock(
+        hint=&quot;保留至今提到的所有文件路径与 API 签名。&quot;,
+    ),
+)
+</code></pre></div>
+<p>当 token 用量低于 <code>trigger_ratio × context_size</code> 时该方法为空操作，因此可以安全地在轮次之间或自定义检查点处随时调用。</p>
+<h2 id="自主压缩">自主压缩</h2>
+<p>自动压缩在阈值被突破的那一刻触发，这个位置往往落在一件事做到一半的时候，摘要因此容易丢掉正在进行的细节。把 <code>compression_tool_enabled</code> 设为 <code>True</code>，智能体会拿到一个 <code>CompressContext</code> 工具，可以抢在硬阈值之前、在两件事的交界处自行压缩：</p>
+<div class="code-example"><div class="code-bar"><span>开启自主压缩</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="开启自主压缩" data-lang="python">from agentscope.agent import Agent, ContextConfig
+
+agent = Agent(
+    name=&quot;my_agent&quot;,
+    system_prompt=&quot;...&quot;,
+    model=model,
+    toolkit=toolkit,
+    context_config=ContextConfig(
+        trigger_ratio=0.8,             # 硬阈值：达到即自动压缩
+        context_buffer_ratio=0.2,      # 提前 20% 提示智能体，即 60% 起
+        compression_tool_enabled=True, # 暴露 CompressContext 工具
+    ),
+)
+</code></pre></div>
+<p>开启后的运作方式：</p>
+<table><thead><tr><th>环节</th><th>行为</th></tr></thead><tbody><tr><td>提示时机</td><td>输入 token 数进入 <code>(trigger_ratio - context_buffer_ratio) × context_size</code> 之后，且当前没有进行中的计划任务时，<a href="/agentscope-course/building-blocks/context/environment-awareness/">运行时状态注入</a>会告知智能体可以调用 <code>CompressContext</code></td></tr><tr><td>压缩阈值</td><td>工具内部按 <code>trigger_ratio - context_buffer_ratio</code> 判断，因此上下文未进入缓冲区时调用不会产生任何变化</td></tr><tr><td>权限</td><td>该工具始终放行，不受<a href="/agentscope-course/building-blocks/permission-system/overview/">权限系统</a>的确认流程影响</td></tr><tr><td>失败处理</td><td>摘要生成失败时返回一条错误结果，上下文保持不变，智能体可以继续工作</td></tr></tbody></table>
+<aside class="notice tip"><strong>提示</strong><p>自主压缩与自动压缩并存：智能体错过了缓冲区，上下文仍会在 <code>trigger_ratio</code> 处被自动压缩，因此开启它不需要额外的兜底逻辑。</p></aside>
+<h2 id="限制图片数量">限制图片数量</h2>
+<p><code>max_image_num</code> 用来避免长对话中的图片持续占用模型上下文。当图片数超过上限时，AgentScope 从最早的图片开始移除，并在原位置留下提示：</p>
+<ul>
+<li>如果智能体配置了 <code>offloader</code>，图片会先持久化，提示中包含可重新读取的路径；</li>
+<li>没有 <code>offloader</code> 时，图片会被丢弃，提示只记录其已因数量限制被移除。</li>
+</ul>
+<p><code>max_image_num=0</code> 表示不在模型上下文中保留图片。</p>
+<h2 id="截断工具结果">截断工具结果</h2>
+<p>每次工具调用之后，智能体会比较结果的 token 数与 <code>tool_result_limit</code>。超出限额时，结果被切分为保留部分（留在上下文中）与卸载部分（如挂载了卸载器，则交由其持久化，见<a href="/agentscope-course/building-blocks/context/offload-context/">卸载上下文</a>）。</p>
+<p>保留部分会追加一段截断标记，让智能体知道输出已被截断：</p>
+<div class="code-example"><div class="code-bar"><span>代码</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code data-caption="代码" data-lang="text">&lt;&lt;&lt;TRUNCATED&gt;&gt;&gt;
+&lt;system-reminder&gt;The remaining content has been omitted for limited context.&lt;/system-reminder&gt;
+</code></pre></div>
+<p>挂载了卸载器时，标记还会指向已持久化的完整输出：</p>
+<div class="code-example"><div class="code-bar"><span>代码</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code data-caption="代码" data-lang="text">&lt;&lt;&lt;TRUNCATED&gt;&gt;&gt;
+&lt;system-reminder&gt;The remaining content has been omitted for limited context. You can refer to the file in &#x27;/path/to/tool_result-&lt;id&gt;.txt&#x27; for the truncated content if needed.&lt;/system-reminder&gt;
+</code></pre></div>
+<aside class="notice warning"><strong>注意</strong><p><code>tool_result_limit</code> 设置过低会让智能体错过关键的工具输出；过高则可能让一次结果填满整个上下文。</p></aside></article><footer><div class="paging"><a href="/agentscope-course/building-blocks/context/environment-awareness/">上一节 · 感知环境</a><a href="/agentscope-course/building-blocks/context/offload-context/">下一节 · 卸载上下文</a></div><div class="credits"><a href="https://docs.agentscope.io/zh/versions/2.0.12/building-blocks/context/compress-context" target="_blank" rel="noopener">在线原页</a> · <a href="/agentscope-course/mdx/building-blocks/context/compress-context.mdx">原始 MDX</a> · <a href="https://github.com/agentscope-ai/docs/blob/e0ee835d1aca5d2b840d29bdd2f70770bbef69e8/zh/versions/2.0.12/building-blocks/context/compress-context.mdx" target="_blank" rel="noopener">固定版本来源</a> · <a href="/agentscope-course/LICENSE.txt">MIT 许可</a></div></footer></main></div></body></html>

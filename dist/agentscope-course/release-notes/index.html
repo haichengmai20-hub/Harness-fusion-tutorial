@@ -1,0 +1,1279 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>更新日志 · AgentScope</title><link rel="stylesheet" href="/agentscope-course/reader.css"><script defer src="/agentscope-course/reader.js"></script></head><body><header class="mast"><a href="/agentscope-course/">AgentScope <small>中文文档</small></a><span>v2.0.12</span><button id="catalog" aria-controls="outline" aria-expanded="false">目录</button></header><div class="layout"><nav id="outline" aria-label="AgentScope 文档目录"><div class="group">快速开始</div><a href="/agentscope-course/" >AgentScope 2.0 是什么？</a><a href="/agentscope-course/quickstart/" >快速开始</a><a href="/agentscope-course/release-notes/" aria-current="page">更新日志</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/message-and-event/" >消息与事件</a><div class="group">核心模块 / 智能体</div><a href="/agentscope-course/building-blocks/agent/overview/" >智能体 · 概述</a><a href="/agentscope-course/building-blocks/agent/configure-agent/" >配置智能体</a><a href="/agentscope-course/building-blocks/agent/run-agent/" >运行智能体</a><a href="/agentscope-course/building-blocks/agent/interrupt-agent/" >中断智能体</a><a href="/agentscope-course/building-blocks/agent/human-in-the-loop/" >人机交互</a><div class="group">核心模块 / 模型</div><a href="/agentscope-course/building-blocks/model/overview/" >模型 · 概述</a><a href="/agentscope-course/building-blocks/model/llm/" >大语言模型</a><a href="/agentscope-course/building-blocks/model/tts/" >语音合成</a><a href="/agentscope-course/building-blocks/model/asr/" >语音识别</a><a href="/agentscope-course/building-blocks/model/embedding/" >嵌入模型</a><div class="group">核心模块 / 上下文管理</div><a href="/agentscope-course/building-blocks/context/overview/" >上下文管理 · 概述</a><a href="/agentscope-course/building-blocks/context/environment-awareness/" >感知环境</a><a href="/agentscope-course/building-blocks/context/compress-context/" >压缩上下文</a><a href="/agentscope-course/building-blocks/context/offload-context/" >卸载上下文</a><div class="group">核心模块 / 工具</div><a href="/agentscope-course/building-blocks/tool/overview/" >工具 · 概述</a><a href="/agentscope-course/building-blocks/tool/python-tool/" >Python 函数工具</a><a href="/agentscope-course/building-blocks/tool/mcp/" >MCP</a><a href="/agentscope-course/building-blocks/tool/skill/" >Skill</a><a href="/agentscope-course/building-blocks/tool/manage-tools/" >元工具</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/plan/" >计划模式</a><div class="group">核心模块 / 流水线</div><a href="/agentscope-course/building-blocks/pipeline/overview/" >流水线 · 概述</a><a href="/agentscope-course/building-blocks/pipeline/goal/" >目标流水线</a><a href="/agentscope-course/building-blocks/pipeline/team/" >团队流水线</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/sop/" >标准作业流程</a><div class="group">核心模块 / 权限系统</div><a href="/agentscope-course/building-blocks/permission-system/overview/" >权限系统 · 概述</a><a href="/agentscope-course/building-blocks/permission-system/permission-mode/" >权限模式</a><a href="/agentscope-course/building-blocks/permission-system/permission-rule/" >权限规则</a><a href="/agentscope-course/building-blocks/permission-system/tool-check/" >工具内置检查</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/middleware/" >中间件</a><a href="/agentscope-course/building-blocks/rag/" >RAG</a><a href="/agentscope-course/building-blocks/long-term-memory/" >长期记忆</a><div class="group">核心模块 / 工作区</div><a href="/agentscope-course/building-blocks/workspace/overview/" >工作区 · 概述</a><a href="/agentscope-course/building-blocks/workspace/run-workspace/" >运行工作区</a><a href="/agentscope-course/building-blocks/workspace/manage-resources/" >管理资源</a><a href="/agentscope-course/building-blocks/workspace/mcp-gateway/" >MCP 网关</a><div class="group">核心模块 / 实时语音智能体</div><a href="/agentscope-course/building-blocks/realtime/overview/" >实时语音智能体 · 概述</a><a href="/agentscope-course/building-blocks/realtime/speech-to-speech/" >语音到语音</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/console/" >终端 UI</a><a href="/agentscope-course/building-blocks/a2a/" >A2A 协议</a><div class="group">智能体即服务</div><a href="/agentscope-course/deploy/agent-service/" >架构</a><a href="/agentscope-course/deploy/agent-team/" >智能体团队</a><a href="/agentscope-course/deploy/sop/" >SOP 服务</a><a href="/agentscope-course/deploy/sharing/" >资源共享</a><a href="/agentscope-course/deploy/rag/" >RAG 服务</a><a href="/agentscope-course/deploy/workspace-manager/" >工作区管理</a><div class="group">智能体即服务 / MCP 与技能中心</div><a href="/agentscope-course/deploy/hub/overview/" >MCP 与技能中心 · 概览</a><a href="/agentscope-course/deploy/hub/mcp-hub/" >MCP 中心</a><a href="/agentscope-course/deploy/hub/skill-hub/" >技能中心</a><div class="group">智能体即服务 / 消息渠道</div><a href="/agentscope-course/deploy/channel/overview/" >消息渠道 · 概览</a><a href="/agentscope-course/deploy/channel/routing/" >会话路由</a><a href="/agentscope-course/deploy/channel/feishu/" >飞书</a><a href="/agentscope-course/deploy/channel/dingtalk/" >钉钉</a><a href="/agentscope-course/deploy/channel/discord/" >Discord</a><a href="/agentscope-course/deploy/channel/custom/" >自定义渠道</a><div class="group">其他</div><a href="/agentscope-course/others/faq/" >常见问题</a><a href="/agentscope-course/others/change-log/" >版本迁移</a><div class="group">智能体即服务 / API</div><a href="/agentscope-course/api/">API 参考</a></nav><main><div class="context">快速开始</div><article class="prose-custom" id="content"><h1>更新日志</h1><p class="dek">AgentScope 版本改动和更新日志。</p><aside class="notice tip"><strong>提示</strong><p>如需查看完整的提交历史与贡献者名单，请访问 <a href="https://github.com/agentscope-ai/agentscope/releases">GitHub Releases 页面</a>。</p></aside>
+<h2 id="v2012">v2.0.12</h2>
+<p><em>发布于 2026-11-16。</em></p>
+<aside class="notice note"><strong>说明</strong><p><strong>重点更新</strong>：支持在回复过程中补充输入、管理待发送消息队列、克隆并复用音色，
+以及在智能体服务中接入浏览器语音输入和客户端工具。</p></aside>
+<h3 id="新增">新增</h3>
+<p><strong>智能体与服务</strong></p>
+<ul>
+<li><strong>运行中补充输入</strong>：通过 <code>SteeringMiddleware</code> 和 <code>SteeringQueue</code>，
+在推理边界注入新输入，无需中断正在执行的模型或工具调用。
+回执区分已注入、未消费和失败的输入。
+(<a href="https://github.com/agentscope-ai/agentscope/pull/3638">#3638</a>)</li>
+<li><strong>可编辑消息队列</strong>：普通 <code>POST /chat</code> 消息进入服务端先进先出队列，
+支持查看、编辑、删除、排序，也可将待发送消息用于引导当前回复。
+(<a href="https://github.com/agentscope-ai/agentscope/pull/2236">#2236</a>)</li>
+<li><strong>客户端工具</strong>：每次聊天运行可声明外部工具及原生 <code>AskUser</code> 支持，
+工具等待客户端执行后，再携带执行结果恢复回复。
+(<a href="https://github.com/agentscope-ai/agentscope/pull/2394">#2394</a>)</li>
+<li><strong>后台任务可见性</strong>：通过 REST 接口和网页界面查看卸载任务的状态与耗时。
+<code>create_app</code> 新增 <code>tool_offload_timeout_secs</code> 参数，工具占位结果携带结构化元数据。
+(<a href="https://github.com/agentscope-ai/agentscope/pull/1865">#1865</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/3883">#3883</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/3606">#3606</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/3853">#3853</a>)</li>
+</ul>
+<p><strong>语音</strong></p>
+<ul>
+<li><strong>语音识别</strong>：在 OpenAI 转写之外，新增 DashScope 批量与实时语音识别，
+服务和网页界面支持浏览器语音输入。
+(<a href="https://github.com/agentscope-ai/agentscope/pull/3298">#3298</a>)</li>
+<li><strong>音色档案</strong>：保存并复用音色，通过 DashScope 与 OpenAI 音色克隆客户端创建自定义音色。
+(<a href="https://github.com/agentscope-ai/agentscope/pull/2162">#2162</a>)</li>
+<li><strong>语音合成</strong>：新增 <code>MiniMaxTTSModel</code>，支持 Gemini 3.8 Flash / Flash-Lite TTS。
+(<a href="https://github.com/agentscope-ai/agentscope/pull/2298">#2298</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/3677">#3677</a>)</li>
+<li><strong>实时语音</strong>：新增 <code>OpenAILiveModel</code>，支持 GPT Live 及向聊天智能体委派任务；
+支持 Gemini 3.8 Live Extended Thinking。
+(<a href="https://github.com/agentscope-ai/agentscope/pull/3272">#3272</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/3700">#3700</a>)</li>
+</ul>
+<p><strong>模型与消息</strong></p>
+<ul>
+<li>支持 Gemini 4 Argon / Carbon、Kimi K3.1 Pro 系列，扩充模型卡片并按发布日期排序。
+(<a href="https://github.com/agentscope-ai/agentscope/pull/3675">#3675</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/3578">#3578</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/3997">#3997</a>)</li>
+<li><code>DataBlock</code> 支持模型 API 专用媒体参数，Volcengine 格式化器支持音频输入；
+模型调用可按需启用内容块错误的统一异常类型。
+(<a href="https://github.com/agentscope-ai/agentscope/pull/2103">#2103</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/3706">#3706</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/3324">#3324</a>)</li>
+</ul>
+<h3 id="变更">变更</h3>
+<ul>
+<li><strong>思考控制采用三态语义</strong>：不设置时保留模型 API 默认行为，需要时再显式开启或关闭。
+(<a href="https://github.com/agentscope-ai/agentscope/pull/3557">#3557</a>)</li>
+<li><strong>工作区技能导入</strong>：移除通过任意服务器路径导入技能的接口。
+(<a href="https://github.com/agentscope-ai/agentscope/pull/3536">#3536</a>)</li>
+<li><strong>ReMe 集成</strong>：移除已废弃的 <code>dream_topics_step</code>，保留 daily 到 digest 的记忆整理。
+(<a href="https://github.com/agentscope-ai/agentscope/pull/3851">#3851</a>)</li>
+</ul>
+<h3 id="修复">修复</h3>
+<ul>
+<li><strong>消息队列与运行中输入</strong>：确认结果不确定时保留输入，失败的补充输入不再被普通队列自动执行。
+(<a href="https://github.com/agentscope-ai/agentscope/pull/4061">#4061</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/3747">#3747</a>)</li>
+<li><strong>运行生命周期</strong>：改进后台任务清理、唤醒启动、WebRTC 关闭和实时下行恢复，
+将预算提示限定在当前回复内。
+(<a href="https://github.com/agentscope-ai/agentscope/pull/3968">#3968</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/3632">#3632</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/3190">#3190</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/3732">#3732</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/4043">#4043</a>)</li>
+<li><strong>模型与嵌入</strong>：非流式响应失败时抛出错误，正确应用参数覆盖、隔离缓存、
+保留用量计数，并在批次失败后等待其他并发批次结束。
+(<a href="https://github.com/agentscope-ai/agentscope/pull/3743">#3743</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/3468">#3468</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/3142">#3142</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/3453">#3453</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/4039">#4039</a>)</li>
+<li><strong>工具与工作区</strong>：逐条检查 Bash 复合命令的权限，避免破坏非 UTF-8 文件，
+以工作区目录解析搜索路径，并在 MCP 服务器通知变化后刷新工具缓存。
+(<a href="https://github.com/agentscope-ai/agentscope/pull/3513">#3513</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/3322">#3322</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/2637">#2637</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/3734">#3734</a>)</li>
+<li><strong>知识库与调度</strong>：单个知识库检索失败时保留其他知识库上下文，
+删除失败时保留源文件，按距离度量归一化 Qdrant 分数，
+并正确处理调度起止时间和 cron 日期匹配规则。
+(<a href="https://github.com/agentscope-ai/agentscope/pull/3976">#3976</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/3556">#3556</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/3958">#3958</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/3547">#3547</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/3610">#3610</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/3602">#3602</a>)</li>
+</ul>
+<p>完整改动见 <a href="https://github.com/agentscope-ai/agentscope/compare/v2.0.11...v2.0.12">版本对比</a>。</p>
+<h2 id="v2011">v2.0.11</h2>
+<p><em>发布于 2026-10-27。</em></p>
+<aside class="notice note"><strong>说明</strong><p><strong>重点更新</strong>：本次版本新增语音识别、MCP 工具进度流，以及 OpenAI Chat
+Completions 与 Responses API 的显式选择，并改进实时语音轮次处理、扩充模型目录。</p></aside>
+<h3 id="新增-2">新增</h3>
+<p><strong>语音识别</strong></p>
+<ul>
+<li><strong>统一 ASR 接口</strong>：新增 <code>agentscope.asr</code> 包，定义批量与实时转写生命周期、
+ASR 响应、模型卡片以及基于凭证的模型发现接口。</li>
+<li><strong>OpenAI 音频转写</strong>：新增 <code>OpenAIASRModel</code>，支持使用
+<code>gpt-4o-mini-transcribe</code> 和 <code>gpt-4o-transcribe</code> 转写完整音频文件。
+(<a href="https://github.com/agentscope-ai/agentscope/commit/812eaecd7816223a7de176951eac9fc9e03555c7">提交</a>)</li>
+</ul>
+<p><strong>MCP</strong></p>
+<ul>
+<li><strong>工具进度流</strong>：设置 <code>MCPClient.stream_progress=True</code>，即可接收本地 MCP
+工具发出的临时 <code>mcp_progress</code> 自定义事件。沙箱网关工具仍只返回最终结果。
+(<a href="https://github.com/agentscope-ai/agentscope/pull/3325">#3325</a>)</li>
+</ul>
+<p><strong>模型</strong></p>
+<ul>
+<li><strong>OpenAI API 选择</strong>：凭证的模型发现结果同时包含 Chat Completions 和
+Responses 模型卡片。模型选择器与智能体服务会话配置可通过 <code>model_class</code> 区分两者。
+(<a href="https://github.com/agentscope-ai/agentscope/pull/1937">#1937</a>)</li>
+<li><strong>模型目录</strong>：新增 Claude 5.5、GPT-6 Luna/Sol 与 GPT-6.1 Sol、Grok 4.7、
+Doubao、Qwen Audio TTS 和 Gemini 3.8 Live 的模型卡片。
+(<a href="https://github.com/agentscope-ai/agentscope/pull/3488">#3488</a>)</li>
+</ul>
+<h3 id="变更-2">变更</h3>
+<ul>
+<li><strong>MCP SDK 2.x</strong>：Python 依赖调整为 <code>mcp&gt;=2.0.0</code>。AgentScope 自动完成
+协议协商，并保留现有的 <code>MCPClient</code> 接口。
+(<a href="https://github.com/agentscope-ai/agentscope/pull/2216">#2216</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/3325">#3325</a>)</li>
+<li><strong>实时语音</strong>：模型卡片新增 <code>release_date</code>，网页界面改进模型排序与参数控件。
+工具调用后的续答归属同一条逻辑回复，延迟到达的用户转写仍归属原始轮次。
+(<a href="https://github.com/agentscope-ai/agentscope/pull/3180">#3180</a>)</li>
+</ul>
+<h3 id="修复-2">修复</h3>
+<p><strong>模型与工具</strong></p>
+<ul>
+<li>语音识别和分类模型支持单次调用的参数覆盖。Gemini 与 Qwen 嵌入模型保留配置的
+维度和文本参数；Ollama 嵌入响应保留输入 token 用量。批量嵌入用量采用各批次
+的最大耗时，并保留缓存来源信息。
+(<a href="https://github.com/agentscope-ai/agentscope/pull/3333">#3333</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/3391">#3391</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/3424">#3424</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/3361">#3361</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/3404">#3404</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/3350">#3350</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/3393">#3393</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/2967">#2967</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/2690">#2690</a>)</li>
+<li>Gemini 保留工具调用的思考签名，将并行函数响应合并到同一用户轮次，并避免
+生成空值系统文本。本地文件 URL 以及 Ollama 格式化器中的文件路径能够正确解码。
+(<a href="https://github.com/agentscope-ai/agentscope/pull/2463">#2463</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/2631">#2631</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/2950">#2950</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/3107">#3107</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/3141">#3141</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/3250">#3250</a>)</li>
+<li>MCP 将只有结构化内容的工具结果保留为 JSON 文本。工具适配器保留偏函数的
+类型注解与文档字符串，PDF 读取上报延迟异常，Write/Edit 权限建议转义通配符。
+(<a href="https://github.com/agentscope-ai/agentscope/pull/3389">#3389</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/3257">#3257</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/3057">#3057</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/3378">#3378</a>)</li>
+</ul>
+<p><strong>知识库</strong></p>
+<ul>
+<li>删除文档时校验所属知识库，插入文档时不再修改调用方的分块对象，并串行执行
+集合初始化。MongoDB 搜索限制候选数量，关闭流时清理静态提示。
+(<a href="https://github.com/agentscope-ai/agentscope/pull/3222">#3222</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/2897">#2897</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/2853">#2853</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/3316">#3316</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/3363">#3363</a>)</li>
+<li>Word 解析保留内容控件、文本框以及含文本片段的空白段落；Excel 工作表解析失败
+会向上报告；PowerPoint 图片保留原始媒体类型。
+(<a href="https://github.com/agentscope-ai/agentscope/pull/2845">#2845</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/2662">#2662</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/3401">#3401</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/3021">#3021</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/3339">#3339</a>)</li>
+</ul>
+<p><strong>智能体与运行时</strong></p>
+<ul>
+<li>
+<p>事件回放保留工具数据块 ID；GoalPipeline 限制结构化输出重试次数；链路追踪将
+Pydantic 工具结果序列化为 JSON。
+(<a href="https://github.com/agentscope-ai/agentscope/pull/2551">#2551</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/3078">#3078</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/3263">#3263</a>)</p>
+</li>
+<li>
+<p>控制台切换智能体时保留待处理回复，TUI 工具交互按回复隔离，网页界面支持
+发送仅含附件的消息。
+(<a href="https://github.com/agentscope-ai/agentscope/pull/3317">#3317</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/3282">#3282</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/3365">#3365</a>)</p>
+</li>
+<li>
+<p>工作区 MCP 配置支持 UTF-8 BOM，空卸载批次不追加上下文，记忆文件的前置信息
+在结束标记位于文件末尾时仍被保留，内存消息总线正确处理值为零的队列 TTL。
+(<a href="https://github.com/agentscope-ai/agentscope/pull/3338">#3338</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/3254">#3254</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/3345">#3345</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/3376">#3376</a>)</p>
+</li>
+<li>
+<p>并发执行工具前会保留智能体收到的取消状态。
+(<a href="https://github.com/agentscope-ai/agentscope/pull/2768">#2768</a>)</p>
+</li>
+<li>
+<p>工作区上下文归档中的嵌套媒体现在能够正确卸载。
+(<a href="https://github.com/agentscope-ai/agentscope/pull/3201">#3201</a>)</p>
+</li>
+<li>
+<p>公共 <code>aclose()</code> 会等待模型 API 流完成清理；流式 WAV 最终块会写入真实
+长度；Ollama 嵌入缓存会按服务地址隔离。
+(<a href="https://github.com/agentscope-ai/agentscope/pull/3216">#3216</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/3242">#3242</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/3265">#3265</a>)</p>
+</li>
+<li>
+<p>TUI 的 <code>AskUser</code> 问题切换支持右方向键。
+(<a href="https://github.com/agentscope-ai/agentscope/pull/3275">#3275</a>)</p>
+</li>
+</ul>
+<h2 id="v2010">v2.0.10</h2>
+<p><em>发布于 2026-10-12。</em></p>
+<aside class="notice note"><strong>说明</strong><p><strong>重点更新</strong>：本次版本为智能体服务加入基于 WebRTC 的实时语音对话，新增
+OpenAI Decisions API 分类模型和 Qwen3.8 Omni 实时模型支持，并把服务中的
+文本模式智能体配置归入 <code>chat_config</code>。</p></aside>
+<h3 id="新增-3">新增</h3>
+<p><strong>智能体服务</strong></p>
+<ul>
+<li><strong>WebRTC 实时语音</strong>（实验性）：浏览器可以查询可用的实时模型，为已有会话
+协商 WebRTC 连接，并让文本和语音模式共享同一份持久化会话历史。
+(<a href="https://github.com/agentscope-ai/agentscope/pull/2570">#2570</a>)</li>
+</ul>
+<p><strong>分类模型</strong></p>
+<ul>
+<li><strong>OpenAI Decisions API</strong>：新增 <code>OpenAIClassifierModel</code>，支持带概率的二元
+判断、单选与评分问题。输入可以是文本、可序列化为 JSON 的字典，或者按顺序
+排列的文本块与 base64 图片块，也可以直接用于 <code>ModelRouterMiddleware</code>。
+(<a href="https://github.com/agentscope-ai/agentscope/pull/3174">#3174</a>)</li>
+</ul>
+<p><strong>实时语音</strong></p>
+<ul>
+<li><strong>Qwen3.8 Omni Realtime</strong>：<code>DashScopeRealtimeModel</code> 新增
+<code>qwen3.8-omni-flash-realtime</code>，支持工具调用和工作空间专属的 DashScope
+地址。本次版本还新增了 <code>qwen-audio-3.1-realtime-plus</code> 模型卡片。
+(<a href="https://github.com/agentscope-ai/agentscope/pull/3196">#3196</a>)</li>
+</ul>
+<h3 id="变更-3">变更</h3>
+<p><strong>智能体服务</strong></p>
+<ul>
+<li><strong>统一对话配置</strong>：<code>AgentData</code>、创建请求与更新请求现在把
+<code>context_config</code>、<code>react_config</code> 和 <code>invite_config</code> 放在 <code>chat_config</code>
+下。已有的扁平存储记录与请求字段仍可兼容读取，新客户端应改用分组结构。
+(<a href="https://github.com/agentscope-ai/agentscope/pull/2570">#2570</a>)</li>
+</ul>
+<h3 id="修复-3">修复</h3>
+<p><strong>模型与格式化器</strong></p>
+<ul>
+<li>OpenAI Responses 现在会保留推理与拒答文本、传递流式错误，并把无参数的流式
+工具调用参数输出为 <code>{}</code>；非流式对话音频现在包含有效的 WAV 文件头。
+(<a href="https://github.com/agentscope-ai/agentscope/pull/2916">#2916</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/3136">#3136</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/3086">#3086</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/3229">#3229</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/3028">#3028</a>)</li>
+<li>Gemini 会保留调用方传入的配置，并能处理缺失的缓存 token 用量；Moonshot
+可以正确读取缓存 token，并跳过空的思考块；Anthropic 会把无参数的流式工具
+调用参数输出为 <code>{}</code>；Ollama 会为每个工具调用生成独立 ID。
+(<a href="https://github.com/agentscope-ai/agentscope/pull/3231">#3231</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/3079">#3079</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/3269">#3269</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/2954">#2954</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/3008">#3008</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/3011">#3011</a>)</li>
+<li>DashScope 会把音频转写作为文本事件输出；DashScope 多实体格式化器会校验
+输入；xAI 格式化器会保留工具结果中的媒体内容。
+(<a href="https://github.com/agentscope-ai/agentscope/pull/2925">#2925</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/2952">#2952</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/2928">#2928</a>)</li>
+</ul>
+<p><strong>语音合成与实时语音</strong></p>
+<ul>
+<li>语音合成输出会使用实际生效的响应格式，并遵守单次调用传入的语音指令和
+DashScope 音色；DashScope 与 CosyVoice 的错误也会正确传递。
+<code>TTSModelBase</code> 现在是真正的抽象基类。
+(<a href="https://github.com/agentscope-ai/agentscope/pull/2980">#2980</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/2990">#2990</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/3002">#3002</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/2993">#2993</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/3042">#3042</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/2956">#2956</a>)</li>
+<li>DashScope 实时会话会在工具调用完成后释放调用名称，后续同名调用不会再被
+误判为仍在执行。
+(<a href="https://github.com/agentscope-ai/agentscope/pull/2969">#2969</a>)</li>
+</ul>
+<p><strong>RAG 与嵌入模型</strong></p>
+<ul>
+<li>Word 解析会保留省略的表格列，并提取表格单元格中的图片；Excel 解析会保留
+重名、空白表头和原生错误值；PDF 与 PowerPoint 的延迟错误会统一处理，
+PowerPoint 文本框中的软换行也会得到保留。
+(<a href="https://github.com/agentscope-ai/agentscope/pull/2961">#2961</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/3064">#3064</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/2948">#2948</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/3204">#3204</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/2975">#2975</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/3217">#3217</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/2940">#2940</a>)</li>
+<li>嵌入缓存会正确执行零文件上限；OpenAI 嵌入响应缺少用量信息时不再报错。
+(<a href="https://github.com/agentscope-ai/agentscope/pull/2962">#2962</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/3199">#3199</a>)</li>
+</ul>
+<p><strong>工具与工作区</strong></p>
+<ul>
+<li>内置工具现在可以正确处理类似命令选项的 grep 与 glob 参数、带当前目录段的
+glob 模式、空参数工具调用和延迟返回值。自动推导的 schema 不再暴露注入
+状态，每个 <code>Read</code> 实例也会独立持有默认媒体类型列表。
+(<a href="https://github.com/agentscope-ai/agentscope/pull/2988">#2988</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/3004">#3004</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/2979">#2979</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/3095">#3095</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/3135">#3135</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/3090">#3090</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/3161">#3161</a>)</li>
+<li>文件工具会拒绝空的编辑目标，在危险路径检查前解析链接，并在删除本地符号
+链接时避免跟随目标；Docker 初始化失败后会正确清理资源，技能名称在大小写
+不敏感文件系统中的冲突会被发现，OpenSandbox 未返回退出码时会报告失败。
+(<a href="https://github.com/agentscope-ai/agentscope/pull/2995">#2995</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/3033">#3033</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/3006">#3006</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/3098">#3098</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/3075">#3075</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/3062">#3062</a>)</li>
+</ul>
+<p><strong>智能体服务与工作流</strong></p>
+<ul>
+<li>无法重新加载的 MCP 名称会在保存前被拒绝；删除工作区技能改为幂等操作；
+被拒绝的对话协程会正确关闭；Redis 订阅清理不会再被取消操作打断。
+(<a href="https://github.com/agentscope-ai/agentscope/pull/3025">#3025</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/2892">#2892</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/3213">#3213</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/3158">#3158</a>)</li>
+<li>定时任务的默认开始时间改为绝对时间，删除后会通知负责调度的进程；团队流水线
+某轮失败后会等待其他成员结束；SOP 步骤主动把运行标记为失败时会立即停止。
+(<a href="https://github.com/agentscope-ai/agentscope/pull/3101">#3101</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/3103">#3103</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/2982">#2982</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/3096">#3096</a>)</li>
+<li>预算耗尽后仍然可以返回结构化结果；追加到消息中的用量信息改为保存副本，避免
+后续修改影响已经生成的消息。
+(<a href="https://github.com/agentscope-ai/agentscope/pull/3027">#3027</a>、
+<a href="https://github.com/agentscope-ai/agentscope/pull/2805">#2805</a>)</li>
+</ul>
+<h2 id="v209">v2.0.9</h2>
+<p><em>发布于 2026-09-28。</em></p>
+<aside class="notice note"><strong>说明</strong><p><strong>Highlight</strong>：本次版本新增了</p><ul>
+<li>按固定步骤逐步验收的标准作业流程（SOP），及其服务层接口，</li>
+<li>由队长向成员分派任务的 <code>TeamPipeline</code>，</li>
+<li>OpenAI、Gemini 与 xAI 的实时语音模型，</li>
+<li>全屏终端界面 <code>agentscope.tui</code>，以及</li>
+<li>MiniMax 模型与按输入选择模型的路由中间件。</li>
+</ul></aside>
+<h3 id="新增-4">新增</h3>
+<p><strong>SOP</strong></p>
+<ul>
+<li><strong>标准作业流程</strong>（实验性）：新增 <code>agentscope.sop</code> 模块，把任务拆成按顺序推进、逐步验收的里程碑，运行状态可以持久化并在中断后继续。(<a href="https://github.com/agentscope-ai/agentscope/pull/2393">#2393</a>)</li>
+<li><strong>SOP 服务层</strong>（实验性）：智能体服务新增 <code>/sop</code> 接口，支持保存流程、发起运行与人工验收，每一步都在普通会话中执行，可以直接在会话里观察进度。(<a href="https://github.com/agentscope-ai/agentscope/pull/2617">#2617</a>)</li>
+</ul>
+<p><strong>Pipeline</strong></p>
+<ul>
+<li><strong><code>TeamPipeline</code></strong>：队长通过工具调用把任务分派给成员智能体，成员并发执行后把结果交回队长，适合由一个智能体统筹多个专长智能体的场景。(<a href="https://github.com/agentscope-ai/agentscope/pull/2764">#2764</a>)</li>
+</ul>
+<p><strong>Realtime</strong></p>
+<ul>
+<li><strong>更多实时语音模型</strong>：新增 OpenAI Realtime、Gemini Live 与 xAI Grok Voice。(<a href="https://github.com/agentscope-ai/agentscope/pull/2552">#2552</a>、<a href="https://github.com/agentscope-ai/agentscope/pull/2556">#2556</a>、<a href="https://github.com/agentscope-ai/agentscope/pull/2553">#2553</a>)</li>
+</ul>
+<p><strong>TUI</strong></p>
+<ul>
+<li><strong>全屏终端界面</strong>：新增基于 Textual 的 <code>agentscope.tui</code> 模块，支持流式渲染、工具确认与 <code>AskUser</code> 问答；<code>launch_realtime_ui</code> 可在终端中直接进行实时语音对话。(<a href="https://github.com/agentscope-ai/agentscope/pull/2507">#2507</a>、<a href="https://github.com/agentscope-ai/agentscope/pull/2594">#2594</a>)</li>
+</ul>
+<p><strong>Tool</strong></p>
+<ul>
+<li><strong><code>AskUser</code></strong>：新增外部执行工具，智能体可以向用户提出选择题，由前端展示并交回答案。(<a href="https://github.com/agentscope-ai/agentscope/pull/2573">#2573</a>)</li>
+</ul>
+<p><strong>Model</strong></p>
+<ul>
+<li><strong>MiniMax</strong>：新增 <code>MiniMaxChatModel</code> 及配套的凭证与格式化器，默认模型为 MiniMax-M3。(<a href="https://github.com/agentscope-ai/agentscope/pull/1764">#1764</a>)</li>
+<li><strong>模型路由</strong>：新增 <code>agentscope.classifier</code> 模块与 <code>ModelRouterMiddleware</code>，按用户输入为每次回复选择合适的模型，简单请求交给低成本模型，复杂请求交给更强的模型。(<a href="https://github.com/agentscope-ai/agentscope/pull/2758">#2758</a>)</li>
+<li><strong>新模型卡片</strong>：覆盖 Claude、Qwen、DeepSeek、Gemini、GPT、豆包、Grok 等系列的最新模型，以及 Ollama 上的常用小模型。(<a href="https://github.com/agentscope-ai/agentscope/pull/2727">#2727</a>、<a href="https://github.com/agentscope-ai/agentscope/pull/1753">#1753</a>)</li>
+</ul>
+<p><strong>渠道</strong></p>
+<ul>
+<li><strong>钉钉知识库工具</strong>：钉钉渠道的智能体可以直接检索钉钉知识库。(<a href="https://github.com/agentscope-ai/agentscope/pull/2464">#2464</a>)</li>
+</ul>
+<h3 id="变更-4">变更</h3>
+<p><strong>Agent Service</strong></p>
+<ul>
+<li><strong>cron 星期编号与标准一致</strong>：<code>0</code> 与 <code>7</code> 表示周日，此前沿用 APScheduler 的编号，同一表达式会晚一天触发。(<a href="https://github.com/agentscope-ai/agentscope/pull/2770">#2770</a>)</li>
+<li><strong>模型窗口取自模型卡片</strong>：服务创建的模型带上卡片声明的 <code>context_size</code>，上下文压缩按模型真实的窗口大小触发，此前一律使用默认值。(<a href="https://github.com/agentscope-ai/agentscope/pull/2597">#2597</a>)</li>
+</ul>
+<h3 id="修复-4">修复</h3>
+<p><strong>Agent</strong></p>
+<ul>
+<li>截断超长工具结果时保留元数据与时间戳；结构化输出等最终消息保留本次回复的用量。(<a href="https://github.com/agentscope-ai/agentscope/pull/2754">#2754</a>、<a href="https://github.com/agentscope-ai/agentscope/pull/2562">#2562</a>)</li>
+</ul>
+<p><strong>Tool</strong></p>
+<ul>
+<li>只读命令判定收紧，带破坏性参数的 git 子命令、<code>tee</code> 与多种 sed 写法不再绕过权限确认。(<a href="https://github.com/agentscope-ai/agentscope/pull/2883">#2883</a>、<a href="https://github.com/agentscope-ai/agentscope/pull/2629">#2629</a>、<a href="https://github.com/agentscope-ai/agentscope/pull/2747">#2747</a>、<a href="https://github.com/agentscope-ai/agentscope/pull/2795">#2795</a>、<a href="https://github.com/agentscope-ai/agentscope/pull/2824">#2824</a>)</li>
+<li>连续 <code>Edit</code> 同一文件不再被误判为文件已过期。(<a href="https://github.com/agentscope-ai/agentscope/pull/2865">#2865</a>)</li>
+</ul>
+<p><strong>Formatter</strong></p>
+<ul>
+<li>多个 API 的多模态输入更完整：DeepSeek 保留图片、Moonshot 支持视频，xAI 只发送支持的图片类型，并行工具结果中的媒体不再打断工具消息序列。(<a href="https://github.com/agentscope-ai/agentscope/pull/2825">#2825</a>、<a href="https://github.com/agentscope-ai/agentscope/pull/2823">#2823</a>、<a href="https://github.com/agentscope-ai/agentscope/pull/2808">#2808</a>、<a href="https://github.com/agentscope-ai/agentscope/pull/2613">#2613</a>)</li>
+</ul>
+<p><strong>RAG</strong></p>
+<ul>
+<li>Word、Excel、PowerPoint 解析器不再丢失嵌套表格、组合形状、图片占位符中的内容，Excel 保留单元格原始文本（如 <code>00123</code>、<code>NA</code>）。(<a href="https://github.com/agentscope-ai/agentscope/pull/2759">#2759</a>、<a href="https://github.com/agentscope-ai/agentscope/pull/2660">#2660</a>、<a href="https://github.com/agentscope-ai/agentscope/pull/2851">#2851</a>、<a href="https://github.com/agentscope-ai/agentscope/pull/2893">#2893</a>、<a href="https://github.com/agentscope-ai/agentscope/pull/2666">#2666</a>)</li>
+<li>DashScope 多模态向量模型正确声明多模态能力，知识库的图片查询不再被丢弃。(<a href="https://github.com/agentscope-ai/agentscope/pull/2701">#2701</a>)</li>
+</ul>
+<p><strong>Realtime</strong></p>
+<ul>
+<li>断线重连更稳定：重连后不再收到上一个会话的结束事件，发送文本前会先完成重连。(<a href="https://github.com/agentscope-ai/agentscope/pull/2588">#2588</a>、<a href="https://github.com/agentscope-ai/agentscope/pull/2591">#2591</a>)</li>
+</ul>
+<p><strong>Agent Service</strong></p>
+<ul>
+<li>会话停在工具确认上时，收件箱消息不再触发一次报错的回复；回复收尾期间到达的渠道消息不再丢失。(<a href="https://github.com/agentscope-ai/agentscope/pull/2849">#2849</a>、<a href="https://github.com/agentscope-ai/agentscope/pull/2521">#2521</a>)</li>
+<li>沙箱工作区移除无状态 MCP 时同步从网关注销。(<a href="https://github.com/agentscope-ai/agentscope/pull/2777">#2777</a>)</li>
+</ul>
+<h2 id="v208">v2.0.8</h2>
+<p><em>发布于 2026-09-08。</em></p>
+<aside class="notice note"><strong>说明</strong><p><strong>Highlight</strong>：本次版本新增了</p><ul>
+<li>实时语音智能体与 <code>agentscope.realtime</code> 模块，</li>
+<li>接入远端 A2A 智能体的 <code>A2AAgent</code>，</li>
+<li>带验证者的 <code>GoalPipeline</code> 流水线，</li>
+<li>由智能体自行触发的上下文压缩，以及</li>
+<li>RAG 检索结果的大模型重排。</li>
+</ul></aside>
+<h3 id="新增-5">新增</h3>
+<p><strong>Realtime</strong></p>
+<ul>
+<li><strong>实时语音智能体</strong>：新增 <code>RealtimeAgent</code> 与 <code>agentscope.realtime</code> 模块，支持打断、工具调用与轮次延迟统计的语音对话。(<a href="https://github.com/agentscope-ai/agentscope/pull/2547">#2547</a>、<a href="https://github.com/agentscope-ai/agentscope/pull/2550">#2550</a>)</li>
+<li><strong>实时模型与音频传输</strong>：内置 DashScope 的 Qwen-Omni-Realtime 与 Qwen-Audio-3.0-Realtime 两类实时模型，以及基于本地麦克风与扬声器的音频传输。(<a href="https://github.com/agentscope-ai/agentscope/pull/2547">#2547</a>)</li>
+</ul>
+<p><strong>A2A</strong></p>
+<ul>
+<li><strong><code>A2AAgent</code></strong>：新增 A2A 客户端智能体，可以把遵循 A2A 1.0 协议的远端智能体当作本地智能体使用，并在多轮之间保持远端的会话与 Task。(<a href="https://github.com/agentscope-ai/agentscope/pull/2142">#2142</a>)</li>
+</ul>
+<p><strong>Pipeline</strong></p>
+<ul>
+<li><strong>全新 <code>pipeline</code> 模块</strong>：首个成员 <code>GoalPipeline</code> 让执行者智能体反复工作，直到验证者智能体认可其结果，适合有明确验收标准的任务。(<a href="https://github.com/agentscope-ai/agentscope/pull/2428">#2428</a>)</li>
+</ul>
+<p><strong>Agent</strong></p>
+<ul>
+<li><strong>自主上下文压缩</strong>：新增 <code>CompressContext</code> 工具，智能体可以在任务间隙自行决定压缩时机，而不必等待硬阈值触发。(<a href="https://github.com/agentscope-ai/agentscope/pull/2143">#2143</a>)</li>
+<li><strong>迭代耗尽时的收尾总结</strong>：达到最大迭代次数仍无最终文本时，追加一次禁用工具的模型调用生成答复，避免回复为空。(<a href="https://github.com/agentscope-ai/agentscope/pull/2443">#2443</a>)</li>
+<li><strong>重复工具报错提示</strong>：同一个工具调用连续失败多次后注入提示，引导智能体改换思路而不是原样重试。(<a href="https://github.com/agentscope-ai/agentscope/pull/1816">#1816</a>)</li>
+</ul>
+<p><strong>Model</strong></p>
+<ul>
+<li><strong>火山方舟（Volcengine Ark）</strong>：新增 <code>VolcengineChatModel</code> 与配套的凭证、格式化器，豆包系列模型不再需要走通用的 OpenAI 接入。(<a href="https://github.com/agentscope-ai/agentscope/pull/2532">#2532</a>)</li>
+</ul>
+<p><strong>RAG</strong></p>
+<ul>
+<li><strong>大模型重排</strong>：<code>RAGMiddleware</code> 支持传入重排模型，在向量检索之后按语义相关度重新挑选片段，提升召回质量。(<a href="https://github.com/agentscope-ai/agentscope/pull/1975">#1975</a>)</li>
+</ul>
+<p><strong>MCP</strong></p>
+<ul>
+<li><strong>运行时更新 HTTP header</strong>：Streamable HTTP 客户端支持在运行中替换请求头，令牌轮换不再需要重建客户端；Docker 工作区中的客户端经网关转发更新。(<a href="https://github.com/agentscope-ai/agentscope/pull/2456">#2456</a>)</li>
+</ul>
+<p><strong>Agent Service</strong></p>
+<ul>
+<li><strong>交互式渠道凭证绑定</strong>：支持扫码等带外方式交付渠道凭证，不必再把密钥手工粘贴进表单。(<a href="https://github.com/agentscope-ai/agentscope/pull/2484">#2484</a>)</li>
+<li><strong>调度器由单节点持有</strong>：<code>create_app</code> 新增 <code>enable_scheduler</code>，多副本部署下一次 cron 只触发一次，不再每个副本各跑一遍。(<a href="https://github.com/agentscope-ai/agentscope/pull/2477">#2477</a>)</li>
+</ul>
+<p><strong>WebUI</strong></p>
+<ul>
+<li><strong>会话自动命名</strong>：未命名的会话在首次回复后由模型生成标题，取代没有信息量的创建时间。(<a href="https://github.com/agentscope-ai/agentscope/pull/2503">#2503</a>)</li>
+<li><strong>对话页面优化</strong>：流式回复只重渲染变化的那条消息，并新增消息复制按钮、长间隔的时间标记，以及重新打开上次的智能体与会话。(<a href="https://github.com/agentscope-ai/agentscope/pull/2503">#2503</a>)</li>
+<li><strong>任务面板自动展开</strong>：一次会话中首次产生任务数据时自动打开任务面板，无需手动展开即可跟踪进度。(<a href="https://github.com/agentscope-ai/agentscope/pull/2431">#2431</a>)</li>
+</ul>
+<h3 id="变更-5">变更</h3>
+<p><strong>Formatter</strong></p>
+<ul>
+<li><strong>原生多模态工具结果</strong>：<code>OpenAIResponseFormatter</code> 把图片与文件直接写进工具结果，不再提升为合成的用户消息，媒体与工具调用的原生关联得以保留。(<a href="https://github.com/agentscope-ai/agentscope/pull/2389">#2389</a>)</li>
+</ul>
+<p><strong>Agent Service</strong></p>
+<ul>
+<li><strong>会话来源改为 tagged union</strong>：<code>SessionRecord.origin</code> 取代原先的枚举加四个可空 id，读取方不必再自行判断组合是否自洽；旧字段保留为废弃属性。(<a href="https://github.com/agentscope-ai/agentscope/pull/2536">#2536</a>)</li>
+</ul>
+<p><strong>渠道</strong></p>
+<ul>
+<li><strong>启动中的渠道显示为 connecting</strong>：刚创建、尚未被接管的渠道不再显示为 stopped，避免误以为它需要手动启动。(<a href="https://github.com/agentscope-ai/agentscope/pull/2487">#2487</a>)</li>
+</ul>
+<p><strong>Tool</strong></p>
+<ul>
+<li><strong>工具参数按 schema 修复</strong>：合法但类型不符的 JSON 参数也会按工具 schema 对齐，减少模型参数类型不匹配导致的调用失败。(<a href="https://github.com/agentscope-ai/agentscope/pull/2496">#2496</a>)</li>
+</ul>
+<p><strong>Dependencies</strong></p>
+<ul>
+<li><strong>ripgrep 限制在 15 以下</strong>：15.x 缺少 Windows 等平台的 wheel，会让开发环境安装直接失败。(<a href="https://github.com/agentscope-ai/agentscope/pull/2526">#2526</a>)</li>
+</ul>
+<h3 id="修复-5">修复</h3>
+<p><strong>Agent</strong></p>
+<ul>
+<li>上下文压缩消耗的 token 现在计入用量统计，此前被直接丢弃。(<a href="https://github.com/agentscope-ai/agentscope/pull/2433">#2433</a>)</li>
+</ul>
+<p><strong>Tool</strong></p>
+<ul>
+<li>沙箱工作区中 <code>Read</code> 之后紧接的 <code>Edit</code> / <code>Write</code> 不再报“必须先读取文件”。(<a href="https://github.com/agentscope-ai/agentscope/pull/2092">#2092</a>)</li>
+<li>单条超出上限的读缓存不再挤掉其他条目。(<a href="https://github.com/agentscope-ai/agentscope/pull/2534">#2534</a>)</li>
+<li>并发命中读缓存不再误删不相干的条目。(<a href="https://github.com/agentscope-ai/agentscope/pull/2457">#2457</a>)</li>
+<li>任务被标记为完成时会从后继任务的 <code>blocked_by</code> 中移除，阻塞已解除的任务不再显示为不可执行。(<a href="https://github.com/agentscope-ai/agentscope/pull/2541">#2541</a>)</li>
+</ul>
+<p><strong>Model</strong></p>
+<ul>
+<li>Gemini 的服务端工具 token 归入输入，此前被算作输出，扭曲了成本与预算核算。(<a href="https://github.com/agentscope-ai/agentscope/pull/2406">#2406</a>)</li>
+<li>Gemini 的工具 schema 中的可空类型数组会先规整再下发，不再被服务端拒绝。(<a href="https://github.com/agentscope-ai/agentscope/pull/2437">#2437</a>)</li>
+<li>OpenAI Responses 的加密推理项在多轮往返中完整保留。(<a href="https://github.com/agentscope-ai/agentscope/pull/2426">#2426</a>)</li>
+<li>xAI 的推理 token 计入输出用量。(<a href="https://github.com/agentscope-ai/agentscope/pull/2461">#2461</a>)</li>
+</ul>
+<p><strong>Formatter</strong></p>
+<ul>
+<li>音频格式改由媒体类型推导，带签名或无扩展名的音频 URL 不再被拒绝。(<a href="https://github.com/agentscope-ai/agentscope/pull/2301">#2301</a>)</li>
+<li>多模态工具结果的标识符改用数据块自带的稳定 id，同一段历史反复格式化时输出保持一致，模型服务方的前缀缓存不再失效。(<a href="https://github.com/agentscope-ai/agentscope/pull/2165">#2165</a>)</li>
+</ul>
+<p><strong>RAG</strong></p>
+<ul>
+<li>距离型度量的检索分数被归一化，Qdrant 与 Milvus Lite 上最相关的结果不再排在最后。(<a href="https://github.com/agentscope-ai/agentscope/pull/2486">#2486</a>)</li>
+<li><code>ExcelParser</code> 转义单元格中的反斜杠与换行，生成的 Markdown 表格不再错列。(<a href="https://github.com/agentscope-ai/agentscope/pull/2528">#2528</a>)</li>
+<li><code>WordParser</code> 保留段落之间的空行。(<a href="https://github.com/agentscope-ai/agentscope/pull/2538">#2538</a>)</li>
+</ul>
+<p><strong>MCP</strong></p>
+<ul>
+<li>初始化期间被取消的连接会被清理，同一个客户端之后仍能重新连接。(<a href="https://github.com/agentscope-ai/agentscope/pull/2499">#2499</a>)</li>
+</ul>
+<p><strong>Agent Service</strong></p>
+<ul>
+<li>唤醒队列改为原子出队，多副本下一次触发不再产生多条重复回复。(<a href="https://github.com/agentscope-ai/agentscope/pull/2476">#2476</a>)</li>
+<li>计划任务在落库前先校验 cron 表达式与时区，非法配置不再写进存储，也不会删掉已有的有效任务。(<a href="https://github.com/agentscope-ai/agentscope/pull/2442">#2442</a>)</li>
+<li>删除会话时清理收件箱消费者标记，以相同 id 重建的会话不再收不到唤醒。(<a href="https://github.com/agentscope-ai/agentscope/pull/2519">#2519</a>)</li>
+<li>支持把其他用户共享过来的智能体邀请进团队。(<a href="https://github.com/agentscope-ai/agentscope/pull/2326">#2326</a>)</li>
+</ul>
+<p><strong>WebUI</strong></p>
+<ul>
+<li>切换智能体后不再显示或请求上一个智能体的会话。(<a href="https://github.com/agentscope-ai/agentscope/pull/2429">#2429</a>)</li>
+<li>跟随系统深色模式，浏览器深色模式下侧边栏按钮不再不可见。(<a href="https://github.com/agentscope-ai/agentscope/pull/2468">#2468</a>)</li>
+<li>渠道卡片的开关不再溢出卡片。(<a href="https://github.com/agentscope-ai/agentscope/pull/2466">#2466</a>)</li>
+<li>回复进行中按 Enter 不再发送消息。(<a href="https://github.com/agentscope-ai/agentscope/pull/2529">#2529</a>)</li>
+<li>运行中的 MCP 工具调用标签不再空白。(<a href="https://github.com/agentscope-ai/agentscope/pull/2490">#2490</a>)</li>
+</ul>
+<p><strong>链路追踪</strong></p>
+<ul>
+<li>被中断的模型回复记录为 <code>interrupted</code>，此前一律记为 <code>stop</code>。(<a href="https://github.com/agentscope-ai/agentscope/pull/2450">#2450</a>)</li>
+</ul>
+<p><strong>Pipeline</strong></p>
+<ul>
+<li><code>GoalPipeline</code> 的 <code>verifier_reset_context</code> 真正生效，验证者不再把上一轮的判词带进下一次验证。(<a href="https://github.com/agentscope-ai/agentscope/pull/2544">#2544</a>)</li>
+</ul>
+<p><strong>提示词、示例与文档</strong></p>
+<ul>
+<li>修复工作区指令、记忆检索指令与 <code>GoalPipeline</code> 字段描述中会直接送进模型的文本缺陷。(<a href="https://github.com/agentscope-ai/agentscope/pull/2513">#2513</a>)</li>
+<li>Windows 上关闭示例服务的热重载，内置的 shell 类工具不再报 <code>NotImplementedError</code>。(<a href="https://github.com/agentscope-ai/agentscope/pull/2434">#2434</a>)</li>
+<li>修正包文档字符串、中间件示例中的类名、mem0 示例 README 的链接、<code>CONTRIBUTING_zh.md</code> 中的全角冒号，以及中文 NEWS 里指向英文文档的链接。(<a href="https://github.com/agentscope-ai/agentscope/pull/2502">#2502</a>、<a href="https://github.com/agentscope-ai/agentscope/pull/2493">#2493</a>、<a href="https://github.com/agentscope-ai/agentscope/pull/2438">#2438</a>、<a href="https://github.com/agentscope-ai/agentscope/pull/2511">#2511</a>、<a href="https://github.com/agentscope-ai/agentscope/pull/2546">#2546</a>)</li>
+</ul>
+<h2 id="v207">v2.0.7</h2>
+<p><em>发布于 2026-08-24。</em></p>
+<aside class="notice note"><strong>说明</strong><p><strong>Highlight</strong>：本次版本新增了</p><ul>
+<li>终端控制台，无需启动 Web 服务即可试用与调试智能体，</li>
+<li>共享工作区内按智能体隔离的 MCP 会话与技能，</li>
+<li>钉钉渠道，同时将渠道的长连接收拢到专用 worker 中，以及</li>
+<li>让团队成员必须向 leader 汇报的团队中间件。</li>
+</ul></aside>
+<h3 id="新增-6">新增</h3>
+<p><strong>控制台</strong></p>
+<ul>
+<li>新增 <code>agentscope.console</code> 模块，用于在终端中驱动智能体。<code>ConsoleRenderer</code> 消费 <code>Agent.reply_stream</code> 并渲染其中的事件——实时输出文本与思考增量，将并发流式的工具调用缓冲为完整块后再打印以避免交错，渲染 hint 块、每次模型调用的 token 用量，以及确认请求中建议的权限规则——提供 <code>quiet</code> / <code>default</code> / <code>debug</code> 三档详细程度，并会跳过无法识别的事件类型，使其在事件协议演进后仍可工作。<code>launch_console(agent)</code> 在此基础上提供零代码的交互式循环，支持工具调用确认（<code>y</code> / <code>N</code> / <code>a</code>lways）与分级的 Ctrl+C 处理。<code>rich</code> 进入核心依赖。(<a href="https://github.com/agentscope-ai/agentscope/pull/2297">#2297</a>)</li>
+</ul>
+<p><strong>Workspace</strong></p>
+<ul>
+<li>按智能体隔离 MCP 客户端会话，使多个智能体可以共享同一个工作区而不共享有状态的 MCP 客户端。<code>list_mcps()</code> / <code>add_mcp()</code> / <code>remove_mcp()</code> 新增 <code>agent_id</code> 参数，工作区中的 MCP 存储变为 <code>{agent_id: [clients]}</code>，每个智能体的客户端在首次访问时从 <code>default_mcps</code> 深拷贝并独立建连。工作区目录、技能与卸载存储仍然共享，旧的 <code>.mcp</code> 文件格式会自动迁移。(<a href="https://github.com/agentscope-ai/agentscope/pull/1951">#1951</a>)</li>
+<li>按智能体隔离技能，并按会话选择技能。<code>skills/</code> 下新增一层以智能体划分的目录，在该智能体首次调用技能相关能力时由 <code>skill_paths</code> 播种，因此智能体修改自己的技能不再改变其他智能体的行为，也不再为与自己无关的技能付出上下文 token。<code>agent_id</code> 为仅限关键字参数，未指定时使用 <code>default</code> 分区。(<a href="https://github.com/agentscope-ai/agentscope/pull/2283">#2283</a>)</li>
+<li>新增 <code>WorkspacePrewarmMixin</code> 与 <code>PrewarmConfig</code>，预先构建并缓冲少量工作区，使会话可以直接拿到一个已经运行起来的工作区，而不必等待镜像拉取与沙箱初始化。在构建过程中到达的请求会等待这次已经在进行的构建，而不会另起一次；<code>max_creating</code> 限制并发构建数，使突发的会话排队而不是冲垮服务方。已接入 Docker 与 E2B 两个管理器，<code>size: 0</code>（默认值）表示关闭。(<a href="https://github.com/agentscope-ai/agentscope/pull/1755">#1755</a>)</li>
+</ul>
+<p><strong>Agent</strong></p>
+<ul>
+<li><code>on_reply</code> 中间件现在可以否决一次回复的结束：收到 <code>ReplyEndEvent</code> 后不向下 yield，即可在同一次回复内强制再进行一轮推理-行动——<code>reply_id</code> 不变，不会额外产生 <code>ReplyStartEvent</code>，<code>max_iters</code> 依然生效——任务约束校验与迟到的收件箱消息正需要这种能力。同时提供死循环保护：若事件被反复吞掉而中间没有任何推理或行动，将抛出异常。(<a href="https://github.com/agentscope-ai/agentscope/pull/2322">#2322</a>)</li>
+<li><code>ContextConfig</code> 新增 <code>max_image_num</code>，用于限制上下文中保留的图片数量。<code>compress_context</code> 会在 token 统计之前先执行该限制；超出限制的较早图片会通过 <code>offloader.offload_data_block</code> 卸载并替换为记录了路径的提示，未配置 offloader 时则直接丢弃并替换为同样的提示。默认值为 <code>None</code>，即不限制。(<a href="https://github.com/agentscope-ai/agentscope/pull/2362">#2362</a>)</li>
+</ul>
+<p><strong>Agent Team</strong></p>
+<ul>
+<li>新增 <code>TeamMemberLoopMiddleware</code>，要求团队成员必须以调用 <code>TeamSay</code> 向 leader 汇报作为回复的结束，并在迭代次数耗尽时引导它向 leader 请求继续执行的许可。持续不汇报就结束的成员最多被追问 <code>max_nudges</code> 次，超出后该次回复以错误结束，而不是在会话锁下无限循环。(<a href="https://github.com/agentscope-ai/agentscope/pull/2379">#2379</a>)</li>
+<li>成员的一轮以 <code>ERROR</code> 或 <code>INTERRUPTED</code> 结束且未汇报时，通知 leader。此前这种情况会让 leader 一直等待一个永远不会到来的答复；现在 leader 会收到一个说明成员与失败原因的 hint 块，投递路径与 <code>TeamSay</code> 汇报完全一致。(<a href="https://github.com/agentscope-ai/agentscope/pull/2386">#2386</a>)</li>
+</ul>
+<p><strong>Tool</strong></p>
+<ul>
+<li><code>FunctionTool</code> 支持 <code>input_schema</code> 参数，可传入 JSON schema 字典，或传入 pydantic <code>BaseModel</code> 子类（经 <code>model_json_schema()</code> 转换），直接接管工具的输入 schema，而不再从函数的类型标注与 docstring 中提取。这覆盖了从其他框架迁移而来的工具定义，以及函数签名无法承载标注的场景，也让 <code>FunctionTool</code> 与本就直接透传外部 <code>inputSchema</code> 的 <code>MCPTool</code> 保持一致。(<a href="https://github.com/agentscope-ai/agentscope/pull/2378">#2378</a>)</li>
+<li><code>Read</code> 工具按文件扩展名分发，而不再一律按 UTF-8 解码：图片、音频与视频以 base64 <code>DataBlock</code> 返回，PDF 按页返回提取出的文本，页码范围由新增的 <code>pages</code> 参数指定。文本文件行为不变。(<a href="https://github.com/agentscope-ai/agentscope/pull/2114">#2114</a>)</li>
+</ul>
+<p><strong>渠道</strong></p>
+<ul>
+<li>新增 <code>DingTalkChannel</code>，将智能体服务中的智能体接入钉钉。入站的机器人消息与卡片回调走官方 Stream SDK，出站一律走 OpenAPI，因此只需配置 Client ID 与 Client Secret。单聊与群聊均支持，群聊可通过 <code>only_at_reply</code> 只响应被 @ 的消息；智能体会获得 <code>ListConversations</code>、<code>ListUsers</code>、<code>SendMessage</code>、<code>SendFile</code> 与 <code>SendImage</code> 五个工具。流式回复与工具审批以互动卡片呈现，两者的模板 ID 都已预设为钉钉发布的公共模板，无需自行在卡片平台建模板即可使用；如需自定义外观，可通过 <code>streaming_card_template_id</code> 与 <code>approval_card_template_id</code> 指定自己的模板。(<a href="https://github.com/agentscope-ai/agentscope/pull/2285">#2285</a>、<a href="https://github.com/agentscope-ai/agentscope/pull/2409">#2409</a>)</li>
+<li>将渠道的长连接收拢到专用 worker 中，通过 <code>enable_channel_worker</code> 启用。平台只会把一个机器人的事件交给一条连接，因此每个副本都去建连意味着飞书、钉钉、Slack 上多出的连接全部浪费，而 Discord 上每条消息都会被重复投递。现在与连接绑定的状态被单独拆出：<code>ChannelClients</code> 从渠道记录构建实例但不调用 <code>start_listening</code>，因此任何进程都可以发送回复、查询会话列表并为智能体挂载该渠道的平台工具。缓存的实例会在记录变更时重建，凭据轮换无需重启即可生效。(<a href="https://github.com/agentscope-ai/agentscope/pull/2390">#2390</a>)</li>
+<li>支持在 SQL 存储中保存渠道记录。此前 SQL 存储直接继承了 <code>NotImplementedError</code>，任何非 Redis 部署——包括桌面版——都完全无法使用渠道。新增 <code>channels</code> 表，以 <code>UNIQUE(platform_bot_id)</code> 取代 Redis 中单独维护的机器人索引键，并配套 Alembic 迁移 <code>0003_channels</code>。(<a href="https://github.com/agentscope-ai/agentscope/pull/2388">#2388</a>)</li>
+</ul>
+<p><strong>RAG</strong></p>
+<ul>
+<li>新增 <code>VectorStoreBase.list_chunks()</code>，按 <code>chunk_index</code> 顺序返回某个文档的切片，四种向量存储均已实现。在此之上，智能体服务新增了切片浏览、原始文档预览（直接从上传时已写入的对象存储读取）与携带完整配置的知识库列表，以及三者对应的前端页面。(<a href="https://github.com/agentscope-ai/agentscope/pull/2372">#2372</a>)</li>
+<li>切片器通过 pydantic 的 <code>Parameters</code> 内部类声明自己的可调参数，与模型卡片、RAG 中间件的做法一致，取代原先手写的 JSON schema 字典；前端通过共用的 <code>SchemaForm</code> 动态渲染这些参数。(<a href="https://github.com/agentscope-ai/agentscope/pull/2083">#2083</a>)</li>
+</ul>
+<p><strong>WebUI</strong></p>
+<ul>
+<li>回复因超出最大迭代次数而结束时，在对话页面展示提示。(<a href="https://github.com/agentscope-ai/agentscope/pull/2381">#2381</a>)</li>
+</ul>
+<h3 id="变更-6">变更</h3>
+<p><strong>渠道</strong></p>
+<ul>
+<li>回复改由产生它的节点直接投递，不再入队等待持有入站连接的节点去消费、抢占租约、重新订阅事件流并转发。发送本身只是基于已存储凭据的 REST 调用，因此 #2390 之后已无必要的这一整条回路——<code>enqueue_channel_output</code>、<code>channel:outbound</code> 队列及其唤醒信号、转发租约，以及 dispatcher 中的消费与转发路径——全部移除。同时消除了两个缺陷：60 秒超时会截断任何运行时长超过一分钟的回复；以及消费节点若并未托管该渠道，会无声地丢弃这条已出队的任务。(<a href="https://github.com/agentscope-ai/agentscope/pull/2395">#2395</a>)</li>
+</ul>
+<p><strong>Agent</strong></p>
+<ul>
+<li>废弃 <code>ExceedMaxItersEvent</code>。为保持向后兼容它仍会被发出，但不再承载语义；退出原因由 <code>ReplyEndEvent.finished_reason == EXCEED_MAX_ITERS</code> 表达。(<a href="https://github.com/agentscope-ai/agentscope/pull/2322">#2322</a>)</li>
+</ul>
+<p><strong>RAG</strong></p>
+<ul>
+<li>创建知识库时必须选择切片器，与嵌入模型的选择保持一致，同时移除隐式的 <code>default_chunker</code> 回退链。(<a href="https://github.com/agentscope-ai/agentscope/pull/2083">#2083</a>)</li>
+</ul>
+<p><strong>Model</strong></p>
+<ul>
+<li>Anthropic、DeepSeek、DashScope 与 Moonshot 在结构化输出调用中显式关闭思考模式——这些服务方在思考模式开启时会拒绝强制的 <code>tool_choice</code>，从而导致 <code>generate_structured_output</code> 与 <code>compress_context</code> 间歇性失败。同时 <code>_compress_context_impl</code> 增加了截断兜底：若重试耗尽后摘要生成仍然失败，则丢弃较早的消息而不是抛出异常，让智能体在缩减的上下文下继续运行。(<a href="https://github.com/agentscope-ai/agentscope/pull/2140">#2140</a>)</li>
+</ul>
+<h3 id="修复-6">修复</h3>
+<p><strong>Agent Service</strong></p>
+<ul>
+<li>为定时任务创建的会话绑定真实的工作区。此前该会话以 <code>workspace_id=&quot;&quot;</code> 持久化，而各工作区管理器都把空串当作一个字面量的缓存键而非“未绑定”，导致一个部署中所有用户、所有智能体的定时会话全部解析到同一个工作区：同一个沙箱、同一批文件、同一份 <code>.mcp</code> 配置与已安装技能。(<a href="https://github.com/agentscope-ai/agentscope/pull/2410">#2410</a>)</li>
+<li>修复会话收件箱中的消息被搁置到用户下一次发言才被消费的问题。定时提示词、团队消息、新建 worker 的首个任务、后台工具结果都可能长时间无人消费：生产者此前依据运行锁来判断是否已有运行会消费收件箱，而一个已经完成最后一次消费、正在收尾的运行仍然持有该锁。现在运行会显式注册为收件箱的消费者，交接在一把短锁下完成，唤醒信号恰好在无人注册时才产生——既不会丢消息，也不会唤起一次无事可做的空转。(<a href="https://github.com/agentscope-ai/agentscope/pull/2295">#2295</a>)</li>
+<li>将会话状态加载、智能体组装与挂起状态检查移入分布式会话锁内，使等待中的运行不再读取并回写上一次运行遗留的陈旧状态。(<a href="https://github.com/agentscope-ai/agentscope/pull/2232">#2232</a>)</li>
+</ul>
+<p><strong>Tool</strong></p>
+<ul>
+<li><code>Bash</code> 依据后端的操作系统而非宿主机的操作系统选择 shell，Windows 宿主机驱动 Linux 沙箱时不再把 <code>cmd /c</code> 发进容器。(<a href="https://github.com/agentscope-ai/agentscope/pull/2366">#2366</a>)</li>
+<li>提取工具 schema 时解析 PEP 563 惰性标注，使用了 <code>from __future__ import annotations</code> 的模块不再产生字符串类型的参数。(<a href="https://github.com/agentscope-ai/agentscope/pull/2371">#2371</a>)</li>
+</ul>
+<p><strong>MCP</strong></p>
+<ul>
+<li>有状态的客户端可以重新连接：<code>close()</code> 会清除已经用尽的一次性 transport，下一次 <code>connect()</code> 重新创建，而不是复用失效的旧 transport 导致失败。(<a href="https://github.com/agentscope-ai/agentscope/pull/2308">#2308</a>)</li>
+</ul>
+<p><strong>RAG</strong></p>
+<ul>
+<li>Qdrant 与 Milvus 以确定性 id 写入切片，索引 worker 在流程中途崩溃后重试时会覆盖此前的部分写入，而不是留下两份完整的切片。(<a href="https://github.com/agentscope-ai/agentscope/pull/2372">#2372</a>)</li>
+</ul>
+<p><strong>Agent</strong></p>
+<ul>
+<li>在上报的 usage 中保留 prompt cache token。(<a href="https://github.com/agentscope-ai/agentscope/pull/2318">#2318</a>)</li>
+</ul>
+<h2 id="v206">v2.0.6</h2>
+<p><em>发布于 2026-08-07。</em></p>
+<aside class="notice note"><strong>说明</strong><p><strong>Highlight</strong>：本次版本新增了</p><ul>
+<li>渠道能力，让智能体服务中的智能体入驻飞书与 Discord，</li>
+<li>Apple Container 工作区后端，</li>
+<li>智能体服务中的 MCP 与技能市场，以及</li>
+<li><code>on_check_permission</code> 中间件钩子。</li>
+</ul></aside>
+<h3 id="新增-7">新增</h3>
+<p><strong>渠道</strong></p>
+<ul>
+<li>新增 <code>channel</code> 模块，将智能体服务中的智能体接入即时通讯平台。<code>ChannelBase</code> 抽象平台接入，内置 <code>FeishuChannel</code> 与 <code>DiscordChannel</code> 两种实现；<code>ChannelGateway</code> 负责编排每一条入站事件，<code>ChannelTypeRegistry</code> 对外提供各平台的凭据表单结构，<code>ChannelLifecycleDispatcher</code> 负责将本节点运行中的渠道实例与存储保持一致。同时新增 <code>/channels/*</code> 系列接口，覆盖渠道的创建、启用与停用、状态查询、会话列表与路由规则。(<a href="https://github.com/agentscope-ai/agentscope/pull/1997">#1997</a>)</li>
+</ul>
+<p><strong>Workspace</strong></p>
+<ul>
+<li>新增 <code>AppleContainerWorkspace</code>、<code>AppleContainerBackend</code> 与 <code>AppleContainerWorkspaceManager</code> 类，支持将 Apple 的 <code>container</code> 命令行工具作为工作区后端（要求 macOS 26+ 与 Apple 芯片）。(<a href="https://github.com/agentscope-ai/agentscope/pull/2068">#2068</a>)</li>
+<li>新增 <code>WorkspaceBase.add_skill_archive()</code> 方法，将上传的技能压缩包解压到工作区中并完成注册。(<a href="https://github.com/agentscope-ai/agentscope/pull/2197">#2197</a>)</li>
+</ul>
+<p><strong>中间件</strong></p>
+<ul>
+<li>为 <code>MiddlewareBase</code> 新增 <code>on_check_permission</code> 钩子，在单次工具调用的入参解析与校验完成后、权限判定结果被消费之前进行拦截。中间件可以通过 <code>next_handler(**input_kwargs)</code> 继续向下委托、替换返回的 <code>PermissionDecision</code>，也可以不委托直接给出判定结果。(<a href="https://github.com/agentscope-ai/agentscope/pull/2001">#2001</a>)</li>
+</ul>
+<p><strong>消息</strong></p>
+<ul>
+<li>内容块新增 <code>created_at</code> 与 <code>finished_at</code> 时间戳，便于消费方判断每个内容块的流式起止时间。(<a href="https://github.com/agentscope-ai/agentscope/pull/2171">#2171</a>)</li>
+</ul>
+<p><strong>Tool</strong></p>
+<ul>
+<li>为工作区后端类新增 <code>scandir()</code>、<code>stat()</code>、<code>read_stream()</code> 与 <code>write_stream()</code> 方法以及 <code>DirEntry</code> 数据类，从而以统一接口列举和流式读写工作区文件系统。(<a href="https://github.com/agentscope-ai/agentscope/pull/2187">#2187</a>)</li>
+</ul>
+<p><strong>Agent Service</strong></p>
+<ul>
+<li>支持从市场安装 MCP 服务与技能：<code>MCPHubBase</code> / <code>GitHubMCPHub</code> 与 <code>SkillHubBase</code> / <code>ClawSkillHub</code> 类通过 <code>/hub/mcp/*</code> 与 <code>/hub/skill/*</code> 接口浏览外部市场，安装后写入用户的资源库（<code>/mcp</code>、<code>/skill</code>），会话再经由 <code>/workspace/mcp/from-library</code> 或 <code>/workspace/skill/from-library</code> 装配到工作区中。(<a href="https://github.com/agentscope-ai/agentscope/pull/2197">#2197</a>)</li>
+<li>新增 <code>GET /workspace/directories</code> 与 <code>GET /workspace/files</code> 接口用于浏览会话工作区，并由 <code>POST /workspace/files/download-token</code> 签发短时效的下载令牌。(<a href="https://github.com/agentscope-ai/agentscope/pull/2187">#2187</a>)</li>
+<li>新增 <code>GET /workspace/status</code> 接口，返回会话的工作目录及其 git 状态。(<a href="https://github.com/agentscope-ai/agentscope/pull/2257">#2257</a>)</li>
+<li>新增 <code>GET /health</code> 接口，逐个上报组件的就绪状态。该检查只读取应用状态，不会访问存储或工作区后端。(<a href="https://github.com/agentscope-ai/agentscope/pull/2237">#2237</a>)</li>
+<li>新增 <code>GET /embedding-model/</code> 接口，列出指定凭据类型下可用的全部嵌入模型。(<a href="https://github.com/agentscope-ai/agentscope/pull/2234">#2234</a>)</li>
+</ul>
+<p><strong>Model</strong></p>
+<ul>
+<li>更新全部模型 API 的模型卡：新增 Claude Opus 5 / Sonnet 5 / Fable 5、GPT-5.6（luna、sol、terra）、Gemini 3.5 / 3.6 Flash 及 Flash-Lite 系列、Kimi K2.7 Code、Qwen3.8-Max 与 Qwen Flash 系列、Grok 4.5 / 4.20 / Build 0.1 的模型卡，并同步更新已有模型卡的价格与上下文长度。(<a href="https://github.com/agentscope-ai/agentscope/pull/2240">#2240</a>)</li>
+</ul>
+<p><strong>WebUI</strong></p>
+<ul>
+<li>在对话页面中展示会话的工作目录及其 git 状态。(<a href="https://github.com/agentscope-ai/agentscope/pull/2257">#2257</a>)</li>
+</ul>
+<h3 id="变更-7">变更</h3>
+<p><strong>Agent Service</strong></p>
+<ul>
+<li><code>create_app()</code> 的 <code>extra_agent_middlewares</code> 工厂函数新增第四个参数，即当前会话解析出的工作区，从而可以按会话装配依赖文件系统的中间件（如 <code>AgenticMemoryMiddleware</code>）。此前三个参数的工厂函数继续可用。(<a href="https://github.com/agentscope-ai/agentscope/pull/2263">#2263</a>)</li>
+</ul>
+<p><strong>Model</strong></p>
+<ul>
+<li>兼容 OpenAI 接口的对话模型在多次调用间复用同一个 <code>openai.AsyncClient</code> 实例，不再每次调用都新建客户端。(<a href="https://github.com/agentscope-ai/agentscope/pull/2063">#2063</a>)</li>
+<li>流式内容改为一次性拼接已收集的片段，替换原先 O(n²) 的字符串累加。(<a href="https://github.com/agentscope-ai/agentscope/pull/2158">#2158</a>)</li>
+</ul>
+<p><strong>WebUI</strong></p>
+<ul>
+<li>基于 shadcn/ui 组件重写对话页面。(<a href="https://github.com/agentscope-ai/agentscope/pull/2171">#2171</a>)</li>
+<li>统一侧边栏、面板与表单控件的样式。(<a href="https://github.com/agentscope-ai/agentscope/pull/2234">#2234</a>)</li>
+</ul>
+<p><strong>文档</strong></p>
+<ul>
+<li>重写 README，补充 SDK 与智能体服务的能力对照表。(<a href="https://github.com/agentscope-ai/agentscope/pull/2262">#2262</a>)</li>
+<li>更新 <code>README_zh.md</code>。(<a href="https://github.com/agentscope-ai/agentscope/pull/2182">#2182</a>)</li>
+</ul>
+<h3 id="修复-7">修复</h3>
+<p><strong>Agent</strong></p>
+<ul>
+<li>推理-行动轮次只计数一次：当某一轮的工具调用停在用户确认或外部执行上时，不再在结果返回前提前消耗一次迭代次数。(<a href="https://github.com/agentscope-ai/agentscope/pull/2217">#2217</a>)</li>
+<li>对于已在等待结果的外部工具调用，不再重复产生 <code>ToolResultStartEvent</code> 事件。(<a href="https://github.com/agentscope-ai/agentscope/pull/2167">#2167</a>)</li>
+</ul>
+<p><strong>Tool</strong></p>
+<ul>
+<li><code>ToolResponse</code> 在累加分片时保留 <code>ERROR</code> 状态，不再被后续分片覆盖为 <code>INTERRUPTED</code> 或 <code>DENIED</code>。(<a href="https://github.com/agentscope-ai/agentscope/pull/2178">#2178</a>)</li>
+<li>列举工具失败的 MCP 服务会被跳过并打印警告，单个不可用的服务只会撤下自己的工具，不再导致整次回复中断。(<a href="https://github.com/agentscope-ai/agentscope/pull/2197">#2197</a>)</li>
+</ul>
+<p><strong>Model</strong></p>
+<ul>
+<li><code>ChatResponse.finished_reason</code> 保留构造时传入的结束原因，被打断的响应不再显示为 <code>COMPLETED</code>。(<a href="https://github.com/agentscope-ai/agentscope/pull/2209">#2209</a>)</li>
+</ul>
+<p><strong>链路追踪</strong></p>
+<ul>
+<li>修复流式响应在其他任务中关闭时，OpenTelemetry 抛出的上下文 detach 错误。(<a href="https://github.com/agentscope-ai/agentscope/pull/2077">#2077</a>)</li>
+</ul>
+<p><strong>Agent Service</strong></p>
+<ul>
+<li>Claw 技能市场的卡片 ID 按所属者区分，不同所属者下的同名技能不再相互冲突。(<a href="https://github.com/agentscope-ai/agentscope/pull/2214">#2214</a>)</li>
+</ul>
+<p><strong>WebUI</strong></p>
+<ul>
+<li>在多个待确认的工具调用之间重置确认状态。(<a href="https://github.com/agentscope-ai/agentscope/pull/2243">#2243</a>)</li>
+<li>修复渠道配置表单字段的多语言文案。(<a href="https://github.com/agentscope-ai/agentscope/pull/2261">#2261</a>)</li>
+</ul>
+<h2 id="v205">v2.0.5</h2>
+<p><em>发布于 2026-07-23。</em></p>
+<aside class="notice note"><strong>说明</strong><p><strong>Highlight</strong>：本次版本新增了</p><ul>
+<li>智能体的结构化输出与运行时状态注入能力，</li>
+<li>四种新的工作区后端（OpenSandbox、Daytona、Kubernetes、Bubblewrap），</li>
+<li>MongoDB / Elasticsearch 向量存储，以及 Word 和 Excel 解析器，以及</li>
+<li>Agent Service 中基于 SQLAlchemy 的存储后端与跨用户资源共享能力。</li>
+</ul></aside>
+<h3 id="新增-8">新增</h3>
+<p><strong>Agent 核心（SDK）</strong></p>
+<ul>
+<li>支持结构化输出：通过 <code>Agent.reply()</code> 与 <code>Agent.reply_stream()</code> 的 <code>structured_schema</code> 参数指定，智能体借助内置的结构化输出工具生成结果，校验后的字典挂载在最终消息的 <code>structured_output</code> 属性上。(<a href="https://github.com/agentscope-ai/agentscope/pull/2150">#2150</a>)</li>
+<li>支持运行时状态注入：在每次推理前，将当前时间、计划任务数量与上下文用量以 <code>HintBlock</code> 的形式注入上下文，由新增的 <code>injection_config</code> 参数与 <code>InjectionConfig</code> 类控制。(<a href="https://github.com/agentscope-ai/agentscope/pull/2134">#2134</a>)</li>
+</ul>
+<p><strong>Workspace</strong></p>
+<ul>
+<li>新增 <code>OpenSandboxWorkspace</code>、<code>OpenSandboxBackend</code> 与 <code>OpenSandboxWorkspaceManager</code> 类，支持将 <a href="https://github.com/agentscope-ai/opensandbox">OpenSandbox</a> 作为工作区后端。(<a href="https://github.com/agentscope-ai/agentscope/pull/1953">#1953</a>)</li>
+<li>新增 <code>DaytonaWorkspace</code>、<code>DaytonaBackend</code> 与 <code>DaytonaWorkspaceManager</code> 类，支持 <a href="https://www.daytona.io/">Daytona</a> 沙箱。(<a href="https://github.com/agentscope-ai/agentscope/pull/1943">#1943</a>)</li>
+<li>新增 <code>K8sWorkspace</code>、<code>K8sBackend</code> 与 <code>K8sWorkspaceManager</code> 类，支持 Kubernetes Pod/PVC 生命周期管理、基于 tar 流的文件后端以及 MCP 网关。(<a href="https://github.com/agentscope-ai/agentscope/pull/1933">#1933</a>)</li>
+<li>新增 <code>BubblewrapWorkspace</code>、<code>BubblewrapBackend</code> 与 <code>BubblewrapWorkspaceManager</code> 类，支持通过 bubblewrap 在 Linux 本地实现轻量级沙箱隔离。(<a href="https://github.com/agentscope-ai/agentscope/pull/2051">#2051</a>)</li>
+</ul>
+<p><strong>Tool</strong></p>
+<ul>
+<li>新增内置 <code>PowerShell</code> 工具，使智能体能够在 Windows 工作区中执行命令。(<a href="https://github.com/agentscope-ai/agentscope/pull/2132">#2132</a>)</li>
+</ul>
+<p><strong>RAG</strong></p>
+<ul>
+<li>新增 <code>MongoDBStore</code> 类，支持将 MongoDB Atlas Vector Search 作为向量存储。(<a href="https://github.com/agentscope-ai/agentscope/pull/2008">#2008</a>)</li>
+<li>新增 <code>ElasticsearchStore</code> 类，支持将 Elasticsearch 作为向量存储。(<a href="https://github.com/agentscope-ai/agentscope/pull/2129">#2129</a>)</li>
+<li>新增 <code>WordParser</code> 与 <code>ExcelParser</code> 类，支持将 Word 和 Excel 文档作为知识来源。(<a href="https://github.com/agentscope-ai/agentscope/pull/2025">#2025</a>、<a href="https://github.com/agentscope-ai/agentscope/pull/2026">#2026</a>)</li>
+</ul>
+<p><strong>Agent Service</strong></p>
+<ul>
+<li>新增 <code>AsyncSQLAlchemyStorage</code> 类，支持将任意 SQLAlchemy 兼容的数据库作为存储后端，并内置 Alembic 迁移脚本。(<a href="https://github.com/agentscope-ai/agentscope/pull/2029">#2029</a>)</li>
+<li>支持以用户组或组织为单位，在不同用户之间共享凭证、智能体与知识库，底层由新增的资源访问策略层实现。(<a href="https://github.com/agentscope-ai/agentscope/pull/1998">#1998</a>)</li>
+<li>支持将回复过程中的错误暴露给前端，避免静默失败。(<a href="https://github.com/agentscope-ai/agentscope/pull/2133">#2133</a>)</li>
+</ul>
+<p><strong>Model</strong></p>
+<ul>
+<li><code>MoonshotChatModel</code> 类支持 Kimi K3 模型。(<a href="https://github.com/agentscope-ai/agentscope/pull/2141">#2141</a>)</li>
+<li>为 <code>DashScopeChatModel</code> 类新增 <code>qwen3.7-plus</code>、<code>deepseek-v4-pro</code> 与 <code>glm-5.2</code> 模型卡。(<a href="https://github.com/agentscope-ai/agentscope/pull/2073">#2073</a>)</li>
+</ul>
+<p><strong>TTS</strong></p>
+<ul>
+<li>新增 <code>GeminiTTSModel</code> 类，支持 Gemini TTS API。(<a href="https://github.com/agentscope-ai/agentscope/pull/1879">#1879</a>)</li>
+</ul>
+<p><strong>WebUI</strong></p>
+<ul>
+<li>对话页面新增回到底部按钮。(<a href="https://github.com/agentscope-ai/agentscope/pull/2106">#2106</a>)</li>
+</ul>
+<h3 id="变更-8">变更</h3>
+<p><strong>提示词</strong></p>
+<ul>
+<li>优化工作区、上下文压缩与 <code>TaskCreate</code> 工具的内置提示词，并将工作区提示词的拼装逻辑抽取为公共方法，使各类工作区后端生成的描述保持一致。(<a href="https://github.com/agentscope-ai/agentscope/pull/2111">#2111</a>)</li>
+</ul>
+<p><strong>WebUI</strong></p>
+<ul>
+<li>重构文本输入组件。(<a href="https://github.com/agentscope-ai/agentscope/pull/2102">#2102</a>)</li>
+<li>重构工具调用的渲染逻辑。(<a href="https://github.com/agentscope-ai/agentscope/pull/2072">#2072</a>)</li>
+</ul>
+<p><strong>Dependencies</strong></p>
+<ul>
+<li>重新整理 <code>pyproject.toml</code> 中的可选依赖分组，使 RAG 后端、工作区、TTS、长期记忆等功能可以按需单独安装。(<a href="https://github.com/agentscope-ai/agentscope/pull/2157">#2157</a>)</li>
+<li>将 <code>mcp</code> 依赖限制在 2.0.0 以下版本。(<a href="https://github.com/agentscope-ai/agentscope/pull/2091">#2091</a>)</li>
+</ul>
+<h3 id="修复-8">修复</h3>
+<p><strong>Agent</strong></p>
+<ul>
+<li>当模型仅返回思考内容时，继续执行推理-行动循环，而不是直接结束本次回复。(<a href="https://github.com/agentscope-ai/agentscope/pull/2120">#2120</a>)</li>
+<li>单次推理产生多个工具调用时，上下文压缩过程中保持工具调用与工具结果的配对关系。(<a href="https://github.com/agentscope-ai/agentscope/pull/2093">#2093</a>)</li>
+</ul>
+<p><strong>权限系统</strong></p>
+<ul>
+<li>统一权限引擎中各权限模式的判定逻辑，并将批量确认的豁免结果传递给后续的工具调用。(<a href="https://github.com/agentscope-ai/agentscope/pull/2117">#2117</a>)</li>
+</ul>
+<p><strong>Model</strong></p>
+<ul>
+<li>OpenAI 对话模型改用 <code>max_completion_tokens</code> 参数，替代已废弃的 <code>max_tokens</code>。(<a href="https://github.com/agentscope-ai/agentscope/pull/2065">#2065</a>)</li>
+<li>通过 OpenAI Responses API 重放对话时，保留原有的推理（reasoning）内容。(<a href="https://github.com/agentscope-ai/agentscope/pull/2071">#2071</a>)</li>
+</ul>
+<p><strong>Formatter</strong></p>
+<ul>
+<li>在 Anthropic 消息的往返转换中保留 <code>redacted_thinking</code> 块。(<a href="https://github.com/agentscope-ai/agentscope/pull/2139">#2139</a>)</li>
+<li>丢弃发送给 Anthropic 的空文本块，避免接口报错。(<a href="https://github.com/agentscope-ai/agentscope/pull/2007">#2007</a>)</li>
+<li>在 Ollama 的工具结果消息中补充 <code>tool_name</code> 字段。(<a href="https://github.com/agentscope-ai/agentscope/pull/2006">#2006</a>)</li>
+<li>清理 Gemini 工具 schema 中的 <code>null</code> 类型。(<a href="https://github.com/agentscope-ai/agentscope/pull/2020">#2020</a>)</li>
+</ul>
+<p><strong>Tool</strong></p>
+<ul>
+<li>内置 <code>Bash</code> 工具不再将带有修改语义的 <code>find</code> 命令（如 <code>-delete</code>、<code>-exec</code>）判定为只读操作。(<a href="https://github.com/agentscope-ai/agentscope/pull/2004">#2004</a>)</li>
+</ul>
+<p><strong>Skill</strong></p>
+<ul>
+<li>加载技能目录时展开用户主目录（<code>~</code>）路径。(<a href="https://github.com/agentscope-ai/agentscope/pull/2053">#2053</a>)</li>
+</ul>
+<p><strong>Workspace</strong></p>
+<ul>
+<li>修复 OpenSandbox 的初始化流程与状态过滤逻辑。(<a href="https://github.com/agentscope-ai/agentscope/pull/2046">#2046</a>)</li>
+<li>恢复 glob 辅助方法的默认路径。(<a href="https://github.com/agentscope-ai/agentscope/pull/2056">#2056</a>)</li>
+</ul>
+<p><strong>RAG</strong></p>
+<ul>
+<li>适配 milvus-lite 3.1.0 的 COSINE 距离语义，修复 <code>MilvusLiteStore</code> 的检索结果。(<a href="https://github.com/agentscope-ai/agentscope/pull/2089">#2089</a>)</li>
+</ul>
+<p><strong>Agent Service</strong></p>
+<ul>
+<li><code>list_messages</code> 改用基于游标的分页，避免并发写入导致分页边界偏移。(<a href="https://github.com/agentscope-ai/agentscope/pull/2081">#2081</a>)</li>
+</ul>
+<p><strong>WebUI</strong></p>
+<ul>
+<li>修复流式输出或中断过程中 JSON 不完整导致 <code>Read</code> / <code>Write</code> / <code>Edit</code> 工具调用渲染报错的问题。(<a href="https://github.com/agentscope-ai/agentscope/pull/2075">#2075</a>)</li>
+<li>新加载的会话自动滚动到底部。(<a href="https://github.com/agentscope-ai/agentscope/pull/2100">#2100</a>)</li>
+</ul>
+<p><strong>文档</strong></p>
+<ul>
+<li>修复 <code>tool</code> 模块中的 docstring 格式错误。(<a href="https://github.com/agentscope-ai/agentscope/pull/2127">#2127</a>)</li>
+<li>mem0 示例中使用独立的 LLM 实例。(<a href="https://github.com/agentscope-ai/agentscope/pull/2078">#2078</a>)</li>
+</ul>
+<h2 id="v204">v2.0.4</h2>
+<p><em>发布于 2026-07-07。</em></p>
+<aside class="notice note"><strong>说明</strong><p><strong>Highlight</strong>：本次版本新增了</p><ul>
+<li>智能体中断能力，</li>
+<li>两个长期记忆中间件，以及</li>
+<li>在 Team 中邀请已有 Agent 的能力。</li>
+</ul></aside>
+<h3 id="新增-9">新增</h3>
+<p><strong>Agent 核心（SDK）</strong></p>
+<ul>
+<li>支持实时的智能体中断与恢复。(<a href="https://github.com/agentscope-ai/agentscope/pull/1995">#1995</a>)</li>
+</ul>
+<p><strong>Agent Service</strong></p>
+<ul>
+<li>新增 <code>POST /sessions/{session_id}/interrupt</code> 端点。(<a href="https://github.com/agentscope-ai/agentscope/pull/1995">#1995</a>)</li>
+<li>支持在 WebUI 中中断生成过程。(<a href="https://github.com/agentscope-ai/agentscope/pull/1995">#1995</a>)</li>
+<li>支持 Team Leader 通过新增的 <code>AgentInvite</code> 工具邀请已存在的 Agent。(<a href="https://github.com/agentscope-ai/agentscope/pull/1977">#1977</a>)</li>
+<li>新增 Session 状态查询端点，用于轮询 Session 生命周期。(<a href="https://github.com/agentscope-ai/agentscope/pull/1984">#1984</a>)</li>
+</ul>
+<p><strong>中间件——长期记忆</strong></p>
+<ul>
+<li>新增 <code>AgenticMemoryMiddleware</code> 类，支持基于 Markdown 的长期记忆。(<a href="https://github.com/agentscope-ai/agentscope/pull/1927">#1927</a>)</li>
+<li>新增 <code>ReMeMiddleware</code> 类，支持将 AgentScope <a href="https://github.com/agentscope-ai/ReMe">ReMe</a> 工具箱作为进程内长期记忆后端。(<a href="https://github.com/agentscope-ai/agentscope/pull/1972">#1972</a>)</li>
+</ul>
+<p><strong>RAG</strong></p>
+<ul>
+<li>新增 <code>MilvusLiteStore</code> 类，支持 Milvus Lite 作为本地持久化向量存储。(<a href="https://github.com/agentscope-ai/agentscope/pull/1969">#1969</a>)</li>
+</ul>
+<p><strong>TTS</strong></p>
+<ul>
+<li>新增 <code>DashScopeCosyVoiceTTSModel</code> 类，支持 DashScope CosyVoice V3 语音合成，覆盖流式与非流式两种模式。(<a href="https://github.com/agentscope-ai/agentscope/pull/1866">#1866</a>)</li>
+<li>新增 <code>OpenAITTSModel</code> 类，支持 OpenAI TTS API，覆盖流式与非流式两种模式。(<a href="https://github.com/agentscope-ai/agentscope/pull/1878">#1878</a>)</li>
+</ul>
+<h3 id="变更-9">变更</h3>
+<p><strong>Workspace</strong></p>
+<ul>
+<li>新增 <code>SandboxWorkspaceBase</code> 类，抽出云端工作区的通用逻辑，作为 <code>DockerWorkspace</code> 与 <code>E2BWorkspace</code> 的新基类。(<a href="https://github.com/agentscope-ai/agentscope/pull/1971">#1971</a>)</li>
+</ul>
+<p><strong>Model</strong></p>
+<ul>
+<li><code>ChatModel</code> 子类的 <code>_call_api</code> 方法不再需要在最后 yield 一个包含完整结果的 <code>ChatResponse</code>，该累积逻辑被挪到 <code>ChatModelBase.__call__</code> 中自动进行。(<a href="https://github.com/agentscope-ai/agentscope/pull/1995">#1995</a>)</li>
+</ul>
+<h3 id="修复-9">修复</h3>
+<p><strong>Agent</strong></p>
+<ul>
+<li><code>Agent</code> 中间件链：<code>next_handler()</code> 中被省略的 kwargs 现在会继承当前中间件状态，而不再回退到最初的链路输入。(<a href="https://github.com/agentscope-ai/agentscope/pull/1966">#1966</a>)</li>
+<li>修复 <code>ThinkingBlockEndEvent</code> 与 <code>TextBlockStartEvent</code> 两个事件的触发顺序。(<a href="https://github.com/agentscope-ai/agentscope/pull/1887">#1887</a>)</li>
+</ul>
+<p><strong>Model</strong></p>
+<ul>
+<li>修复 OpenAI Response API 模型及其 Formatter。(<a href="https://github.com/agentscope-ai/agentscope/pull/1950">#1950</a>)</li>
+<li><code>_sanitize_schema_for_gemini</code> 会把 <code>const: value</code> 转换为 <code>enum: [value]</code>，含固定值参数的工具不再触发 Gemini schema 校验失败。(<a href="https://github.com/agentscope-ai/agentscope/pull/2016">#2016</a>)</li>
+<li><code>ChatModelBase.count_tokens</code> 对多模态 <code>DataBlock</code> 输入使用保守的固定估算值，避免因 base64 长度导致的严重高估。(<a href="https://github.com/agentscope-ai/agentscope/pull/1899">#1899</a>)</li>
+</ul>
+<p><strong>Formatter</strong></p>
+<ul>
+<li>Anthropic、Gemini、Ollama 三个 Formatter 现在在解析 <code>ToolCallBlock.input</code> 时使用 <code>_json_loads_with_repair</code>，截断的 tool-call JSON 会退化为 <code>{}</code> 而不再抛出 <code>JSONDecodeError</code>。(<a href="https://github.com/agentscope-ai/agentscope/pull/2012">#2012</a>)</li>
+<li>Gemini Formatter 会在发送前丢弃空的 thinking 块。(<a href="https://github.com/agentscope-ai/agentscope/pull/2013">#2013</a>)</li>
+</ul>
+<p><strong>Tool</strong></p>
+<ul>
+<li>内置 <code>Grep</code> 拒绝 <code>head_limit</code> / <code>tail_limit</code> 的负值。(<a href="https://github.com/agentscope-ai/agentscope/pull/1954">#1954</a>)</li>
+</ul>
+<p><strong>Credential</strong></p>
+<ul>
+<li><code>CredentialFactory.register_credential</code> 现在是幂等的，避免 <code>uvicorn --reload</code> 场景下的重复注册。(<a href="https://github.com/agentscope-ai/agentscope/pull/1964">#1964</a>)</li>
+</ul>
+<p><strong>文档</strong></p>
+<ul>
+<li>修复 <code>agent</code>、<code>state</code>、<code>tool</code> 模块中若干错位的 docstring。(<a href="https://github.com/agentscope-ai/agentscope/pull/1989">#1989</a>)</li>
+</ul>
+<h2 id="v203">v2.0.3</h2>
+<p><em>发布于 2026-06-19。</em></p>
+<aside class="notice note"><strong>说明</strong><p><strong>Highlight</strong>：本次版本新增了</p><ul>
+<li>全新的 <code>rag</code> 模块（支持分布式、多租户、多会话），</li>
+<li>基于 mem0 的长期记忆中间件，</li>
+<li>Token 预算控制中间件，以及</li>
+<li><code>ToolBase</code> 中的工具级洋葱式中间件。</li>
+</ul></aside>
+<h3 id="新增-10">新增</h3>
+<p><strong>Agent 核心（SDK）</strong></p>
+<ul>
+<li><code>Agent.compress_context</code> 新增可选参数 <code>instructions: HintBlock</code>，允许调用方在不影响 Agent 持久上下文的前提下向压缩过程注入提示。(<a href="https://github.com/agentscope-ai/agentscope/pull/1942">#1942</a>)</li>
+</ul>
+<p><strong>Agent Service</strong></p>
+<ul>
+<li>在 Team Leader 的 Session 中透出 HITL 事件。(<a href="https://github.com/agentscope-ai/agentscope/pull/1918">#1918</a>)</li>
+<li>新增内存消息总线，支持单节点部署。(<a href="https://github.com/agentscope-ai/agentscope/pull/1925">#1925</a>)</li>
+</ul>
+<p><strong>中间件</strong></p>
+<ul>
+<li>新增 <code>Mem0Middleware</code> 类，支持基于 mem0 的长期记忆。(<a href="https://github.com/agentscope-ai/agentscope/pull/1775">#1775</a>)</li>
+<li>新增 <code>BudgetControlMiddleware</code> 类，支持 ReAct 循环中的 Token 预算控制。(<a href="https://github.com/agentscope-ai/agentscope/pull/1738">#1738</a>)</li>
+</ul>
+<p><strong>RAG</strong></p>
+<ul>
+<li>新增 <code>rag</code> 模块，支持分布式、多租户、多会话的 RAG 服务。(<a href="https://github.com/agentscope-ai/agentscope/pull/1926">#1926</a>)</li>
+</ul>
+<p><strong>Tool</strong></p>
+<ul>
+<li>在 <code>ToolBase</code> 中支持工具级洋葱式中间件：新增 <code>call()</code> 作为工具执行入口，<code>__call__</code> 作为中间件包装层。(<a href="https://github.com/agentscope-ai/agentscope/pull/1754">#1754</a>)</li>
+</ul>
+<p><strong>Workspace</strong></p>
+<ul>
+<li>e2b 与 docker 工作区支持内置工具（<code>Bash</code>、<code>Read</code>、<code>Write</code>、<code>Edit</code>、<code>Glob</code>、<code>Grep</code>）。(<a href="https://github.com/agentscope-ai/agentscope/pull/1903">#1903</a>)</li>
+</ul>
+<p><strong>TTS</strong></p>
+<ul>
+<li>新增 DashScope CosyVoice 实时 TTS 模型。(<a href="https://github.com/agentscope-ai/agentscope/pull/1855">#1855</a>)</li>
+</ul>
+<p><strong>Model</strong></p>
+<ul>
+<li>为 OpenAI Response API 新增 <code>gpt-4o</code>、<code>gpt-4o-mini</code>、<code>gpt-4.1-nano</code> 模型卡。(<a href="https://github.com/agentscope-ai/agentscope/pull/1750">#1750</a>)</li>
+</ul>
+<p><strong>Embedding</strong></p>
+<ul>
+<li>OpenAI Embedding 模型支持 <code>pass_dimensions</code> 参数。(<a href="https://github.com/agentscope-ai/agentscope/pull/1897">#1897</a>)</li>
+</ul>
+<p><strong>Utils</strong></p>
+<ul>
+<li>支持通过 <code>set_id_factory()</code> 配置自定义 ID 生成策略，覆盖默认的 <code>uuid4</code>。(<a href="https://github.com/agentscope-ai/agentscope/pull/1839">#1839</a>)</li>
+</ul>
+<p><strong>WebUI</strong></p>
+<ul>
+<li>渲染 <code>Write</code> 与 <code>Edit</code> 工具的 diff。(<a href="https://github.com/agentscope-ai/agentscope/pull/1856">#1856</a>)</li>
+<li>新增右侧面板，展示详细的任务与权限上下文，以及已装载的 MCP 与 Skill。(<a href="https://github.com/agentscope-ai/agentscope/pull/1945">#1945</a>)</li>
+</ul>
+<h3 id="变更-10">变更</h3>
+<p><strong>Message Bus</strong></p>
+<ul>
+<li>重构消息总线，将其与 Service 逻辑解耦。(<a href="https://github.com/agentscope-ai/agentscope/pull/1923">#1923</a>)</li>
+</ul>
+<h3 id="修复-10">修复</h3>
+<p><strong>Model</strong></p>
+<ul>
+<li>修正 DashScope 中 qwen max 3.7 的模型 ID。(<a href="https://github.com/agentscope-ai/agentscope/pull/1876">#1876</a>)</li>
+<li>处理不带 id 的 Gemini function call。(<a href="https://github.com/agentscope-ai/agentscope/pull/1883">#1883</a>)</li>
+<li>新增 <code>_sanitize_schema_for_gemini</code>，用于剥离工具参数中 Gemini 不兼容的 JSON Schema 结构。(<a href="https://github.com/agentscope-ai/agentscope/pull/1886">#1886</a>)</li>
+</ul>
+<p><strong>Formatter</strong></p>
+<ul>
+<li><code>AnthropicChatFormatter</code> 将并行的 tool_results 合并为单条 user 消息。(<a href="https://github.com/agentscope-ai/agentscope/pull/1894">#1894</a>)</li>
+</ul>
+<p><strong>Agent</strong></p>
+<ul>
+<li>避免多个 <code>Agent</code> 实例之间共享默认配置。(<a href="https://github.com/agentscope-ai/agentscope/pull/1906">#1906</a>)</li>
+</ul>
+<p><strong>Tool</strong></p>
+<ul>
+<li>按字节合并 base64 tool response chunk，替代原先的字符串拼接。(<a href="https://github.com/agentscope-ai/agentscope/pull/1901">#1901</a>)</li>
+</ul>
+<p><strong>中间件</strong></p>
+<ul>
+<li>TTS 音频块使用统一配置的 ID 工厂。(<a href="https://github.com/agentscope-ai/agentscope/pull/1930">#1930</a>)</li>
+</ul>
+<p><strong>App</strong></p>
+<ul>
+<li>正确转换 AG-UI SSE 流式事件。(<a href="https://github.com/agentscope-ai/agentscope/pull/1917">#1917</a>)</li>
+</ul>
+<p><strong>Schema</strong></p>
+<ul>
+<li>移除 <code>SummarySchema</code> 字段的 <code>max_length</code> 约束，并提高 tool result 的大小上限。(<a href="https://github.com/agentscope-ai/agentscope/pull/1891">#1891</a>)</li>
+</ul>
+<h2 id="v202">v2.0.2</h2>
+<p><em>发布于 2026-06-16。</em></p>
+<h3 id="新增-11">新增</h3>
+<p><strong>Agent 服务与 Team</strong></p>
+<ul>
+<li><strong>自定义子智能体模板</strong>：现在可以在 Agent 服务中注册自定义的子智能体模板，团队 Leader 可以基于用户自定义的模板创建 Worker，不再局限于内置模板。(<a href="https://github.com/agentscope-ai/agentscope/pull/1833">#1833</a>)</li>
+<li><strong>自定义 Agent 类</strong>：Agent 服务现在支持注册用户自定义的 <code>Agent</code> 子类，由 FastAPI 运行时实例化。(<a href="https://github.com/agentscope-ai/agentscope/pull/1838">#1838</a>)</li>
+</ul>
+<p><strong>Tool</strong></p>
+<ul>
+<li><strong><code>Bash</code> 工具新增 <code>cwd</code> 参数</strong>：智能体现在可以将 Shell 命令限定在指定的工作目录中执行，而不必每次都从工作区根目录运行。(<a href="https://github.com/agentscope-ai/agentscope/pull/1822">#1822</a>)</li>
+</ul>
+<p><strong>Model 与多模态</strong></p>
+<ul>
+<li><strong>流式音频 + 实时字幕</strong>：DashScope/OpenAI 全模态模型现在能够在单次回复内增量地输出音频块和字幕事件。(<a href="https://github.com/agentscope-ai/agentscope/pull/1701">#1701</a>)</li>
+</ul>
+<p><strong>TTS</strong></p>
+<ul>
+<li><strong>全新 <code>tts</code> 模块</strong>：内置 DashScope 后端与流式中间件，能够在 Token 到达时实时将智能体的文本回复转换为语音输出。(<a href="https://github.com/agentscope-ai/agentscope/pull/1832">#1832</a>)</li>
+</ul>
+<p><strong>WebUI</strong></p>
+<ul>
+<li><strong>凭据侧边栏</strong>：现在按 Provider 分组展示凭据，便于在多家厂商之间查找和管理 API Key。(<a href="https://github.com/agentscope-ai/agentscope/pull/1829">#1829</a>)</li>
+<li><strong>WebUI 的 CI</strong>：新增了格式检查和构建检查，前端回归在 PR 阶段即可被发现。(<a href="https://github.com/agentscope-ai/agentscope/pull/1821">#1821</a>)</li>
+</ul>
+<h3 id="变更-11">变更</h3>
+<p><strong>Agent 服务基础设施</strong></p>
+<ul>
+<li><strong>Embedding 模型层重构</strong>：原先单文件实现的 <code>_dashscope_embedding.py</code> / <code>_dashscope_multimodal_embedding.py</code> 被替换为新的 <code>embedding/_dashscope/</code> 包，每个模型都对应一份 YAML 模型卡（<code>text-embedding-v3/v4</code>、<code>qwen2.5-vl-embedding</code>、<code>qwen3-vl-embedding</code>、<code>multimodal-embedding-v1</code>、<code>tongyi-embedding-vision-flash/plus</code>），并新增 <code>EmbeddingModelCard</code> 类型以及服务层 <code>_embedding.py</code> 端点。(<a href="https://github.com/agentscope-ai/agentscope/pull/1852">#1852</a>)</li>
+<li><strong>后台任务管理器重构</strong>：原本基于单进程的调度器被替换为基于消息总线的架构（<code>message_bus/_base.py</code> + <code>_redis_message_bus.py</code>），并重写了 cancel/wake-up 调度器以便通过消息总线协同，支持多进程与分布式部署。(<a href="https://github.com/agentscope-ai/agentscope/pull/1849">#1849</a>)</li>
+</ul>
+<h3 id="修复-11">修复</h3>
+<p><strong>Model</strong></p>
+<ul>
+<li><strong>思考模式下的 tool_choice 回退</strong>：当 OpenAI 兼容的结构化输出调用因开启思考模式而拒绝强制 <code>tool_choice</code> 时，现在会自动回退到 <code>auto</code> 而不是直接报错。(<a href="https://github.com/agentscope-ai/agentscope/pull/1830">#1830</a>)</li>
+<li><strong>Qwen 思考开关</strong>：正确地将 thinking 开关参数透传给 DashScope。(<a href="https://github.com/agentscope-ai/agentscope/pull/1774">#1774</a>)</li>
+<li><strong>Ollama Embedding 客户端</strong>：改为每次调用都新建客户端，避免 Embedding 客户端跨事件循环复用时出现 &quot;event loop is closed&quot; 错误。(<a href="https://github.com/agentscope-ai/agentscope/pull/1836">#1836</a>)</li>
+</ul>
+<p><strong>Permission 与 Team</strong></p>
+<ul>
+<li><strong>Workspace MCP 加载器</strong>：遇到非法的 MCP 配置项时会跳过并打印告警，而不是直接中断初始化。(<a href="https://github.com/agentscope-ai/agentscope/pull/1819">#1819</a>)</li>
+<li><strong>Workspace 根路径</strong>：被纳入到 Permission Context 中，路径规则评估时能够正确解析相对路径。(<a href="https://github.com/agentscope-ai/agentscope/pull/1823">#1823</a>)</li>
+<li><strong>Worker Agent 继承 Leader 的权限规则</strong>：<code>AgentCreate</code> 现在改为 state-injected，Worker 会话通过深拷贝 Leader 的工作目录以及 allow/deny/ask 规则来构建。此前 Worker 总是拿到一个空的 <code>PermissionContext</code>，导致所有用户已确认过的目录和规则都丢失。(<a href="https://github.com/agentscope-ai/agentscope/pull/1815">#1815</a>)</li>
+</ul>
+<p><strong>Tool</strong></p>
+<ul>
+<li><strong>Glob 模式</strong>：现在能够正确识别 Windows 风格的路径分隔符。(<a href="https://github.com/agentscope-ai/agentscope/pull/1809">#1809</a>)</li>
+</ul>
+<p><strong>Storage 与 Message Bus</strong></p>
+<ul>
+<li><strong>Redis 会话 ID</strong>：显式传入的 Session ID 不再被自动生成的 ID 覆盖。(<a href="https://github.com/agentscope-ai/agentscope/pull/1786">#1786</a>)</li>
+<li><strong>Redis Message Bus 超时 Bug</strong>：修复后长耗时任务不会再丢失结果消息。(<a href="https://github.com/agentscope-ai/agentscope/pull/1853">#1853</a>)</li>
+</ul>
+<p><strong>WebUI</strong></p>
+<ul>
+<li>修复了侧边栏 group action 中 <code>&lt;button&gt;</code> 嵌套的 HTML 结构问题。(<a href="https://github.com/agentscope-ai/agentscope/pull/1769">#1769</a>)</li>
+<li>不可预览的文件附件现在能够正常渲染，并对媒体尺寸做了约束，避免撑破聊天布局。(<a href="https://github.com/agentscope-ai/agentscope/pull/1768">#1768</a>)</li>
+<li>聊天会话侧边栏在移动端改为浮层抽屉，避免在小屏上抢占空间。(<a href="https://github.com/agentscope-ai/agentscope/pull/1772">#1772</a>)</li>
+<li>新增了路由级别的错误边界，配套友好的错误页面。(<a href="https://github.com/agentscope-ai/agentscope/pull/1828">#1828</a>)</li>
+<li>修复了聊天页面的一个渲染 Bug。(<a href="https://github.com/agentscope-ai/agentscope/pull/1867">#1867</a>)</li>
+<li>修正了中文版引导提示文案中的一处错别字。(<a href="https://github.com/agentscope-ai/agentscope/pull/1766">#1766</a>)</li>
+</ul>
+<h2 id="v201">v2.0.1</h2>
+<p><em>发布于 2026-06-05。</em></p>
+<aside class="notice note"><strong>说明</strong><p><strong>版本亮点</strong>：<strong>Agent Team</strong> 特性现已在 Agent 服务中支持，可以方便地在一个 Leader 下组合多个子 Agent。</p></aside>
+<h3 id="新增-12">新增</h3>
+<p><strong>Agent 服务与 Team</strong></p>
+<ul>
+<li><strong>Agent Team</strong> 内置于 Agent 服务中：重构后的服务允许由 Leader Agent 创建并协同多个子 Agent。(<a href="https://github.com/agentscope-ai/agentscope/pull/1776">#1776</a>)</li>
+<li><strong>可插拔的工具与中间件</strong>：现在可以在服务启动时通过依赖注入向其传入额外的工具和中间件，而不必将其硬编码在默认工具包中。(<a href="https://github.com/agentscope-ai/agentscope/pull/1709">#1709</a>)</li>
+</ul>
+<p><strong>Permission</strong></p>
+<ul>
+<li><strong>权限系统的整体优化</strong>：将 <code>Edit</code> 与 <code>Write</code> 各自的 <code>_check_permission</code> 钩子收敛到共享的 <code>_engine.py</code> 中，并扩展了 <code>_decision.py</code> / <code>_types.py</code> 中的规则模型。改动配套新增了 895 行的 <code>permission_mode_test.py</code>，端到端地覆盖 <code>default</code>、<code>explore</code>、<code>accept_edits</code>、<code>ask</code> 四种模式。(<a href="https://github.com/agentscope-ai/agentscope/pull/1767">#1767</a>)</li>
+</ul>
+<p><strong>Model</strong></p>
+<ul>
+<li><strong>逐次调用的 <code>client_kwargs</code></strong>：可以将额外的客户端参数透传给底层 Provider Client，便于配合代理、自定义 Transport 或单次调用级别的 Tracing 使用。(<a href="https://github.com/agentscope-ai/agentscope/pull/1659">#1659</a>)</li>
+<li><strong>15 份主流模型的 YAML 模型卡</strong>：覆盖 Anthropic（<code>claude-opus-4-5</code>、<code>claude-opus-4-6</code>、<code>claude-sonnet-4-5</code>）、DashScope（<code>qwen-max</code>、<code>qwen-max-2025-01-25</code>、<code>qwen-turbo</code>、<code>qwen-long</code>）、OpenAI Chat（<code>gpt-4o</code>、<code>gpt-4o-mini</code>、<code>gpt-4.1-mini</code>、<code>gpt-4.1-nano</code>）、OpenAI Response（<code>gpt-4.1</code>、<code>gpt-4.1-mini</code>）以及 xAI（<code>grok-3</code>、<code>grok-3-fast</code>）。(<a href="https://github.com/agentscope-ai/agentscope/pull/1731">#1731</a>)</li>
+</ul>
+<p><strong>RAG</strong></p>
+<ul>
+<li><strong><code>rag</code> 模块基础类骨架</strong>：仅包含基类，具体的 Retriever 实现将在后续版本中陆续提供。(<a href="https://github.com/agentscope-ai/agentscope/pull/1746">#1746</a>)</li>
+</ul>
+<p><strong>Event</strong></p>
+<ul>
+<li><strong><code>EventBase</code> 新增 <code>metadata</code> 字段</strong>：允许事件生产者附带任意结构化数据，下游的 Tracing、Hook、Middleware 等可以直接读取。(<a href="https://github.com/agentscope-ai/agentscope/pull/1788">#1788</a>)</li>
+</ul>
+<p><strong>WebUI</strong></p>
+<ul>
+<li><strong>Fallback 模型</strong>：现在可以在 Web UI 中配置 Fallback 模型，当主模型不可用时会话会自动切换。(<a href="https://github.com/agentscope-ai/agentscope/pull/1699">#1699</a>)</li>
+</ul>
+<p><strong>Dependencies</strong></p>
+<ul>
+<li><strong><code>ripgrep</code> 改为可选依赖</strong>：不需要内置 <code>grep</code> 工具的部署可以保持更精简的依赖。(<a href="https://github.com/agentscope-ai/agentscope/pull/1740">#1740</a>)</li>
+</ul>
+<h3 id="变更-12">变更</h3>
+<p><strong>Docs</strong></p>
+<ul>
+<li>更新了 README，介绍新的 Agent 服务能力。(<a href="https://github.com/agentscope-ai/agentscope/pull/1789">#1789</a>)</li>
+</ul>
+<h3 id="修复-12">修复</h3>
+<p><strong>Formatter 与 Model</strong></p>
+<ul>
+<li><strong>Anthropic Formatter</strong>：现在会丢弃没有 signature 的 thinking block，避免 API 调用失败。(<a href="https://github.com/agentscope-ai/agentscope/pull/1668">#1668</a>)</li>
+<li><strong>统一的重试逻辑</strong>：anthropic / dashscope / deepseek / gemini / moonshot / ollama / openai_chat / openai_response / xai 现在共享同一份重试辅助逻辑，瞬时失败的处理在各家 Provider 之间保持一致。(<a href="https://github.com/agentscope-ai/agentscope/pull/1730">#1730</a>)</li>
+<li><strong>Ollama 与 Gemini</strong>：会真正遵循显式传入的 <code>thinking_enable=False</code>，不再因为模型本身支持思考就强行开启。(<a href="https://github.com/agentscope-ai/agentscope/pull/1784">#1784</a>)</li>
+</ul>
+<p><strong>Tool</strong></p>
+<ul>
+<li><strong><code>FunctionTool</code></strong>：现在接受普通返回值（而非 <code>ToolResponse</code>），会自动包装。(<a href="https://github.com/agentscope-ai/agentscope/pull/1703">#1703</a>)</li>
+<li><strong>内置 <code>Read</code> 工具</strong>：在底层文件被修改时会失效原有的文件缓存。(<a href="https://github.com/agentscope-ai/agentscope/pull/1735">#1735</a>)</li>
+<li><strong>Bash 子进程窗口</strong>：在 Windows 平台上现在会被隐藏。(<a href="https://github.com/agentscope-ai/agentscope/pull/1717">#1717</a>)</li>
+<li><strong>Tool Group 的 Skills</strong>：在解析当前可用工具集时会被正确地包含进去。(<a href="https://github.com/agentscope-ai/agentscope/pull/1732">#1732</a>)</li>
+</ul>
+<p><strong>MCP</strong></p>
+<ul>
+<li><strong>MCPTool 名称</strong>：会被规范化处理，避免出现 <code>:</code>、<code>/</code> 等字符时被部分 Provider（尤其是 OpenAI）拒绝。(<a href="https://github.com/agentscope-ai/agentscope/pull/1787">#1787</a>)</li>
+</ul>
+<p><strong>Workspace 与 Storage</strong></p>
+<ul>
+<li><strong><code>LocalWorkspace</code></strong>：为 MCP 与 Skill 的操作加锁，避免并发注册/销毁时的竞态。(<a href="https://github.com/agentscope-ai/agentscope/pull/1710">#1710</a>)</li>
+<li><strong>Redis 消息列表</strong>：现在会设置过期时间，会话级的消息日志不再无限堆积。(<a href="https://github.com/agentscope-ai/agentscope/pull/1734">#1734</a>)</li>
+</ul>
+<p><strong>WebUI</strong></p>
+<ul>
+<li>在当前依赖下前端能够正常构建。(<a href="https://github.com/agentscope-ai/agentscope/pull/1708">#1708</a>)</li>
+<li><code>Button</code> 的 tooltip 触发器使用 <code>asChild</code>，避免出现嵌套的 <code>&lt;button&gt;</code>。(<a href="https://github.com/agentscope-ai/agentscope/pull/1770">#1770</a>)</li>
+<li>对话框新增了用于读屏软件的 description，提升无障碍体验。(<a href="https://github.com/agentscope-ai/agentscope/pull/1771">#1771</a>)</li>
+<li>补全了 Web UI 示例中缺失的文件。(<a href="https://github.com/agentscope-ai/agentscope/pull/1661">#1661</a>)</li>
+</ul>
+<p><strong>Docs</strong></p>
+<ul>
+<li>更新了 README 中的钉钉群二维码。(<a href="https://github.com/agentscope-ai/agentscope/pull/1662">#1662</a>)</li>
+</ul>
+<h2 id="v200">v2.0.0</h2>
+<p><em>发布于 2026-05-25。</em></p>
+<aside class="notice note"><strong>说明</strong><p><strong>版本亮点</strong>：AgentScope 2.0 正式发布！本次发布是一次大规模架构重构 —— Message、Tool、Workspace、Permission、Middleware 与 Service 等核心层全部重写。请参考 <a href="https://docs.agentscope.io/">新文档</a> 了解全新的构建块。</p></aside>
+<h3 id="新增-13">新增</h3>
+<p><strong>Agent 核心</strong></p>
+<ul>
+<li><strong><code>Agent</code> 类中内置权限检查</strong>：<code>_agent.py</code> 进行了大规模重写（+1534/-388），集成了新的权限引擎、事件类型、异常体系以及消息块。Agent 在每次工具调用前都会咨询权限系统。(<a href="https://github.com/agentscope-ai/agentscope/pull/1518">#1518</a>)</li>
+<li><strong><code>Agent</code> 类支持上下文压缩</strong>：新的 <code>AgentConfig</code> 暴露压缩相关配置，各 Provider 提供压缩入口，新增的 <code>offload/</code> 与 <code>storage/</code> 基础模块用于持久化压缩后的历史。配套 564 行的 <code>context_compression_test.py</code>。(<a href="https://github.com/agentscope-ai/agentscope/pull/1544">#1544</a>)</li>
+<li><strong>工具结果压缩</strong>：<code>Agent</code> 类支持对大体积的工具输出在回灌给模型前进行摘要压缩。(<a href="https://github.com/agentscope-ai/agentscope/pull/1585">#1585</a>)</li>
+</ul>
+<p><strong>权限系统</strong></p>
+<ul>
+<li><strong>全新 <code>tool/_permission/</code> 包</strong>：提供完整的权限基础类，包含 1026 行的 <code>_engine.py</code>、589 行用于静态分析 Shell 管道的 <code>_bash_parser.py</code>，以及 <code>_context.py</code>、<code>_decision.py</code>、<code>_rule.py</code>、<code>_types.py</code>，并搭配约 1.6k 行的单元测试。(<a href="https://github.com/agentscope-ai/agentscope/pull/1486">#1486</a>)</li>
+</ul>
+<p><strong>Tool</strong></p>
+<ul>
+<li><strong>基于 <code>ToolBase</code> 重建内置工具</strong>：全新的 <code>_bash</code>、<code>_edit</code>、<code>_glob</code>、<code>_grep</code>、<code>_read</code>、<code>_write</code> 实现，以及共享的 <code>_meta</code> 与 <code>_constants</code>，全部基于新的工具基类。(<a href="https://github.com/agentscope-ai/agentscope/pull/1502">#1502</a>)</li>
+<li><strong>Task 工具</strong>：新增 <code>TaskCreate</code>、<code>TaskGet</code>、<code>TaskList</code>、<code>TaskUpdate</code>（详见 <a href="/agentscope-course/building-blocks/plan/">Plan</a> 页面）。(<a href="https://github.com/agentscope-ai/agentscope/pull/1549">#1549</a>)</li>
+<li><strong>工具与 Workspace 集成</strong>：工具包与 Workspace 模块被打通进 <code>Agent</code> 类，文件/Shell 工具现在统一在智能体的 Workspace 中执行。(<a href="https://github.com/agentscope-ai/agentscope/pull/1642">#1642</a>)</li>
+</ul>
+<p><strong>Workspace</strong></p>
+<ul>
+<li><strong>全新 <code>workspace/</code> 模块</strong>：包含 <code>_base.py</code> 接口与 789 行的 <code>_local_workspace.py</code> 实现，旧的 <code>offload/_base.py</code> 同时被移除。(<a href="https://github.com/agentscope-ai/agentscope/pull/1586">#1586</a>)</li>
+</ul>
+<p><strong>Service</strong></p>
+<ul>
+<li><strong>基于 FastAPI 的 Agent 服务</strong>：作为通过 HTTP 暴露 Agent 的标准方式被正式引入。(<a href="https://github.com/agentscope-ai/agentscope/pull/1568">#1568</a>)</li>
+</ul>
+<p><strong>Middleware 与 Tracing</strong></p>
+<ul>
+<li><strong>2.0 中间件机制</strong>：在 <code>Agent</code> 类中引入新的中间件机制，包含 179 行的 <code>middleware/_base.py</code>、<code>AgentConfig</code> 中的中间件注册槽位，以及 752 行的测试用例。(<a href="https://github.com/agentscope-ai/agentscope/pull/1565">#1565</a>)</li>
+<li><strong>Tracing 作为中间件</strong>：原本作为外挂逻辑存在的 Tracing 现在被打包成一个中间件，位于 <code>middleware/_tracing/</code>，包含 extractor + converter + setup 以及 846 行的测试。(<a href="https://github.com/agentscope-ai/agentscope/pull/1633">#1633</a>)</li>
+</ul>
+<p><strong>Model</strong></p>
+<ul>
+<li><strong><code>ChatUsage</code> 新增 <code>cache_creation_input_tokens</code> 与 <code>cache_input_tokens</code></strong> 字段，用于支撑感知 Prompt Cache 的计费与可观测性。(<a href="https://github.com/agentscope-ai/agentscope/pull/1602">#1602</a>)</li>
+<li><strong>统一的 thinking tag 处理</strong>：在 DeepSeek、Moonshot、OpenAI Chat、OpenAI Response 与 xAI 之间统一了 <code>&lt;thinking&gt;</code> 标签的处理逻辑，下游代码不再需要按 Provider 分支。(<a href="https://github.com/agentscope-ai/agentscope/pull/1622">#1622</a>)</li>
+<li><strong>OpenAI 音频输出</strong>：端到端支持 OpenAI 模型的音频输出。(<a href="https://github.com/agentscope-ai/agentscope/pull/1623">#1623</a>)</li>
+<li><strong>DashScope 结构化输出</strong>：修复后并配套提供使用示例。(<a href="https://github.com/agentscope-ai/agentscope/pull/1651">#1651</a>)</li>
+</ul>
+<p><strong>Message 与 Event</strong></p>
+<ul>
+<li><strong>正式定义 <code>Msg</code> 的类型规则与约束</strong>：通过完整的测试套件明确不同位置允许出现的内容块类型。(<a href="https://github.com/agentscope-ai/agentscope/pull/1454">#1454</a>)</li>
+<li><strong><code>Msg</code> 新增 <code>usage</code> 字段</strong>：在消息粒度暴露 Token 使用量。(<a href="https://github.com/agentscope-ai/agentscope/pull/1639">#1639</a>)</li>
+</ul>
+<p><strong>Scripts</strong></p>
+<ul>
+<li><strong>模型调用辅助脚本</strong>：在 <code>scripts/model_examples/</code> 下新增了一批脚本，用于快速验证各家 Provider。(<a href="https://github.com/agentscope-ai/agentscope/pull/1604">#1604</a>)</li>
+</ul>
+<h3 id="变更-13">变更</h3>
+<p><strong>Message 与 Event</strong></p>
+<ul>
+<li><strong>核心构建块简化、<code>Msg</code> 结构重组</strong>：旧的 <code>a2a/</code> 包（<code>a2a_base</code>、<code>file_resolver</code>、<code>nacos_resolver</code>、<code>well_known_resolver</code>）以及 <code>formatter/_a2a_formatter.py</code> 被移除；新增了统一的 <code>event/</code> 包（<code>_event.py</code>，421 行）。(<a href="https://github.com/agentscope-ai/agentscope/pull/1440">#1440</a>)</li>
+</ul>
+<p><strong>Tool</strong></p>
+<ul>
+<li><strong>工具模块重构</strong>：提供新的基类与工具包逻辑，移除了遗留的 MCP <code>client_base</code>，相关教程也同步更新。(<a href="https://github.com/agentscope-ai/agentscope/pull/1493">#1493</a>)</li>
+<li><strong>Skill Loader 重构</strong>：新增 <code>tool/_skill/</code> 包（<code>_base.py</code> + 171 行的 <code>_local_loader.py</code>），替换原先内联在 Toolkit 中的 Skill 逻辑；同时新增内置 <code>_skill.py</code> 工具，将 Skill 暴露给智能体。(<a href="https://github.com/agentscope-ai/agentscope/pull/1513">#1513</a>)</li>
+<li><strong><code>tool_choice</code> 参数重构</strong>：将各种模式（<code>auto</code>、<code>none</code>、<code>required</code> 等）改为 <code>tool/_types.py</code> 中的类型化对象，从而能够支持 OpenAI Response API 的高级 Prompt Cache，所有 Provider 的实现同步更新。(<a href="https://github.com/agentscope-ai/agentscope/pull/1524">#1524</a>)</li>
+</ul>
+<p><strong>Model 与 Formatter</strong></p>
+<ul>
+<li><strong>Chat 模型实现重构</strong>：新增 <code>credential/</code> 包（<code>_base</code>、<code>_anthropic</code>、<code>_dashscope</code>、<code>_deepseek</code>、<code>_gemini</code>、<code>_kimi</code>、<code>_ollama</code>、<code>_openai</code>、<code>_xai</code>），将 API Key/鉴权从 Chat 模型类中解耦，所有 Provider 的 Formatter 也在其基础上重写。(<a href="https://github.com/agentscope-ai/agentscope/pull/1564">#1564</a>)</li>
+<li><strong>DashScope 兼容 OpenAI</strong>：DashScope 模型现在复用 OpenAI Chat 客户端的调用路径，不再维护单独的响应解析。(<a href="https://github.com/agentscope-ai/agentscope/pull/1617">#1617</a>)</li>
+<li><strong><code>kimi</code> 重命名为 <code>moonshot</code></strong>：与该 Provider 的官方品牌保持一致。(<a href="https://github.com/agentscope-ai/agentscope/pull/1609">#1609</a>)</li>
+</ul>
+<p><strong>MCP</strong></p>
+<ul>
+<li><strong>统一的 <code>MCPClient</code> 类</strong>：<code>_mcp_client.py</code>（347 行）替代了原先一系列 stateful、stateless、stdio、SSE 与 streamable-HTTP 的客户端，连接配置统一收敛到 <code>_config.py</code> 中。(<a href="https://github.com/agentscope-ai/agentscope/pull/1572">#1572</a>)</li>
+<li><strong>MCP 工具注册时会被重命名</strong>：避免不同 MCP Server 之间的工具名冲突。(<a href="https://github.com/agentscope-ai/agentscope/pull/1552">#1552</a>)</li>
+<li><strong>MCP 单元测试</strong>：按新版 API 进行了重构。(<a href="https://github.com/agentscope-ai/agentscope/pull/1505">#1505</a>)</li>
+</ul>
+<p><strong>Tracing</strong></p>
+<ul>
+<li><strong>Tracing 模块迁移至 <code>middleware/_tracing/</code></strong>：原先约 360 行的 <code>_extractor.py</code> 被拆分为 <code>_trace.py</code>、<code>_converter.py</code> 以及更精简的 <code>_extractor.py</code>，注册流程也得到简化。(<a href="https://github.com/agentscope-ai/agentscope/pull/1579">#1579</a>)</li>
+</ul>
+<p><strong>Workspace</strong></p>
+<ul>
+<li><strong>新增 e2b 与 Docker Workspace</strong>：与本地 Workspace 并列提供，各自配套 Manager。本次发布同时在 <code>examples/web_ui/</code> 下提供了完整的 WebUI 脚手架。(<a href="https://github.com/agentscope-ai/agentscope/pull/1650">#1650</a>)</li>
+</ul>
+<p><strong>项目层面</strong></p>
+<ul>
+<li><strong>临时弃用</strong>：<code>evaluate</code>、<code>module</code>、<code>rag</code>、<code>tts</code>、<code>realtime</code> 等模块在重构期间被移除，对应的示例（a2a/a2ui 智能体等）也从代码树中删除。(<a href="https://github.com/agentscope-ai/agentscope/pull/1438">#1438</a>)</li>
+</ul>
+<p><strong>Docs</strong></p>
+<ul>
+<li>为 2.0 版本更新了 README 与教程。(<a href="https://github.com/agentscope-ai/agentscope/pull/1657">#1657</a>)</li>
+</ul>
+<h3 id="修复-13">修复</h3>
+<p><strong>Model</strong></p>
+<ul>
+<li><strong>DashScope <code>KeyError</code></strong>：当响应体缺失预期字段时不再抛出 <code>KeyError</code>。(<a href="https://github.com/agentscope-ai/agentscope/pull/1615">#1615</a>)</li>
+<li><strong><code>_format_tools</code></strong>：针对 OpenAI Response 模型做了进一步打磨。(<a href="https://github.com/agentscope-ai/agentscope/pull/1635">#1635</a>)</li>
+</ul>
+<p><strong>Formatter</strong></p>
+<ul>
+<li><strong>各 Provider 的 Formatter 与单元测试</strong>：进行了系统化的打磨。(<a href="https://github.com/agentscope-ai/agentscope/pull/1621">#1621</a>)</li>
+<li><strong>Moonshot</strong>：远端图片 URL 现在会被下载后以 base64 形式上传，因为该 API 不支持直接传 URL。(<a href="https://github.com/agentscope-ai/agentscope/pull/1653">#1653</a>)</li>
+</ul>
+<p><strong>MCP</strong></p>
+<ul>
+<li><strong>MCPTool 输入 Schema 保留 <code>$defs</code></strong>：递归地剥除 <code>title</code> 字段，修复了与严格的 LLM Provider 配合时的 Schema 校验问题。(<a href="https://github.com/agentscope-ai/agentscope/pull/1595">#1595</a>)</li>
+</ul>
+<p><strong>Tool</strong></p>
+<ul>
+<li><strong>关闭 <code>.env</code> 绕过通道</strong>：<code>Write</code>、<code>Edit</code>、<code>Bash</code> 不再允许 Agent 通过正规化路径技巧读写 <code>.env</code>（以及其他危险路径），危险路径检测 API 同步收紧。(<a href="https://github.com/agentscope-ai/agentscope/pull/1656">#1656</a>)</li>
+</ul>
+<p><strong>Scripts</strong></p>
+<ul>
+<li>辅助脚本现在会将 <code>TextBlock</code> 列表赋值给 <code>content</code>，而不是直接传一个字符串。(<a href="https://github.com/agentscope-ai/agentscope/pull/1629">#1629</a>)</li>
+</ul></article><footer><div class="paging"><a href="/agentscope-course/quickstart/">上一节 · 快速开始</a><a href="/agentscope-course/building-blocks/message-and-event/">下一节 · 消息与事件</a></div><div class="credits"><a href="https://docs.agentscope.io/zh/versions/2.0.12/release-notes" target="_blank" rel="noopener">在线原页</a> · <a href="/agentscope-course/mdx/release-notes.mdx">原始 MDX</a> · <a href="https://github.com/agentscope-ai/docs/blob/e0ee835d1aca5d2b840d29bdd2f70770bbef69e8/zh/versions/2.0.12/release-notes.mdx" target="_blank" rel="noopener">固定版本来源</a> · <a href="/agentscope-course/LICENSE.txt">MIT 许可</a></div></footer></main></div></body></html>

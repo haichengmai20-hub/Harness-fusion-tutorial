@@ -1,0 +1,2749 @@
+{
+  "site": "https://learn.shareai.run",
+  "capturedAt": "2026-11-21T15:38:48.129419+00:00",
+  "nextBuildId": "kmlR_r3nY0eufm7KiGEJ3",
+  "deployedGitCommit": null,
+  "pages": [
+    "/zh/",
+    "/zh/s01/",
+    "/zh/s02/",
+    "/zh/s03/",
+    "/zh/s04/",
+    "/zh/s05/",
+    "/zh/s06/",
+    "/zh/s07/",
+    "/zh/s08/",
+    "/zh/s09/",
+    "/zh/s10/",
+    "/zh/s11/",
+    "/zh/s12/",
+    "/zh/s13/",
+    "/zh/s14/",
+    "/zh/s15/",
+    "/zh/s16/",
+    "/zh/s17/",
+    "/zh/s18/",
+    "/zh/s19/",
+    "/zh/s20/",
+    "/zh/timeline/",
+    "/zh/compare/",
+    "/zh/layers/"
+  ],
+  "license": {
+    "url": "https://raw.githubusercontent.com/shareAI-lab/learn-claude-code/448c75bb596917ad196cc1fb7558f459c5c50fdd/LICENSE",
+    "path": "upstream/LICENSE",
+    "sha256": "204ff5ee216c8f895268a23b66d959f82aa4d868e871e0690fbf2844eff8a26b"
+  },
+  "files": [
+    {
+      "path": "_next/static/chunks/0b4b0328131d73a8.css",
+      "url": "https://learn.shareai.run/_next/static/chunks/0b4b0328131d73a8.css",
+      "type": "text/css",
+      "bytes": 79821,
+      "sha256": "fc1302a4a54cde2e44e95945e5c45ba55afbb4b311a51320e2448d13b4e990bb"
+    },
+    {
+      "path": "_next/static/chunks/0db5a3fbaad6c408.js",
+      "url": "https://learn.shareai.run/_next/static/chunks/0db5a3fbaad6c408.js",
+      "type": "application/javascript",
+      "bytes": 1346,
+      "sha256": "767165919456a86ef29f76a8e0bcf9f96251ef8e0857f62b3aa30fcf0d84daf7"
+    },
+    {
+      "path": "_next/static/chunks/18503a8228832fac.js",
+      "url": "https://learn.shareai.run/_next/static/chunks/18503a8228832fac.js",
+      "type": "application/javascript",
+      "bytes": 1365,
+      "sha256": "20dddd77513203d052c7fd6fbab1e7ed88b35c10211625487bc095b1cd665bee"
+    },
+    {
+      "path": "_next/static/chunks/1aad9955d249629d.js",
+      "url": "https://learn.shareai.run/_next/static/chunks/1aad9955d249629d.js",
+      "type": "application/javascript",
+      "bytes": 11947,
+      "sha256": "8fd6795410b4c8cc89cbe539e562a570cba46ce70d1aa4563694a1b56a722b8a"
+    },
+    {
+      "path": "_next/static/chunks/1b39354ac4e5339d.js",
+      "url": "https://learn.shareai.run/_next/static/chunks/1b39354ac4e5339d.js",
+      "type": "application/javascript",
+      "bytes": 1204,
+      "sha256": "3fa11c6ef6c6a955334c8908455320b6733b6ddd5723dad94687d43bdfb38e87"
+    },
+    {
+      "path": "_next/static/chunks/1cfdf5347d7ee754.js",
+      "url": "https://learn.shareai.run/_next/static/chunks/1cfdf5347d7ee754.js",
+      "type": "application/javascript",
+      "bytes": 12244,
+      "sha256": "99374408f0e956190f5f536b1bdf0cc03ad7f36911cce434d04f5a7a38c3d0fb"
+    },
+    {
+      "path": "_next/static/chunks/2460b60daff8d827.js",
+      "url": "https://learn.shareai.run/_next/static/chunks/2460b60daff8d827.js",
+      "type": "application/javascript",
+      "bytes": 2034,
+      "sha256": "f14486caef05a13e2dee1f708420bfb3dfd61fd41a5be7462f51bc71978f8b89"
+    },
+    {
+      "path": "_next/static/chunks/273e7bc2435e712d.js",
+      "url": "https://learn.shareai.run/_next/static/chunks/273e7bc2435e712d.js",
+      "type": "application/javascript",
+      "bytes": 14590,
+      "sha256": "0db1b7088b3722b6865a0f7e4ca7e8a6ddbd12b673e8286c6eb9b0c17b8cd659"
+    },
+    {
+      "path": "_next/static/chunks/292f1bb869ba1b65.js",
+      "url": "https://learn.shareai.run/_next/static/chunks/292f1bb869ba1b65.js",
+      "type": "application/javascript",
+      "bytes": 1524,
+      "sha256": "6d711409836a10e9161c1b6c752358942d6f62ab5b62cd337d3b88b4db4916d0"
+    },
+    {
+      "path": "_next/static/chunks/32248f973ceaf78e.js",
+      "url": "https://learn.shareai.run/_next/static/chunks/32248f973ceaf78e.js",
+      "type": "application/javascript",
+      "bytes": 224631,
+      "sha256": "e1a3315bceafb8530b64f9b2d64639fc7839f5c0ea13b27cbf663028d8394324"
+    },
+    {
+      "path": "_next/static/chunks/35cbae63cdf00e34.js",
+      "url": "https://learn.shareai.run/_next/static/chunks/35cbae63cdf00e34.js",
+      "type": "application/javascript",
+      "bytes": 11376,
+      "sha256": "ab3a0c6a231a28bdfddabc76d9727ec511f221832854d014c404f3a27ad210ab"
+    },
+    {
+      "path": "_next/static/chunks/3aeb837b1df86ebc.js",
+      "url": "https://learn.shareai.run/_next/static/chunks/3aeb837b1df86ebc.js",
+      "type": "application/javascript",
+      "bytes": 17604,
+      "sha256": "99150a4bf260250577a6a053c7247f10352bbab34c050621cb7e299bd9e6e6cb"
+    },
+    {
+      "path": "_next/static/chunks/3f395b9b28e33828.js",
+      "url": "https://learn.shareai.run/_next/static/chunks/3f395b9b28e33828.js",
+      "type": "application/javascript",
+      "bytes": 12271,
+      "sha256": "8c5693902d17aaa61be48bf25c7aba9c49604d93ed2199609002dce900e8e7ae"
+    },
+    {
+      "path": "_next/static/chunks/40dc3d7410b2de5f.js",
+      "url": "https://learn.shareai.run/_next/static/chunks/40dc3d7410b2de5f.js",
+      "type": "application/javascript",
+      "bytes": 19935,
+      "sha256": "cf06c8c8b35d63c6e828ab6117e01a5dc0f87e3a3e47f7334e9f41720a171244"
+    },
+    {
+      "path": "_next/static/chunks/438016a6b30b6af8.js",
+      "url": "https://learn.shareai.run/_next/static/chunks/438016a6b30b6af8.js",
+      "type": "application/javascript",
+      "bytes": 10194,
+      "sha256": "ea802d38cbbdcfd8780e3493ebee450e380f62e0d915ab1500602df4191f4b05"
+    },
+    {
+      "path": "_next/static/chunks/444aa37f375af4c6.js",
+      "url": "https://learn.shareai.run/_next/static/chunks/444aa37f375af4c6.js",
+      "type": "application/javascript",
+      "bytes": 4827,
+      "sha256": "4c53d5c1cd53f8076509f9af6c7d0cb344423b8bfb58ec93e02e9cad55bf1322"
+    },
+    {
+      "path": "_next/static/chunks/47838e0150acbf20.js",
+      "url": "https://learn.shareai.run/_next/static/chunks/47838e0150acbf20.js",
+      "type": "application/javascript",
+      "bytes": 13929,
+      "sha256": "36c9df1153622b856cb3cf16ff368c06a054070bc7a3f04297c9c7eb724958a4"
+    },
+    {
+      "path": "_next/static/chunks/4db06eeaa211f81c.js",
+      "url": "https://learn.shareai.run/_next/static/chunks/4db06eeaa211f81c.js",
+      "type": "application/javascript",
+      "bytes": 803734,
+      "sha256": "575223efa469ec0c1758df89bf7d6163837b3faffa6471d3a40c96acee00fd3d"
+    },
+    {
+      "path": "_next/static/chunks/505737160325d8ec.js",
+      "url": "https://learn.shareai.run/_next/static/chunks/505737160325d8ec.js",
+      "type": "application/javascript",
+      "bytes": 14473,
+      "sha256": "1d997e33227d22cc1f51201a97225ce0e5f296b761c5aa7c0b1c52d2845f41a1"
+    },
+    {
+      "path": "_next/static/chunks/54405593f920523d.js",
+      "url": "https://learn.shareai.run/_next/static/chunks/54405593f920523d.js",
+      "type": "application/javascript",
+      "bytes": 11986,
+      "sha256": "270f8098ff04dd1a9e9eeb6501dc1ba3e0ea90a2035213eef3089e32e8559b16"
+    },
+    {
+      "path": "_next/static/chunks/5fd371c76cbace77.js",
+      "url": "https://learn.shareai.run/_next/static/chunks/5fd371c76cbace77.js",
+      "type": "application/javascript",
+      "bytes": 23791,
+      "sha256": "c48e71f98292dabc1955fe9d5d53a72f8feadf2f4d17523cf8d93e805a0ea3eb"
+    },
+    {
+      "path": "_next/static/chunks/621db30d15922d4f.js",
+      "url": "https://learn.shareai.run/_next/static/chunks/621db30d15922d4f.js",
+      "type": "application/javascript",
+      "bytes": 1598,
+      "sha256": "f5b1f7f1b0b7e32ba01c380b43033859e91b6d981c7264380399afd413f7b861"
+    },
+    {
+      "path": "_next/static/chunks/622d062989256602.js",
+      "url": "https://learn.shareai.run/_next/static/chunks/622d062989256602.js",
+      "type": "application/javascript",
+      "bytes": 1323,
+      "sha256": "58e5cfc7d6ebd4a7f2830a922b9fecbc138ceb1f21adc55079eb156bd399ca17"
+    },
+    {
+      "path": "_next/static/chunks/62c65e30878d64bb.js",
+      "url": "https://learn.shareai.run/_next/static/chunks/62c65e30878d64bb.js",
+      "type": "application/javascript",
+      "bytes": 1329,
+      "sha256": "07249d85713098e4b8ec50cb83c0102c4278a78e1005599badb5fae7deb6ce5d"
+    },
+    {
+      "path": "_next/static/chunks/64297e63291b5d0c.js",
+      "url": "https://learn.shareai.run/_next/static/chunks/64297e63291b5d0c.js",
+      "type": "application/javascript",
+      "bytes": 10115,
+      "sha256": "39c743738d42f0bd63a2959e00e94d2381d84e5fc5f8b12852238c206828d49e"
+    },
+    {
+      "path": "_next/static/chunks/644afefb1c1e7643.js",
+      "url": "https://learn.shareai.run/_next/static/chunks/644afefb1c1e7643.js",
+      "type": "application/javascript",
+      "bytes": 1495,
+      "sha256": "8a3d30ba07ca9f283d09c7218f58f7379fedcaeba22625745a75da99167f9b24"
+    },
+    {
+      "path": "_next/static/chunks/6ff11fc6c775cb5e.js",
+      "url": "https://learn.shareai.run/_next/static/chunks/6ff11fc6c775cb5e.js",
+      "type": "application/javascript",
+      "bytes": 130691,
+      "sha256": "b4d4325bc006c0b4f71357f0d252f47317f6306708489b9c24a05932291f935e"
+    },
+    {
+      "path": "_next/static/chunks/7173776e13c96729.js",
+      "url": "https://learn.shareai.run/_next/static/chunks/7173776e13c96729.js",
+      "type": "application/javascript",
+      "bytes": 33301,
+      "sha256": "3cbf8e07cc3607e6207e3e88bc93e4e36fc10271dc9777084567a3195fa087d3"
+    },
+    {
+      "path": "_next/static/chunks/75033f9ea5c0c0b7.js",
+      "url": "https://learn.shareai.run/_next/static/chunks/75033f9ea5c0c0b7.js",
+      "type": "application/javascript",
+      "bytes": 1249,
+      "sha256": "abe851e9bedfe548625f5bad8a2a33e13cedfea8b5bb460400ea5aa3c88f8553"
+    },
+    {
+      "path": "_next/static/chunks/77128aa4da44f5e6.js",
+      "url": "https://learn.shareai.run/_next/static/chunks/77128aa4da44f5e6.js",
+      "type": "application/javascript",
+      "bytes": 1369,
+      "sha256": "5a242e18857703021a5ce0fb2c43ab49bdf49d24b0446edf3acecf68a7710994"
+    },
+    {
+      "path": "_next/static/chunks/777017ac6b6d9b11.js",
+      "url": "https://learn.shareai.run/_next/static/chunks/777017ac6b6d9b11.js",
+      "type": "application/javascript",
+      "bytes": 6967,
+      "sha256": "04ccd5ac101166e4c5ae20847b864d6793f7331cf53ee93418c0e675b459aad3"
+    },
+    {
+      "path": "_next/static/chunks/8b0578be4f24fa79.js",
+      "url": "https://learn.shareai.run/_next/static/chunks/8b0578be4f24fa79.js",
+      "type": "application/javascript",
+      "bytes": 16895,
+      "sha256": "a43b5b541b42f32dce98b5dae6e9575b5d118c15cb3829fbe7f91ae7779608c1"
+    },
+    {
+      "path": "_next/static/chunks/9d442b2a578c48ca.js",
+      "url": "https://learn.shareai.run/_next/static/chunks/9d442b2a578c48ca.js",
+      "type": "application/javascript",
+      "bytes": 1228,
+      "sha256": "c33bafeb27ec5f68942fa1458403a47e1a983f81208760a38cdbf9e41bc48f7b"
+    },
+    {
+      "path": "_next/static/chunks/9e5cf02934c3a379.js",
+      "url": "https://learn.shareai.run/_next/static/chunks/9e5cf02934c3a379.js",
+      "type": "application/javascript",
+      "bytes": 5813,
+      "sha256": "4dfd46049ac3acb7ba829c1adb68a11c0eba53c1907c1ff959f4602ceda6424d"
+    },
+    {
+      "path": "_next/static/chunks/9fedf3d4a716c59e.js",
+      "url": "https://learn.shareai.run/_next/static/chunks/9fedf3d4a716c59e.js",
+      "type": "application/javascript",
+      "bytes": 11618,
+      "sha256": "1fa84e8ff204a54a3d4747f61f277246eb126feb0c1a87a7b170b027c5f70d86"
+    },
+    {
+      "path": "_next/static/chunks/a35abb2850754340.js",
+      "url": "https://learn.shareai.run/_next/static/chunks/a35abb2850754340.js",
+      "type": "application/javascript",
+      "bytes": 29090,
+      "sha256": "d82fd9f55921e27711635defbaf1d23785b953a12ffe63def5163e83d9124b9d"
+    },
+    {
+      "path": "_next/static/chunks/a6dad97d9634a72d.js",
+      "url": "https://learn.shareai.run/_next/static/chunks/a6dad97d9634a72d.js",
+      "type": "application/javascript",
+      "bytes": 112594,
+      "sha256": "0973c1d64c88adc8e3c950410cb58b288f72118d5965b78049438deb8f2f9683"
+    },
+    {
+      "path": "_next/static/chunks/a9cd1a10ebe6adf9.js",
+      "url": "https://learn.shareai.run/_next/static/chunks/a9cd1a10ebe6adf9.js",
+      "type": "application/javascript",
+      "bytes": 1135,
+      "sha256": "bcd927352c19ae6b46026407c3ca9e9d37423a4fc7b19f1dd8e609f5f1afa94e"
+    },
+    {
+      "path": "_next/static/chunks/ab57834e6f1513fd.js",
+      "url": "https://learn.shareai.run/_next/static/chunks/ab57834e6f1513fd.js",
+      "type": "application/javascript",
+      "bytes": 10989,
+      "sha256": "da537748744151f0b7bf83a8f6ea469aca3df4bcef8040ace2bda9679b89b986"
+    },
+    {
+      "path": "_next/static/chunks/ab79f1957b697629.js",
+      "url": "https://learn.shareai.run/_next/static/chunks/ab79f1957b697629.js",
+      "type": "application/javascript",
+      "bytes": 18856,
+      "sha256": "11919769324a829d1b9bde2fb75327650cd8cff37ca72edc1ec726acd16da8ed"
+    },
+    {
+      "path": "_next/static/chunks/ad7bbf29c78e4be3.js",
+      "url": "https://learn.shareai.run/_next/static/chunks/ad7bbf29c78e4be3.js",
+      "type": "application/javascript",
+      "bytes": 605075,
+      "sha256": "eb4abfcdad520026677650da9b95ba3fd6f17a766a7751a85d0bf43eb22d25b0"
+    },
+    {
+      "path": "_next/static/chunks/b5888b3d00eaad7f.js",
+      "url": "https://learn.shareai.run/_next/static/chunks/b5888b3d00eaad7f.js",
+      "type": "application/javascript",
+      "bytes": 15833,
+      "sha256": "3890bc3db719e7d65c4c24ec577c5b95b127ea83282c875cf4e010284141e3f0"
+    },
+    {
+      "path": "_next/static/chunks/b5e7d6c557e036ae.js",
+      "url": "https://learn.shareai.run/_next/static/chunks/b5e7d6c557e036ae.js",
+      "type": "application/javascript",
+      "bytes": 1043,
+      "sha256": "95815465396ef8be4d11c6de9f9f06ce4dabda20a0d6a7a7c04f3e33167ed954"
+    },
+    {
+      "path": "_next/static/chunks/b7529b17c3443660.js",
+      "url": "https://learn.shareai.run/_next/static/chunks/b7529b17c3443660.js",
+      "type": "application/javascript",
+      "bytes": 959,
+      "sha256": "8f26938868c01f14dde6d7e07cb300b2f1a4b3e1bf7e66bee5a6ac30aeeafc6e"
+    },
+    {
+      "path": "_next/static/chunks/bbcd0fb35e50c297.js",
+      "url": "https://learn.shareai.run/_next/static/chunks/bbcd0fb35e50c297.js",
+      "type": "application/javascript",
+      "bytes": 122032,
+      "sha256": "5fba23a69e7f2636b25d1d573f04684bd50d2c76d1cbf2799f368ac589f6fb6d"
+    },
+    {
+      "path": "_next/static/chunks/bf46ca722259c91a.js",
+      "url": "https://learn.shareai.run/_next/static/chunks/bf46ca722259c91a.js",
+      "type": "application/javascript",
+      "bytes": 13287,
+      "sha256": "71e1ab7ca2a0b6f5ec7ae5a986209f247ae2041095ea31d5b28b79d3eda2e08d"
+    },
+    {
+      "path": "_next/static/chunks/bf707d9ef427ef18.js",
+      "url": "https://learn.shareai.run/_next/static/chunks/bf707d9ef427ef18.js",
+      "type": "application/javascript",
+      "bytes": 12906,
+      "sha256": "a7b88262518c9ae597f2b5ebe87313530481e471207fc5b063bbbf39693cc6c7"
+    },
+    {
+      "path": "_next/static/chunks/c033cd4511e88651.js",
+      "url": "https://learn.shareai.run/_next/static/chunks/c033cd4511e88651.js",
+      "type": "application/javascript",
+      "bytes": 15901,
+      "sha256": "49943ab00ac18730d8979b3d5a1ad35fe7e85a0c75bec4e65c54f61537c5a1b3"
+    },
+    {
+      "path": "_next/static/chunks/cc8112a3fbc1f80b.js",
+      "url": "https://learn.shareai.run/_next/static/chunks/cc8112a3fbc1f80b.js",
+      "type": "application/javascript",
+      "bytes": 11477,
+      "sha256": "0c324e3f03f39d9d84c49ea5309356c63a6e259e8537aff1f645b12058ef88c8"
+    },
+    {
+      "path": "_next/static/chunks/cccede6569bc3ddc.js",
+      "url": "https://learn.shareai.run/_next/static/chunks/cccede6569bc3ddc.js",
+      "type": "application/javascript",
+      "bytes": 1520,
+      "sha256": "f3d7844c4b707afe4f2d2396034934db37ce2ec5b1e6b6b122804a2020957082"
+    },
+    {
+      "path": "_next/static/chunks/d4514459d6e7bb78.js",
+      "url": "https://learn.shareai.run/_next/static/chunks/d4514459d6e7bb78.js",
+      "type": "application/javascript",
+      "bytes": 13084,
+      "sha256": "1014c4f8c47eeb21e30c3cbb97d501d59dacabd2a949022d3cef1481f4ba4588"
+    },
+    {
+      "path": "_next/static/chunks/e5d2f63bdb033e0b.js",
+      "url": "https://learn.shareai.run/_next/static/chunks/e5d2f63bdb033e0b.js",
+      "type": "application/javascript",
+      "bytes": 13550,
+      "sha256": "558f079e0aac0e4ab3d333f79e2ec05d097a34b13540f019cc2d5ce1ec6d8259"
+    },
+    {
+      "path": "_next/static/chunks/f3e9b72b6a77ba1d.js",
+      "url": "https://learn.shareai.run/_next/static/chunks/f3e9b72b6a77ba1d.js",
+      "type": "application/javascript",
+      "bytes": 1686,
+      "sha256": "e3b9161e7380f4a95fc4a3aad2e6f72c96be71e924376222a9c10a2f8e1f0f6c"
+    },
+    {
+      "path": "_next/static/chunks/f49e1a966c556a01.js",
+      "url": "https://learn.shareai.run/_next/static/chunks/f49e1a966c556a01.js",
+      "type": "application/javascript",
+      "bytes": 1316,
+      "sha256": "3901ed3957ef8a4a637b59eb223dd0d16e31d664fd23ed9a7a531df25c7ea261"
+    },
+    {
+      "path": "_next/static/chunks/f5d1b478f8336e84.js",
+      "url": "https://learn.shareai.run/_next/static/chunks/f5d1b478f8336e84.js",
+      "type": "application/javascript",
+      "bytes": 30683,
+      "sha256": "e651771af4d7301b5d5a82acf781acab6e688ddd0da15fb4ca91a2760fb17240"
+    },
+    {
+      "path": "_next/static/chunks/f74a6859e1c4d5e3.js",
+      "url": "https://learn.shareai.run/_next/static/chunks/f74a6859e1c4d5e3.js",
+      "type": "application/javascript",
+      "bytes": 282,
+      "sha256": "305fad9bb40df88d99cf76ec35ec829c5ab620d4ec89465aa744a9e16cacb812"
+    },
+    {
+      "path": "_next/static/chunks/f88d82f59dcb2c9b.js",
+      "url": "https://learn.shareai.run/_next/static/chunks/f88d82f59dcb2c9b.js",
+      "type": "application/javascript",
+      "bytes": 1481,
+      "sha256": "a4aa52207d6e33021bf80783474277de2089c4dac42a7c875f2cf6ed167533fb"
+    },
+    {
+      "path": "_next/static/chunks/f8ccddda84650d03.js",
+      "url": "https://learn.shareai.run/_next/static/chunks/f8ccddda84650d03.js",
+      "type": "application/javascript",
+      "bytes": 539145,
+      "sha256": "a1f8b1c18fc4fe38624f9d567d7f910260b3d424414840ff80d2ed0675d4e972"
+    },
+    {
+      "path": "_next/static/chunks/ff7c91c9616d5667.js",
+      "url": "https://learn.shareai.run/_next/static/chunks/ff7c91c9616d5667.js",
+      "type": "application/javascript",
+      "bytes": 1115,
+      "sha256": "4f48a8c415a03a5dfd59963747743f0567a2a7fa5cd976cfc90c19d90b9523ed"
+    },
+    {
+      "path": "_next/static/chunks/turbopack-50d82a1024d01141.js",
+      "url": "https://learn.shareai.run/_next/static/chunks/turbopack-50d82a1024d01141.js",
+      "type": "application/javascript",
+      "bytes": 10232,
+      "sha256": "9aa350e5f898eeeaaef305f7bb15de9d2801a2d7a9cbf9b12cc322ca7e0f5829"
+    },
+    {
+      "path": "course-assets/s01_agent_loop/agent-loop.en.svg",
+      "url": "https://learn.shareai.run/course-assets/s01_agent_loop/agent-loop.en.svg",
+      "type": "image/svg+xml",
+      "bytes": 5542,
+      "sha256": "892ff6a632034d245f40ec5a47a7f384501061621cb59a89d692a106b2644dc8"
+    },
+    {
+      "path": "course-assets/s01_agent_loop/agent-loop.ja.svg",
+      "url": "https://learn.shareai.run/course-assets/s01_agent_loop/agent-loop.ja.svg",
+      "type": "image/svg+xml",
+      "bytes": 5825,
+      "sha256": "8d22fe996a88257eaa087a7052daf4285fdaef30627b785998ae820d79f5b457"
+    },
+    {
+      "path": "course-assets/s01_agent_loop/agent-loop.svg",
+      "url": "https://learn.shareai.run/course-assets/s01_agent_loop/agent-loop.svg",
+      "type": "image/svg+xml",
+      "bytes": 5605,
+      "sha256": "e4cfee663fad87ba2d5b2eac32404bf8b688d062a691bb8b9bf074a71ed600da"
+    },
+    {
+      "path": "course-assets/s02_tool_use/concurrency-comparison.en.svg",
+      "url": "https://learn.shareai.run/course-assets/s02_tool_use/concurrency-comparison.en.svg",
+      "type": "image/svg+xml",
+      "bytes": 7844,
+      "sha256": "7c9ab72cf8c61b1b258c4e4ce459890cab7bc47b5fbd0cc4bd952ea054d74201"
+    },
+    {
+      "path": "course-assets/s02_tool_use/concurrency-comparison.ja.svg",
+      "url": "https://learn.shareai.run/course-assets/s02_tool_use/concurrency-comparison.ja.svg",
+      "type": "image/svg+xml",
+      "bytes": 8000,
+      "sha256": "5fb1bf6d00cbec7b10f33aab4100e65d253f972111495f0fa8b6e9c9c13f8432"
+    },
+    {
+      "path": "course-assets/s02_tool_use/concurrency-comparison.svg",
+      "url": "https://learn.shareai.run/course-assets/s02_tool_use/concurrency-comparison.svg",
+      "type": "image/svg+xml",
+      "bytes": 7852,
+      "sha256": "d4736b61a1903cc4bc7dd35184cfca51b2e0fe04e2516a72d8681ac2a52452b8"
+    },
+    {
+      "path": "course-assets/s02_tool_use/tool-dispatch.en.svg",
+      "url": "https://learn.shareai.run/course-assets/s02_tool_use/tool-dispatch.en.svg",
+      "type": "image/svg+xml",
+      "bytes": 6781,
+      "sha256": "4a6977b5df0e71afa99dc54321fb2b8cc9d164faf6a5c8c964a4f79e6502323f"
+    },
+    {
+      "path": "course-assets/s02_tool_use/tool-dispatch.ja.svg",
+      "url": "https://learn.shareai.run/course-assets/s02_tool_use/tool-dispatch.ja.svg",
+      "type": "image/svg+xml",
+      "bytes": 7028,
+      "sha256": "4e54b6381357aec2958adf28df12e8dc9929db3eef7ac189d8a8159cfef32b04"
+    },
+    {
+      "path": "course-assets/s02_tool_use/tool-dispatch.svg",
+      "url": "https://learn.shareai.run/course-assets/s02_tool_use/tool-dispatch.svg",
+      "type": "image/svg+xml",
+      "bytes": 6774,
+      "sha256": "feddc453fde1c7d043aef9b48cc5667491ec6eb5f4338301ad2334df6cb34b1c"
+    },
+    {
+      "path": "course-assets/s03_permission/permission-overview.en.svg",
+      "url": "https://learn.shareai.run/course-assets/s03_permission/permission-overview.en.svg",
+      "type": "image/svg+xml",
+      "bytes": 6233,
+      "sha256": "25a0ec031622d460f2019442386049b612f61d739cbd278ae9db3915e7fa38d8"
+    },
+    {
+      "path": "course-assets/s03_permission/permission-overview.ja.svg",
+      "url": "https://learn.shareai.run/course-assets/s03_permission/permission-overview.ja.svg",
+      "type": "image/svg+xml",
+      "bytes": 6385,
+      "sha256": "4ca7dffbad0bf85639b1ccc1eccb9e633287ae419dd9e8c9f005a53c9ae1516d"
+    },
+    {
+      "path": "course-assets/s03_permission/permission-overview.svg",
+      "url": "https://learn.shareai.run/course-assets/s03_permission/permission-overview.svg",
+      "type": "image/svg+xml",
+      "bytes": 6255,
+      "sha256": "3592616c6a1ee3ae721c2ce8328910cde93a7d60fb12a4586d72337cd845a247"
+    },
+    {
+      "path": "course-assets/s03_permission/permission-pipeline.en.svg",
+      "url": "https://learn.shareai.run/course-assets/s03_permission/permission-pipeline.en.svg",
+      "type": "image/svg+xml",
+      "bytes": 4159,
+      "sha256": "857574ce16a466e633304fefbd3f8ccea3b632397109adedcd75bf2d6e72c0b1"
+    },
+    {
+      "path": "course-assets/s03_permission/permission-pipeline.ja.svg",
+      "url": "https://learn.shareai.run/course-assets/s03_permission/permission-pipeline.ja.svg",
+      "type": "image/svg+xml",
+      "bytes": 4316,
+      "sha256": "0aed6b67270c14c88cfa1beeb353c6f73f553c1df50a81eb7455c06dbe714f38"
+    },
+    {
+      "path": "course-assets/s03_permission/permission-pipeline.svg",
+      "url": "https://learn.shareai.run/course-assets/s03_permission/permission-pipeline.svg",
+      "type": "image/svg+xml",
+      "bytes": 4236,
+      "sha256": "fc69aa4106f45d39734b47fa29d4e01b43aa9c1998d3a44f884bd8a888f1dbe3"
+    },
+    {
+      "path": "course-assets/s04_hooks/hooks-overview.en.svg",
+      "url": "https://learn.shareai.run/course-assets/s04_hooks/hooks-overview.en.svg",
+      "type": "image/svg+xml",
+      "bytes": 6768,
+      "sha256": "254189e9d73a5321e044d64ea5f7716c89eb64261cd52c7a24aa77081fa336c2"
+    },
+    {
+      "path": "course-assets/s04_hooks/hooks-overview.ja.svg",
+      "url": "https://learn.shareai.run/course-assets/s04_hooks/hooks-overview.ja.svg",
+      "type": "image/svg+xml",
+      "bytes": 6864,
+      "sha256": "65a03fead3df8c4e4c72caa22663d5659de786f6d9788ee73f79a6d788816397"
+    },
+    {
+      "path": "course-assets/s04_hooks/hooks-overview.svg",
+      "url": "https://learn.shareai.run/course-assets/s04_hooks/hooks-overview.svg",
+      "type": "image/svg+xml",
+      "bytes": 6765,
+      "sha256": "9d1ce568380bac06456b170ef230750a3ff677618b227cc36e0c718ecd76f820"
+    },
+    {
+      "path": "course-assets/s05_todo_write/todo-overview.en.svg",
+      "url": "https://learn.shareai.run/course-assets/s05_todo_write/todo-overview.en.svg",
+      "type": "image/svg+xml",
+      "bytes": 5716,
+      "sha256": "74f4115b1db4dcdd6b50180684ec05cfb630f2e99b623aad975c2708296a3130"
+    },
+    {
+      "path": "course-assets/s05_todo_write/todo-overview.ja.svg",
+      "url": "https://learn.shareai.run/course-assets/s05_todo_write/todo-overview.ja.svg",
+      "type": "image/svg+xml",
+      "bytes": 5871,
+      "sha256": "f70a450b391ad4a3fb124750edf1d1d3e49a6e3a056c869e154be8298be484ec"
+    },
+    {
+      "path": "course-assets/s05_todo_write/todo-overview.svg",
+      "url": "https://learn.shareai.run/course-assets/s05_todo_write/todo-overview.svg",
+      "type": "image/svg+xml",
+      "bytes": 5742,
+      "sha256": "81eae3cf51d1d0d7066417688a1634c0be0a24dfc6d0b088ae0dbc4b985675cf"
+    },
+    {
+      "path": "course-assets/s06_subagent/subagent-overview.en.svg",
+      "url": "https://learn.shareai.run/course-assets/s06_subagent/subagent-overview.en.svg",
+      "type": "image/svg+xml",
+      "bytes": 8339,
+      "sha256": "5b03993243cc74d730c297b9570c1a9f919591829bd0bede62c935944bb9be66"
+    },
+    {
+      "path": "course-assets/s06_subagent/subagent-overview.ja.svg",
+      "url": "https://learn.shareai.run/course-assets/s06_subagent/subagent-overview.ja.svg",
+      "type": "image/svg+xml",
+      "bytes": 8591,
+      "sha256": "259994a6a816e65146dd6ec21b65190437c451ea3881423aaec4d35936b6d273"
+    },
+    {
+      "path": "course-assets/s06_subagent/subagent-overview.svg",
+      "url": "https://learn.shareai.run/course-assets/s06_subagent/subagent-overview.svg",
+      "type": "image/svg+xml",
+      "bytes": 8365,
+      "sha256": "6010d141e617d2885f9c54f2ce0ca8147b6aaefa96e1f10ab1950b19ac3ce166"
+    },
+    {
+      "path": "course-assets/s07_skill_loading/skill-overview.en.svg",
+      "url": "https://learn.shareai.run/course-assets/s07_skill_loading/skill-overview.en.svg",
+      "type": "image/svg+xml",
+      "bytes": 7098,
+      "sha256": "9f503b052beed3c4b7eb7f12585872a7df876317f41e61c0ce1a0e89ec550a3f"
+    },
+    {
+      "path": "course-assets/s07_skill_loading/skill-overview.ja.svg",
+      "url": "https://learn.shareai.run/course-assets/s07_skill_loading/skill-overview.ja.svg",
+      "type": "image/svg+xml",
+      "bytes": 7248,
+      "sha256": "d7816da96817b66b4b5072232cd6d451f2a18d5db48113ce5c9b3ec8b4018f6b"
+    },
+    {
+      "path": "course-assets/s07_skill_loading/skill-overview.svg",
+      "url": "https://learn.shareai.run/course-assets/s07_skill_loading/skill-overview.svg",
+      "type": "image/svg+xml",
+      "bytes": 7113,
+      "sha256": "7052e3da135ea1b81a847e117dd2c1e6b1516f73dafcc5da23132d3032986950"
+    },
+    {
+      "path": "course-assets/s08_context_compact/auto-compact.en.svg",
+      "url": "https://learn.shareai.run/course-assets/s08_context_compact/auto-compact.en.svg",
+      "type": "image/svg+xml",
+      "bytes": 5844,
+      "sha256": "382cc3a1a98b1d8dc0a07dbb3e21e7c13c27bee94ee58eb3d1e949e973a2a9cc"
+    },
+    {
+      "path": "course-assets/s08_context_compact/auto-compact.ja.svg",
+      "url": "https://learn.shareai.run/course-assets/s08_context_compact/auto-compact.ja.svg",
+      "type": "image/svg+xml",
+      "bytes": 6031,
+      "sha256": "d3437424050c386cace767187404929ca5c3cde1e89835fb4d78d5dc8d08b6de"
+    },
+    {
+      "path": "course-assets/s08_context_compact/auto-compact.svg",
+      "url": "https://learn.shareai.run/course-assets/s08_context_compact/auto-compact.svg",
+      "type": "image/svg+xml",
+      "bytes": 5729,
+      "sha256": "657168aa53ce18791efff40a7c85cbd7a9fcc4369c7d212a56e036298893cf1f"
+    },
+    {
+      "path": "course-assets/s08_context_compact/compact-overview.en.svg",
+      "url": "https://learn.shareai.run/course-assets/s08_context_compact/compact-overview.en.svg",
+      "type": "image/svg+xml",
+      "bytes": 9227,
+      "sha256": "0958c86e048b7cd46f71c2eeebe463299c72dc9c5a31ed03a090fa95f17d5432"
+    },
+    {
+      "path": "course-assets/s08_context_compact/compact-overview.ja.svg",
+      "url": "https://learn.shareai.run/course-assets/s08_context_compact/compact-overview.ja.svg",
+      "type": "image/svg+xml",
+      "bytes": 9391,
+      "sha256": "9a323f6716488718c41a74187259bb99dbb4d9c5b79d7bd907041f3179b3ee49"
+    },
+    {
+      "path": "course-assets/s08_context_compact/compact-overview.svg",
+      "url": "https://learn.shareai.run/course-assets/s08_context_compact/compact-overview.svg",
+      "type": "image/svg+xml",
+      "bytes": 9261,
+      "sha256": "7fa919db4b1153dc189e61d2d21fd0f995e1dbf7886cf6f9e339a4d61eedea7e"
+    },
+    {
+      "path": "course-assets/s08_context_compact/compaction-layers.en.svg",
+      "url": "https://learn.shareai.run/course-assets/s08_context_compact/compaction-layers.en.svg",
+      "type": "image/svg+xml",
+      "bytes": 6855,
+      "sha256": "44b2106cb40faad25b4b0bc8bca3aba7d2e7887fdf7efbd8ee3aa28571b9443b"
+    },
+    {
+      "path": "course-assets/s08_context_compact/compaction-layers.ja.svg",
+      "url": "https://learn.shareai.run/course-assets/s08_context_compact/compaction-layers.ja.svg",
+      "type": "image/svg+xml",
+      "bytes": 7246,
+      "sha256": "0933dc58297b4d35de4fa8e1e0457a051a9092f6a460cfc869f6209088ef83c2"
+    },
+    {
+      "path": "course-assets/s08_context_compact/compaction-layers.svg",
+      "url": "https://learn.shareai.run/course-assets/s08_context_compact/compaction-layers.svg",
+      "type": "image/svg+xml",
+      "bytes": 6745,
+      "sha256": "0fda52e058163a6ed90888548a0af5f05d834d2445b6452c5111e4147acccda6"
+    },
+    {
+      "path": "course-assets/s08_context_compact/layer1-budget.en.svg",
+      "url": "https://learn.shareai.run/course-assets/s08_context_compact/layer1-budget.en.svg",
+      "type": "image/svg+xml",
+      "bytes": 3584,
+      "sha256": "1f84fe19a55701fe5391fe48123e3a33689d27a8bf99212e4ce5d21648758a96"
+    },
+    {
+      "path": "course-assets/s08_context_compact/layer1-budget.ja.svg",
+      "url": "https://learn.shareai.run/course-assets/s08_context_compact/layer1-budget.ja.svg",
+      "type": "image/svg+xml",
+      "bytes": 3830,
+      "sha256": "f0af7308369bac41a554127a1f99db2a022177250f62faf3a8fd4db8e10bf667"
+    },
+    {
+      "path": "course-assets/s08_context_compact/layer1-budget.svg",
+      "url": "https://learn.shareai.run/course-assets/s08_context_compact/layer1-budget.svg",
+      "type": "image/svg+xml",
+      "bytes": 3593,
+      "sha256": "c0283f9a4355651c5a4cad9053e816e1f6dca294087f33ba764b05d905e1d375"
+    },
+    {
+      "path": "course-assets/s08_context_compact/micro-compact.en.svg",
+      "url": "https://learn.shareai.run/course-assets/s08_context_compact/micro-compact.en.svg",
+      "type": "image/svg+xml",
+      "bytes": 4578,
+      "sha256": "f9acadbde16843186d971a796fde50c916d9d648a1371e84165d08caada6cb29"
+    },
+    {
+      "path": "course-assets/s08_context_compact/micro-compact.ja.svg",
+      "url": "https://learn.shareai.run/course-assets/s08_context_compact/micro-compact.ja.svg",
+      "type": "image/svg+xml",
+      "bytes": 4779,
+      "sha256": "3e5ec70b6b3cce02be9be96b49569694863581c167f148122743aaac6f9cdece"
+    },
+    {
+      "path": "course-assets/s08_context_compact/micro-compact.svg",
+      "url": "https://learn.shareai.run/course-assets/s08_context_compact/micro-compact.svg",
+      "type": "image/svg+xml",
+      "bytes": 4503,
+      "sha256": "b43575fc314ae5a7637152186a0cd15c2a8842d09d48448d0541e7a1f4219896"
+    },
+    {
+      "path": "course-assets/s09_memory/memory-overview.en.svg",
+      "url": "https://learn.shareai.run/course-assets/s09_memory/memory-overview.en.svg",
+      "type": "image/svg+xml",
+      "bytes": 7157,
+      "sha256": "7b6b9ac6f65f06e1ca040ac808a8ab63b1debd73fd66a1e49915151dbbe0ff8e"
+    },
+    {
+      "path": "course-assets/s09_memory/memory-overview.ja.svg",
+      "url": "https://learn.shareai.run/course-assets/s09_memory/memory-overview.ja.svg",
+      "type": "image/svg+xml",
+      "bytes": 7325,
+      "sha256": "402015c72f40bdd1ae0d838fbb564cbd2bad5302f079adc486d2cfea06c5c97b"
+    },
+    {
+      "path": "course-assets/s09_memory/memory-overview.svg",
+      "url": "https://learn.shareai.run/course-assets/s09_memory/memory-overview.svg",
+      "type": "image/svg+xml",
+      "bytes": 7157,
+      "sha256": "fb23bb3f41fe0468d643700c97354404ec6e8800b134769e2fd3546269f1527f"
+    },
+    {
+      "path": "course-assets/s09_memory/memory-subsystems.en.svg",
+      "url": "https://learn.shareai.run/course-assets/s09_memory/memory-subsystems.en.svg",
+      "type": "image/svg+xml",
+      "bytes": 5227,
+      "sha256": "1b6b7d2f2e6f6135a975d348db3b013a87c2e07744950056906251c0731b0622"
+    },
+    {
+      "path": "course-assets/s09_memory/memory-subsystems.ja.svg",
+      "url": "https://learn.shareai.run/course-assets/s09_memory/memory-subsystems.ja.svg",
+      "type": "image/svg+xml",
+      "bytes": 5473,
+      "sha256": "cdb87d74b28a08b53e90ff055f23100ffcc4151127970da1a742c43985c0c082"
+    },
+    {
+      "path": "course-assets/s09_memory/memory-subsystems.svg",
+      "url": "https://learn.shareai.run/course-assets/s09_memory/memory-subsystems.svg",
+      "type": "image/svg+xml",
+      "bytes": 5293,
+      "sha256": "d34a6f27a20e90a979f363f885b1a274875654a2867ea763e3da3ec19ab8cadb"
+    },
+    {
+      "path": "course-assets/s10_system_prompt/system-prompt-overview.en.svg",
+      "url": "https://learn.shareai.run/course-assets/s10_system_prompt/system-prompt-overview.en.svg",
+      "type": "image/svg+xml",
+      "bytes": 6923,
+      "sha256": "12bd058a3db7e6b1e05f0247860b482bb8f0327508b2d4159b14b4eae981e0bc"
+    },
+    {
+      "path": "course-assets/s10_system_prompt/system-prompt-overview.ja.svg",
+      "url": "https://learn.shareai.run/course-assets/s10_system_prompt/system-prompt-overview.ja.svg",
+      "type": "image/svg+xml",
+      "bytes": 7072,
+      "sha256": "2ff91b5c4f8b3d8869fa487a2224d5a37798446e24214076c326956930abb240"
+    },
+    {
+      "path": "course-assets/s10_system_prompt/system-prompt-overview.svg",
+      "url": "https://learn.shareai.run/course-assets/s10_system_prompt/system-prompt-overview.svg",
+      "type": "image/svg+xml",
+      "bytes": 6910,
+      "sha256": "9d744bc5a6213e93ee573d9a78801ea97de42aed6ee8d82eb850f011b223e48d"
+    },
+    {
+      "path": "course-assets/s11_error_recovery/error-recovery-overview.en.svg",
+      "url": "https://learn.shareai.run/course-assets/s11_error_recovery/error-recovery-overview.en.svg",
+      "type": "image/svg+xml",
+      "bytes": 6662,
+      "sha256": "1ff74337e033ce69a48e539b962f8ed71fc6c98876c1f75203929ff008589e29"
+    },
+    {
+      "path": "course-assets/s11_error_recovery/error-recovery-overview.ja.svg",
+      "url": "https://learn.shareai.run/course-assets/s11_error_recovery/error-recovery-overview.ja.svg",
+      "type": "image/svg+xml",
+      "bytes": 6848,
+      "sha256": "28d1153075b952b6099f4742a5d6c2943533923a8fd8e8a010095057055123a9"
+    },
+    {
+      "path": "course-assets/s11_error_recovery/error-recovery-overview.svg",
+      "url": "https://learn.shareai.run/course-assets/s11_error_recovery/error-recovery-overview.svg",
+      "type": "image/svg+xml",
+      "bytes": 6681,
+      "sha256": "939a30535c9d159f4f54ddd527fcaaa338ed501ec8a477688ecf5fd26d7f781f"
+    },
+    {
+      "path": "course-assets/s12_task_system/task-dag.en.svg",
+      "url": "https://learn.shareai.run/course-assets/s12_task_system/task-dag.en.svg",
+      "type": "image/svg+xml",
+      "bytes": 4043,
+      "sha256": "c689db27e1bfd46c07a07fa5cf89e79295d41cba4a639cf5790205784d22cd84"
+    },
+    {
+      "path": "course-assets/s12_task_system/task-dag.ja.svg",
+      "url": "https://learn.shareai.run/course-assets/s12_task_system/task-dag.ja.svg",
+      "type": "image/svg+xml",
+      "bytes": 4096,
+      "sha256": "fc90c10c211bc1140c766a525c4616883e7515976f135c5fc8668120a0fd329a"
+    },
+    {
+      "path": "course-assets/s12_task_system/task-dag.svg",
+      "url": "https://learn.shareai.run/course-assets/s12_task_system/task-dag.svg",
+      "type": "image/svg+xml",
+      "bytes": 4042,
+      "sha256": "888923ee0be24bfe390941a44c6fd03e09faa003b4b587cd827fcfdbd5e5e7b8"
+    },
+    {
+      "path": "course-assets/s12_task_system/task-system-overview.en.svg",
+      "url": "https://learn.shareai.run/course-assets/s12_task_system/task-system-overview.en.svg",
+      "type": "image/svg+xml",
+      "bytes": 6924,
+      "sha256": "8713dd06a15d4f86d5139ae57095415d6854fc09117e984bb557c6713e7a44d4"
+    },
+    {
+      "path": "course-assets/s12_task_system/task-system-overview.ja.svg",
+      "url": "https://learn.shareai.run/course-assets/s12_task_system/task-system-overview.ja.svg",
+      "type": "image/svg+xml",
+      "bytes": 7132,
+      "sha256": "436bb28c2ec71486b0ececb445e75d0b3a50f3282a196561a3f13aa36e1f785d"
+    },
+    {
+      "path": "course-assets/s12_task_system/task-system-overview.svg",
+      "url": "https://learn.shareai.run/course-assets/s12_task_system/task-system-overview.svg",
+      "type": "image/svg+xml",
+      "bytes": 6900,
+      "sha256": "b34eaa9625e83405eac239afbf6b22a803788ec7ce7335f0ae26247ef8c9f241"
+    },
+    {
+      "path": "course-assets/s13_background_tasks/background-tasks-overview.en.svg",
+      "url": "https://learn.shareai.run/course-assets/s13_background_tasks/background-tasks-overview.en.svg",
+      "type": "image/svg+xml",
+      "bytes": 7674,
+      "sha256": "08a839408a5bcc95492b4e868472aeca1b0592b076312857d9d7df422f822396"
+    },
+    {
+      "path": "course-assets/s13_background_tasks/background-tasks-overview.ja.svg",
+      "url": "https://learn.shareai.run/course-assets/s13_background_tasks/background-tasks-overview.ja.svg",
+      "type": "image/svg+xml",
+      "bytes": 7755,
+      "sha256": "77709fdb4ee91c2fc81412f95b811017c5741f75fff5b1c3b498fa5d371e46b2"
+    },
+    {
+      "path": "course-assets/s13_background_tasks/background-tasks-overview.svg",
+      "url": "https://learn.shareai.run/course-assets/s13_background_tasks/background-tasks-overview.svg",
+      "type": "image/svg+xml",
+      "bytes": 7635,
+      "sha256": "b98c3c9a1a56d668017f8eb81b65da0d5af47121465e21c3e43095edf2ade6a4"
+    },
+    {
+      "path": "course-assets/s14_cron_scheduler/cron-scheduler-overview.en.svg",
+      "url": "https://learn.shareai.run/course-assets/s14_cron_scheduler/cron-scheduler-overview.en.svg",
+      "type": "image/svg+xml",
+      "bytes": 9005,
+      "sha256": "0e3414031560f81c916bcfc01717219a1501500a72f01500d3e10c4a48902aaf"
+    },
+    {
+      "path": "course-assets/s14_cron_scheduler/cron-scheduler-overview.ja.svg",
+      "url": "https://learn.shareai.run/course-assets/s14_cron_scheduler/cron-scheduler-overview.ja.svg",
+      "type": "image/svg+xml",
+      "bytes": 9086,
+      "sha256": "2f4e2b3190436d046068907600bfc818d396b25ddb82b6fda4b5e975344ce477"
+    },
+    {
+      "path": "course-assets/s14_cron_scheduler/cron-scheduler-overview.svg",
+      "url": "https://learn.shareai.run/course-assets/s14_cron_scheduler/cron-scheduler-overview.svg",
+      "type": "image/svg+xml",
+      "bytes": 8990,
+      "sha256": "d645115f453e2336117ef8299defb7c9421807f1563780d4300f253d944bc472"
+    },
+    {
+      "path": "course-assets/s15_agent_teams/agent-teams-overview.en.svg",
+      "url": "https://learn.shareai.run/course-assets/s15_agent_teams/agent-teams-overview.en.svg",
+      "type": "image/svg+xml",
+      "bytes": 8964,
+      "sha256": "58561b299ad3b969d22bcfdcafbb791e60707b8dd5a28912815156b6cc3ad0d9"
+    },
+    {
+      "path": "course-assets/s15_agent_teams/agent-teams-overview.ja.svg",
+      "url": "https://learn.shareai.run/course-assets/s15_agent_teams/agent-teams-overview.ja.svg",
+      "type": "image/svg+xml",
+      "bytes": 9097,
+      "sha256": "68b0598cef091ca4f37cc45472a3bbd2936b748ed3af5345d8afa52f17747081"
+    },
+    {
+      "path": "course-assets/s15_agent_teams/agent-teams-overview.svg",
+      "url": "https://learn.shareai.run/course-assets/s15_agent_teams/agent-teams-overview.svg",
+      "type": "image/svg+xml",
+      "bytes": 9511,
+      "sha256": "8bf1a20084829220eba3b7127ad59eebdc4ee4e08ef8b3f795cb9d0a75910bc4"
+    },
+    {
+      "path": "course-assets/s15_agent_teams/team-topology.en.svg",
+      "url": "https://learn.shareai.run/course-assets/s15_agent_teams/team-topology.en.svg",
+      "type": "image/svg+xml",
+      "bytes": 4649,
+      "sha256": "65912f36b0b34c18ddc1e4ae82d27dae7c0352d3c34c05f7f9d05fbc95c14cbc"
+    },
+    {
+      "path": "course-assets/s15_agent_teams/team-topology.ja.svg",
+      "url": "https://learn.shareai.run/course-assets/s15_agent_teams/team-topology.ja.svg",
+      "type": "image/svg+xml",
+      "bytes": 4720,
+      "sha256": "d00be66db2fce46879856e355b7ce1fd17a5bfecaffb54f7a5f35219bd52a4f2"
+    },
+    {
+      "path": "course-assets/s15_agent_teams/team-topology.svg",
+      "url": "https://learn.shareai.run/course-assets/s15_agent_teams/team-topology.svg",
+      "type": "image/svg+xml",
+      "bytes": 5237,
+      "sha256": "21376474372d182f88538bc16fa6917ea0763fdb04a5a87a9549c8a0d645c7fd"
+    },
+    {
+      "path": "course-assets/s16_team_protocols/team-protocols-overview.en.svg",
+      "url": "https://learn.shareai.run/course-assets/s16_team_protocols/team-protocols-overview.en.svg",
+      "type": "image/svg+xml",
+      "bytes": 10214,
+      "sha256": "256107a4738bc8ba1f2c5dce1e9ff43fcb070fcbfa14be584f306db940075d7c"
+    },
+    {
+      "path": "course-assets/s16_team_protocols/team-protocols-overview.ja.svg",
+      "url": "https://learn.shareai.run/course-assets/s16_team_protocols/team-protocols-overview.ja.svg",
+      "type": "image/svg+xml",
+      "bytes": 10175,
+      "sha256": "3a6810449f0c2f5a208e42c0e0c240abb8cff8d63cbf41de5910f5f4ca1bd8fe"
+    },
+    {
+      "path": "course-assets/s16_team_protocols/team-protocols-overview.svg",
+      "url": "https://learn.shareai.run/course-assets/s16_team_protocols/team-protocols-overview.svg",
+      "type": "image/svg+xml",
+      "bytes": 10554,
+      "sha256": "eda6c0249030e97eefb5cbb3ff57996ff9c0faca035a820ade14c3e9e1b22fd8"
+    },
+    {
+      "path": "course-assets/s17_autonomous_agents/autonomous-agents-overview.en.svg",
+      "url": "https://learn.shareai.run/course-assets/s17_autonomous_agents/autonomous-agents-overview.en.svg",
+      "type": "image/svg+xml",
+      "bytes": 7640,
+      "sha256": "7639b2433ead2cface56129afe65622716383aff787b954d658bf258ad8eea37"
+    },
+    {
+      "path": "course-assets/s17_autonomous_agents/autonomous-agents-overview.ja.svg",
+      "url": "https://learn.shareai.run/course-assets/s17_autonomous_agents/autonomous-agents-overview.ja.svg",
+      "type": "image/svg+xml",
+      "bytes": 7802,
+      "sha256": "f9f6ce67487cef0ab718e6f642e922a4cc016ad19ffb7e1272712fa06463edd4"
+    },
+    {
+      "path": "course-assets/s17_autonomous_agents/autonomous-agents-overview.svg",
+      "url": "https://learn.shareai.run/course-assets/s17_autonomous_agents/autonomous-agents-overview.svg",
+      "type": "image/svg+xml",
+      "bytes": 7656,
+      "sha256": "ed49098eb74b1b931fb03adf2c036487b31e7a18a196ba9e811e579af9a4d4a3"
+    },
+    {
+      "path": "course-assets/s18_worktree_isolation/worktree-overview.en.svg",
+      "url": "https://learn.shareai.run/course-assets/s18_worktree_isolation/worktree-overview.en.svg",
+      "type": "image/svg+xml",
+      "bytes": 7236,
+      "sha256": "4fd803950127b8932351b7b9c24ec02208029c5e5cfa3765e56a6f129f0b8de0"
+    },
+    {
+      "path": "course-assets/s18_worktree_isolation/worktree-overview.ja.svg",
+      "url": "https://learn.shareai.run/course-assets/s18_worktree_isolation/worktree-overview.ja.svg",
+      "type": "image/svg+xml",
+      "bytes": 7403,
+      "sha256": "b71df3e0d83ed4f831c7f1e681b918e623f51324575427658bd57ccf6445bdaf"
+    },
+    {
+      "path": "course-assets/s18_worktree_isolation/worktree-overview.svg",
+      "url": "https://learn.shareai.run/course-assets/s18_worktree_isolation/worktree-overview.svg",
+      "type": "image/svg+xml",
+      "bytes": 7221,
+      "sha256": "b99eb1c843eeff4d0e327ebc8f394893b5fa5c2639295d349fb18f087ce1922e"
+    },
+    {
+      "path": "course-assets/s19_mcp_plugin/mcp-architecture.en.svg",
+      "url": "https://learn.shareai.run/course-assets/s19_mcp_plugin/mcp-architecture.en.svg",
+      "type": "image/svg+xml",
+      "bytes": 7951,
+      "sha256": "ff9d3822bd56a5ce980862b3fb0bf89ccf43cdb771a602c52b624c9a04db3362"
+    },
+    {
+      "path": "course-assets/s19_mcp_plugin/mcp-architecture.ja.svg",
+      "url": "https://learn.shareai.run/course-assets/s19_mcp_plugin/mcp-architecture.ja.svg",
+      "type": "image/svg+xml",
+      "bytes": 7998,
+      "sha256": "01785104eebd01b1280b3c14a808d0d83ebeac7b644954867bce44a9a95af105"
+    },
+    {
+      "path": "course-assets/s19_mcp_plugin/mcp-architecture.svg",
+      "url": "https://learn.shareai.run/course-assets/s19_mcp_plugin/mcp-architecture.svg",
+      "type": "image/svg+xml",
+      "bytes": 7925,
+      "sha256": "47a23a5722bf2162821caa3da3287b66aa6d987488cdac6bab879931ad90f565"
+    },
+    {
+      "path": "course-assets/s20_comprehensive/system-architecture.en.svg",
+      "url": "https://learn.shareai.run/course-assets/s20_comprehensive/system-architecture.en.svg",
+      "type": "image/svg+xml",
+      "bytes": 7819,
+      "sha256": "f52db0d2622975faf3e1f0d03d5a2cc1ebf8f4c69e366c1f42eca268715c3f07"
+    },
+    {
+      "path": "course-assets/s20_comprehensive/system-architecture.ja.svg",
+      "url": "https://learn.shareai.run/course-assets/s20_comprehensive/system-architecture.ja.svg",
+      "type": "image/svg+xml",
+      "bytes": 7841,
+      "sha256": "470b1d3e7258cb760d3a907e3ab5615a973bac71c507831fd4596da816892496"
+    },
+    {
+      "path": "course-assets/s20_comprehensive/system-architecture.svg",
+      "url": "https://learn.shareai.run/course-assets/s20_comprehensive/system-architecture.svg",
+      "type": "image/svg+xml",
+      "bytes": 7979,
+      "sha256": "1514df6a381ed681bea88f7de78cae621335f3b07ca2fdf44a8ea6888c2d8cda"
+    },
+    {
+      "path": "favicon.ico",
+      "url": "https://learn.shareai.run/favicon.ico",
+      "type": "image/vnd.microsoft.icon",
+      "bytes": 25931,
+      "sha256": "2b8ad2d33455a8f736fc3a8ebf8f0bdea8848ad4c0db48a2833bd0f9cd775932"
+    },
+    {
+      "path": "favicon.ico",
+      "url": "https://learn.shareai.run/favicon.ico?favicon.0b3bf435.ico",
+      "type": "image/vnd.microsoft.icon",
+      "bytes": 25931,
+      "sha256": "2b8ad2d33455a8f736fc3a8ebf8f0bdea8848ad4c0db48a2833bd0f9cd775932"
+    },
+    {
+      "path": "zh/index.html",
+      "url": "https://learn.shareai.run/zh/",
+      "type": "text/html",
+      "bytes": 38987,
+      "sha256": "34c160d2df0bb67824d763db3e399638fb7c7f952187880b2e2f878d7e5a8578"
+    },
+    {
+      "path": "zh/__next.$d$locale.__PAGE__.txt",
+      "url": "https://learn.shareai.run/zh/__next.$d$locale.__PAGE__.txt",
+      "type": "text/plain",
+      "bytes": 1145,
+      "sha256": "64be1a42f3a02ccb36852215b6bea631f9679c569d36141f53f4f156eb52d9ba"
+    },
+    {
+      "path": "zh/__next.$d$locale.txt",
+      "url": "https://learn.shareai.run/zh/__next.$d$locale.txt",
+      "type": "text/plain",
+      "bytes": 1558,
+      "sha256": "6b56bbca2b81109ffd8e36a9530e52e44ff1bc338f95633c80474c1f43aff632"
+    },
+    {
+      "path": "zh/__next._full.txt",
+      "url": "https://learn.shareai.run/zh/__next._full.txt",
+      "type": "text/plain",
+      "bytes": 5650,
+      "sha256": "ed7c3aebdd42f4d20a3fcc9e9316782f7c52295b7eb3722fd54c4e25f944d532"
+    },
+    {
+      "path": "zh/__next._head.txt",
+      "url": "https://learn.shareai.run/zh/__next._head.txt",
+      "type": "text/plain",
+      "bytes": 1098,
+      "sha256": "b3cd8e1cc82fbc9d22093ada924709fe3762439b6efc81599a7be446b3b4e755"
+    },
+    {
+      "path": "zh/__next._index.txt",
+      "url": "https://learn.shareai.run/zh/__next._index.txt",
+      "type": "text/plain",
+      "bytes": 1526,
+      "sha256": "66db133ccc7ca36dd1355febbea4ae181aeffdb754688fca93e8759a6b59ce05"
+    },
+    {
+      "path": "zh/__next._tree.txt",
+      "url": "https://learn.shareai.run/zh/__next._tree.txt",
+      "type": "text/plain",
+      "bytes": 468,
+      "sha256": "9e6dafd29089eb2d93bebe7d6463cef3e8f5de40a60a1c8f3c6335b6389fe52d"
+    },
+    {
+      "path": "zh/compare/index.html",
+      "url": "https://learn.shareai.run/zh/compare/",
+      "type": "text/html",
+      "bytes": 24189,
+      "sha256": "1e468a172382a8e83fc0aa37bbe2484c70df7accb301725a4ee9fb9b59ad19bd"
+    },
+    {
+      "path": "zh/compare/__next.$d$locale.!KGxlYXJuKQ.compare.__PAGE__.txt",
+      "url": "https://learn.shareai.run/zh/compare/__next.$d$locale.!KGxlYXJuKQ.compare.__PAGE__.txt",
+      "type": "text/plain",
+      "bytes": 1188,
+      "sha256": "6af46831bd0f64d33b86d4d84685f9b1e0c316deae96bef8b7338f689dbdf2d6"
+    },
+    {
+      "path": "zh/compare/__next.$d$locale.!KGxlYXJuKQ.compare.txt",
+      "url": "https://learn.shareai.run/zh/compare/__next.$d$locale.!KGxlYXJuKQ.compare.txt",
+      "type": "text/plain",
+      "bytes": 432,
+      "sha256": "514ced66c591771f4a337a7122cfd34d3014f709c86c2f4408b23a4f3cf2f007"
+    },
+    {
+      "path": "zh/compare/__next.$d$locale.!KGxlYXJuKQ.txt",
+      "url": "https://learn.shareai.run/zh/compare/__next.$d$locale.!KGxlYXJuKQ.txt",
+      "type": "text/plain",
+      "bytes": 764,
+      "sha256": "8d86a9bbc0ce4ed69aa229b5cd8e29320172ca5a057d64add5268c510141d9d2"
+    },
+    {
+      "path": "zh/compare/__next.$d$locale.txt",
+      "url": "https://learn.shareai.run/zh/compare/__next.$d$locale.txt",
+      "type": "text/plain",
+      "bytes": 1558,
+      "sha256": "6b56bbca2b81109ffd8e36a9530e52e44ff1bc338f95633c80474c1f43aff632"
+    },
+    {
+      "path": "zh/compare/__next._full.txt",
+      "url": "https://learn.shareai.run/zh/compare/__next._full.txt",
+      "type": "text/plain",
+      "bytes": 6854,
+      "sha256": "e506b45b272753f91aa3dfe9a53f0b38f446e3978271970cd07dc9f84d6d544e"
+    },
+    {
+      "path": "zh/compare/__next._head.txt",
+      "url": "https://learn.shareai.run/zh/compare/__next._head.txt",
+      "type": "text/plain",
+      "bytes": 1098,
+      "sha256": "b3cd8e1cc82fbc9d22093ada924709fe3762439b6efc81599a7be446b3b4e755"
+    },
+    {
+      "path": "zh/compare/__next._index.txt",
+      "url": "https://learn.shareai.run/zh/compare/__next._index.txt",
+      "type": "text/plain",
+      "bytes": 1526,
+      "sha256": "66db133ccc7ca36dd1355febbea4ae181aeffdb754688fca93e8759a6b59ce05"
+    },
+    {
+      "path": "zh/compare/__next._tree.txt",
+      "url": "https://learn.shareai.run/zh/compare/__next._tree.txt",
+      "type": "text/plain",
+      "bytes": 720,
+      "sha256": "a0b7ba3e7f270eda2f52a4e109c5146026f9495e03b101f63f2a4bba1340f034"
+    },
+    {
+      "path": "zh/compare/index.txt",
+      "url": "https://learn.shareai.run/zh/compare/index.txt",
+      "type": "text/plain",
+      "bytes": 6854,
+      "sha256": "e506b45b272753f91aa3dfe9a53f0b38f446e3978271970cd07dc9f84d6d544e"
+    },
+    {
+      "path": "zh/index.txt",
+      "url": "https://learn.shareai.run/zh/index.txt",
+      "type": "text/plain",
+      "bytes": 5650,
+      "sha256": "ed7c3aebdd42f4d20a3fcc9e9316782f7c52295b7eb3722fd54c4e25f944d532"
+    },
+    {
+      "path": "zh/layers/index.html",
+      "url": "https://learn.shareai.run/zh/layers/",
+      "type": "text/html",
+      "bytes": 53393,
+      "sha256": "4ed3a387769546dc917a7aa8c63c3fb4789ca7e867a250278acb17df550695dd"
+    },
+    {
+      "path": "zh/layers/__next.$d$locale.!KGxlYXJuKQ.layers.__PAGE__.txt",
+      "url": "https://learn.shareai.run/zh/layers/__next.$d$locale.!KGxlYXJuKQ.layers.__PAGE__.txt",
+      "type": "text/plain",
+      "bytes": 1055,
+      "sha256": "56666e29b8d8d1177f281747c6f92acaa8b0d0b6b62e64fce2024fa68e39ab73"
+    },
+    {
+      "path": "zh/layers/__next.$d$locale.!KGxlYXJuKQ.layers.txt",
+      "url": "https://learn.shareai.run/zh/layers/__next.$d$locale.!KGxlYXJuKQ.layers.txt",
+      "type": "text/plain",
+      "bytes": 432,
+      "sha256": "514ced66c591771f4a337a7122cfd34d3014f709c86c2f4408b23a4f3cf2f007"
+    },
+    {
+      "path": "zh/layers/__next.$d$locale.!KGxlYXJuKQ.txt",
+      "url": "https://learn.shareai.run/zh/layers/__next.$d$locale.!KGxlYXJuKQ.txt",
+      "type": "text/plain",
+      "bytes": 764,
+      "sha256": "8d86a9bbc0ce4ed69aa229b5cd8e29320172ca5a057d64add5268c510141d9d2"
+    },
+    {
+      "path": "zh/layers/__next.$d$locale.txt",
+      "url": "https://learn.shareai.run/zh/layers/__next.$d$locale.txt",
+      "type": "text/plain",
+      "bytes": 1558,
+      "sha256": "6b56bbca2b81109ffd8e36a9530e52e44ff1bc338f95633c80474c1f43aff632"
+    },
+    {
+      "path": "zh/layers/__next._full.txt",
+      "url": "https://learn.shareai.run/zh/layers/__next._full.txt",
+      "type": "text/plain",
+      "bytes": 6698,
+      "sha256": "8431acbbed40c8ba273c75d02b7ed2634a19213ad27e0f16592c9d412b329b1a"
+    },
+    {
+      "path": "zh/layers/__next._head.txt",
+      "url": "https://learn.shareai.run/zh/layers/__next._head.txt",
+      "type": "text/plain",
+      "bytes": 1098,
+      "sha256": "b3cd8e1cc82fbc9d22093ada924709fe3762439b6efc81599a7be446b3b4e755"
+    },
+    {
+      "path": "zh/layers/__next._index.txt",
+      "url": "https://learn.shareai.run/zh/layers/__next._index.txt",
+      "type": "text/plain",
+      "bytes": 1526,
+      "sha256": "66db133ccc7ca36dd1355febbea4ae181aeffdb754688fca93e8759a6b59ce05"
+    },
+    {
+      "path": "zh/layers/__next._tree.txt",
+      "url": "https://learn.shareai.run/zh/layers/__next._tree.txt",
+      "type": "text/plain",
+      "bytes": 718,
+      "sha256": "6a60ad2f8222dc63be426b704d1df69216189bbcbe4bd66938c802388dd71090"
+    },
+    {
+      "path": "zh/layers/index.txt",
+      "url": "https://learn.shareai.run/zh/layers/index.txt",
+      "type": "text/plain",
+      "bytes": 6698,
+      "sha256": "8431acbbed40c8ba273c75d02b7ed2634a19213ad27e0f16592c9d412b329b1a"
+    },
+    {
+      "path": "zh/s01/index.html",
+      "url": "https://learn.shareai.run/zh/s01/",
+      "type": "text/html",
+      "bytes": 51138,
+      "sha256": "50eae889b19c5f50b18dc60514d6a690891b4f67af0f15280f331bcf3ade8700"
+    },
+    {
+      "path": "zh/s01/__next.$d$locale.!KGxlYXJuKQ.$d$version.__PAGE__.txt",
+      "url": "https://learn.shareai.run/zh/s01/__next.$d$locale.!KGxlYXJuKQ.$d$version.__PAGE__.txt",
+      "type": "text/plain",
+      "bytes": 8365,
+      "sha256": "5921bc8265902f2a29f6587c742c0b6ffccb851e5f2549a69c86006e93674e15"
+    },
+    {
+      "path": "zh/s01/__next.$d$locale.!KGxlYXJuKQ.$d$version.txt",
+      "url": "https://learn.shareai.run/zh/s01/__next.$d$locale.!KGxlYXJuKQ.$d$version.txt",
+      "type": "text/plain",
+      "bytes": 432,
+      "sha256": "514ced66c591771f4a337a7122cfd34d3014f709c86c2f4408b23a4f3cf2f007"
+    },
+    {
+      "path": "zh/s01/__next.$d$locale.!KGxlYXJuKQ.txt",
+      "url": "https://learn.shareai.run/zh/s01/__next.$d$locale.!KGxlYXJuKQ.txt",
+      "type": "text/plain",
+      "bytes": 764,
+      "sha256": "8d86a9bbc0ce4ed69aa229b5cd8e29320172ca5a057d64add5268c510141d9d2"
+    },
+    {
+      "path": "zh/s01/__next.$d$locale.txt",
+      "url": "https://learn.shareai.run/zh/s01/__next.$d$locale.txt",
+      "type": "text/plain",
+      "bytes": 1558,
+      "sha256": "6b56bbca2b81109ffd8e36a9530e52e44ff1bc338f95633c80474c1f43aff632"
+    },
+    {
+      "path": "zh/s01/__next._full.txt",
+      "url": "https://learn.shareai.run/zh/s01/__next._full.txt",
+      "type": "text/plain",
+      "bytes": 13995,
+      "sha256": "5980d9d08ef39f80ddfb469242f8803d3af9ea43f79445e2dc00ff550ec82896"
+    },
+    {
+      "path": "zh/s01/__next._head.txt",
+      "url": "https://learn.shareai.run/zh/s01/__next._head.txt",
+      "type": "text/plain",
+      "bytes": 1098,
+      "sha256": "b3cd8e1cc82fbc9d22093ada924709fe3762439b6efc81599a7be446b3b4e755"
+    },
+    {
+      "path": "zh/s01/__next._index.txt",
+      "url": "https://learn.shareai.run/zh/s01/__next._index.txt",
+      "type": "text/plain",
+      "bytes": 1526,
+      "sha256": "66db133ccc7ca36dd1355febbea4ae181aeffdb754688fca93e8759a6b59ce05"
+    },
+    {
+      "path": "zh/s01/__next._tree.txt",
+      "url": "https://learn.shareai.run/zh/s01/__next._tree.txt",
+      "type": "text/plain",
+      "bytes": 715,
+      "sha256": "12873eb1308886ac134349345a4037259a565629434bb36c899e5dcaea54d8eb"
+    },
+    {
+      "path": "zh/s01/index.txt",
+      "url": "https://learn.shareai.run/zh/s01/index.txt",
+      "type": "text/plain",
+      "bytes": 13995,
+      "sha256": "5980d9d08ef39f80ddfb469242f8803d3af9ea43f79445e2dc00ff550ec82896"
+    },
+    {
+      "path": "zh/s02/index.html",
+      "url": "https://learn.shareai.run/zh/s02/",
+      "type": "text/html",
+      "bytes": 57128,
+      "sha256": "1fc6c5d05263886bd5bd62afb51ca95e50310eeaa232a36420b078e7eaae39ee"
+    },
+    {
+      "path": "zh/s02/__next.$d$locale.!KGxlYXJuKQ.$d$version.__PAGE__.txt",
+      "url": "https://learn.shareai.run/zh/s02/__next.$d$locale.!KGxlYXJuKQ.$d$version.__PAGE__.txt",
+      "type": "text/plain",
+      "bytes": 12572,
+      "sha256": "fabe453dceafa9eb499a8d40ea83546914cd58f240a5f67fc1fbff425056d6e2"
+    },
+    {
+      "path": "zh/s02/__next.$d$locale.!KGxlYXJuKQ.$d$version.txt",
+      "url": "https://learn.shareai.run/zh/s02/__next.$d$locale.!KGxlYXJuKQ.$d$version.txt",
+      "type": "text/plain",
+      "bytes": 432,
+      "sha256": "514ced66c591771f4a337a7122cfd34d3014f709c86c2f4408b23a4f3cf2f007"
+    },
+    {
+      "path": "zh/s02/__next.$d$locale.!KGxlYXJuKQ.txt",
+      "url": "https://learn.shareai.run/zh/s02/__next.$d$locale.!KGxlYXJuKQ.txt",
+      "type": "text/plain",
+      "bytes": 764,
+      "sha256": "8d86a9bbc0ce4ed69aa229b5cd8e29320172ca5a057d64add5268c510141d9d2"
+    },
+    {
+      "path": "zh/s02/__next.$d$locale.txt",
+      "url": "https://learn.shareai.run/zh/s02/__next.$d$locale.txt",
+      "type": "text/plain",
+      "bytes": 1558,
+      "sha256": "6b56bbca2b81109ffd8e36a9530e52e44ff1bc338f95633c80474c1f43aff632"
+    },
+    {
+      "path": "zh/s02/__next._full.txt",
+      "url": "https://learn.shareai.run/zh/s02/__next._full.txt",
+      "type": "text/plain",
+      "bytes": 18203,
+      "sha256": "4bedb789ff8e8d5c059cd7313115887af7fa3bcf7a243dcb3d5162b6e5b4197f"
+    },
+    {
+      "path": "zh/s02/__next._head.txt",
+      "url": "https://learn.shareai.run/zh/s02/__next._head.txt",
+      "type": "text/plain",
+      "bytes": 1098,
+      "sha256": "b3cd8e1cc82fbc9d22093ada924709fe3762439b6efc81599a7be446b3b4e755"
+    },
+    {
+      "path": "zh/s02/__next._index.txt",
+      "url": "https://learn.shareai.run/zh/s02/__next._index.txt",
+      "type": "text/plain",
+      "bytes": 1526,
+      "sha256": "66db133ccc7ca36dd1355febbea4ae181aeffdb754688fca93e8759a6b59ce05"
+    },
+    {
+      "path": "zh/s02/__next._tree.txt",
+      "url": "https://learn.shareai.run/zh/s02/__next._tree.txt",
+      "type": "text/plain",
+      "bytes": 715,
+      "sha256": "800a2c56d7b31896dba25963ca9f858ed71149cea787715f187666a7d722057a"
+    },
+    {
+      "path": "zh/s02/index.txt",
+      "url": "https://learn.shareai.run/zh/s02/index.txt",
+      "type": "text/plain",
+      "bytes": 18203,
+      "sha256": "4bedb789ff8e8d5c059cd7313115887af7fa3bcf7a243dcb3d5162b6e5b4197f"
+    },
+    {
+      "path": "zh/s03/index.html",
+      "url": "https://learn.shareai.run/zh/s03/",
+      "type": "text/html",
+      "bytes": 67071,
+      "sha256": "ae54c96b095bc7880a08c9af032705ca8a269445de1f91af8f93d7ea9d370df3"
+    },
+    {
+      "path": "zh/s03/__next.$d$locale.!KGxlYXJuKQ.$d$version.__PAGE__.txt",
+      "url": "https://learn.shareai.run/zh/s03/__next.$d$locale.!KGxlYXJuKQ.$d$version.__PAGE__.txt",
+      "type": "text/plain",
+      "bytes": 14183,
+      "sha256": "33b2bf72fd847910d0e6dc354a4371ee53e7dddf11b80a62b44671c3420dcf31"
+    },
+    {
+      "path": "zh/s03/__next.$d$locale.!KGxlYXJuKQ.$d$version.txt",
+      "url": "https://learn.shareai.run/zh/s03/__next.$d$locale.!KGxlYXJuKQ.$d$version.txt",
+      "type": "text/plain",
+      "bytes": 432,
+      "sha256": "514ced66c591771f4a337a7122cfd34d3014f709c86c2f4408b23a4f3cf2f007"
+    },
+    {
+      "path": "zh/s03/__next.$d$locale.!KGxlYXJuKQ.txt",
+      "url": "https://learn.shareai.run/zh/s03/__next.$d$locale.!KGxlYXJuKQ.txt",
+      "type": "text/plain",
+      "bytes": 764,
+      "sha256": "8d86a9bbc0ce4ed69aa229b5cd8e29320172ca5a057d64add5268c510141d9d2"
+    },
+    {
+      "path": "zh/s03/__next.$d$locale.txt",
+      "url": "https://learn.shareai.run/zh/s03/__next.$d$locale.txt",
+      "type": "text/plain",
+      "bytes": 1558,
+      "sha256": "6b56bbca2b81109ffd8e36a9530e52e44ff1bc338f95633c80474c1f43aff632"
+    },
+    {
+      "path": "zh/s03/__next._full.txt",
+      "url": "https://learn.shareai.run/zh/s03/__next._full.txt",
+      "type": "text/plain",
+      "bytes": 19814,
+      "sha256": "2b611e30cfb9023ba1e71e2eacc426c0343dc9ef91d1796db70a82ab6e83c52d"
+    },
+    {
+      "path": "zh/s03/__next._head.txt",
+      "url": "https://learn.shareai.run/zh/s03/__next._head.txt",
+      "type": "text/plain",
+      "bytes": 1098,
+      "sha256": "b3cd8e1cc82fbc9d22093ada924709fe3762439b6efc81599a7be446b3b4e755"
+    },
+    {
+      "path": "zh/s03/__next._index.txt",
+      "url": "https://learn.shareai.run/zh/s03/__next._index.txt",
+      "type": "text/plain",
+      "bytes": 1526,
+      "sha256": "66db133ccc7ca36dd1355febbea4ae181aeffdb754688fca93e8759a6b59ce05"
+    },
+    {
+      "path": "zh/s03/__next._tree.txt",
+      "url": "https://learn.shareai.run/zh/s03/__next._tree.txt",
+      "type": "text/plain",
+      "bytes": 715,
+      "sha256": "6d95010e0b51fda47a0eec02c22f5cea3b0bed5e6d68d29801910d9b2e83ffb7"
+    },
+    {
+      "path": "zh/s03/index.txt",
+      "url": "https://learn.shareai.run/zh/s03/index.txt",
+      "type": "text/plain",
+      "bytes": 19814,
+      "sha256": "2b611e30cfb9023ba1e71e2eacc426c0343dc9ef91d1796db70a82ab6e83c52d"
+    },
+    {
+      "path": "zh/s04/index.html",
+      "url": "https://learn.shareai.run/zh/s04/",
+      "type": "text/html",
+      "bytes": 71867,
+      "sha256": "3ec4a442808b2a5d0de14f7e81e9bd8ecbd16194a361a7215e08afcef4d8e30d"
+    },
+    {
+      "path": "zh/s04/__next.$d$locale.!KGxlYXJuKQ.$d$version.__PAGE__.txt",
+      "url": "https://learn.shareai.run/zh/s04/__next.$d$locale.!KGxlYXJuKQ.$d$version.__PAGE__.txt",
+      "type": "text/plain",
+      "bytes": 17233,
+      "sha256": "4211c31bc42a9985c8877c583ffac40c0fb1dcf400c491d731f9d886fe2adb63"
+    },
+    {
+      "path": "zh/s04/__next.$d$locale.!KGxlYXJuKQ.$d$version.txt",
+      "url": "https://learn.shareai.run/zh/s04/__next.$d$locale.!KGxlYXJuKQ.$d$version.txt",
+      "type": "text/plain",
+      "bytes": 432,
+      "sha256": "514ced66c591771f4a337a7122cfd34d3014f709c86c2f4408b23a4f3cf2f007"
+    },
+    {
+      "path": "zh/s04/__next.$d$locale.!KGxlYXJuKQ.txt",
+      "url": "https://learn.shareai.run/zh/s04/__next.$d$locale.!KGxlYXJuKQ.txt",
+      "type": "text/plain",
+      "bytes": 764,
+      "sha256": "8d86a9bbc0ce4ed69aa229b5cd8e29320172ca5a057d64add5268c510141d9d2"
+    },
+    {
+      "path": "zh/s04/__next.$d$locale.txt",
+      "url": "https://learn.shareai.run/zh/s04/__next.$d$locale.txt",
+      "type": "text/plain",
+      "bytes": 1558,
+      "sha256": "6b56bbca2b81109ffd8e36a9530e52e44ff1bc338f95633c80474c1f43aff632"
+    },
+    {
+      "path": "zh/s04/__next._full.txt",
+      "url": "https://learn.shareai.run/zh/s04/__next._full.txt",
+      "type": "text/plain",
+      "bytes": 22864,
+      "sha256": "0f8d5228df63ee71f1238fc335b2e71e142ffe81d4dfc3203ecb33f21a18273d"
+    },
+    {
+      "path": "zh/s04/__next._head.txt",
+      "url": "https://learn.shareai.run/zh/s04/__next._head.txt",
+      "type": "text/plain",
+      "bytes": 1098,
+      "sha256": "b3cd8e1cc82fbc9d22093ada924709fe3762439b6efc81599a7be446b3b4e755"
+    },
+    {
+      "path": "zh/s04/__next._index.txt",
+      "url": "https://learn.shareai.run/zh/s04/__next._index.txt",
+      "type": "text/plain",
+      "bytes": 1526,
+      "sha256": "66db133ccc7ca36dd1355febbea4ae181aeffdb754688fca93e8759a6b59ce05"
+    },
+    {
+      "path": "zh/s04/__next._tree.txt",
+      "url": "https://learn.shareai.run/zh/s04/__next._tree.txt",
+      "type": "text/plain",
+      "bytes": 715,
+      "sha256": "406da3d46cb99bc93830bb7c9838479b796a6f31336bc850e3bb03b7728ef20a"
+    },
+    {
+      "path": "zh/s04/index.txt",
+      "url": "https://learn.shareai.run/zh/s04/index.txt",
+      "type": "text/plain",
+      "bytes": 22864,
+      "sha256": "0f8d5228df63ee71f1238fc335b2e71e142ffe81d4dfc3203ecb33f21a18273d"
+    },
+    {
+      "path": "zh/s05/index.html",
+      "url": "https://learn.shareai.run/zh/s05/",
+      "type": "text/html",
+      "bytes": 60709,
+      "sha256": "a412b7eee5948071fbd7a02ed937ad0812516c66149626b72267b3a47316bed4"
+    },
+    {
+      "path": "zh/s05/__next.$d$locale.!KGxlYXJuKQ.$d$version.__PAGE__.txt",
+      "url": "https://learn.shareai.run/zh/s05/__next.$d$locale.!KGxlYXJuKQ.$d$version.__PAGE__.txt",
+      "type": "text/plain",
+      "bytes": 16796,
+      "sha256": "bec712af91c02e6f8026b761cfcc0ddffd73b87161b318455ae90d8fb0a494a1"
+    },
+    {
+      "path": "zh/s05/__next.$d$locale.!KGxlYXJuKQ.$d$version.txt",
+      "url": "https://learn.shareai.run/zh/s05/__next.$d$locale.!KGxlYXJuKQ.$d$version.txt",
+      "type": "text/plain",
+      "bytes": 432,
+      "sha256": "514ced66c591771f4a337a7122cfd34d3014f709c86c2f4408b23a4f3cf2f007"
+    },
+    {
+      "path": "zh/s05/__next.$d$locale.!KGxlYXJuKQ.txt",
+      "url": "https://learn.shareai.run/zh/s05/__next.$d$locale.!KGxlYXJuKQ.txt",
+      "type": "text/plain",
+      "bytes": 764,
+      "sha256": "8d86a9bbc0ce4ed69aa229b5cd8e29320172ca5a057d64add5268c510141d9d2"
+    },
+    {
+      "path": "zh/s05/__next.$d$locale.txt",
+      "url": "https://learn.shareai.run/zh/s05/__next.$d$locale.txt",
+      "type": "text/plain",
+      "bytes": 1558,
+      "sha256": "6b56bbca2b81109ffd8e36a9530e52e44ff1bc338f95633c80474c1f43aff632"
+    },
+    {
+      "path": "zh/s05/__next._full.txt",
+      "url": "https://learn.shareai.run/zh/s05/__next._full.txt",
+      "type": "text/plain",
+      "bytes": 22427,
+      "sha256": "59eb51c6558870bfc8b82e8542ddcc080b583b802beddd7c83b8be31b015f6c0"
+    },
+    {
+      "path": "zh/s05/__next._head.txt",
+      "url": "https://learn.shareai.run/zh/s05/__next._head.txt",
+      "type": "text/plain",
+      "bytes": 1098,
+      "sha256": "b3cd8e1cc82fbc9d22093ada924709fe3762439b6efc81599a7be446b3b4e755"
+    },
+    {
+      "path": "zh/s05/__next._index.txt",
+      "url": "https://learn.shareai.run/zh/s05/__next._index.txt",
+      "type": "text/plain",
+      "bytes": 1526,
+      "sha256": "66db133ccc7ca36dd1355febbea4ae181aeffdb754688fca93e8759a6b59ce05"
+    },
+    {
+      "path": "zh/s05/__next._tree.txt",
+      "url": "https://learn.shareai.run/zh/s05/__next._tree.txt",
+      "type": "text/plain",
+      "bytes": 715,
+      "sha256": "ebb288d79e02753bc4cbbcb50d2c7d4d45111cb9862e1b2692208ea78c700526"
+    },
+    {
+      "path": "zh/s05/index.txt",
+      "url": "https://learn.shareai.run/zh/s05/index.txt",
+      "type": "text/plain",
+      "bytes": 22427,
+      "sha256": "59eb51c6558870bfc8b82e8542ddcc080b583b802beddd7c83b8be31b015f6c0"
+    },
+    {
+      "path": "zh/s06/index.html",
+      "url": "https://learn.shareai.run/zh/s06/",
+      "type": "text/html",
+      "bytes": 65334,
+      "sha256": "f73b509cd83671d0b137fb9091be6c6967878dd0ebb057f8a092674564cee2b0"
+    },
+    {
+      "path": "zh/s06/__next.$d$locale.!KGxlYXJuKQ.$d$version.__PAGE__.txt",
+      "url": "https://learn.shareai.run/zh/s06/__next.$d$locale.!KGxlYXJuKQ.$d$version.__PAGE__.txt",
+      "type": "text/plain",
+      "bytes": 20802,
+      "sha256": "add6d38c6cf7bad9535e92cdd59a88d4068317771b16eae115cf4f90159a8b87"
+    },
+    {
+      "path": "zh/s06/__next.$d$locale.!KGxlYXJuKQ.$d$version.txt",
+      "url": "https://learn.shareai.run/zh/s06/__next.$d$locale.!KGxlYXJuKQ.$d$version.txt",
+      "type": "text/plain",
+      "bytes": 432,
+      "sha256": "514ced66c591771f4a337a7122cfd34d3014f709c86c2f4408b23a4f3cf2f007"
+    },
+    {
+      "path": "zh/s06/__next.$d$locale.!KGxlYXJuKQ.txt",
+      "url": "https://learn.shareai.run/zh/s06/__next.$d$locale.!KGxlYXJuKQ.txt",
+      "type": "text/plain",
+      "bytes": 764,
+      "sha256": "8d86a9bbc0ce4ed69aa229b5cd8e29320172ca5a057d64add5268c510141d9d2"
+    },
+    {
+      "path": "zh/s06/__next.$d$locale.txt",
+      "url": "https://learn.shareai.run/zh/s06/__next.$d$locale.txt",
+      "type": "text/plain",
+      "bytes": 1558,
+      "sha256": "6b56bbca2b81109ffd8e36a9530e52e44ff1bc338f95633c80474c1f43aff632"
+    },
+    {
+      "path": "zh/s06/__next._full.txt",
+      "url": "https://learn.shareai.run/zh/s06/__next._full.txt",
+      "type": "text/plain",
+      "bytes": 26433,
+      "sha256": "d467fa1d6483b221e7c266295e91deb1d912240df6c9bab5124473c5fdd4efd1"
+    },
+    {
+      "path": "zh/s06/__next._head.txt",
+      "url": "https://learn.shareai.run/zh/s06/__next._head.txt",
+      "type": "text/plain",
+      "bytes": 1098,
+      "sha256": "b3cd8e1cc82fbc9d22093ada924709fe3762439b6efc81599a7be446b3b4e755"
+    },
+    {
+      "path": "zh/s06/__next._index.txt",
+      "url": "https://learn.shareai.run/zh/s06/__next._index.txt",
+      "type": "text/plain",
+      "bytes": 1526,
+      "sha256": "66db133ccc7ca36dd1355febbea4ae181aeffdb754688fca93e8759a6b59ce05"
+    },
+    {
+      "path": "zh/s06/__next._tree.txt",
+      "url": "https://learn.shareai.run/zh/s06/__next._tree.txt",
+      "type": "text/plain",
+      "bytes": 715,
+      "sha256": "57ff4f3d56c9460c7a51d9ad774fd506e2b83737c890be0c388281f759b8f8d5"
+    },
+    {
+      "path": "zh/s06/index.txt",
+      "url": "https://learn.shareai.run/zh/s06/index.txt",
+      "type": "text/plain",
+      "bytes": 26433,
+      "sha256": "d467fa1d6483b221e7c266295e91deb1d912240df6c9bab5124473c5fdd4efd1"
+    },
+    {
+      "path": "zh/s07/index.html",
+      "url": "https://learn.shareai.run/zh/s07/",
+      "type": "text/html",
+      "bytes": 65779,
+      "sha256": "41b64ba94eb69c7f0b5b1eee55a7e17e9bc08c699be8c82b950f04394739adb3"
+    },
+    {
+      "path": "zh/s07/__next.$d$locale.!KGxlYXJuKQ.$d$version.__PAGE__.txt",
+      "url": "https://learn.shareai.run/zh/s07/__next.$d$locale.!KGxlYXJuKQ.$d$version.__PAGE__.txt",
+      "type": "text/plain",
+      "bytes": 22763,
+      "sha256": "cf2947f6b5b12753bc7420e077996479460c3375b9c168f61f6ebe6fcfce0d94"
+    },
+    {
+      "path": "zh/s07/__next.$d$locale.!KGxlYXJuKQ.$d$version.txt",
+      "url": "https://learn.shareai.run/zh/s07/__next.$d$locale.!KGxlYXJuKQ.$d$version.txt",
+      "type": "text/plain",
+      "bytes": 432,
+      "sha256": "514ced66c591771f4a337a7122cfd34d3014f709c86c2f4408b23a4f3cf2f007"
+    },
+    {
+      "path": "zh/s07/__next.$d$locale.!KGxlYXJuKQ.txt",
+      "url": "https://learn.shareai.run/zh/s07/__next.$d$locale.!KGxlYXJuKQ.txt",
+      "type": "text/plain",
+      "bytes": 764,
+      "sha256": "8d86a9bbc0ce4ed69aa229b5cd8e29320172ca5a057d64add5268c510141d9d2"
+    },
+    {
+      "path": "zh/s07/__next.$d$locale.txt",
+      "url": "https://learn.shareai.run/zh/s07/__next.$d$locale.txt",
+      "type": "text/plain",
+      "bytes": 1558,
+      "sha256": "6b56bbca2b81109ffd8e36a9530e52e44ff1bc338f95633c80474c1f43aff632"
+    },
+    {
+      "path": "zh/s07/__next._full.txt",
+      "url": "https://learn.shareai.run/zh/s07/__next._full.txt",
+      "type": "text/plain",
+      "bytes": 28394,
+      "sha256": "510c20bb7eecd7e1af5579ad40c49c76072e05c878155a771b2c4a683adb1db8"
+    },
+    {
+      "path": "zh/s07/__next._head.txt",
+      "url": "https://learn.shareai.run/zh/s07/__next._head.txt",
+      "type": "text/plain",
+      "bytes": 1098,
+      "sha256": "b3cd8e1cc82fbc9d22093ada924709fe3762439b6efc81599a7be446b3b4e755"
+    },
+    {
+      "path": "zh/s07/__next._index.txt",
+      "url": "https://learn.shareai.run/zh/s07/__next._index.txt",
+      "type": "text/plain",
+      "bytes": 1526,
+      "sha256": "66db133ccc7ca36dd1355febbea4ae181aeffdb754688fca93e8759a6b59ce05"
+    },
+    {
+      "path": "zh/s07/__next._tree.txt",
+      "url": "https://learn.shareai.run/zh/s07/__next._tree.txt",
+      "type": "text/plain",
+      "bytes": 715,
+      "sha256": "b1baeee793414ac077fb198dc24bd733fddef09efb12cddf8777c1eefff11fa2"
+    },
+    {
+      "path": "zh/s07/index.txt",
+      "url": "https://learn.shareai.run/zh/s07/index.txt",
+      "type": "text/plain",
+      "bytes": 28394,
+      "sha256": "510c20bb7eecd7e1af5579ad40c49c76072e05c878155a771b2c4a683adb1db8"
+    },
+    {
+      "path": "zh/s08/index.html",
+      "url": "https://learn.shareai.run/zh/s08/",
+      "type": "text/html",
+      "bytes": 86347,
+      "sha256": "1c1c7d535eebf5d47154722fc3e8e3c5ab2494d4bdc0e6676510ffa92acb6681"
+    },
+    {
+      "path": "zh/s08/__next.$d$locale.!KGxlYXJuKQ.$d$version.__PAGE__.txt",
+      "url": "https://learn.shareai.run/zh/s08/__next.$d$locale.!KGxlYXJuKQ.$d$version.__PAGE__.txt",
+      "type": "text/plain",
+      "bytes": 28952,
+      "sha256": "67a7674b4bae7164bf82f6f7d48b1055fa63aff55406e09d4960c7dc42c5afff"
+    },
+    {
+      "path": "zh/s08/__next.$d$locale.!KGxlYXJuKQ.$d$version.txt",
+      "url": "https://learn.shareai.run/zh/s08/__next.$d$locale.!KGxlYXJuKQ.$d$version.txt",
+      "type": "text/plain",
+      "bytes": 432,
+      "sha256": "514ced66c591771f4a337a7122cfd34d3014f709c86c2f4408b23a4f3cf2f007"
+    },
+    {
+      "path": "zh/s08/__next.$d$locale.!KGxlYXJuKQ.txt",
+      "url": "https://learn.shareai.run/zh/s08/__next.$d$locale.!KGxlYXJuKQ.txt",
+      "type": "text/plain",
+      "bytes": 764,
+      "sha256": "8d86a9bbc0ce4ed69aa229b5cd8e29320172ca5a057d64add5268c510141d9d2"
+    },
+    {
+      "path": "zh/s08/__next.$d$locale.txt",
+      "url": "https://learn.shareai.run/zh/s08/__next.$d$locale.txt",
+      "type": "text/plain",
+      "bytes": 1558,
+      "sha256": "6b56bbca2b81109ffd8e36a9530e52e44ff1bc338f95633c80474c1f43aff632"
+    },
+    {
+      "path": "zh/s08/__next._full.txt",
+      "url": "https://learn.shareai.run/zh/s08/__next._full.txt",
+      "type": "text/plain",
+      "bytes": 34583,
+      "sha256": "656fc9e50377503f9bcc1b5dbe0dd6c75e46c8b713bcf4c2a552357a3feef1e0"
+    },
+    {
+      "path": "zh/s08/__next._head.txt",
+      "url": "https://learn.shareai.run/zh/s08/__next._head.txt",
+      "type": "text/plain",
+      "bytes": 1098,
+      "sha256": "b3cd8e1cc82fbc9d22093ada924709fe3762439b6efc81599a7be446b3b4e755"
+    },
+    {
+      "path": "zh/s08/__next._index.txt",
+      "url": "https://learn.shareai.run/zh/s08/__next._index.txt",
+      "type": "text/plain",
+      "bytes": 1526,
+      "sha256": "66db133ccc7ca36dd1355febbea4ae181aeffdb754688fca93e8759a6b59ce05"
+    },
+    {
+      "path": "zh/s08/__next._tree.txt",
+      "url": "https://learn.shareai.run/zh/s08/__next._tree.txt",
+      "type": "text/plain",
+      "bytes": 715,
+      "sha256": "8f250897d5205d8b0517a3e67166760d2059be1a38883b0926f719a6c1e69a07"
+    },
+    {
+      "path": "zh/s08/index.txt",
+      "url": "https://learn.shareai.run/zh/s08/index.txt",
+      "type": "text/plain",
+      "bytes": 34583,
+      "sha256": "656fc9e50377503f9bcc1b5dbe0dd6c75e46c8b713bcf4c2a552357a3feef1e0"
+    },
+    {
+      "path": "zh/s09/index.html",
+      "url": "https://learn.shareai.run/zh/s09/",
+      "type": "text/html",
+      "bytes": 86020,
+      "sha256": "7e1551645ce60a681bed33594d3e3b60cc4b43245508fa6e85bca3de0eef1e67"
+    },
+    {
+      "path": "zh/s09/__next.$d$locale.!KGxlYXJuKQ.$d$version.__PAGE__.txt",
+      "url": "https://learn.shareai.run/zh/s09/__next.$d$locale.!KGxlYXJuKQ.$d$version.__PAGE__.txt",
+      "type": "text/plain",
+      "bytes": 31431,
+      "sha256": "642b96bcb084814fc5b627e1e1aed2d3f8a6e9ab46e48ac69252b5d67efced50"
+    },
+    {
+      "path": "zh/s09/__next.$d$locale.!KGxlYXJuKQ.$d$version.txt",
+      "url": "https://learn.shareai.run/zh/s09/__next.$d$locale.!KGxlYXJuKQ.$d$version.txt",
+      "type": "text/plain",
+      "bytes": 432,
+      "sha256": "514ced66c591771f4a337a7122cfd34d3014f709c86c2f4408b23a4f3cf2f007"
+    },
+    {
+      "path": "zh/s09/__next.$d$locale.!KGxlYXJuKQ.txt",
+      "url": "https://learn.shareai.run/zh/s09/__next.$d$locale.!KGxlYXJuKQ.txt",
+      "type": "text/plain",
+      "bytes": 764,
+      "sha256": "8d86a9bbc0ce4ed69aa229b5cd8e29320172ca5a057d64add5268c510141d9d2"
+    },
+    {
+      "path": "zh/s09/__next.$d$locale.txt",
+      "url": "https://learn.shareai.run/zh/s09/__next.$d$locale.txt",
+      "type": "text/plain",
+      "bytes": 1558,
+      "sha256": "6b56bbca2b81109ffd8e36a9530e52e44ff1bc338f95633c80474c1f43aff632"
+    },
+    {
+      "path": "zh/s09/__next._full.txt",
+      "url": "https://learn.shareai.run/zh/s09/__next._full.txt",
+      "type": "text/plain",
+      "bytes": 37062,
+      "sha256": "b34125dcce95566df1e169fbb62359d8ae52a002a8cdae10bf95a37f0cc08008"
+    },
+    {
+      "path": "zh/s09/__next._head.txt",
+      "url": "https://learn.shareai.run/zh/s09/__next._head.txt",
+      "type": "text/plain",
+      "bytes": 1098,
+      "sha256": "b3cd8e1cc82fbc9d22093ada924709fe3762439b6efc81599a7be446b3b4e755"
+    },
+    {
+      "path": "zh/s09/__next._index.txt",
+      "url": "https://learn.shareai.run/zh/s09/__next._index.txt",
+      "type": "text/plain",
+      "bytes": 1526,
+      "sha256": "66db133ccc7ca36dd1355febbea4ae181aeffdb754688fca93e8759a6b59ce05"
+    },
+    {
+      "path": "zh/s09/__next._tree.txt",
+      "url": "https://learn.shareai.run/zh/s09/__next._tree.txt",
+      "type": "text/plain",
+      "bytes": 715,
+      "sha256": "69422d666d3bee16900603611fe98f0121d73f95fb405ae37a9be4f15895b727"
+    },
+    {
+      "path": "zh/s09/index.txt",
+      "url": "https://learn.shareai.run/zh/s09/index.txt",
+      "type": "text/plain",
+      "bytes": 37062,
+      "sha256": "b34125dcce95566df1e169fbb62359d8ae52a002a8cdae10bf95a37f0cc08008"
+    },
+    {
+      "path": "zh/s10/index.html",
+      "url": "https://learn.shareai.run/zh/s10/",
+      "type": "text/html",
+      "bytes": 65283,
+      "sha256": "d5a5e8a3c3df61c4b1f38a83d6cbc7eea5277b7f29f72e05e195a02a573e66a8"
+    },
+    {
+      "path": "zh/s10/__next.$d$locale.!KGxlYXJuKQ.$d$version.__PAGE__.txt",
+      "url": "https://learn.shareai.run/zh/s10/__next.$d$locale.!KGxlYXJuKQ.$d$version.__PAGE__.txt",
+      "type": "text/plain",
+      "bytes": 11764,
+      "sha256": "8abe3c7c1a3fb41acc9ec661f9b2a26fa9200b4171a9f3e5977f775187592489"
+    },
+    {
+      "path": "zh/s10/__next.$d$locale.!KGxlYXJuKQ.$d$version.txt",
+      "url": "https://learn.shareai.run/zh/s10/__next.$d$locale.!KGxlYXJuKQ.$d$version.txt",
+      "type": "text/plain",
+      "bytes": 432,
+      "sha256": "514ced66c591771f4a337a7122cfd34d3014f709c86c2f4408b23a4f3cf2f007"
+    },
+    {
+      "path": "zh/s10/__next.$d$locale.!KGxlYXJuKQ.txt",
+      "url": "https://learn.shareai.run/zh/s10/__next.$d$locale.!KGxlYXJuKQ.txt",
+      "type": "text/plain",
+      "bytes": 764,
+      "sha256": "8d86a9bbc0ce4ed69aa229b5cd8e29320172ca5a057d64add5268c510141d9d2"
+    },
+    {
+      "path": "zh/s10/__next.$d$locale.txt",
+      "url": "https://learn.shareai.run/zh/s10/__next.$d$locale.txt",
+      "type": "text/plain",
+      "bytes": 1558,
+      "sha256": "6b56bbca2b81109ffd8e36a9530e52e44ff1bc338f95633c80474c1f43aff632"
+    },
+    {
+      "path": "zh/s10/__next._full.txt",
+      "url": "https://learn.shareai.run/zh/s10/__next._full.txt",
+      "type": "text/plain",
+      "bytes": 17395,
+      "sha256": "293a0d10887c2998a81e06e9ec6c5da5708f19ed47f168b673fb0d7ffe643b66"
+    },
+    {
+      "path": "zh/s10/__next._head.txt",
+      "url": "https://learn.shareai.run/zh/s10/__next._head.txt",
+      "type": "text/plain",
+      "bytes": 1098,
+      "sha256": "b3cd8e1cc82fbc9d22093ada924709fe3762439b6efc81599a7be446b3b4e755"
+    },
+    {
+      "path": "zh/s10/__next._index.txt",
+      "url": "https://learn.shareai.run/zh/s10/__next._index.txt",
+      "type": "text/plain",
+      "bytes": 1526,
+      "sha256": "66db133ccc7ca36dd1355febbea4ae181aeffdb754688fca93e8759a6b59ce05"
+    },
+    {
+      "path": "zh/s10/__next._tree.txt",
+      "url": "https://learn.shareai.run/zh/s10/__next._tree.txt",
+      "type": "text/plain",
+      "bytes": 715,
+      "sha256": "d61caeee78cd495a1046302a2c4a29d9bebb3f07d209e1f809ff84406926885e"
+    },
+    {
+      "path": "zh/s10/index.txt",
+      "url": "https://learn.shareai.run/zh/s10/index.txt",
+      "type": "text/plain",
+      "bytes": 17395,
+      "sha256": "293a0d10887c2998a81e06e9ec6c5da5708f19ed47f168b673fb0d7ffe643b66"
+    },
+    {
+      "path": "zh/s11/index.html",
+      "url": "https://learn.shareai.run/zh/s11/",
+      "type": "text/html",
+      "bytes": 71179,
+      "sha256": "8567c9997071b3ac3c784847f8ce7e7b0b857163c2cc6c8872d2838aa3824730"
+    },
+    {
+      "path": "zh/s11/__next.$d$locale.!KGxlYXJuKQ.$d$version.__PAGE__.txt",
+      "url": "https://learn.shareai.run/zh/s11/__next.$d$locale.!KGxlYXJuKQ.$d$version.__PAGE__.txt",
+      "type": "text/plain",
+      "bytes": 18127,
+      "sha256": "64aa20ea018969dece5ad9e39ca928fb62a4d04ef122ad0e56ce7ea3d0706d73"
+    },
+    {
+      "path": "zh/s11/__next.$d$locale.!KGxlYXJuKQ.$d$version.txt",
+      "url": "https://learn.shareai.run/zh/s11/__next.$d$locale.!KGxlYXJuKQ.$d$version.txt",
+      "type": "text/plain",
+      "bytes": 432,
+      "sha256": "514ced66c591771f4a337a7122cfd34d3014f709c86c2f4408b23a4f3cf2f007"
+    },
+    {
+      "path": "zh/s11/__next.$d$locale.!KGxlYXJuKQ.txt",
+      "url": "https://learn.shareai.run/zh/s11/__next.$d$locale.!KGxlYXJuKQ.txt",
+      "type": "text/plain",
+      "bytes": 764,
+      "sha256": "8d86a9bbc0ce4ed69aa229b5cd8e29320172ca5a057d64add5268c510141d9d2"
+    },
+    {
+      "path": "zh/s11/__next.$d$locale.txt",
+      "url": "https://learn.shareai.run/zh/s11/__next.$d$locale.txt",
+      "type": "text/plain",
+      "bytes": 1558,
+      "sha256": "6b56bbca2b81109ffd8e36a9530e52e44ff1bc338f95633c80474c1f43aff632"
+    },
+    {
+      "path": "zh/s11/__next._full.txt",
+      "url": "https://learn.shareai.run/zh/s11/__next._full.txt",
+      "type": "text/plain",
+      "bytes": 23758,
+      "sha256": "ba2b3f6a4e91ecab16586523eb6172f64a28e9db0b4f5b00f7700b271f43b4c4"
+    },
+    {
+      "path": "zh/s11/__next._head.txt",
+      "url": "https://learn.shareai.run/zh/s11/__next._head.txt",
+      "type": "text/plain",
+      "bytes": 1098,
+      "sha256": "b3cd8e1cc82fbc9d22093ada924709fe3762439b6efc81599a7be446b3b4e755"
+    },
+    {
+      "path": "zh/s11/__next._index.txt",
+      "url": "https://learn.shareai.run/zh/s11/__next._index.txt",
+      "type": "text/plain",
+      "bytes": 1526,
+      "sha256": "66db133ccc7ca36dd1355febbea4ae181aeffdb754688fca93e8759a6b59ce05"
+    },
+    {
+      "path": "zh/s11/__next._tree.txt",
+      "url": "https://learn.shareai.run/zh/s11/__next._tree.txt",
+      "type": "text/plain",
+      "bytes": 715,
+      "sha256": "3a733f7fd5fbc268e1ca27e7a6a76af242637d10c4d5c37b2b1262a82cd4a16e"
+    },
+    {
+      "path": "zh/s11/index.txt",
+      "url": "https://learn.shareai.run/zh/s11/index.txt",
+      "type": "text/plain",
+      "bytes": 23758,
+      "sha256": "ba2b3f6a4e91ecab16586523eb6172f64a28e9db0b4f5b00f7700b271f43b4c4"
+    },
+    {
+      "path": "zh/s12/index.html",
+      "url": "https://learn.shareai.run/zh/s12/",
+      "type": "text/html",
+      "bytes": 73673,
+      "sha256": "677fac3c8e0ad7ebce07a18a6560489871e63402e4bc530e19539721abff178b"
+    },
+    {
+      "path": "zh/s12/__next.$d$locale.!KGxlYXJuKQ.$d$version.__PAGE__.txt",
+      "url": "https://learn.shareai.run/zh/s12/__next.$d$locale.!KGxlYXJuKQ.$d$version.__PAGE__.txt",
+      "type": "text/plain",
+      "bytes": 17368,
+      "sha256": "b28dc4790daaf5429ede231fac65a059767ecab941114998916566121c84c85b"
+    },
+    {
+      "path": "zh/s12/__next.$d$locale.!KGxlYXJuKQ.$d$version.txt",
+      "url": "https://learn.shareai.run/zh/s12/__next.$d$locale.!KGxlYXJuKQ.$d$version.txt",
+      "type": "text/plain",
+      "bytes": 432,
+      "sha256": "514ced66c591771f4a337a7122cfd34d3014f709c86c2f4408b23a4f3cf2f007"
+    },
+    {
+      "path": "zh/s12/__next.$d$locale.!KGxlYXJuKQ.txt",
+      "url": "https://learn.shareai.run/zh/s12/__next.$d$locale.!KGxlYXJuKQ.txt",
+      "type": "text/plain",
+      "bytes": 764,
+      "sha256": "8d86a9bbc0ce4ed69aa229b5cd8e29320172ca5a057d64add5268c510141d9d2"
+    },
+    {
+      "path": "zh/s12/__next.$d$locale.txt",
+      "url": "https://learn.shareai.run/zh/s12/__next.$d$locale.txt",
+      "type": "text/plain",
+      "bytes": 1558,
+      "sha256": "6b56bbca2b81109ffd8e36a9530e52e44ff1bc338f95633c80474c1f43aff632"
+    },
+    {
+      "path": "zh/s12/__next._full.txt",
+      "url": "https://learn.shareai.run/zh/s12/__next._full.txt",
+      "type": "text/plain",
+      "bytes": 22999,
+      "sha256": "a89d28b28e57a0b1540deea085043eb7061972e91ee7e566b33afa36b2b50283"
+    },
+    {
+      "path": "zh/s12/__next._head.txt",
+      "url": "https://learn.shareai.run/zh/s12/__next._head.txt",
+      "type": "text/plain",
+      "bytes": 1098,
+      "sha256": "b3cd8e1cc82fbc9d22093ada924709fe3762439b6efc81599a7be446b3b4e755"
+    },
+    {
+      "path": "zh/s12/__next._index.txt",
+      "url": "https://learn.shareai.run/zh/s12/__next._index.txt",
+      "type": "text/plain",
+      "bytes": 1526,
+      "sha256": "66db133ccc7ca36dd1355febbea4ae181aeffdb754688fca93e8759a6b59ce05"
+    },
+    {
+      "path": "zh/s12/__next._tree.txt",
+      "url": "https://learn.shareai.run/zh/s12/__next._tree.txt",
+      "type": "text/plain",
+      "bytes": 715,
+      "sha256": "e3f0336809f641ac2ff38ffa0851794899ae1280013d0692dfd8b0617fd96c79"
+    },
+    {
+      "path": "zh/s12/index.txt",
+      "url": "https://learn.shareai.run/zh/s12/index.txt",
+      "type": "text/plain",
+      "bytes": 22999,
+      "sha256": "a89d28b28e57a0b1540deea085043eb7061972e91ee7e566b33afa36b2b50283"
+    },
+    {
+      "path": "zh/s13/index.html",
+      "url": "https://learn.shareai.run/zh/s13/",
+      "type": "text/html",
+      "bytes": 71444,
+      "sha256": "f6f9e70f7ce472ace4f231d32f14445b41f32fbd205748b249214f18c6c0387e"
+    },
+    {
+      "path": "zh/s13/__next.$d$locale.!KGxlYXJuKQ.$d$version.__PAGE__.txt",
+      "url": "https://learn.shareai.run/zh/s13/__next.$d$locale.!KGxlYXJuKQ.$d$version.__PAGE__.txt",
+      "type": "text/plain",
+      "bytes": 21354,
+      "sha256": "cb309fde08395ac871dd7b50b3ecd741ec11820ec1e34057757b82d136f3fcd7"
+    },
+    {
+      "path": "zh/s13/__next.$d$locale.!KGxlYXJuKQ.$d$version.txt",
+      "url": "https://learn.shareai.run/zh/s13/__next.$d$locale.!KGxlYXJuKQ.$d$version.txt",
+      "type": "text/plain",
+      "bytes": 432,
+      "sha256": "514ced66c591771f4a337a7122cfd34d3014f709c86c2f4408b23a4f3cf2f007"
+    },
+    {
+      "path": "zh/s13/__next.$d$locale.!KGxlYXJuKQ.txt",
+      "url": "https://learn.shareai.run/zh/s13/__next.$d$locale.!KGxlYXJuKQ.txt",
+      "type": "text/plain",
+      "bytes": 764,
+      "sha256": "8d86a9bbc0ce4ed69aa229b5cd8e29320172ca5a057d64add5268c510141d9d2"
+    },
+    {
+      "path": "zh/s13/__next.$d$locale.txt",
+      "url": "https://learn.shareai.run/zh/s13/__next.$d$locale.txt",
+      "type": "text/plain",
+      "bytes": 1558,
+      "sha256": "6b56bbca2b81109ffd8e36a9530e52e44ff1bc338f95633c80474c1f43aff632"
+    },
+    {
+      "path": "zh/s13/__next._full.txt",
+      "url": "https://learn.shareai.run/zh/s13/__next._full.txt",
+      "type": "text/plain",
+      "bytes": 26985,
+      "sha256": "df38aad1656d3bf31dd26d7e4fa494f395dd85f13e9481b47ea2894a6a50e22d"
+    },
+    {
+      "path": "zh/s13/__next._head.txt",
+      "url": "https://learn.shareai.run/zh/s13/__next._head.txt",
+      "type": "text/plain",
+      "bytes": 1098,
+      "sha256": "b3cd8e1cc82fbc9d22093ada924709fe3762439b6efc81599a7be446b3b4e755"
+    },
+    {
+      "path": "zh/s13/__next._index.txt",
+      "url": "https://learn.shareai.run/zh/s13/__next._index.txt",
+      "type": "text/plain",
+      "bytes": 1526,
+      "sha256": "66db133ccc7ca36dd1355febbea4ae181aeffdb754688fca93e8759a6b59ce05"
+    },
+    {
+      "path": "zh/s13/__next._tree.txt",
+      "url": "https://learn.shareai.run/zh/s13/__next._tree.txt",
+      "type": "text/plain",
+      "bytes": 715,
+      "sha256": "b2d2143411a3eb8bdfb35e06833e212f43cd1e04941b0131486b85c102db3503"
+    },
+    {
+      "path": "zh/s13/index.txt",
+      "url": "https://learn.shareai.run/zh/s13/index.txt",
+      "type": "text/plain",
+      "bytes": 26985,
+      "sha256": "df38aad1656d3bf31dd26d7e4fa494f395dd85f13e9481b47ea2894a6a50e22d"
+    },
+    {
+      "path": "zh/s14/index.html",
+      "url": "https://learn.shareai.run/zh/s14/",
+      "type": "text/html",
+      "bytes": 87494,
+      "sha256": "6081e1cfb20982f44e57a642b9ed302a7fe243818069e05f4294cd5a75c12ba3"
+    },
+    {
+      "path": "zh/s14/__next.$d$locale.!KGxlYXJuKQ.$d$version.__PAGE__.txt",
+      "url": "https://learn.shareai.run/zh/s14/__next.$d$locale.!KGxlYXJuKQ.$d$version.__PAGE__.txt",
+      "type": "text/plain",
+      "bytes": 33085,
+      "sha256": "f60583063397efd2a2bedfeda4a2a945fad2adaaedc6ce489da8ec5e238bd9e7"
+    },
+    {
+      "path": "zh/s14/__next.$d$locale.!KGxlYXJuKQ.$d$version.txt",
+      "url": "https://learn.shareai.run/zh/s14/__next.$d$locale.!KGxlYXJuKQ.$d$version.txt",
+      "type": "text/plain",
+      "bytes": 432,
+      "sha256": "514ced66c591771f4a337a7122cfd34d3014f709c86c2f4408b23a4f3cf2f007"
+    },
+    {
+      "path": "zh/s14/__next.$d$locale.!KGxlYXJuKQ.txt",
+      "url": "https://learn.shareai.run/zh/s14/__next.$d$locale.!KGxlYXJuKQ.txt",
+      "type": "text/plain",
+      "bytes": 764,
+      "sha256": "8d86a9bbc0ce4ed69aa229b5cd8e29320172ca5a057d64add5268c510141d9d2"
+    },
+    {
+      "path": "zh/s14/__next.$d$locale.txt",
+      "url": "https://learn.shareai.run/zh/s14/__next.$d$locale.txt",
+      "type": "text/plain",
+      "bytes": 1558,
+      "sha256": "6b56bbca2b81109ffd8e36a9530e52e44ff1bc338f95633c80474c1f43aff632"
+    },
+    {
+      "path": "zh/s14/__next._full.txt",
+      "url": "https://learn.shareai.run/zh/s14/__next._full.txt",
+      "type": "text/plain",
+      "bytes": 38716,
+      "sha256": "81c1c5ec4c8f399c779b6746f28f4023832ce8d273e6aaabaeef5e33d2261398"
+    },
+    {
+      "path": "zh/s14/__next._head.txt",
+      "url": "https://learn.shareai.run/zh/s14/__next._head.txt",
+      "type": "text/plain",
+      "bytes": 1098,
+      "sha256": "b3cd8e1cc82fbc9d22093ada924709fe3762439b6efc81599a7be446b3b4e755"
+    },
+    {
+      "path": "zh/s14/__next._index.txt",
+      "url": "https://learn.shareai.run/zh/s14/__next._index.txt",
+      "type": "text/plain",
+      "bytes": 1526,
+      "sha256": "66db133ccc7ca36dd1355febbea4ae181aeffdb754688fca93e8759a6b59ce05"
+    },
+    {
+      "path": "zh/s14/__next._tree.txt",
+      "url": "https://learn.shareai.run/zh/s14/__next._tree.txt",
+      "type": "text/plain",
+      "bytes": 715,
+      "sha256": "0f8497c7dddf32749cb7164d747e14ae18accd801c54e6c940dc7d1bcb3c4ac0"
+    },
+    {
+      "path": "zh/s14/index.txt",
+      "url": "https://learn.shareai.run/zh/s14/index.txt",
+      "type": "text/plain",
+      "bytes": 38716,
+      "sha256": "81c1c5ec4c8f399c779b6746f28f4023832ce8d273e6aaabaeef5e33d2261398"
+    },
+    {
+      "path": "zh/s15/index.html",
+      "url": "https://learn.shareai.run/zh/s15/",
+      "type": "text/html",
+      "bytes": 91237,
+      "sha256": "6242a99cd186c07c51f055bb223e4a98cd5a5ea70fe39f6120fa350121b36bfa"
+    },
+    {
+      "path": "zh/s15/__next.$d$locale.!KGxlYXJuKQ.$d$version.__PAGE__.txt",
+      "url": "https://learn.shareai.run/zh/s15/__next.$d$locale.!KGxlYXJuKQ.$d$version.__PAGE__.txt",
+      "type": "text/plain",
+      "bytes": 38471,
+      "sha256": "d08be8b4088717d34bbbf67655d496659c719135645fca2c1a1e23470a5b9300"
+    },
+    {
+      "path": "zh/s15/__next.$d$locale.!KGxlYXJuKQ.$d$version.txt",
+      "url": "https://learn.shareai.run/zh/s15/__next.$d$locale.!KGxlYXJuKQ.$d$version.txt",
+      "type": "text/plain",
+      "bytes": 432,
+      "sha256": "514ced66c591771f4a337a7122cfd34d3014f709c86c2f4408b23a4f3cf2f007"
+    },
+    {
+      "path": "zh/s15/__next.$d$locale.!KGxlYXJuKQ.txt",
+      "url": "https://learn.shareai.run/zh/s15/__next.$d$locale.!KGxlYXJuKQ.txt",
+      "type": "text/plain",
+      "bytes": 764,
+      "sha256": "8d86a9bbc0ce4ed69aa229b5cd8e29320172ca5a057d64add5268c510141d9d2"
+    },
+    {
+      "path": "zh/s15/__next.$d$locale.txt",
+      "url": "https://learn.shareai.run/zh/s15/__next.$d$locale.txt",
+      "type": "text/plain",
+      "bytes": 1558,
+      "sha256": "6b56bbca2b81109ffd8e36a9530e52e44ff1bc338f95633c80474c1f43aff632"
+    },
+    {
+      "path": "zh/s15/__next._full.txt",
+      "url": "https://learn.shareai.run/zh/s15/__next._full.txt",
+      "type": "text/plain",
+      "bytes": 44102,
+      "sha256": "59a4956e5e7c810f6ed4e25a102a5d637592b2fe04c7367453ebabe0f484bd6d"
+    },
+    {
+      "path": "zh/s15/__next._head.txt",
+      "url": "https://learn.shareai.run/zh/s15/__next._head.txt",
+      "type": "text/plain",
+      "bytes": 1098,
+      "sha256": "b3cd8e1cc82fbc9d22093ada924709fe3762439b6efc81599a7be446b3b4e755"
+    },
+    {
+      "path": "zh/s15/__next._index.txt",
+      "url": "https://learn.shareai.run/zh/s15/__next._index.txt",
+      "type": "text/plain",
+      "bytes": 1526,
+      "sha256": "66db133ccc7ca36dd1355febbea4ae181aeffdb754688fca93e8759a6b59ce05"
+    },
+    {
+      "path": "zh/s15/__next._tree.txt",
+      "url": "https://learn.shareai.run/zh/s15/__next._tree.txt",
+      "type": "text/plain",
+      "bytes": 715,
+      "sha256": "905b4fb66abc0c8f0c548a5141d243838422630901efae0da914d29b36e0e085"
+    },
+    {
+      "path": "zh/s15/index.txt",
+      "url": "https://learn.shareai.run/zh/s15/index.txt",
+      "type": "text/plain",
+      "bytes": 44102,
+      "sha256": "59a4956e5e7c810f6ed4e25a102a5d637592b2fe04c7367453ebabe0f484bd6d"
+    },
+    {
+      "path": "zh/s16/index.html",
+      "url": "https://learn.shareai.run/zh/s16/",
+      "type": "text/html",
+      "bytes": 91727,
+      "sha256": "bff6e11ec1ad7ed10f972c5db60b6d7075bc53fb67484c35758a8f81bf4203f4"
+    },
+    {
+      "path": "zh/s16/__next.$d$locale.!KGxlYXJuKQ.$d$version.__PAGE__.txt",
+      "url": "https://learn.shareai.run/zh/s16/__next.$d$locale.!KGxlYXJuKQ.$d$version.__PAGE__.txt",
+      "type": "text/plain",
+      "bytes": 38573,
+      "sha256": "76a3b2ac5efb82de70f5294e396d720a554030db50b85246a1c7556c0e45cda5"
+    },
+    {
+      "path": "zh/s16/__next.$d$locale.!KGxlYXJuKQ.$d$version.txt",
+      "url": "https://learn.shareai.run/zh/s16/__next.$d$locale.!KGxlYXJuKQ.$d$version.txt",
+      "type": "text/plain",
+      "bytes": 432,
+      "sha256": "514ced66c591771f4a337a7122cfd34d3014f709c86c2f4408b23a4f3cf2f007"
+    },
+    {
+      "path": "zh/s16/__next.$d$locale.!KGxlYXJuKQ.txt",
+      "url": "https://learn.shareai.run/zh/s16/__next.$d$locale.!KGxlYXJuKQ.txt",
+      "type": "text/plain",
+      "bytes": 764,
+      "sha256": "8d86a9bbc0ce4ed69aa229b5cd8e29320172ca5a057d64add5268c510141d9d2"
+    },
+    {
+      "path": "zh/s16/__next.$d$locale.txt",
+      "url": "https://learn.shareai.run/zh/s16/__next.$d$locale.txt",
+      "type": "text/plain",
+      "bytes": 1558,
+      "sha256": "6b56bbca2b81109ffd8e36a9530e52e44ff1bc338f95633c80474c1f43aff632"
+    },
+    {
+      "path": "zh/s16/__next._full.txt",
+      "url": "https://learn.shareai.run/zh/s16/__next._full.txt",
+      "type": "text/plain",
+      "bytes": 44204,
+      "sha256": "8d3b0124c46945efac6bca999d02cd7cce23dce164d30a906eb3d45b5229c6f0"
+    },
+    {
+      "path": "zh/s16/__next._head.txt",
+      "url": "https://learn.shareai.run/zh/s16/__next._head.txt",
+      "type": "text/plain",
+      "bytes": 1098,
+      "sha256": "b3cd8e1cc82fbc9d22093ada924709fe3762439b6efc81599a7be446b3b4e755"
+    },
+    {
+      "path": "zh/s16/__next._index.txt",
+      "url": "https://learn.shareai.run/zh/s16/__next._index.txt",
+      "type": "text/plain",
+      "bytes": 1526,
+      "sha256": "66db133ccc7ca36dd1355febbea4ae181aeffdb754688fca93e8759a6b59ce05"
+    },
+    {
+      "path": "zh/s16/__next._tree.txt",
+      "url": "https://learn.shareai.run/zh/s16/__next._tree.txt",
+      "type": "text/plain",
+      "bytes": 715,
+      "sha256": "44dad91b941985fedd5fabc246508ed893b0fd6148cec62d0a69a14d3ace4e56"
+    },
+    {
+      "path": "zh/s16/index.txt",
+      "url": "https://learn.shareai.run/zh/s16/index.txt",
+      "type": "text/plain",
+      "bytes": 44204,
+      "sha256": "8d3b0124c46945efac6bca999d02cd7cce23dce164d30a906eb3d45b5229c6f0"
+    },
+    {
+      "path": "zh/s17/index.html",
+      "url": "https://learn.shareai.run/zh/s17/",
+      "type": "text/html",
+      "bytes": 92289,
+      "sha256": "4928383da5a63ac999ff1ee0b69396788028be8fb314d0e8ae077b1cc9c5a4c9"
+    },
+    {
+      "path": "zh/s17/__next.$d$locale.!KGxlYXJuKQ.$d$version.__PAGE__.txt",
+      "url": "https://learn.shareai.run/zh/s17/__next.$d$locale.!KGxlYXJuKQ.$d$version.__PAGE__.txt",
+      "type": "text/plain",
+      "bytes": 34840,
+      "sha256": "71d3447745f35b340c2ca8c87aebfaddcb372496b8a1da02c900cf97b000d2c4"
+    },
+    {
+      "path": "zh/s17/__next.$d$locale.!KGxlYXJuKQ.$d$version.txt",
+      "url": "https://learn.shareai.run/zh/s17/__next.$d$locale.!KGxlYXJuKQ.$d$version.txt",
+      "type": "text/plain",
+      "bytes": 432,
+      "sha256": "514ced66c591771f4a337a7122cfd34d3014f709c86c2f4408b23a4f3cf2f007"
+    },
+    {
+      "path": "zh/s17/__next.$d$locale.!KGxlYXJuKQ.txt",
+      "url": "https://learn.shareai.run/zh/s17/__next.$d$locale.!KGxlYXJuKQ.txt",
+      "type": "text/plain",
+      "bytes": 764,
+      "sha256": "8d86a9bbc0ce4ed69aa229b5cd8e29320172ca5a057d64add5268c510141d9d2"
+    },
+    {
+      "path": "zh/s17/__next.$d$locale.txt",
+      "url": "https://learn.shareai.run/zh/s17/__next.$d$locale.txt",
+      "type": "text/plain",
+      "bytes": 1558,
+      "sha256": "6b56bbca2b81109ffd8e36a9530e52e44ff1bc338f95633c80474c1f43aff632"
+    },
+    {
+      "path": "zh/s17/__next._full.txt",
+      "url": "https://learn.shareai.run/zh/s17/__next._full.txt",
+      "type": "text/plain",
+      "bytes": 40471,
+      "sha256": "0054d2ac8e29abd5bc6323de4f9a6b70d292462634281ed0e1416534b3f428b6"
+    },
+    {
+      "path": "zh/s17/__next._head.txt",
+      "url": "https://learn.shareai.run/zh/s17/__next._head.txt",
+      "type": "text/plain",
+      "bytes": 1098,
+      "sha256": "b3cd8e1cc82fbc9d22093ada924709fe3762439b6efc81599a7be446b3b4e755"
+    },
+    {
+      "path": "zh/s17/__next._index.txt",
+      "url": "https://learn.shareai.run/zh/s17/__next._index.txt",
+      "type": "text/plain",
+      "bytes": 1526,
+      "sha256": "66db133ccc7ca36dd1355febbea4ae181aeffdb754688fca93e8759a6b59ce05"
+    },
+    {
+      "path": "zh/s17/__next._tree.txt",
+      "url": "https://learn.shareai.run/zh/s17/__next._tree.txt",
+      "type": "text/plain",
+      "bytes": 715,
+      "sha256": "d8688d837fb4ac171b32d10c195edfac6c58da46afa6346474e2d05717be34b0"
+    },
+    {
+      "path": "zh/s17/index.txt",
+      "url": "https://learn.shareai.run/zh/s17/index.txt",
+      "type": "text/plain",
+      "bytes": 40471,
+      "sha256": "0054d2ac8e29abd5bc6323de4f9a6b70d292462634281ed0e1416534b3f428b6"
+    },
+    {
+      "path": "zh/s18/index.html",
+      "url": "https://learn.shareai.run/zh/s18/",
+      "type": "text/html",
+      "bytes": 91756,
+      "sha256": "56f6ba47849a0e15e1e59a95c19e3d9e8702ad3a805eb1e13cb2bfdbe9b3d472"
+    },
+    {
+      "path": "zh/s18/__next.$d$locale.!KGxlYXJuKQ.$d$version.__PAGE__.txt",
+      "url": "https://learn.shareai.run/zh/s18/__next.$d$locale.!KGxlYXJuKQ.$d$version.__PAGE__.txt",
+      "type": "text/plain",
+      "bytes": 42413,
+      "sha256": "fb02f320a7e988deda6e02297f0e4cc6d1307987ea22c24b8b1effb278bd64b5"
+    },
+    {
+      "path": "zh/s18/__next.$d$locale.!KGxlYXJuKQ.$d$version.txt",
+      "url": "https://learn.shareai.run/zh/s18/__next.$d$locale.!KGxlYXJuKQ.$d$version.txt",
+      "type": "text/plain",
+      "bytes": 432,
+      "sha256": "514ced66c591771f4a337a7122cfd34d3014f709c86c2f4408b23a4f3cf2f007"
+    },
+    {
+      "path": "zh/s18/__next.$d$locale.!KGxlYXJuKQ.txt",
+      "url": "https://learn.shareai.run/zh/s18/__next.$d$locale.!KGxlYXJuKQ.txt",
+      "type": "text/plain",
+      "bytes": 764,
+      "sha256": "8d86a9bbc0ce4ed69aa229b5cd8e29320172ca5a057d64add5268c510141d9d2"
+    },
+    {
+      "path": "zh/s18/__next.$d$locale.txt",
+      "url": "https://learn.shareai.run/zh/s18/__next.$d$locale.txt",
+      "type": "text/plain",
+      "bytes": 1558,
+      "sha256": "6b56bbca2b81109ffd8e36a9530e52e44ff1bc338f95633c80474c1f43aff632"
+    },
+    {
+      "path": "zh/s18/__next._full.txt",
+      "url": "https://learn.shareai.run/zh/s18/__next._full.txt",
+      "type": "text/plain",
+      "bytes": 48044,
+      "sha256": "8fb9bc5ba9871a9a709858c1288df9999d97d8e7e7ce9bf9369ca9b88e187d74"
+    },
+    {
+      "path": "zh/s18/__next._head.txt",
+      "url": "https://learn.shareai.run/zh/s18/__next._head.txt",
+      "type": "text/plain",
+      "bytes": 1098,
+      "sha256": "b3cd8e1cc82fbc9d22093ada924709fe3762439b6efc81599a7be446b3b4e755"
+    },
+    {
+      "path": "zh/s18/__next._index.txt",
+      "url": "https://learn.shareai.run/zh/s18/__next._index.txt",
+      "type": "text/plain",
+      "bytes": 1526,
+      "sha256": "66db133ccc7ca36dd1355febbea4ae181aeffdb754688fca93e8759a6b59ce05"
+    },
+    {
+      "path": "zh/s18/__next._tree.txt",
+      "url": "https://learn.shareai.run/zh/s18/__next._tree.txt",
+      "type": "text/plain",
+      "bytes": 715,
+      "sha256": "20b75b769cb7667632d34dc4792eb855e1d720da01d61a7af19b2cf5b21d452b"
+    },
+    {
+      "path": "zh/s18/index.txt",
+      "url": "https://learn.shareai.run/zh/s18/index.txt",
+      "type": "text/plain",
+      "bytes": 48044,
+      "sha256": "8fb9bc5ba9871a9a709858c1288df9999d97d8e7e7ce9bf9369ca9b88e187d74"
+    },
+    {
+      "path": "zh/s19/index.html",
+      "url": "https://learn.shareai.run/zh/s19/",
+      "type": "text/html",
+      "bytes": 96895,
+      "sha256": "2d7a8cc14a0f0f1d8354169fbd820f2de6585412819a7b62617d92868f826883"
+    },
+    {
+      "path": "zh/s19/__next.$d$locale.!KGxlYXJuKQ.$d$version.__PAGE__.txt",
+      "url": "https://learn.shareai.run/zh/s19/__next.$d$locale.!KGxlYXJuKQ.$d$version.__PAGE__.txt",
+      "type": "text/plain",
+      "bytes": 42909,
+      "sha256": "797de644cc2f8ee4857ae67f4abd7479ef82f511ae545a98d7bcd210d61613a7"
+    },
+    {
+      "path": "zh/s19/__next.$d$locale.!KGxlYXJuKQ.$d$version.txt",
+      "url": "https://learn.shareai.run/zh/s19/__next.$d$locale.!KGxlYXJuKQ.$d$version.txt",
+      "type": "text/plain",
+      "bytes": 432,
+      "sha256": "514ced66c591771f4a337a7122cfd34d3014f709c86c2f4408b23a4f3cf2f007"
+    },
+    {
+      "path": "zh/s19/__next.$d$locale.!KGxlYXJuKQ.txt",
+      "url": "https://learn.shareai.run/zh/s19/__next.$d$locale.!KGxlYXJuKQ.txt",
+      "type": "text/plain",
+      "bytes": 764,
+      "sha256": "8d86a9bbc0ce4ed69aa229b5cd8e29320172ca5a057d64add5268c510141d9d2"
+    },
+    {
+      "path": "zh/s19/__next.$d$locale.txt",
+      "url": "https://learn.shareai.run/zh/s19/__next.$d$locale.txt",
+      "type": "text/plain",
+      "bytes": 1558,
+      "sha256": "6b56bbca2b81109ffd8e36a9530e52e44ff1bc338f95633c80474c1f43aff632"
+    },
+    {
+      "path": "zh/s19/__next._full.txt",
+      "url": "https://learn.shareai.run/zh/s19/__next._full.txt",
+      "type": "text/plain",
+      "bytes": 48540,
+      "sha256": "e210e9a6290a0a0bf30961e3c17a3e2184df5827342d3933b3a37dacb116edbf"
+    },
+    {
+      "path": "zh/s19/__next._head.txt",
+      "url": "https://learn.shareai.run/zh/s19/__next._head.txt",
+      "type": "text/plain",
+      "bytes": 1098,
+      "sha256": "b3cd8e1cc82fbc9d22093ada924709fe3762439b6efc81599a7be446b3b4e755"
+    },
+    {
+      "path": "zh/s19/__next._index.txt",
+      "url": "https://learn.shareai.run/zh/s19/__next._index.txt",
+      "type": "text/plain",
+      "bytes": 1526,
+      "sha256": "66db133ccc7ca36dd1355febbea4ae181aeffdb754688fca93e8759a6b59ce05"
+    },
+    {
+      "path": "zh/s19/__next._tree.txt",
+      "url": "https://learn.shareai.run/zh/s19/__next._tree.txt",
+      "type": "text/plain",
+      "bytes": 715,
+      "sha256": "633b31022a985d5bafe92ad113308f3374759b3004ae6eb4bad37f3d956871db"
+    },
+    {
+      "path": "zh/s19/index.txt",
+      "url": "https://learn.shareai.run/zh/s19/index.txt",
+      "type": "text/plain",
+      "bytes": 48540,
+      "sha256": "e210e9a6290a0a0bf30961e3c17a3e2184df5827342d3933b3a37dacb116edbf"
+    },
+    {
+      "path": "zh/s20/index.html",
+      "url": "https://learn.shareai.run/zh/s20/",
+      "type": "text/html",
+      "bytes": 144393,
+      "sha256": "ff393a59cf53efb7babdf8fef8e0c438e114bda05f6b07c4d73f593ba473e8a4"
+    },
+    {
+      "path": "zh/s20/__next.$d$locale.!KGxlYXJuKQ.$d$version.__PAGE__.txt",
+      "url": "https://learn.shareai.run/zh/s20/__next.$d$locale.!KGxlYXJuKQ.$d$version.__PAGE__.txt",
+      "type": "text/plain",
+      "bytes": 84408,
+      "sha256": "4dc7145e78cfb8640057c002af58d2991aa1bb727dfc9e758c5895a8fabdc178"
+    },
+    {
+      "path": "zh/s20/__next.$d$locale.!KGxlYXJuKQ.$d$version.txt",
+      "url": "https://learn.shareai.run/zh/s20/__next.$d$locale.!KGxlYXJuKQ.$d$version.txt",
+      "type": "text/plain",
+      "bytes": 432,
+      "sha256": "514ced66c591771f4a337a7122cfd34d3014f709c86c2f4408b23a4f3cf2f007"
+    },
+    {
+      "path": "zh/s20/__next.$d$locale.!KGxlYXJuKQ.txt",
+      "url": "https://learn.shareai.run/zh/s20/__next.$d$locale.!KGxlYXJuKQ.txt",
+      "type": "text/plain",
+      "bytes": 764,
+      "sha256": "8d86a9bbc0ce4ed69aa229b5cd8e29320172ca5a057d64add5268c510141d9d2"
+    },
+    {
+      "path": "zh/s20/__next.$d$locale.txt",
+      "url": "https://learn.shareai.run/zh/s20/__next.$d$locale.txt",
+      "type": "text/plain",
+      "bytes": 1558,
+      "sha256": "6b56bbca2b81109ffd8e36a9530e52e44ff1bc338f95633c80474c1f43aff632"
+    },
+    {
+      "path": "zh/s20/__next._full.txt",
+      "url": "https://learn.shareai.run/zh/s20/__next._full.txt",
+      "type": "text/plain",
+      "bytes": 90038,
+      "sha256": "6a7a7df4bc9acdea77ed56dce3f0458ac4e15edb8fe9eecc4a0e737c08559f93"
+    },
+    {
+      "path": "zh/s20/__next._head.txt",
+      "url": "https://learn.shareai.run/zh/s20/__next._head.txt",
+      "type": "text/plain",
+      "bytes": 1098,
+      "sha256": "b3cd8e1cc82fbc9d22093ada924709fe3762439b6efc81599a7be446b3b4e755"
+    },
+    {
+      "path": "zh/s20/__next._index.txt",
+      "url": "https://learn.shareai.run/zh/s20/__next._index.txt",
+      "type": "text/plain",
+      "bytes": 1526,
+      "sha256": "66db133ccc7ca36dd1355febbea4ae181aeffdb754688fca93e8759a6b59ce05"
+    },
+    {
+      "path": "zh/s20/__next._tree.txt",
+      "url": "https://learn.shareai.run/zh/s20/__next._tree.txt",
+      "type": "text/plain",
+      "bytes": 715,
+      "sha256": "3f83c96ea5a75ebd1180bbe5dd35aaf53365132b98d59f067246e72d4e772c79"
+    },
+    {
+      "path": "zh/s20/index.txt",
+      "url": "https://learn.shareai.run/zh/s20/index.txt",
+      "type": "text/plain",
+      "bytes": 90038,
+      "sha256": "6a7a7df4bc9acdea77ed56dce3f0458ac4e15edb8fe9eecc4a0e737c08559f93"
+    },
+    {
+      "path": "zh/timeline/index.html",
+      "url": "https://learn.shareai.run/zh/timeline/",
+      "type": "text/html",
+      "bytes": 65800,
+      "sha256": "4113047e9c0cc837254e0838123109ee5a7c9ebf5b73d8216b5ebb81e96b1045"
+    },
+    {
+      "path": "zh/timeline/__next.$d$locale.!KGxlYXJuKQ.timeline.__PAGE__.txt",
+      "url": "https://learn.shareai.run/zh/timeline/__next.$d$locale.!KGxlYXJuKQ.timeline.__PAGE__.txt",
+      "type": "text/plain",
+      "bytes": 1188,
+      "sha256": "1c35f82911c408c62e4d35cc689fbb206d36abe64522a217f934c27f5ec68cca"
+    },
+    {
+      "path": "zh/timeline/__next.$d$locale.!KGxlYXJuKQ.timeline.txt",
+      "url": "https://learn.shareai.run/zh/timeline/__next.$d$locale.!KGxlYXJuKQ.timeline.txt",
+      "type": "text/plain",
+      "bytes": 432,
+      "sha256": "514ced66c591771f4a337a7122cfd34d3014f709c86c2f4408b23a4f3cf2f007"
+    },
+    {
+      "path": "zh/timeline/__next.$d$locale.!KGxlYXJuKQ.txt",
+      "url": "https://learn.shareai.run/zh/timeline/__next.$d$locale.!KGxlYXJuKQ.txt",
+      "type": "text/plain",
+      "bytes": 764,
+      "sha256": "8d86a9bbc0ce4ed69aa229b5cd8e29320172ca5a057d64add5268c510141d9d2"
+    },
+    {
+      "path": "zh/timeline/__next.$d$locale.txt",
+      "url": "https://learn.shareai.run/zh/timeline/__next.$d$locale.txt",
+      "type": "text/plain",
+      "bytes": 1558,
+      "sha256": "6b56bbca2b81109ffd8e36a9530e52e44ff1bc338f95633c80474c1f43aff632"
+    },
+    {
+      "path": "zh/timeline/__next._full.txt",
+      "url": "https://learn.shareai.run/zh/timeline/__next._full.txt",
+      "type": "text/plain",
+      "bytes": 6856,
+      "sha256": "9222b445e4411ab782146b9d1e113f9ea78686460dacb3f30bbe74dd4b6db92b"
+    },
+    {
+      "path": "zh/timeline/__next._head.txt",
+      "url": "https://learn.shareai.run/zh/timeline/__next._head.txt",
+      "type": "text/plain",
+      "bytes": 1098,
+      "sha256": "b3cd8e1cc82fbc9d22093ada924709fe3762439b6efc81599a7be446b3b4e755"
+    },
+    {
+      "path": "zh/timeline/__next._index.txt",
+      "url": "https://learn.shareai.run/zh/timeline/__next._index.txt",
+      "type": "text/plain",
+      "bytes": 1526,
+      "sha256": "66db133ccc7ca36dd1355febbea4ae181aeffdb754688fca93e8759a6b59ce05"
+    },
+    {
+      "path": "zh/timeline/__next._tree.txt",
+      "url": "https://learn.shareai.run/zh/timeline/__next._tree.txt",
+      "type": "text/plain",
+      "bytes": 722,
+      "sha256": "faba91784aa419ec8791ea289d0db9a6ee454395276de5e796b30af7f0aa22b5"
+    },
+    {
+      "path": "zh/timeline/index.txt",
+      "url": "https://learn.shareai.run/zh/timeline/index.txt",
+      "type": "text/plain",
+      "bytes": 6856,
+      "sha256": "9222b445e4411ab782146b9d1e113f9ea78686460dacb3f30bbe74dd4b6db92b"
+    }
+  ],
+  "missing": {}
+}

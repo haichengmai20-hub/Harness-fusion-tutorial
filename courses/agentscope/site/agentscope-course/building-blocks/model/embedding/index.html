@@ -1,0 +1,227 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>嵌入模型 · AgentScope</title><link rel="stylesheet" href="/agentscope-course/reader.css"><script defer src="/agentscope-course/reader.js"></script></head><body><header class="mast"><a href="/agentscope-course/">AgentScope <small>中文文档</small></a><span>v2.0.12</span><button id="catalog" aria-controls="outline" aria-expanded="false">目录</button></header><div class="layout"><nav id="outline" aria-label="AgentScope 文档目录"><div class="group">快速开始</div><a href="/agentscope-course/" >AgentScope 2.0 是什么？</a><a href="/agentscope-course/quickstart/" >快速开始</a><a href="/agentscope-course/release-notes/" >更新日志</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/message-and-event/" >消息与事件</a><div class="group">核心模块 / 智能体</div><a href="/agentscope-course/building-blocks/agent/overview/" >智能体 · 概述</a><a href="/agentscope-course/building-blocks/agent/configure-agent/" >配置智能体</a><a href="/agentscope-course/building-blocks/agent/run-agent/" >运行智能体</a><a href="/agentscope-course/building-blocks/agent/interrupt-agent/" >中断智能体</a><a href="/agentscope-course/building-blocks/agent/human-in-the-loop/" >人机交互</a><div class="group">核心模块 / 模型</div><a href="/agentscope-course/building-blocks/model/overview/" >模型 · 概述</a><a href="/agentscope-course/building-blocks/model/llm/" >大语言模型</a><a href="/agentscope-course/building-blocks/model/tts/" >语音合成</a><a href="/agentscope-course/building-blocks/model/asr/" >语音识别</a><a href="/agentscope-course/building-blocks/model/embedding/" aria-current="page">嵌入模型</a><div class="group">核心模块 / 上下文管理</div><a href="/agentscope-course/building-blocks/context/overview/" >上下文管理 · 概述</a><a href="/agentscope-course/building-blocks/context/environment-awareness/" >感知环境</a><a href="/agentscope-course/building-blocks/context/compress-context/" >压缩上下文</a><a href="/agentscope-course/building-blocks/context/offload-context/" >卸载上下文</a><div class="group">核心模块 / 工具</div><a href="/agentscope-course/building-blocks/tool/overview/" >工具 · 概述</a><a href="/agentscope-course/building-blocks/tool/python-tool/" >Python 函数工具</a><a href="/agentscope-course/building-blocks/tool/mcp/" >MCP</a><a href="/agentscope-course/building-blocks/tool/skill/" >Skill</a><a href="/agentscope-course/building-blocks/tool/manage-tools/" >元工具</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/plan/" >计划模式</a><div class="group">核心模块 / 流水线</div><a href="/agentscope-course/building-blocks/pipeline/overview/" >流水线 · 概述</a><a href="/agentscope-course/building-blocks/pipeline/goal/" >目标流水线</a><a href="/agentscope-course/building-blocks/pipeline/team/" >团队流水线</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/sop/" >标准作业流程</a><div class="group">核心模块 / 权限系统</div><a href="/agentscope-course/building-blocks/permission-system/overview/" >权限系统 · 概述</a><a href="/agentscope-course/building-blocks/permission-system/permission-mode/" >权限模式</a><a href="/agentscope-course/building-blocks/permission-system/permission-rule/" >权限规则</a><a href="/agentscope-course/building-blocks/permission-system/tool-check/" >工具内置检查</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/middleware/" >中间件</a><a href="/agentscope-course/building-blocks/rag/" >RAG</a><a href="/agentscope-course/building-blocks/long-term-memory/" >长期记忆</a><div class="group">核心模块 / 工作区</div><a href="/agentscope-course/building-blocks/workspace/overview/" >工作区 · 概述</a><a href="/agentscope-course/building-blocks/workspace/run-workspace/" >运行工作区</a><a href="/agentscope-course/building-blocks/workspace/manage-resources/" >管理资源</a><a href="/agentscope-course/building-blocks/workspace/mcp-gateway/" >MCP 网关</a><div class="group">核心模块 / 实时语音智能体</div><a href="/agentscope-course/building-blocks/realtime/overview/" >实时语音智能体 · 概述</a><a href="/agentscope-course/building-blocks/realtime/speech-to-speech/" >语音到语音</a><div class="group">核心模块</div><a href="/agentscope-course/building-blocks/console/" >终端 UI</a><a href="/agentscope-course/building-blocks/a2a/" >A2A 协议</a><div class="group">智能体即服务</div><a href="/agentscope-course/deploy/agent-service/" >架构</a><a href="/agentscope-course/deploy/agent-team/" >智能体团队</a><a href="/agentscope-course/deploy/sop/" >SOP 服务</a><a href="/agentscope-course/deploy/sharing/" >资源共享</a><a href="/agentscope-course/deploy/rag/" >RAG 服务</a><a href="/agentscope-course/deploy/workspace-manager/" >工作区管理</a><div class="group">智能体即服务 / MCP 与技能中心</div><a href="/agentscope-course/deploy/hub/overview/" >MCP 与技能中心 · 概览</a><a href="/agentscope-course/deploy/hub/mcp-hub/" >MCP 中心</a><a href="/agentscope-course/deploy/hub/skill-hub/" >技能中心</a><div class="group">智能体即服务 / 消息渠道</div><a href="/agentscope-course/deploy/channel/overview/" >消息渠道 · 概览</a><a href="/agentscope-course/deploy/channel/routing/" >会话路由</a><a href="/agentscope-course/deploy/channel/feishu/" >飞书</a><a href="/agentscope-course/deploy/channel/dingtalk/" >钉钉</a><a href="/agentscope-course/deploy/channel/discord/" >Discord</a><a href="/agentscope-course/deploy/channel/custom/" >自定义渠道</a><div class="group">其他</div><a href="/agentscope-course/others/faq/" >常见问题</a><a href="/agentscope-course/others/change-log/" >版本迁移</a><div class="group">智能体即服务 / API</div><a href="/agentscope-course/api/">API 参考</a></nav><main><div class="context">核心模块 / 模型</div><article class="prose-custom" id="content"><h1>嵌入模型</h1><p class="dek">将文本与多媒体内容转换为向量，服务检索、RAG 与记忆</p><p>嵌入模型（Embedding）将文本（多模态模型还包括图片、视频等媒体）转换为稠密向量，支撑语义检索、RAG 与记忆召回。AgentScope 当前提供以下模型类：</p>
+<table><thead><tr><th>模型 API</th><th>模型类</th><th>说明</th></tr></thead><tbody><tr><td>DashScope</td><td><code>DashScopeEmbeddingModel</code></td><td>文本 + 多模态统一 API（<code>text-embedding-v4</code>、<code>qwen3-vl-embedding</code> 等），内容感知分批</td></tr><tr><td>OpenAI</td><td><code>OpenAIEmbeddingModel</code></td><td><code>text-embedding-3-small/large</code>，兼容 OpenAI 风格端点</td></tr><tr><td>Gemini</td><td><code>GeminiEmbeddingModel</code></td><td>文本（<code>gemini-embedding-001</code>）与多模态（<code>gemini-embedding-2</code>，图片 / 视频 / 音频 / PDF）</td></tr><tr><td>Ollama</td><td><code>OllamaEmbeddingModel</code></td><td>本地嵌入模型（<code>nomic-embed-text</code> 等），凭证承载 host URL</td></tr></tbody></table>
+<h2 id="创建模型">创建模型</h2>
+<p>每个嵌入模型接收一个凭证、一个模型名，以及可选的 <code>Parameters</code> 对象，与其他模型族的模式完全一致。<code>Parameters</code> 承载 <code>dimensions</code>，即输出向量的维度：</p>
+<div class="tab-set" data-tab-set=""><div class="tab-list" role="group" aria-label="代码示例"><button type="button" data-choice="0" aria-pressed="true">DashScope</button><button type="button" data-choice="1" aria-pressed="false">OpenAI</button><button type="button" data-choice="2" aria-pressed="false">Gemini</button><button type="button" data-choice="3" aria-pressed="false">Ollama</button></div><div data-panel="0"><div class="code-example"><div class="code-bar"><span>DashScope</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="DashScope" data-lang="python">import os
+from agentscope.embedding import DashScopeEmbeddingModel
+from agentscope.credential import DashScopeCredential
+
+model = DashScopeEmbeddingModel(
+    credential=DashScopeCredential(api_key=os.environ[&quot;DASHSCOPE_API_KEY&quot;]),
+    model=&quot;text-embedding-v4&quot;,
+    parameters=DashScopeEmbeddingModel.Parameters(dimensions=1024),
+)
+</code></pre></div></div><div data-panel="1" hidden=""><div class="code-example"><div class="code-bar"><span>OpenAI</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="OpenAI" data-lang="python">import os
+from agentscope.embedding import OpenAIEmbeddingModel
+from agentscope.credential import OpenAICredential
+
+model = OpenAIEmbeddingModel(
+    credential=OpenAICredential(api_key=os.environ[&quot;OPENAI_API_KEY&quot;]),
+    model=&quot;text-embedding-3-small&quot;,
+    parameters=OpenAIEmbeddingModel.Parameters(dimensions=1536),
+)
+</code></pre></div></div><div data-panel="2" hidden=""><div class="code-example"><div class="code-bar"><span>Gemini</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="Gemini" data-lang="python">import os
+from agentscope.embedding import GeminiEmbeddingModel
+from agentscope.credential import GeminiCredential
+
+model = GeminiEmbeddingModel(
+    credential=GeminiCredential(api_key=os.environ[&quot;GEMINI_API_KEY&quot;]),
+    model=&quot;gemini-embedding-001&quot;,
+    parameters=GeminiEmbeddingModel.Parameters(dimensions=768),
+)
+</code></pre></div></div><div data-panel="3" hidden=""><div class="code-example"><div class="code-bar"><span>Ollama</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="Ollama" data-lang="python">from agentscope.embedding import OllamaEmbeddingModel
+from agentscope.credential import OllamaCredential
+
+model = OllamaEmbeddingModel(
+    credential=OllamaCredential(host=&quot;http://localhost:11434&quot;),
+    model=&quot;nomic-embed-text&quot;,
+)
+</code></pre></div></div></div>
+<p>所有嵌入模型共享的构造参数：</p>
+<table><thead><tr><th>参数</th><th>类型</th><th>说明</th></tr></thead><tbody><tr><td><code>credential</code></td><td><code>CredentialBase</code></td><td>API 专属凭证</td></tr><tr><td><code>model</code></td><td><code>str</code></td><td>模型标识符（例如 <code>&quot;text-embedding-v4&quot;</code>）</td></tr><tr><td><code>parameters</code></td><td><code>Parameters | None</code></td><td><code>dimensions</code>，即输出向量维度（默认 <code>512</code>）</td></tr><tr><td><code>embedding_cache</code></td><td><code>EmbeddingCacheBase | None</code></td><td>可选缓存，跳过重复的 API 调用（参见<a href="#%E5%B5%8C%E5%85%A5%E7%BC%93%E5%AD%98">嵌入缓存</a>）</td></tr><tr><td><code>context_size</code></td><td><code>int</code></td><td>单条输入的最大 token 数</td></tr><tr><td><code>max_retries</code></td><td><code>int</code></td><td>每个批次在可重试错误下的最大重试次数</td></tr><tr><td><code>retry_delay</code></td><td><code>float</code></td><td>两次重试之间的间隔秒数</td></tr></tbody></table>
+<aside class="notice info"><strong>信息</strong><p><code>dimensions</code> 的合法取值因模型而异：每张模型卡片通过顶层的 <code>dimensions</code> 字段固定默认值，通过 <code>supported_dimensions</code> 声明允许的取值（例如 <code>text-embedding-v4</code> 接受 2048 / 1536 / 1024 / ... / 64）。参见 <a href="#embedding-%E6%A8%A1%E5%9E%8B%E5%8D%A1%E7%89%87">Embedding 模型卡片</a>。</p></aside>
+<h2 id="调用模型">调用模型</h2>
+<p>通过传入一组输入调用模型。纯文本模型接受 <code>list[str]</code>；多模态模型还接受 <code>DataBlock</code> 元素：</p>
+<div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">async def __call__(
+    self,
+    inputs: list[str | DataBlock],
+    **kwargs: Any,
+) -&gt; EmbeddingResponse:
+</code></pre></div>
+<p>分批与重试由框架自动处理：</p>
+<ol>
+<li>输入按模型的批大小切分（DashScope 文本为 10，OpenAI 为 2048，Gemini 为 100，Ollama 为 512）。</li>
+<li>所有批次通过 <code>asyncio.gather</code> <strong>并发</strong>发出。</li>
+<li>每个批次在 API 专属的可重试错误下独立重试，最多 <code>max_retries</code> 次。</li>
+<li>结果合并为单个 <code>EmbeddingResponse</code>，并保持输入顺序。</li>
+</ol>
+<div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">import asyncio
+import os
+from agentscope.embedding import DashScopeEmbeddingModel
+from agentscope.credential import DashScopeCredential
+
+async def main():
+    model = DashScopeEmbeddingModel(
+        credential=DashScopeCredential(api_key=os.environ[&quot;DASHSCOPE_API_KEY&quot;]),
+        model=&quot;text-embedding-v4&quot;,
+        parameters=DashScopeEmbeddingModel.Parameters(dimensions=1024),
+    )
+    response = await model(
+        [&quot;What is AgentScope?&quot;, &quot;A multi-agent framework.&quot;],
+    )
+    print(len(response.embeddings))     # 2，每条输入一个向量
+    print(len(response.embeddings[0]))  # 1024
+    print(response.usage.tokens)        # 消耗的总 token 数
+    print(response.source)              # &quot;api&quot; 或 &quot;cache&quot;
+
+asyncio.run(main())
+</code></pre></div>
+<p>每个 <code>EmbeddingResponse</code> 包含：</p>
+<table><thead><tr><th>字段</th><th>类型</th><th>说明</th></tr></thead><tbody><tr><td><code>embeddings</code></td><td><code>list[Embedding]</code></td><td>每条输入一个向量，按输入顺序排列</td></tr><tr><td><code>usage</code></td><td><code>EmbeddingUsage | None</code></td><td>消耗的 <code>tokens</code> 与耗时 <code>time</code>（秒）</td></tr><tr><td><code>source</code></td><td><code>&quot;api&quot; | &quot;cache&quot;</code></td><td>结果来自 API 还是缓存</td></tr><tr><td><code>id</code> / <code>created_at</code> / <code>type</code></td><td><code>str</code></td><td>响应标识与时间戳；<code>type</code> 恒为 <code>&quot;embedding&quot;</code></td></tr></tbody></table>
+<h3 id="多模态嵌入">多模态嵌入</h3>
+<p>多模态模型（<code>DashScopeEmbeddingModel</code> 搭配 <code>qwen3-vl-embedding</code> 等，<code>GeminiEmbeddingModel</code> 搭配 <code>gemini-embedding-2</code>）在字符串之外还接受 <code>DataBlock</code> 输入（图片支持 URL 或 base64，视频支持 URL）：</p>
+<div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">import asyncio
+import os
+from agentscope.embedding import DashScopeEmbeddingModel
+from agentscope.credential import DashScopeCredential
+from agentscope.message import DataBlock, URLSource
+
+async def main():
+    model = DashScopeEmbeddingModel(
+        credential=DashScopeCredential(api_key=os.environ[&quot;DASHSCOPE_API_KEY&quot;]),
+        model=&quot;qwen3-vl-embedding&quot;,
+    )
+    response = await model([
+        &quot;A cat sitting on a windowsill&quot;,
+        DataBlock(
+            source=URLSource(
+                url=&quot;https://example.com/cat.png&quot;,
+                media_type=&quot;image/png&quot;,
+            ),
+        ),
+    ])
+    print(len(response.embeddings))  # 2，每条输入一个向量
+
+asyncio.run(main())
+</code></pre></div>
+<aside class="notice info"><strong>信息</strong><p>多模态模型用<strong>内容感知分批</strong>取代简单的批大小切分：输入会按贪心策略打包，确保每个批次满足模型对总元素数、图片数、视频数的单次请求限制（例如 <code>qwen3-vl-embedding</code> 单次允许 20 个元素 / 5 张图片 / 1 个视频，<code>tongyi-embedding-vision-plus</code> 允许 20 / 64 / 8）。开发者无需自行拆分输入。</p></aside>
+<h2 id="嵌入缓存">嵌入缓存</h2>
+<p>通过 <code>embedding_cache</code> 参数传入一个 <code>EmbeddingCacheBase</code> 实现，即可复用已计算过的向量。内置的 <code>FileEmbeddingCache</code> 将每次结果存为 <code>.npy</code> 文件，以请求的 SHA-256 哈希命名：</p>
+<div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">import asyncio
+import os
+from agentscope.embedding import DashScopeEmbeddingModel, FileEmbeddingCache
+from agentscope.credential import DashScopeCredential
+
+async def main():
+    model = DashScopeEmbeddingModel(
+        credential=DashScopeCredential(api_key=os.environ[&quot;DASHSCOPE_API_KEY&quot;]),
+        model=&quot;text-embedding-v4&quot;,
+        embedding_cache=FileEmbeddingCache(
+            cache_dir=&quot;./.cache/embeddings&quot;,
+            max_file_number=1000,
+            max_cache_size=100,  # MB
+        ),
+    )
+    r1 = await model([&quot;What is AgentScope?&quot;])
+    print(r1.source)  # &quot;api&quot;：首次调用走 API
+
+    r2 = await model([&quot;What is AgentScope?&quot;])
+    print(r2.source)  # &quot;cache&quot;：相同请求由本地缓存返回
+
+asyncio.run(main())
+</code></pre></div>
+<p>当超过 <code>max_file_number</code> 或 <code>max_cache_size</code> 时，最旧的文件会被优先淘汰。如需其他后端（Redis、SQLite 等），继承 <code>EmbeddingCacheBase</code> 并实现它的四个方法：<code>store</code>、<code>retrieve</code>、<code>remove</code>、<code>clear</code>。</p>
+<h2 id="自定义模型-api">自定义模型 API</h2>
+<p>新增嵌入模型 API 的步骤与<a href="/agentscope-course/building-blocks/model/llm/#%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A8%A1%E5%9E%8B-api">自定义大语言模型 API</a>一致。</p>
+<h3 id="步骤-1关联凭证">步骤 1：关联凭证</h3>
+<p>在你的凭证上重写 <code>get_embedding_model_class()</code>（基类默认返回 <code>None</code>，表示&quot;不支持嵌入模型&quot;）：</p>
+<div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">from typing import Type, TYPE_CHECKING
+from agentscope.credential import CredentialBase
+
+if TYPE_CHECKING:
+    from agentscope.embedding import EmbeddingModelBase
+
+class MyProviderCredential(CredentialBase):
+    # ... 字段与 get_chat_model_class() 同前 ...
+
+    @classmethod
+    def get_embedding_model_class(cls) -&gt; Type[&quot;EmbeddingModelBase&quot;]:
+        from .my_embedding import MyProviderEmbeddingModel
+        return MyProviderEmbeddingModel
+</code></pre></div>
+<h3 id="步骤-2实现模型类">步骤 2：实现模型类</h3>
+<p>继承 <code>EmbeddingModelBase</code> 并实现 <code>_call_api</code> 处理<strong>单个批次</strong>，分批、并发与重试逻辑全部继承自基类。通过 <code>_get_retryable_exceptions</code> 声明 API 专属的瞬态错误：</p>
+<div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">from typing import Any, Type
+from agentscope.embedding import EmbeddingModelBase, EmbeddingResponse, EmbeddingUsage
+
+class MyProviderEmbeddingModel(EmbeddingModelBase[str]):
+    def __init__(
+        self,
+        credential: &quot;MyProviderCredential&quot;,
+        model: str,
+        parameters: &quot;MyProviderEmbeddingModel.Parameters | None&quot; = None,
+        context_size: int = 8192,
+        max_retries: int = 3,
+        retry_delay: float = 1.0,
+    ) -&gt; None:
+        super().__init__(
+            credential=credential,
+            model=model,
+            parameters=parameters,
+            context_size=context_size,
+            batch_size=100,          # 单次 API 调用的最大条目数
+            max_retries=max_retries,
+            retry_delay=retry_delay,
+        )
+
+    @classmethod
+    def _get_retryable_exceptions(cls) -&gt; tuple[Type[Exception], ...]:
+        return (TimeoutError,)       # 最多重试 max_retries 次
+
+    async def _call_api(
+        self,
+        inputs: list[str],
+        **kwargs: Any,
+    ) -&gt; EmbeddingResponse:
+        # 框架保证 len(inputs) &lt;= self.batch_size。
+        # 调用你的模型 API 并返回向量。
+        ...
+</code></pre></div>
+<p>按模型 API 支持的输入类型绑定泛型参数：纯文本用 <code>EmbeddingModelBase[str]</code>，多模态用 <code>EmbeddingModelBase[str | DataBlock]</code>，IDE 会据此为调用方提示正确的 <code>inputs</code> 类型。</p>
+<h3 id="步骤-3添加模型卡片可选">步骤 3：添加模型卡片（可选）</h3>
+<p>将 YAML 文件放入实现旁边的 <code>_models/</code> 目录，<code>MyProviderEmbeddingModel.list_models()</code> 即可加载，与 Chat 模型卡片完全一致。</p>
+<h2 id="embedding-模型卡片">Embedding 模型卡片</h2>
+<p><code>EmbeddingModelCard</code> 是通用<a href="/agentscope-course/building-blocks/model/overview/#%E5%89%8D%E7%AB%AF%E9%9B%86%E6%88%90">模型卡片</a>在嵌入场景下的对应物，带有嵌入专属的默认值：输出类型 <code>application/x-embedding</code> 表示该模型产出稠密向量。</p>
+<table><thead><tr><th>字段</th><th>与 <code>ModelCard</code> 的差异</th></tr></thead><tbody><tr><td><code>type</code></td><td>恒为 <code>&quot;embedding_model&quot;</code></td></tr><tr><td><code>input_types</code></td><td>默认 <code>[&quot;text/plain&quot;]</code>；多模态卡片追加 <code>image/*</code>、<code>video/*</code> 等</td></tr><tr><td><code>output_types</code></td><td>默认 <code>[&quot;application/x-embedding&quot;]</code></td></tr><tr><td><code>dimensions</code></td><td><strong>必填</strong>的顶层字段：默认输出向量维度，以强类型 <code>int</code> 暴露</td></tr><tr><td><code>supported_dimensions</code></td><td>俄罗斯套娃式模型（如 OpenAI 的 <code>text-embedding-3-*</code>）允许的维度集合；<code>None</code> 表示维度固定</td></tr><tr><td><code>context_size</code></td><td>可选，单次请求的最大输入 token 数（如已知）</td></tr><tr><td><code>output_size</code></td><td>不存在，嵌入模型没有输出 token 上限</td></tr></tbody></table>
+<p>一张典型的 YAML 卡片（<code>text-embedding-v4</code> 的真实卡片）：</p>
+<div class="code-example"><div class="code-bar"><span>yaml</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-yaml" data-caption="yaml" data-lang="yaml">name: text-embedding-v4
+label: Text Embedding v4
+status: active
+
+input_types:
+  - text/plain
+
+output_types:
+  - application/x-embedding
+
+context_size: 8192
+
+# 默认输出向量维度，以及这个俄罗斯套娃式
+# 模型支持截断到的全部维度
+dimensions: 1024
+supported_dimensions: [2048, 1536, 1024, 768, 512, 256, 128, 64]
+</code></pre></div>
+<p>可以直接在模型类上获取卡片，也可以通过凭证的 <code>get_embedding_model_class()</code> 发现模型类：</p>
+<div class="code-example"><div class="code-bar"><span>python</span><button type="button" data-copy="">复制</button></div><pre tabindex="0"><code class="language-python" data-caption="python" data-lang="python">from agentscope.credential import DashScopeCredential
+from agentscope.embedding import OpenAIEmbeddingModel
+
+# 直接通过模型类
+cards = OpenAIEmbeddingModel.list_models()
+
+# 或从凭证发现模型类
+embed_cls = DashScopeCredential.get_embedding_model_class()
+cards = embed_cls.list_models()
+
+for card in cards:
+    print(f&quot;{card.name}: dimensions={card.dimensions}&quot;)
+</code></pre></div></article><footer><div class="paging"><a href="/agentscope-course/building-blocks/model/asr/">上一节 · 语音识别</a><a href="/agentscope-course/building-blocks/context/overview/">下一节 · 上下文管理 · 概述</a></div><div class="credits"><a href="https://docs.agentscope.io/zh/versions/2.0.12/building-blocks/model/embedding" target="_blank" rel="noopener">在线原页</a> · <a href="/agentscope-course/mdx/building-blocks/model/embedding.mdx">原始 MDX</a> · <a href="https://github.com/agentscope-ai/docs/blob/e0ee835d1aca5d2b840d29bdd2f70770bbef69e8/zh/versions/2.0.12/building-blocks/model/embedding.mdx" target="_blank" rel="noopener">固定版本来源</a> · <a href="/agentscope-course/LICENSE.txt">MIT 许可</a></div></footer></main></div></body></html>

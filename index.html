@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#302044">
+  <title>Harness 研习室</title>
+  <link rel="stylesheet" href="ui/course.css">
+</head>
+<body>
+  <a class="skip" href="#lesson">跳到章节正文</a>
+  <header class="top">
+    <a class="brand" href="?chapter=s01" aria-label="Harness 研习室，第一章">
+      <svg viewBox="0 0 34 34" aria-hidden="true"><rect width="34" height="34" rx="9" fill="#633ec1"/><g fill="none" stroke="#fff" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="m7 13 10-6 10 6-10 6Z"/><path d="m7 17 10 6 10-6M7 21l10 6 10-6"/></g></svg>
+      <span>Harness <b>研习室</b></span>
+    </a>
+    <div class="top-inner">
+      <button id="menu" aria-expanded="false" aria-controls="sidebar">☰ 目录</button>
+      <div id="crumb" class="crumb"></div>
+      <a id="reader-back" href="index.html">原课对读 ↗</a>
+      <span class="offline"><i></i> 本地学习模式</span>
+    </div>
+  </header>
+  <div class="layout">
+    <aside id="sidebar" aria-label="课程目录"></aside>
+    <main id="lesson" tabindex="-1"><p>正在加载课程…</p></main>
+  </div>
+  <div id="announce" class="sr" role="status"></div>
+  <script defer src="ui/course.js"></script>
+</body>
+</html>

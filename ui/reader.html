@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Learn Claude Code · 原课对读</title>
+  <style>/* READER_STYLE */</style>
+</head>
+<body>
+  <header class="rail">
+    <a id="home" href="?mode=original" aria-label="当前主课首页"><span class="mark" aria-hidden="true">≋</span><strong>Harness 对读</strong></a>
+    <label class="primary-control" for="primary-course">主课 <select id="primary-course" aria-label="选择主课"><option value="claude">Learn Claude Code</option><option value="hermes">Hermes</option><option value="dsh">dsh</option><option value="agentscope">AgentScope</option></select></label>
+    <label class="course-select"><span class="sr">跳转原课页面</span><select id="chapter"></select></label>
+    <div class="actions"><a id="online" target="_blank" rel="noopener noreferrer">在线原页 ↗</a><a id="lab">购物车实验 ↗</a><button id="practice-open" aria-controls="practice-panel">动手练习</button><button id="toggle" aria-controls="companion">收起对照</button></div>
+  </header>
+  <main id="workspace">
+    <iframe id="original-frame" title="Learn Claude Code 中文原页"></iframe>
+    <aside id="companion" aria-label="原课与其他 Harness 对读">
+      <div class="side-title"><div class="eyebrow">HARNESS 对照</div><h1 id="side-heading"></h1></div>
+      <div id="course-context" hidden></div>
+      <section id="practice-panel" hidden aria-label="本章动手练习"></section>
+      <div id="questions"></div>
+      <section id="chapter-reading" class="frame-study" hidden aria-label="源码研读"></section>
+      <div id="responses"></div>
+    </aside>
+  </main>
+  <div id="status" class="sr" role="status"></div>
+  <section id="file-help" hidden><h1>打开原课对读</h1><p>双击项目目录里的 <strong>打开原课对读.cmd</strong>。它会在本机启动原站使用的网页资源，自动打开完整中文原课与对照栏。断网也可学习。</p><p>也可以在项目目录运行 <code>python -B study.py open</code>。</p><p><a href="lab.html">直接打开单文件购物车实验</a> · <a href="https://learn.shareai.run/zh/">访问在线中文原课</a></p></section>
+  <!-- READER_DATA -->
+  <script>/* PRACTICE_JS */</script>
+  <script>/* STUDY_LINKS */</script>
+  <script>/* COURSES_JS */</script>
+  <script>/* READER_JS */</script>
+</body>
+</html>
